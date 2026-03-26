@@ -240,7 +240,7 @@ body.loaded .origin{opacity:1}
   .ai-visual{height:480px}
 }
 
-#agentCanvas{position:absolute;top:0;left:0;width:100%;height:calc(100% - 88px);pointer-events:none;z-index:1}
+#agentCanvas{position:absolute;top:0;left:0;width:100%;height:calc(100% - 60px);pointer-events:none;z-index:1}
 
 /* ── Animated data packets — drawn by canvas JS ── */
 
@@ -285,18 +285,18 @@ body.loaded .origin{opacity:1}
 /* ── Log stream panel ── */
 .aflow-log{
   position:absolute;bottom:0;left:0;right:0;
-  background:rgba(6,5,8,.92);
-  border:1px solid var(--c12);
-  border-radius:4px;
-  padding:.6rem .8rem;
+  background:linear-gradient(to top, rgba(6,5,8,.95) 60%, rgba(6,5,8,0));
+  border-top:1px solid var(--c12);
+  padding:.35rem .8rem .4rem;
   font-family:'JetBrains Mono',monospace;
-  font-size:.54rem;
-  line-height:1.8;
+  font-size:.48rem;
+  line-height:1.65;
   overflow:hidden;
-  height:80px;
+  height:58px;
   z-index:5;
   opacity:0;
   animation:nodeAppear .4s ease 2.5s forwards;
+  pointer-events:none;
 }
 .alog-line{color:var(--faint);white-space:nowrap;overflow:hidden;
   animation:logSlide .4s ease forwards;
@@ -863,7 +863,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="an-progress"><div class="an-prog-fill" style="--pf-dur:3.1s;--pf-del:.8s"></div></div>
       </div>
 
-      <div class="aflow-node jade" id="aN-rev" style="--nad:.9s;top:62%;left:84%">
+      <div class="aflow-node jade" id="aN-rev" style="--nad:.9s;top:56%;left:84%">
         <span class="an-icon">🔍</span>
         <span class="an-title">Reviewer</span>
         <span class="an-role">Quality gate</span>
@@ -871,7 +871,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="an-progress"><div class="an-prog-fill" style="--pf-dur:5s;--pf-del:1.4s"></div></div>
       </div>
 
-      <div class="aflow-node jade" id="aN-test" style="--nad:1.1s;top:78%;left:38%">
+      <div class="aflow-node jade" id="aN-test" style="--nad:1.1s;top:68%;left:38%">
         <span class="an-icon">🧪</span>
         <span class="an-title">Tester</span>
         <span class="an-role">Validation</span>
