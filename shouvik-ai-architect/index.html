@@ -89,20 +89,15 @@ body[data-click] #c-dot{transform:translate(-50%,-50%) scale(2.4);background:var
 .nv-dot{width:6px;height:6px;border-radius:50%;background:var(--c30);flex-shrink:0;transition:background .28s var(--E),transform .28s var(--E),box-shadow .28s}
 .nv-item:hover .nv-dot{background:var(--c60);transform:scale(1.4)}
 .nv-item.on .nv-dot{background:var(--gold);transform:scale(1.6);box-shadow:0 0 0 3px rgba(201,136,44,.2)}
-#arr-prev,#arr-next{position:fixed;top:50%;transform:translateY(-50%);z-index:500;width:32px;height:64px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--c30);cursor:none;transition:color .22s var(--E),background .22s var(--E)}
-#arr-prev{left:0;border-right:1px solid var(--c12)}
-#arr-next{right:0;border-left:1px solid var(--c12)}
-#arr-prev:hover,#arr-next:hover{color:var(--gold);background:var(--g-glow)}
-#arr-prev:disabled,#arr-next:disabled{opacity:.1;pointer-events:none}
-#kbtip{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:400;font-family:'Outfit',sans-serif;font-size:.64rem;letter-spacing:.06em;color:var(--c30);white-space:nowrap;pointer-events:none}
-
-/* ── SCROLL PROMPT ── */
-#scroll-prompt{position:fixed;bottom:3.2rem;left:50%;transform:translateX(-50%);z-index:450;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:promptIn 1s ease 2.2s forwards;transition:opacity .5s var(--E);pointer-events:none}
-#scroll-prompt.hide{opacity:0 !important;animation:none}
-#scroll-prompt .sp-text{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c60)}
-#scroll-prompt .sp-arrow{width:20px;height:20px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:bounceDown 1.8s ease-in-out infinite}
-@keyframes promptIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-@keyframes bounceDown{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(3px,3px)}}
+/* ── BOTTOM NAV BAR ── */
+#deck-nav{position:fixed;bottom:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.7rem 1.2rem;background:linear-gradient(to top,rgba(6,5,8,.95) 60%,rgba(6,5,8,0));pointer-events:none}
+#deck-nav>*{pointer-events:all}
+#arr-prev,#arr-next{display:inline-flex;align-items:center;gap:.4rem;font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.04em;color:var(--c60);background:var(--panel);border:1px solid var(--c12);border-radius:6px;padding:.5rem 1rem;cursor:none;transition:all .22s var(--E)}
+#arr-prev:hover,#arr-next:hover{color:var(--gold);border-color:var(--g-brd);background:var(--g-glow2);transform:translateY(-1px)}
+#arr-prev:disabled,#arr-next:disabled{opacity:.15;pointer-events:none;transform:none}
+#arr-prev .arr-icon,#arr-next .arr-icon{font-size:.8rem;line-height:1}
+#slide-counter{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.12em;color:var(--muted);min-width:3.5rem;text-align:center}
+#kbtip{display:none}
 #wipe-el{position:fixed;inset:0;z-index:900;background:var(--void);transform:scaleX(0);transform-origin:left;opacity:0;pointer-events:none}
 
 /* ── SLIDE ENGINE ── */
@@ -654,10 +649,10 @@ body.loaded .origin{opacity:1}
 #slide-tag{font-size:.44rem;letter-spacing:.12em}
 #nav{display:none}
 .belt{display:none}
-#kbtip{font-size:.5rem}
-#scroll-prompt .sp-text{font-size:.62rem}
 .top-social{width:22px;height:22px;font-size:.52rem}
-#arr-prev,#arr-next{width:32px;height:56px}
+#arr-prev,#arr-next{font-size:.62rem;padding:.45rem .8rem}
+#slide-counter{font-size:.48rem}
+/* arr sizing handled by #deck-nav mobile rules above */
 
 /* ── Cursor: hidden on touch/mobile ── */
 #c-dot,#c-ring{display:none}
@@ -802,10 +797,11 @@ a,button,[data-go]{cursor:pointer}
 </div>
 
 <div id="nav"></div>
-<button id="arr-prev" aria-label="Previous">‹</button>
-<button id="arr-next" aria-label="Next">›</button>
-<div id="kbtip">← → Arrow keys · Scroll · Swipe to navigate</div>
-<div id="scroll-prompt"><span class="sp-text">Scroll to explore</span><span class="sp-arrow"></span></div>
+<div id="deck-nav">
+  <button id="arr-prev" aria-label="Previous"><span class="arr-icon">‹</span> Prev</button>
+  <span id="slide-counter">1 / 11</span>
+  <button id="arr-next" aria-label="Next">Next <span class="arr-icon">›</span></button>
+</div>
 <div id="wipe-el"></div>
 
 <div id="deck">
@@ -1506,6 +1502,7 @@ const tagEl  = document.getElementById('slide-tag');
 const wipeEl = document.getElementById('wipe-el');
 const bpEl   = document.getElementById('arr-prev');
 const bnEl   = document.getElementById('arr-next');
+const ctrEl  = document.getElementById('slide-counter');
 
 const navItems = [];
 SLS.forEach((sl, i) => {
@@ -1522,6 +1519,7 @@ function syncUI() {
   bpEl.disabled = cur === 0; bnEl.disabled = cur === N - 1;
   pgFill.style.width = (cur / (N - 1) * 100) + '%';
   tagEl.textContent = (SLS[cur].dataset.lbl || '') + ' · Portfolio 2026';
+  if (ctrEl) ctrEl.textContent = (cur + 1) + ' / ' + N;
 }
 
 function go(idx) {
@@ -1565,24 +1563,15 @@ window.addEventListener('keydown', e => {
   if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
 });
 
-/* ── SCROLL WHEEL → SLIDE NAVIGATION ── */
+/* scroll wheel kept as secondary nav for trackpad users */
 let _wheelCooldown = false;
 window.addEventListener('wheel', e => {
-  e.preventDefault();
   if (_wheelCooldown || busy) return;
   _wheelCooldown = true;
   if (e.deltaY > 30) go(cur + 1);
   else if (e.deltaY < -30) go(cur - 1);
   setTimeout(() => { _wheelCooldown = false; }, 700);
-}, { passive: false });
-
-/* ── HIDE SCROLL PROMPT ON FIRST INTERACTION ── */
-const scrollPrompt = document.getElementById('scroll-prompt');
-function hidePrompt() {
-  if (scrollPrompt) scrollPrompt.classList.add('hide');
-}
-window.addEventListener('wheel', hidePrompt, { once: true });
-window.addEventListener('keydown', hidePrompt, { once: true });
+}, { passive: true });
 window.addEventListener('touchstart', hidePrompt, { once: true });
 
 let _tx = 0, _ty = 0;
