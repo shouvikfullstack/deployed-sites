@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 AI Hosting Guide — India Edition 🇮🇳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #080c14;
+  --bg2:      #0f1623;
+  --bg3:      #171f30;
+  --border:   #1f2d44;
+  --text:     #c8d6ee;
+  --muted:    #6278a0;
+  --saffron:  #FF9933;
+  --saffron2: #e07a1a;
+  --green-in: #138808;
+  --green:    #3dd68c;
+  --red:      #e05a5a;
+  --blue:     #5b9cf6;
+  --white:    #ffffff;
+  --gold:     #f5c842;
+  --font: 'Sora', sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.75; }
+
+/* Tricolor top bar */
+body::before {
+  content: '';
+  position: fixed; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #FF9933 33.3%, #fff 33.3% 66.6%, #138808 66.6%);
+  z-index: 200;
+}
+
+/* NAV */
+#nav {
+  position: fixed; top: 4px; left: 0; height: calc(100vh - 4px); width: 240px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 0;
+  overflow-y: auto;
+  z-index: 100;
+  display: flex; flex-direction: column;
+}
+.nav-logo {
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo .flag { font-size: 20px; margin-bottom: 6px; display: block; }
+.nav-logo .tagline { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--saffron); margin-bottom: 4px; }
+.nav-logo h2 { font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.4; }
+.nav-section { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--border); padding: 14px 20px 4px; }
+#nav a {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 20px; color: var(--muted);
+  text-decoration: none; font-size: 12.5px; font-weight: 400;
+  border-left: 2px solid transparent; transition: all 0.18s;
+}
+#nav a:hover, #nav a.active { color: var(--text); background: rgba(255,153,51,.07); border-left-color: var(--saffron); }
+#nav a .ico { width: 15px; text-align: center; font-size: 13px; flex-shrink: 0; }
+
+/* MAIN */
+main { margin-left: 240px; padding: 28px 52px 80px; max-width: 1120px; }
+
+/* SECTIONS */
+section { padding: 44px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+.sec-header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.sec-icon {
+  width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  background: rgba(255,153,51,.1); border: 1px solid rgba(255,153,51,.2);
+}
+.sec-header h2 { font-size: 22px; font-weight: 700; color: var(--white); }
+p.sec-sub { font-size: 14px; color: var(--muted); max-width: 680px; line-height: 1.8; margin-bottom: 24px; }
+
+/* HERO */
+#hero { padding: 52px 0 44px; position: relative; overflow: hidden; }
+#hero::after {
+  content: '₹';
+  position: absolute; right: -30px; top: -20px;
+  font-size: 300px; font-weight: 800; color: rgba(255,153,51,.03);
+  line-height: 1; user-select: none; pointer-events: none;
+}
+.hero-flag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,153,51,.1); border: 1px solid rgba(255,153,51,.25);
+  color: var(--saffron); font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 4px; margin-bottom: 18px;
+}
+#hero h1 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 800; color: var(--white); line-height: 1.2; max-width: 700px; margin-bottom: 16px; }
+#hero h1 em { color: var(--saffron); font-style: normal; }
+#hero p.lead { font-size: 15px; color: var(--muted); max-width: 620px; line-height: 1.85; margin-bottom: 28px; }
+
+.stat-row { display: flex; gap: 28px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; }
+.stat .val { font-size: 26px; font-weight: 800; color: var(--saffron); font-family: var(--mono); }
+.stat .lbl { font-size: 11px; color: var(--muted); font-family: var(--mono); letter-spacing: .05em; }
+
+/* ALERT BOX */
+.alert {
+  border-radius: 10px; padding: 16px 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+  margin: 20px 0; font-size: 14px; line-height: 1.7;
+}
+.alert.warn { background: rgba(255,153,51,.08); border: 1px solid rgba(255,153,51,.3); }
+.alert.info { background: rgba(91,156,246,.07); border: 1px solid rgba(91,156,246,.25); }
+.alert.success { background: rgba(61,214,140,.07); border: 1px solid rgba(61,214,140,.25); }
+.alert.danger { background: rgba(224,90,90,.08); border: 1px solid rgba(224,90,90,.3); }
+.alert .ai { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.alert strong { color: var(--white); }
+
+/* TAX TABLE */
+.tax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.tax-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 20px; border-top: 3px solid var(--saffron);
+}
+.tax-card.blue-top { border-top-color: var(--blue); }
+.tax-card.green-top { border-top-color: var(--green); }
+.tax-card.red-top { border-top-color: var(--red); }
+.tax-card .tc-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.tax-card h3 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.tax-card .pct { font-family: var(--mono); font-size: 28px; font-weight: 700; color: var(--saffron); margin-bottom: 8px; }
+.tax-card.blue-top .pct { color: var(--blue); }
+.tax-card.green-top .pct { color: var(--green); }
+.tax-card.red-top .pct { color: var(--red); }
+.tax-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.tax-card .verdict {
+  margin-top: 10px; display: inline-block; font-family: var(--mono); font-size: 11px;
+  padding: 4px 10px; border-radius: 4px;
+}
+.verdict-good { background: rgba(61,214,140,.12); color: var(--green); border: 1px solid rgba(61,214,140,.25); }
+.verdict-neutral { background: rgba(91,156,246,.12); color: var(--blue); border: 1px solid rgba(91,156,246,.25); }
+.verdict-bad { background: rgba(224,90,90,.12); color: var(--red); border: 1px solid rgba(224,90,90,.25); }
+
+/* REAL COST TABLE */
+.rtable-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+table.rtable { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 780px; }
+table.rtable thead th {
+  background: var(--bg3); color: var(--saffron);
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+table.rtable thead th:first-child { color: var(--muted); }
+table.rtable tbody tr { border-bottom: 1px solid rgba(31,45,68,.6); transition: background .15s; }
+table.rtable tbody tr:hover { background: rgba(255,153,51,.03); }
+table.rtable tbody tr:last-child { border-bottom: 2px solid var(--saffron); background: rgba(255,153,51,.04); }
+table.rtable tbody td { padding: 10px 14px; color: var(--text); vertical-align: middle; }
+table.rtable tbody td:first-child { font-weight: 600; color: var(--white); font-size: 13px; }
+.inr { font-family: var(--mono); color: var(--saffron); font-weight: 700; }
+.inr-muted { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+.usd-small { font-family: var(--mono); color: var(--blue); font-size: 11px; }
+.subrow { background: var(--bg3) !important; }
+.subrow td { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--border) !important; padding: 7px 14px !important; font-weight: 400 !important; }
+
+/* SCENARIO BOX */
+.scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.scenario {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+}
+.scenario .sc-title { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.scenario h3 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.scenario .sc-math {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 6px;
+  padding: 12px 14px; font-family: var(--mono); font-size: 12px; margin-bottom: 10px;
+  line-height: 2;
+}
+.sc-math .line { display: flex; justify-content: space-between; }
+.sc-math .line.total { border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; font-weight: 700; }
+.sc-math .pos { color: var(--red); }
+.sc-math .neg { color: var(--green); }
+.sc-math .final { color: var(--saffron); font-size: 14px; }
+.scenario p { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+
+/* TIPS GRID */
+.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tip {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px; transition: border-color .2s, transform .2s;
+}
+.tip:hover { border-color: rgba(255,153,51,.35); transform: translateY(-2px); }
+.tip .tip-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,153,51,.12); border: 1px solid rgba(255,153,51,.25);
+  color: var(--saffron); font-family: var(--mono); font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
+}
+.tip h3 { font-size: 13.5px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.tip p { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+.tip .tag {
+  margin-top: 10px; display: inline-block;
+  font-family: var(--mono); font-size: 10px; padding: 3px 8px;
+  border-radius: 3px; background: rgba(61,214,140,.1);
+  color: var(--green); border: 1px solid rgba(61,214,140,.2);
+}
+
+/* PAYMENT CARDS */
+.pay-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.pay-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 18px;
+}
+.pay-card .pay-label { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+.pay-card h3 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.pay-card ul { list-style: none; padding: 0; }
+.pay-card ul li { font-size: 12.5px; color: var(--muted); padding: 4px 0 4px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid rgba(31,45,68,.5); }
+.pay-card ul li:last-child { border-bottom: none; }
+.pay-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--saffron); font-size: 11px; }
+.pay-card ul li strong { color: var(--text); }
+
+/* REGISTRATION STEPS */
+.reg-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+.reg-steps::before { content: ''; position: absolute; left: 18px; top: 18px; bottom: 18px; width: 2px; background: linear-gradient(180deg, var(--saffron), transparent); }
+.reg-step { display: flex; gap: 18px; align-items: flex-start; padding: 16px 0; position: relative; z-index: 1; }
+.reg-step .sn {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: var(--saffron); color: #080c14;
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.reg-step .sb h3 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.reg-step .sb p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.pill { display: inline-block; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; font-family: var(--mono); font-size: 11px; color: var(--blue); padding: 2px 8px; margin: 3px 2px 0 0; }
+
+/* INDIA-SPECIFIC PLATFORM TABLE */
+.ptable { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ptable thead th { background: var(--bg3); color: var(--saffron); font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; padding: 10px 13px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.ptable thead th:first-child { color: var(--muted); }
+.ptable tbody tr { border-bottom: 1px solid rgba(31,45,68,.5); }
+.ptable tbody tr:hover { background: rgba(255,153,51,.03); }
+.ptable tbody td { padding: 10px 13px; color: var(--text); vertical-align: top; }
+.ptable tbody td:first-child { font-weight: 600; color: var(--white); font-size: 12.5px; white-space: nowrap; }
+.tick { color: var(--green); } .cross { color: var(--red); } .warn { color: #f5c842; }
+.pname { font-weight: 700; }
+
+/* CALLOUT */
+.callout { background: rgba(255,153,51,.07); border-left: 3px solid var(--saffron); border-radius: 0 8px 8px 0; padding: 13px 18px; margin: 16px 0; font-size: 13.5px; color: var(--text); line-height: 1.7; }
+.callout strong { color: var(--saffron); }
+
+/* CREDITS BANNER */
+.credits-banner {
+  background: linear-gradient(135deg, rgba(255,153,51,.08), rgba(19,136,8,.06));
+  border: 1px solid rgba(255,153,51,.25); border-radius: 12px; padding: 22px 26px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.credits-banner .ci { font-size: 32px; flex-shrink: 0; }
+.credits-banner h3 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.credits-banner p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.credit-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.cp { background: rgba(255,153,51,.08); border: 1px solid rgba(255,153,51,.2); border-radius: 6px; padding: 8px 14px; text-align: center; }
+.cp .ca { font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--saffron); }
+.cp .cn { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.f1 { animation: fadeUp .4s ease .05s both; }
+.f2 { animation: fadeUp .4s ease .15s both; }
+.f3 { animation: fadeUp .4s ease .25s both; }
+
+@media (max-width: 900px) {
+  #nav { display: none; } main { margin-left: 0; padding: 24px 18px 60px; }
+  .tax-grid, .scenario-grid, .tips-grid, .pay-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<aside id="nav">
+  <div class="nav-logo">
+    <span class="flag">🇮🇳</span>
+    <div class="tagline">India Edition · 2026</div>
+    <h2>AI Hosting Guide<br>with Tax & GST</h2>
+  </div>
+  <nav>
+    <div class="nav-section">Context</div>
+    <a href="#hero"><span class="ico">🏠</span> Overview</a>
+    <a href="#taxes"><span class="ico">📋</span> Tax Landscape</a>
+    <a href="#realcost"><span class="ico">₹</span> Real INR Costs</a>
+
+    <div class="nav-section">Scenarios</div>
+    <a href="#scenarios"><span class="ico">🧮</span> Cost Scenarios</a>
+    <a href="#payment"><span class="ico">💳</span> Payment Methods</a>
+    <a href="#gst-itc"><span class="ico">🔄</span> GST & ITC Strategy</a>
+
+    <div class="nav-section">India Specifics</div>
+    <a href="#platforms"><span class="ico">⚡</span> Platform Suitability</a>
+    <a href="#tips"><span class="ico">💡</span> Money-Saving Tips</a>
+    <a href="#compliance"><span class="ico">✅</span> Compliance Checklist</a>
+    <a href="#credits"><span class="ico">🎯</span> Startup Credits</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="f1">
+    <div class="hero-flag">🇮🇳 India Edition — Updated for 2026 Tax Rules</div>
+    <h1>Your <em>Real Cost</em> of Hosting<br>AI Products from India</h1>
+    <p class="lead">The global guide gave you USD prices. This India edition adds <strong>18% GST (RCM)</strong>, forex markup, TCS, payment method selection, ITC reclaim strategy, and the compliance checklist every Indian AI startup founder needs before swiping their international card.</p>
+  </div>
+  <div class="stat-row f2">
+    <div class="stat"><span class="val">+18%</span><span class="lbl">GST via RCM</span></div>
+    <div class="stat"><span class="val">1–3%</span><span class="lbl">Forex Markup</span></div>
+    <div class="stat"><span class="val">ITC</span><span class="lbl">Claimable Back</span></div>
+    <div class="stat"><span class="val">₹10L</span><span class="lbl">LRS Threshold</span></div>
+    <div class="stat"><span class="val">₹0</span><span class="lbl">Net GST (if reg'd)</span></div>
+  </div>
+  <div class="alert warn f3" style="margin-top:24px">
+    <div class="ai">⚠️</div>
+    <div><strong>Critical for Indian founders:</strong> When you pay Railway, Vercel, Supabase, Modal etc. from India, you are legally required to self-assess and pay <strong>18% IGST under Reverse Charge Mechanism (RCM)</strong> on the invoice value — even if the foreign vendor does not charge it. If you're GST-registered, you can claim this back as ITC. If you're not, it's a real additional cost.</div>
+  </div>
+</section>
+
+<!-- TAX LANDSCAPE -->
+<section id="taxes">
+  <div class="sec-header">
+    <div class="sec-icon">📋</div>
+    <h2>The India Tax Landscape for Cloud Payments</h2>
+  </div>
+  <p class="sec-sub">Four tax/cost layers apply when an Indian startup pays for foreign cloud services. Understanding each one determines your real monthly spend.</p>
+
+  <div class="tax-grid">
+    <div class="tax-card">
+      <div class="tc-label">Layer 1 — Mandatory</div>
+      <h3>GST via Reverse Charge (RCM)</h3>
+      <div class="pct">18%</div>
+      <p>When an Indian business pays a foreign SaaS/cloud vendor with no PE in India, it's classified as an <strong>"import of service"</strong> under IGST Act. You — the buyer — must self-assess 18% IGST, pay it to government via GSTR-3B, and file monthly.</p>
+      <p style="margin-top:8px">The foreign vendor's invoice will typically show <em>no</em> GST. You are still legally obligated to pay it under RCM.</p>
+      <span class="verdict verdict-good">✓ Claimable as ITC if GST-registered business</span>
+    </div>
+    <div class="tax-card green-top">
+      <div class="tc-label">Layer 2 — If Claimable</div>
+      <h3>Input Tax Credit (ITC)</h3>
+      <div class="pct" style="color:var(--green)">−18%</div>
+      <p>If you are <strong>GST registered</strong> and using these cloud services for your taxable business outputs (SaaS products, API services etc.), you can claim back 100% of the RCM GST paid as Input Tax Credit in your next GSTR-3B filing.</p>
+      <p style="margin-top:8px"><strong>Net effective GST cost = ₹0</strong> for a properly registered startup. But you must front the cash and wait for next month's offset.</p>
+      <span class="verdict verdict-good">✓ Net zero cost — just a cash flow timing issue</span>
+    </div>
+    <div class="tax-card blue-top">
+      <div class="tc-label">Layer 3 — Payment Cost</div>
+      <h3>Forex Markup on International Cards</h3>
+      <div class="pct" style="color:var(--blue)">1–3.5%</div>
+      <p>Most Indian bank credit cards charge a <strong>forex markup of 1.5–3.5%</strong> on international transactions (HDFC Regalia: 2%, SBI Prime: 3.5%, etc.). Some cards like Niyo Global, IDFC First Wealth, IndusInd Pioneer charge <strong>0% markup</strong>.</p>
+      <p style="margin-top:8px">At ₹25,000/month hosting spend, 3.5% markup = ₹875 extra per month = ₹10,500/year wasted.</p>
+      <span class="verdict verdict-neutral">ℹ Use zero-markup card to eliminate this cost</span>
+    </div>
+    <div class="tax-card red-top">
+      <div class="tc-label">Layer 4 — Above Threshold</div>
+      <h3>TCS under LRS (above ₹10 Lakh/year)</h3>
+      <div class="pct" style="color:var(--red)">5–20%</div>
+      <p>TCS applies on <strong>outward remittances above ₹10 lakh in a financial year</strong> (Budget 2025 raised threshold from ₹7L to ₹10L). For most cloud hosting via international credit cards, TCS is <strong>currently deferred</strong> (Ministry of Finance postponed applicability on intl credit card spends).</p>
+      <p style="margin-top:8px">At $300/month × ₹85 = ₹3,06,000/year — well <em>under</em> the ₹10L LRS threshold. TCS not triggered for most startup budgets.</p>
+      <span class="verdict verdict-good">✓ Not triggered at $100–500/mo budget</span>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <div class="ai">ℹ️</div>
+    <div><strong>Budget 2026 Bonus:</strong> India's Union Budget 2026–27 proposes a <strong>tax holiday until 2047</strong> for foreign cloud companies that route services through Indian data centers. This means AWS (Mumbai), GCP (Mumbai/Delhi), and Azure (Pune) regions will likely see <strong>lower prices and more capacity</strong> over time as global providers expand Indian infrastructure aggressively. Using Indian regions of these clouds avoids cross-border remittance complexity entirely.</div>
+  </div>
+</section>
+
+<!-- REAL COST TABLE -->
+<section id="realcost">
+  <div class="sec-header">
+    <div class="sec-icon">₹</div>
+    <h2>Real INR Costs — 8–10 Products at MVP Scale</h2>
+  </div>
+  <p class="sec-sub">The USD costs from the main guide, converted to INR (₹85/$1 rate), with GST RCM shown separately. Assumes GST-registered startup claiming ITC.</p>
+
+  <div class="rtable-wrap">
+    <table class="rtable">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>USD/mo</th>
+          <th>INR/mo (~₹85/$)</th>
+          <th>18% GST (RCM)</th>
+          <th>Net INR (after ITC)</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="subrow"><td colspan="6">🟣 RAILWAY — Primary Compute</td></tr>
+        <tr>
+          <td>Railway Pro base</td>
+          <td class="usd-small">$20</td>
+          <td class="inr">₹1,700</td>
+          <td class="inr-muted">₹306 (pay then ITC)</td>
+          <td class="inr">₹1,700</td>
+          <td style="color:var(--muted);font-size:12px">Includes $20 usage credit</td>
+        </tr>
+        <tr>
+          <td>5 API backends (0.5 vCPU)</td>
+          <td class="usd-small">$75</td>
+          <td class="inr">₹6,375</td>
+          <td class="inr-muted">₹1,148</td>
+          <td class="inr">₹6,375</td>
+          <td style="color:var(--muted);font-size:12px">~₹1,275/service</td>
+        </tr>
+        <tr>
+          <td>2 workers + 1 pipeline</td>
+          <td class="usd-small">$45</td>
+          <td class="inr">₹3,825</td>
+          <td class="inr-muted">₹689</td>
+          <td class="inr">₹3,825</td>
+          <td style="color:var(--muted);font-size:12px">Shared env vars</td>
+        </tr>
+        <tr class="subrow"><td colspan="6">🟢 SUPABASE — Data Layer</td></tr>
+        <tr>
+          <td>Supabase Pro + compute</td>
+          <td class="usd-small">$40</td>
+          <td class="inr">₹3,400</td>
+          <td class="inr-muted">₹612</td>
+          <td class="inr">₹3,400</td>
+          <td style="color:var(--muted);font-size:12px">DB + Auth + Storage + RealTime</td>
+        </tr>
+        <tr class="subrow"><td colspan="6">🟠 MODAL — GPU Inference</td></tr>
+        <tr>
+          <td>Modal GPU (sporadic)</td>
+          <td class="usd-small">$0–30</td>
+          <td class="inr">₹0–2,550</td>
+          <td class="inr-muted">₹0–459</td>
+          <td class="inr">₹0–2,550</td>
+          <td style="color:var(--muted);font-size:12px">Free $30 credit covers most MVPs</td>
+        </tr>
+        <tr class="subrow"><td colspan="6">⚡ OPTIONAL ADDITIONS</td></tr>
+        <tr>
+          <td>Vercel Pro</td>
+          <td class="usd-small">$20</td>
+          <td class="inr">₹1,700</td>
+          <td class="inr-muted">₹306</td>
+          <td class="inr">₹1,700</td>
+          <td style="color:var(--muted);font-size:12px">For Next.js frontends only</td>
+        </tr>
+        <tr>
+          <td>Cloudflare Workers</td>
+          <td class="usd-small">$5</td>
+          <td class="inr">₹425</td>
+          <td class="inr-muted">₹77</td>
+          <td class="inr">₹425</td>
+          <td style="color:var(--muted);font-size:12px">AI Gateway + R2 zero egress</td>
+        </tr>
+        <tr>
+          <td>AI API (Claude Haiku etc.)</td>
+          <td class="usd-small">$20–100</td>
+          <td class="inr">₹1,700–8,500</td>
+          <td class="inr-muted">₹306–1,530</td>
+          <td class="inr">₹1,700–8,500</td>
+          <td style="color:var(--muted);font-size:12px">Usage-based</td>
+        </tr>
+        <tr>
+          <td><strong>Total (GST-registered startup)</strong></td>
+          <td class="usd-small"><strong>$225–335</strong></td>
+          <td class="inr"><strong>₹19,125–28,475</strong></td>
+          <td style="color:var(--muted);font-size:12px"><strong>~₹3,900 paid/reclaimed</strong></td>
+          <td class="inr" style="font-size:15px"><strong>₹19,125–28,475</strong></td>
+          <td style="color:var(--green);font-size:12px">Net GST = ₹0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert warn" style="margin-top:16px">
+    <div class="ai">⚠️</div>
+    <div><strong>If you are NOT GST registered:</strong> Add 18% on top of the INR totals above. The ₹19,125/month becomes ~<strong>₹22,568/month</strong>. Get GST registered — it takes 3–5 working days online. As a startup with software services, you almost certainly qualify and it eliminates the GST burden entirely.</div>
+  </div>
+
+  <div class="callout">
+    <strong>USD/INR rate risk:</strong> All estimates use ₹85/$1. The rupee has weakened from ~₹74 in 2021 to ~₹86 in 2026. Budget for <strong>₹88–90/$1</strong> as a conservative scenario — that adds roughly ₹1,500–2,000/month to the above estimates. Some founders hedge by keeping a USD account (GIFT City IFSC or NRE accounts) but this adds complexity for early-stage startups.
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section id="scenarios">
+  <div class="sec-header">
+    <div class="sec-icon">🧮</div>
+    <h2>Real Cost Scenarios for Indian Founders</h2>
+  </div>
+  <p class="sec-sub">Three scenarios based on registration status, showing the actual cash you part with each month.</p>
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="sc-title">Scenario A — Best Case</div>
+      <h3>GST Registered + Zero-Markup Card</h3>
+      <div class="sc-math">
+        <div class="line"><span>Base hosting (USD 280/mo)</span><span>₹23,800</span></div>
+        <div class="line"><span>Forex markup (0% — Niyo/IDFC)</span><span class="neg">₹0</span></div>
+        <div class="line"><span>GST paid via RCM (18%)</span><span class="pos">+₹4,284</span></div>
+        <div class="line"><span>ITC claimed back next month</span><span class="neg">−₹4,284</span></div>
+        <div class="line total"><span>Net monthly spend</span><span class="final">₹23,800</span></div>
+      </div>
+      <p>This is the ideal setup. Register for GST (free, 3–5 days). Get a zero-markup international card. Your net cost equals the USD price at prevailing exchange rate — nothing more.</p>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">Scenario B — Typical</div>
+      <h3>GST Registered + Regular Bank Card (2.5% markup)</h3>
+      <div class="sc-math">
+        <div class="line"><span>Base hosting (USD 280/mo)</span><span>₹23,800</span></div>
+        <div class="line"><span>Forex markup (2.5% — typical card)</span><span class="pos">+₹595</span></div>
+        <div class="line"><span>GST paid via RCM (18%)</span><span class="pos">+₹4,284</span></div>
+        <div class="line"><span>ITC claimed back next month</span><span class="neg">−₹4,284</span></div>
+        <div class="line total"><span>Net monthly spend</span><span class="final">₹24,395</span></div>
+      </div>
+      <p>The only real overhead is the forex markup. ₹595/month = ₹7,140/year. Worth switching to a zero-markup card. ITC still fully offsets the GST so net tax impact is zero.</p>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">Scenario C — Common Mistake</div>
+      <h3>NOT GST Registered — Solo Founder / Proprietorship</h3>
+      <div class="sc-math">
+        <div class="line"><span>Base hosting (USD 280/mo)</span><span>₹23,800</span></div>
+        <div class="line"><span>Forex markup (2.5%)</span><span class="pos">+₹595</span></div>
+        <div class="line"><span>GST paid via RCM (cannot claim ITC)</span><span class="pos">+₹4,284</span></div>
+        <div class="line"><span>ITC claimed back</span><span style="color:var(--red)">₹0 — not eligible</span></div>
+        <div class="line total"><span>Net monthly spend</span><span style="color:var(--red);font-size:14px">₹28,679</span></div>
+      </div>
+      <p>⚠️ This costs <strong>₹4,879 more per month</strong> than Scenario A — ₹58,548/year extra. GST registration is <strong>free and takes 3–5 days</strong>. There is no reason not to register if you're building products.</p>
+    </div>
+    <div class="scenario">
+      <div class="sc-title">Scenario D — Scale (100K Users)</div>
+      <h3>GST Registered, Scaled Stack (~$700/mo)</h3>
+      <div class="sc-math">
+        <div class="line"><span>Base hosting (USD 700/mo)</span><span>₹59,500</span></div>
+        <div class="line"><span>Forex markup (0% — zero-markup card)</span><span class="neg">₹0</span></div>
+        <div class="line"><span>GST RCM paid + ITC reclaimed</span><span class="neg">₹0 net</span></div>
+        <div class="line"><span>TCS under LRS (₹59,500×12=₹7.14L)</span><span class="neg">₹0 (under ₹10L limit)</span></div>
+        <div class="line total"><span>Net monthly spend</span><span class="final">₹59,500</span></div>
+      </div>
+      <p>Even at 100K users you're under the ₹10L LRS threshold for TCS. At this scale, apply for GCP's ₹3 crore startup credits (the $350K program) — it pays your infra for 1–2 years.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section id="payment">
+  <div class="sec-header">
+    <div class="sec-icon">💳</div>
+    <h2>Best Payment Methods for Indian Founders</h2>
+  </div>
+  <p class="sec-sub">Your payment method choice affects both forex costs and documentation for GST compliance.</p>
+  <div class="pay-grid">
+    <div class="pay-card" style="border-top:3px solid var(--green)">
+      <div class="pay-label" style="color:var(--green)">✓ Recommended — Zero Markup</div>
+      <h3>Zero Forex Markup Credit Cards</h3>
+      <ul>
+        <li><strong>Niyo Global (SBM Bank):</strong> 0% forex markup, free international card, best for startups</li>
+        <li><strong>IDFC First Wealth:</strong> 0% forex markup on international spends, no annual fee</li>
+        <li><strong>IndusInd Pioneer:</strong> 0% markup, good rewards on international spend</li>
+        <li><strong>Federal Bank Celesta:</strong> 0% markup — newer offering worth checking</li>
+        <li><strong>Benefit:</strong> Save ₹5,000–15,000/year vs standard cards at this hosting budget</li>
+        <li><strong>Invoice generated</strong> — needed for GST RCM documentation</li>
+      </ul>
+    </div>
+    <div class="pay-card" style="border-top:3px solid var(--amber,#f5c842)">
+      <div class="pay-label" style="color:#f5c842">⚠ Avoid — High Markup</div>
+      <h3>Standard Indian Bank Cards</h3>
+      <ul>
+        <li><strong>HDFC Regalia, SBI Simply Click:</strong> 1.99–3.5% forex markup</li>
+        <li><strong>Axis Magnus:</strong> 3.5% markup (despite high rewards)</li>
+        <li><strong>Most Kotak cards:</strong> 3.5% markup on international transactions</li>
+        <li><strong>SBI Corporate:</strong> 3.5% markup — very common for startup founders</li>
+        <li><strong>Hidden cost:</strong> On ₹25,000/month spend, 3.5% = ₹875/month = ₹10,500/year</li>
+        <li>Still valid for GST documentation — just more expensive</li>
+      </ul>
+    </div>
+    <div class="pay-card" style="border-top:3px solid var(--blue)">
+      <div class="pay-label" style="color:var(--blue)">ℹ Alternative — International Accounts</div>
+      <h3>USD Payment Accounts</h3>
+      <ul>
+        <li><strong>Wise Business (India):</strong> Hold USD balance, pay at mid-market rate — available for Indian businesses with FEMA compliance</li>
+        <li><strong>Payoneer:</strong> Get a USD debit card, fund from Indian bank. Works with most cloud platforms</li>
+        <li><strong>GIFT City / IFSC accounts:</strong> Complex but useful at higher scale — consult CA</li>
+        <li><strong>Caution:</strong> RBI/FEMA rules apply — all foreign payments must be on LRS records. Consult your CA for >₹5L/month spend.</li>
+        <li>Still requires GST RCM compliance regardless of payment method</li>
+      </ul>
+    </div>
+    <div class="pay-card" style="border-top:3px solid var(--red)">
+      <div class="pay-label" style="color:var(--red)">✗ Avoid — Not Viable</div>
+      <h3>Indian UPI / Net Banking</h3>
+      <ul>
+        <li>Railway, Vercel, Supabase, Modal — <strong>none accept INR/UPI directly</strong></li>
+        <li>All require international payment method (USD billing)</li>
+        <li>UPI only works for domestic Indian platforms</li>
+        <li><strong>Exception:</strong> Some Indian cloud providers (AWS India bills in INR via its Indian entity — eligible for GST input credit with proper GSTIN on invoice)</li>
+        <li>AWS, GCP, Azure — request GST invoice with your GSTIN for proper documentation</li>
+        <li>For Indian entity billing: Tata Communications, Jio Cloud, BSNL Cloud — but limited for AI workloads</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GST ITC STRATEGY -->
+<section id="gst-itc">
+  <div class="sec-header">
+    <div class="sec-icon">🔄</div>
+    <h2>GST & ITC Strategy for Your Startup</h2>
+  </div>
+  <p class="sec-sub">How to ensure the 18% GST on all your cloud spending costs you absolutely nothing in practice.</p>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-num">1</div>
+      <h3>Register for GST Immediately</h3>
+      <p>Register your startup under GST if you haven't. Services exports and B2B SaaS both require it. Registration is free, takes 3–5 working days online at gstin.gov.in. Your GSTIN unlocks ITC claims on all foreign cloud spend.</p>
+      <span class="tag">gstin.gov.in — free</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">2</div>
+      <h3>File GST RCM in GSTR-3B Monthly</h3>
+      <p>Each month, self-assess 18% IGST on all foreign cloud invoices (converted to INR at the rate on invoice date). Pay this in Table 3.1(d) of GSTR-3B. You can simultaneously claim it as ITC in Table 4(A)(3) — same return, net effect is zero.</p>
+      <span class="tag">Monthly — same day pay & claim</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">3</div>
+      <h3>Add Your GSTIN to All Cloud Accounts</h3>
+      <p>AWS, GCP, and Azure have GSTIN fields in billing settings — add yours and request GST-compliant invoices from these platforms (they have Indian entities). For Railway/Vercel/Modal, keep the foreign invoices as proof for RCM calculation.</p>
+      <span class="tag">AWS India billing: GSTIN supported</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">4</div>
+      <h3>If Exporting SaaS: File LUT for Zero-Rate</h3>
+      <p>If your products are sold to customers outside India (charging in USD), your outward supplies are <strong>zero-rated exports</strong>. File a Letter of Undertaking (LUT) each year — you pay zero GST on your sales AND can claim ITC refunds on your cloud costs. This is the most tax-efficient structure.</p>
+      <span class="tag">Zero-rated exports — no output GST</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">5</div>
+      <h3>If Selling to Indian B2B Customers</h3>
+      <p>Charge 18% IGST on invoices. Your Indian business customers can claim it back as ITC. Cloud costs (GST paid via RCM) offset your output GST liability — net payable often zero or near-zero at startup scale. Win-win with customers.</p>
+      <span class="tag">B2B chain: ITC flows both ways</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">6</div>
+      <h3>Hire a CA Familiar with Tech Startups</h3>
+      <p>GST compliance for foreign SaaS payments, RCM, OIDAR services, and LUT filings is specialized. A good CA who knows tech/SaaS costs ₹3,000–8,000/month and saves you far more in penalties and missed ITC claims. Cities like Bangalore, Hyderabad, Pune have many SaaS-savvy CAs.</p>
+      <span class="tag">₹3,000–8,000/mo — worth every rupee</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM INDIA SUITABILITY -->
+<section id="platforms">
+  <div class="sec-header">
+    <div class="sec-icon">⚡</div>
+    <h2>Platform Suitability from India — Extra Considerations</h2>
+  </div>
+  <p class="sec-sub">Beyond the global comparison, these India-specific factors affect which platform is best for you.</p>
+  <div class="rtable-wrap">
+    <table class="ptable">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>GST Invoice</th>
+          <th>INR Billing</th>
+          <th>India Region</th>
+          <th>Latency for Indian Users</th>
+          <th>India-specific Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pname">Railway</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗ No India</span></td>
+          <td><span class="warn">Moderate (Singapore closest)</span></td>
+          <td style="color:var(--muted);font-size:12px">Keep foreign invoice for RCM. Singapore region is ~50–80ms from India. No INR billing support.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Supabase</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="tick">✓ Mumbai (ap-south-1)</span></td>
+          <td><span class="tick">Low (~20ms from Bangalore)</span></td>
+          <td style="color:var(--muted);font-size:12px">Mumbai region available — great for Indian user latency on DB queries. Foreign invoice for RCM.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Vercel</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="tick">✓ Edge PoPs in India</span></td>
+          <td><span class="tick">Low (edge CDN — ~5ms)</span></td>
+          <td style="color:var(--muted);font-size:12px">Edge network has India PoPs — excellent frontend latency for Indian users. Billing in USD only.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">AWS</span></td>
+          <td><span class="tick">✓ Full GST invoice (GSTIN field)</span></td>
+          <td><span class="tick">✓ INR billing via Amazon Web Services India Pvt Ltd</span></td>
+          <td><span class="tick">✓ Mumbai + Hyderabad</span></td>
+          <td><span class="tick">Excellent (~10ms)</span></td>
+          <td style="color:var(--muted);font-size:12px"><strong>Best India-specific compliance.</strong> Bills through Indian entity, accepts INR, provides GST invoice. No RCM needed — GST is on the invoice directly.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">GCP</span></td>
+          <td><span class="tick">✓ GST invoice with GSTIN</span></td>
+          <td><span class="tick">✓ INR billing via Google India entity</span></td>
+          <td><span class="tick">✓ Mumbai + Delhi</span></td>
+          <td><span class="tick">Excellent (~10ms)</span></td>
+          <td style="color:var(--muted);font-size:12px"><strong>Excellent for India compliance.</strong> Indian entity billing, INR, GST invoice. Startup credits ($350K) very startup-accessible. Cloud Run GPU in Mumbai region.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Modal</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗ US/EU only</span></td>
+          <td><span class="warn">High (GPU workloads — 200–300ms from India)</span></td>
+          <td style="color:var(--muted);font-size:12px">No India GPU region. For interactive inference, latency is noticeable. For batch jobs, fine. Foreign invoice for RCM.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Render</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗ No India</span></td>
+          <td><span class="warn">Moderate (Singapore)</span></td>
+          <td style="color:var(--muted);font-size:12px">No India region. Foreign invoice for RCM.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Cloudflare Workers</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="tick">✓ Multiple India PoPs</span></td>
+          <td><span class="tick">Excellent (edge — ~5ms)</span></td>
+          <td style="color:var(--muted);font-size:12px">India PoPs — excellent latency. R2 zero-egress storage. $5/mo — minimal RCM paperwork.</td>
+        </tr>
+        <tr>
+          <td><span class="pname">Replit</span></td>
+          <td><span class="warn">⚠ USD only</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">High latency from India</span></td>
+          <td style="color:var(--muted);font-size:12px">Not recommended from India. No India region, high latency, low production maturity.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert success" style="margin-top:16px">
+    <div class="ai">💡</div>
+    <div><strong>India compliance tip for AWS/GCP:</strong> When you use AWS (Mumbai) or GCP (Mumbai/Delhi), billing goes through their <strong>Indian entities</strong> — Amazon Web Services India Pvt Ltd and Google India Pvt Ltd respectively. You pay in INR, receive a proper GST invoice with 18% CGST+SGST already on it, and claim it as ITC normally — <strong>no RCM complexity at all</strong>. This dramatically simplifies compliance versus Railway/Vercel/Supabase which all bill from foreign entities.</div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="sec-header">
+    <div class="sec-icon">💡</div>
+    <h2>India-Specific Money-Saving Tips</h2>
+  </div>
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-num">1</div>
+      <h3>Use GCP Mumbai for Indian Users, Railway for Global</h3>
+      <p>If your products serve Indian users (B2C apps, consumer SaaS), GCP Mumbai region with INR billing + proper GST invoice is better than Railway + Singapore region. Combine: Railway for backend logic, GCP Cloud SQL Mumbai for database if Indian latency is critical.</p>
+      <span class="tag">10ms Indian latency on GCP Mumbai</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">2</div>
+      <h3>DPIIT Startup Registration = More Perks</h3>
+      <p>Register under DPIIT Startup India scheme (free). This unlocks: AWS Activate India partner credits, GCP India startup program credits, Azure for Startups credits — all offered through domestic India channels which may have different (better) credit amounts than global programs.</p>
+      <span class="tag">startupindia.gov.in — free</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">3</div>
+      <h3>Pay Annually for 10–20% Discount</h3>
+      <p>Railway, Vercel, and Supabase all offer discounts for annual billing. Combined with the forex rate lock-in, paying annually saves 10–20%. At ₹25,000/month that's ₹30,000–60,000 annual savings. Budget from savings or early revenue to take this.</p>
+      <span class="tag">Save ₹30K–60K/year</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">4</div>
+      <h3>Stripe India for Payment Collection</h3>
+      <p>If your SaaS products charge customers, use Stripe India (activated via Stripe Atlas or direct). Stripe India sends GST-compliant invoices to Indian customers, handles RBI FEMA compliance for foreign customers, and deposits INR to your Indian bank account.</p>
+      <span class="tag">Stripe India — RBI regulated</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">5</div>
+      <h3>Razorpay for Indian Customers</h3>
+      <p>For any product with Indian B2B or B2C customers, use Razorpay (not Stripe). Lower domestic transaction fees, UPI support, instant INR settlement, GST-compliant invoices, and no currency conversion cost. International customers can still use Stripe.</p>
+      <span class="tag">~2% domestic vs 2.9%+$0.30 Stripe</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">6</div>
+      <h3>Budget for ₹90/$ in Your Projections</h3>
+      <p>The rupee has depreciated consistently. Plan your unit economics assuming ₹88–90/$ for cloud costs. If the rate stays at ₹85, you get a pleasant buffer. If it weakens, you're covered. Lock in annual billing when USD is at a relatively favorable rate.</p>
+      <span class="tag">Plan at ₹90/$ for safety margin</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE CHECKLIST -->
+<section id="compliance">
+  <div class="sec-header">
+    <div class="sec-icon">✅</div>
+    <h2>India Compliance Checklist</h2>
+  </div>
+  <p class="sec-sub">Complete these steps in sequence. Most are one-time setup; some are monthly.</p>
+  <div class="reg-steps">
+    <div class="reg-step">
+      <div class="sn">1</div>
+      <div class="sb">
+        <h3>Register your company (Private Ltd or LLP)</h3>
+        <p>Incorporate via MCA portal or a service like Razorpay Rize, Vakilsearch, or LegalWiz. Private Ltd opens more investor/grant options. Cost: ₹5,000–15,000. Takes 1–2 weeks.</p>
+        <span class="pill">mca.gov.in</span><span class="pill">Razorpay Rize</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">2</div>
+      <div class="sb">
+        <h3>Register for GST (GSTIN)</h3>
+        <p>Apply at gstin.gov.in with PAN, Aadhaar, company documents, and bank details. Free registration. Gets you: ITC claims on all cloud spend, ability to issue GST invoices to Indian customers, eligibility for zero-rated export status.</p>
+        <span class="pill">gstin.gov.in</span><span class="pill">3–5 business days</span><span class="pill">Free</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">3</div>
+      <div class="sb">
+        <h3>Open a current account with international payments enabled</h3>
+        <p>Open a current account (not savings) with a bank that has strong forex services: HDFC, ICICI, Yes Bank, or RazorpayX for neobank feel. Ensure international card or wire transfer is enabled. Add your GSTIN to the account for LRS documentation.</p>
+        <span class="pill">HDFC SmartHub</span><span class="pill">RazorpayX</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">4</div>
+      <div class="sb">
+        <h3>Get a zero-markup international credit card</h3>
+        <p>Apply for Niyo Global or IDFC First Wealth card for all cloud service payments. Alternatively, use Wise Business debit card for international vendor payments at mid-market rate. Set up auto-pay on all cloud accounts to avoid service interruptions.</p>
+        <span class="pill">Niyo Global (SBM)</span><span class="pill">IDFC First Wealth</span><span class="pill">Wise Business</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">5</div>
+      <div class="sb">
+        <h3>Add GSTIN to AWS/GCP billing — enable Indian entity invoicing</h3>
+        <p>In your AWS or GCP billing console, add your GSTIN. This switches billing to the Indian entity and generates proper GST invoices — no RCM complexity. For Railway/Vercel/Supabase/Modal, save all foreign invoices for self-assessed RCM in GSTR-3B.</p>
+        <span class="pill">AWS: Billing → Tax Settings</span><span class="pill">GCP: Billing → Account Settings</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">6</div>
+      <div class="sb">
+        <h3>File LUT (Letter of Undertaking) if exporting services</h3>
+        <p>If any of your 8–10 products has international customers paying in foreign currency, file Form GST RFD-11 (LUT) on the GST portal at the start of each financial year. This makes your exports zero-rated — you pay no GST on sales and can claim ITC refunds on cloud costs. Critical for B2B SaaS with foreign clients.</p>
+        <span class="pill">GST Portal → LUT Filing</span><span class="pill">Annual — April each year</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">7</div>
+      <div class="sb">
+        <h3>Monthly: File GSTR-3B with RCM on foreign cloud invoices</h3>
+        <p>Every month, tally all foreign cloud invoices, convert to INR at RBI reference rate on invoice date, calculate 18% IGST, report in Table 3.1(d) of GSTR-3B. Simultaneously claim full ITC in Table 4(A)(3). Net tax payable = ₹0 for a business with taxable outputs.</p>
+        <span class="pill">Monthly by 20th of following month</span>
+      </div>
+    </div>
+    <div class="reg-step">
+      <div class="sn">8</div>
+      <div class="sb">
+        <h3>Register under Startup India (DPIIT) for credit access</h3>
+        <p>Apply at startupindia.gov.in (free). With DPIIT recognition: income tax exemptions for 3 years, angel tax exemption, access to India-specific startup programs from AWS/GCP/Azure, and easier access to government grants under various schemes including MeitY Startup Hub.</p>
+        <span class="pill">startupindia.gov.in</span><span class="pill">Free — ~2 weeks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section id="credits">
+  <div class="sec-header">
+    <div class="sec-icon">🎯</div>
+    <h2>Startup Credits — India Access Paths</h2>
+  </div>
+  <div class="credits-banner">
+    <div class="ci">💸</div>
+    <div>
+      <h3>₹38 crore+ in cloud credits potentially available to your startup</h3>
+      <p>Apply for all of these in parallel. Most require DPIIT recognition or accelerator/VC affiliation. Even partial grants fundamentally change your runway equation — ₹3 crore in GCP credits = 2 years of free cloud infrastructure at your scale.</p>
+      <div class="credit-pills">
+        <div class="cp"><div class="ca">$350K</div><div class="cn">GCP AI Credits</div></div>
+        <div class="cp"><div class="ca">$100K</div><div class="cn">AWS Activate</div></div>
+        <div class="cp"><div class="ca">$120K</div><div class="cn">Azure for Startups</div></div>
+        <div class="cp"><div class="ca">₹20L</div><div class="cn">MeitY Startup Hub</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="tips-grid" style="margin-top:16px">
+    <div class="tip">
+      <div class="tip-num">→</div>
+      <h3>GCP for Startups ($350K)</h3>
+      <p>Apply via Google for Startups Accelerator India or through partner VCs. AI-core product required. With Indian entity billing, credits are consumed in INR equivalent. Best suited for products using Vertex AI, Cloud Run, Firebase.</p>
+      <span class="tag">cloud.google.com/startup</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">→</div>
+      <h3>AWS Activate India ($100K)</h3>
+      <p>More accessible than GCP credits. Apply via AWS Activate portal. AWS India (Mumbai + Hyderabad) fully supported. INR billing with GST invoices. Best if you have team experience with AWS already.</p>
+      <span class="tag">aws.amazon.com/activate</span>
+    </div>
+    <div class="tip">
+      <div class="tip-num">→</div>
+      <h3>MeitY Startup Hub + TIDE 2.0</h3>
+      <p>Government of India's MeitY (Ministry of Electronics and IT) runs TIDE 2.0 grants of up to ₹7 lakh for hardware/software startups. Additional grants via Software Technology Parks of India (STPI) — up to ₹25 lakh for AI/ML products.</p>
+      <span class="tag">startup.meity.gov.in</span>
+    </div>
+  </div>
+
+  <div class="alert success" style="margin-top:20px">
+    <div class="ai">🇮🇳</div>
+    <div><strong>Bottom line for Indian founders:</strong> At $225–335/month USD budget, your real INR spend is <strong>₹19,000–28,500/month</strong>. With proper GST registration and a zero-markup card, the 18% GST is fully reclaimed and forex overhead drops to ₹0. The total hidden "India tax" on your cloud bill is effectively <strong>zero</strong> if you do the compliance setup correctly. The one-time setup takes 1–2 weeks and costs under ₹10,000 in CA fees. That ₹10,000 saves you ₹50,000+ per year. Do it this week.</div>
+  </div>
+</section>
+
+</main>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('#nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { threshold: 0.25 });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

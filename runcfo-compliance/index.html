@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RunCFO — Automation & API Integration Matrix</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050a0f;
+    --surface: #0c1520;
+    --surface2: #111d2b;
+    --border: rgba(255,255,255,0.06);
+    --green: #00e5a0;
+    --green-dim: rgba(0,229,160,0.12);
+    --amber: #f5a623;
+    --amber-dim: rgba(245,166,35,0.12);
+    --red: #ff4d6d;
+    --red-dim: rgba(255,77,109,0.1);
+    --blue: #4da6ff;
+    --blue-dim: rgba(77,166,255,0.12);
+    --violet: #a78bfa;
+    --slate: #64748b;
+    --white: #e8f0fe;
+    --muted: #4a5568;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    max-width: 1320px; margin: 0 auto 48px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .logo-dot { width: 10px; height: 10px; background: var(--green); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .logo-text { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(24px,3.5vw,42px); font-weight: 800; line-height: 1.1; }
+  h1 span { color: var(--green); }
+  .subtitle { font-size: 14px; color: var(--slate); margin-top: 10px; max-width: 580px; line-height: 1.6; }
+
+  /* Legend */
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #94a3b8; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+  /* Filter tabs */
+  .filters { max-width: 1320px; margin: 0 auto 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 40px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--slate); font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--white); }
+  .filter-btn.active { background: var(--green); border-color: var(--green); color: #050a0f; }
+  .filter-btn.amber-active { background: var(--amber); border-color: var(--amber); color: #050a0f; }
+
+  /* Summary stats */
+  .stats-row { max-width: 1320px; margin: 0 auto 36px; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+  .stat-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 24px;
+    transition: border-color 0.3s;
+  }
+  .stat-box:hover { border-color: rgba(255,255,255,0.12); }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; line-height: 1; }
+  .stat-lbl { font-size: 11px; color: var(--slate); margin-top: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* Main table */
+  .container { max-width: 1320px; margin: 0 auto; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin: 32px 0 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .grid { display: flex; flex-direction: column; gap: 6px; }
+  .row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .row:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-1px); }
+  .row.expanded { border-color: rgba(255,255,255,0.12); }
+
+  .row-top {
+    display: grid;
+    grid-template-columns: 28px 1fr 140px 140px 120px 100px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .row-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); text-align: center; }
+  .row-name { font-size: 14px; font-weight: 500; color: var(--white); }
+  .row-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* Automation badge */
+  .auto-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 40px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.3px; white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .auto-full { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,229,160,0.25); }
+  .auto-semi { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,166,35,0.25); }
+  .auto-manual { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,77,109,0.2); }
+  .auto-gen { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(77,166,255,0.2); }
+
+  /* API badge */
+  .api-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 6px;
+    font-size: 11px; font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace; white-space: nowrap;
+  }
+  .api-yes { background: rgba(0,229,160,0.08); color: #00c984; border: 1px solid rgba(0,229,160,0.15); }
+  .api-partner { background: rgba(167,139,250,0.1); color: var(--violet); border: 1px solid rgba(167,139,250,0.2); }
+  .api-no { background: rgba(255,77,109,0.08); color: #ff6b85; border: 1px solid rgba(255,77,109,0.15); }
+  .api-file { background: rgba(77,166,255,0.08); color: #6ab8ff; border: 1px solid rgba(77,166,255,0.15); }
+
+  /* Phase badge */
+  .phase-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; padding: 3px 8px; border-radius: 4px;
+    font-weight: 600; letter-spacing: 0.5px;
+  }
+  .ph1 { background: rgba(0,229,160,0.1); color: var(--green); }
+  .ph2 { background: rgba(245,166,35,0.1); color: var(--amber); }
+  .ph3 { background: rgba(167,139,250,0.1); color: var(--violet); }
+
+  /* Effort */
+  .effort { font-size: 11px; color: var(--slate); text-align: center; }
+  .effort-dots { display: flex; gap: 3px; justify-content: center; margin-top: 2px; }
+  .effort-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .effort-dot.filled { background: var(--amber); }
+  .effort-dot.empty { background: rgba(255,255,255,0.1); }
+
+  /* Expanded detail */
+  .row-detail {
+    display: none;
+    padding: 0 18px 18px 58px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+    animation: slideDown 0.2s ease;
+  }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .row.expanded .row-detail { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; padding-top: 16px; }
+
+  .detail-block h4 { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+  .detail-block p { font-size: 12.5px; color: #94a3b8; line-height: 1.7; }
+  .detail-block .api-ref {
+    display: inline-block; margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    background: rgba(0,229,160,0.06); border: 1px solid rgba(0,229,160,0.15);
+    padding: 4px 10px; border-radius: 6px; color: var(--green);
+  }
+  .detail-block .cost-note {
+    display: inline-block; margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    background: rgba(77,166,255,0.06); border: 1px solid rgba(77,166,255,0.1);
+    padding: 3px 8px; border-radius: 4px; color: var(--blue);
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .tag {
+    font-size: 10px; padding: 2px 7px; border-radius: 4px;
+    background: rgba(255,255,255,0.05); color: #6b7f99;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Chevron */
+  .chevron { margin-left: auto; color: var(--muted); font-size: 12px; transition: transform 0.2s; flex-shrink: 0; }
+  .row.expanded .chevron { transform: rotate(180deg); color: var(--white); }
+
+  /* Column headers */
+  .col-headers {
+    display: grid;
+    grid-template-columns: 28px 1fr 140px 140px 120px 100px;
+    gap: 12px; padding: 8px 18px;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); font-family: 'IBM Plex Mono', monospace;
+    max-width: 1320px; margin: 0 auto;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+  @media (max-width: 768px) {
+    .row-top { grid-template-columns: 1fr auto; }
+    .row-num, .row-detail { display: none; }
+    .row.expanded .row-detail { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .col-headers { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="logo-row">
+      <div class="logo-dot"></div>
+      <div class="logo-text">RunCFO · Automation Intelligence</div>
+    </div>
+    <h1>What Can We<br><span>Directly Automate?</span></h1>
+    <p class="subtitle">Every feature in PRD 16 mapped against API availability, direct integration feasibility, dev effort, and the exact route to automation. Click any row to expand.</p>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="leg-dot" style="background:var(--green)"></div>Full Auto (direct API)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:var(--amber)"></div>Semi-Auto (OTP/DSC gate)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:var(--blue)"></div>Generate + Export</div>
+    <div class="legend-item"><div class="leg-dot" style="background:var(--red)"></div>Manual only (no API)</div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-box">
+    <div class="stat-num" style="color:var(--green)">9</div>
+    <div class="stat-lbl">Fully Automatable via API</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num" style="color:var(--amber)">5</div>
+    <div class="stat-lbl">Semi-Auto (user signs/OTPs)</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num" style="color:var(--blue)">4</div>
+    <div class="stat-lbl">Generate + Export (CA files)</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num" style="color:var(--red)">2</div>
+    <div class="stat-lbl">Portal Only — No API</div>
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterRows('all', this)">All (20)</button>
+  <button class="filter-btn" onclick="filterRows('full', this)">🟢 Full Auto</button>
+  <button class="filter-btn" onclick="filterRows('semi', this)">🟡 Semi-Auto</button>
+  <button class="filter-btn" onclick="filterRows('gen', this)">🔵 Generate Only</button>
+  <button class="filter-btn" onclick="filterRows('manual', this)">🔴 No API</button>
+  <button class="filter-btn" onclick="filterRows('ph1', this)">Phase 2 MVP</button>
+  <button class="filter-btn" onclick="filterRows('ph3', this)">Phase 3</button>
+</div>
+
+<!-- Column headers -->
+<div class="col-headers">
+  <span>#</span>
+  <span>Feature</span>
+  <span>Automation Level</span>
+  <span>API Status</span>
+  <span>Phase</span>
+  <span>Dev Effort</span>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: BANK DATA -->
+  <div class="section-label">01 — Bank Data Import</div>
+  <div class="grid">
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">01</div>
+        <div><div class="row-name">PDF Bank Statement Parsing</div><div class="row-sub">HDFC, ICICI, SBI, Axis, Kotak — AI extraction</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ In-house + Perfios</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block">
+          <h4>How it Works</h4>
+          <p>pdfplumber extracts text-layer PDFs (covers 80%+ of Indian bank statements). Tesseract OCR handles scanned PDFs. AI pass (Claude Haiku) corrects merged cells, split narrations. Confidence-gated — low confidence rows shown to user for review.</p>
+        </div>
+        <div class="detail-block">
+          <h4>API / Integration Route</h4>
+          <p>Build in-house parser for 5 major banks. Perfios Bank Statement Analysis API as paid fallback — 4,000+ bank formats, &lt;3s per statement.</p>
+          <span class="api-ref">Perfios BSA API (enterprise)</span>
+          <span class="cost-note">~₹5–15 per statement (fallback only)</span>
+        </div>
+        <div class="detail-block">
+          <h4>Technical Notes</h4>
+          <div class="tag-list"><span class="tag">pdfplumber</span><span class="tag">pikepdf (decrypt)</span><span class="tag">Tesseract OCR</span><span class="tag">Claude Haiku</span><span class="tag">SheetJS (CSV)</span></div>
+          <p style="margin-top:8px">No regulatory approval needed. Pure file processing. Indian number format (lakh comma) and date format handled explicitly per bank.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">02</div>
+        <div><div class="row-name">Excel / CSV Bank Import</div><div class="row-sub">Auto-detect bank from headers, map columns</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ Client-side parse</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Low</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>User downloads CSV from bank net banking. RunCFO detects bank from header patterns (HDFC, ICICI, SBI, Axis, Kotak each have distinct headers). Column mapping auto-applied. SheetJS parses in browser — data never leaves client until categorized.</p></div>
+        <div class="detail-block"><h4>API / Integration Route</h4><p>No external API needed. Pure client-side parsing with SheetJS. Bank header detection dictionary maintained as a config file. Fallback: show manual column-mapping UI if bank unknown.</p><span class="api-ref">SheetJS (MIT license)</span></div>
+        <div class="detail-block"><h4>Technical Notes</h4><div class="tag-list"><span class="tag">SheetJS</span><span class="tag">React dropzone</span><span class="tag">Indian lakh format</span></div><p style="margin-top:8px">Parse Indian number format: "1,00,000.00" → 100000. Multiple date format handlers. Fastest MVP path — 1–2 week build.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="semi" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">03</div>
+        <div><div class="row-name">Live Bank Feed — Account Aggregator</div><div class="row-sub">Consent-based real-time bank data (RBI framework)</div></div>
+        <div><span class="auto-badge auto-semi">◑ Semi-Auto</span></div>
+        <div><span class="api-badge api-partner">⟳ Via Setu/Finvu</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div></div><span>High</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>User gives one-time consent via AA ecosystem. RunCFO gets structured JSON bank data monthly without any parsing. 126+ banks live on AA framework. 2.61B+ accounts enabled.</p></div>
+        <div class="detail-block"><h4>API / Integration Route</h4><p>RunCFO must register as FIU (Financial Information User) with Sahamati. Route API calls through Setu (TSP) or Finvu. Data comes as clean JSON — zero parsing needed.</p><span class="api-ref">Setu AA API (docs.setu.co)</span><span class="cost-note">~₹15–20/user/month for monthly fetch</span></div>
+        <div class="detail-block"><h4>Regulatory Blocker</h4><p>FIU must be regulated by RBI/SEBI/IRDAI/PFRDA. RunCFO is not regulated. Options: (a) Partner with regulated entity (bank/NBFC), (b) Get RIA (SEBI Registered Investment Adviser) license — enables FIU status, or (c) NBFC license (₹2Cr paid-up, 12-month process).</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 2: TRANSACTION INTELLIGENCE -->
+  <div class="section-label">02 — AI Bookkeeping Engine</div>
+  <div class="grid">
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">04</div>
+        <div><div class="row-name">AI Transaction Categorization</div><div class="row-sub">Map every transaction to ledger + auto narration</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ Claude / GPT API</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>4-layer pipeline: (1) UPI regex extraction, (2) custom NER for merchant names, (3) Claude Haiku classification with Indian COA schema, (4) user feedback loop. 90%+ accuracy on recurring transactions.</p></div>
+        <div class="detail-block"><h4>API Route</h4><p>Claude Haiku via Anthropic API (BYOK for Pro users). Prompt caching for recurring merchant patterns. Cost: ~₹0.5–2 per 100 transactions.</p><span class="api-ref">Anthropic API (claude-haiku)</span><span class="cost-note">~₹1–3/100 transactions</span></div>
+        <div class="detail-block"><h4>Indian Specifics</h4><div class="tag-list"><span class="tag">UPI narration parse</span><span class="tag">NEFT/RTGS/IMPS</span><span class="tag">GST RCM auto-detect</span><span class="tag">TDS flag engine</span></div></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">05</div>
+        <div><div class="row-name">Books of Accounts Generation</div><div class="row-sub">Cash Book, Bank Book, Ledger, Trial Balance, P&L, Balance Sheet</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ Internal engine</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>Pure TypeScript deterministic calculation engine. Double-entry bookkeeping logic: every categorized transaction becomes a journal entry. Aggregated to Trial Balance → P&L → Balance Sheet in Companies Act Schedule III format.</p></div>
+        <div class="detail-block"><h4>No External API Needed</h4><p>Entirely in-house. SheetJS for XLSX export. jsPDF for PDF output. Schedule III format hard-coded as template. Zero variable cost per generation.</p><span class="api-ref">SheetJS + jsPDF (in-house)</span><span class="cost-note">Zero per-use cost</span></div>
+        <div class="detail-block"><h4>Legal Compliance</h4><p>Format follows Companies Act 2013 Schedule III Division I. AS (Accounting Standards) not Ind AS for early-stage Pvt Ltd. Small company exemptions applied. Generated books are CA-reviewable, not CA-certified.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 3: TALLY -->
+  <div class="section-label">03 — Tally Integration</div>
+  <div class="grid">
+
+    <div class="row" data-type="semi" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">06</div>
+        <div><div class="row-name">Tally Prime XML Export</div><div class="row-sub">Import-ready XML for Tally ERP 9 & Prime — CA's tool</div></div>
+        <div><span class="auto-badge auto-semi">◑ Semi-Auto</span></div>
+        <div><span class="api-badge api-file">⤓ File Generate</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>RunCFO generates a Tally-compatible XML file. CA downloads and runs File → Import → Vouchers in Tally Prime. All ledger masters auto-created. Voucher narrations in CA-standard format.</p></div>
+        <div class="detail-block"><h4>Why "Semi-Auto" not Full</h4><p>Tally runs locally on CA's machine (port 9000). There's no cloud API — it's a local HTTP server. Direct integration requires the CA to install a small RunCFO Tally sync connector. Without connector, it's a file download + manual import.</p><span class="api-ref">Tally port 9000 HTTP API</span></div>
+        <div class="detail-block"><h4>Phase 3 Upgrade Path</h4><p>Build a Tally TDL plugin (Tally Definition Language) that CAs install once. Creates a live bidirectional sync button inside Tally. Pulls RunCFO data on-demand without leaving Tally.</p><div class="tag-list"><span class="tag">Tally.Py lib</span><span class="tag">TDL plugin</span><span class="tag">ODBC integration</span></div></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">07</div>
+        <div><div class="row-name">Live Tally Two-Way Sync</div><div class="row-sub">TDL plugin: pull actuals from Tally into RunCFO</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-partner">⟳ Local TDL plugin</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div></div><span>Very High</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>CA installs RunCFO TDL plugin once. Plugin calls RunCFO cloud API via Tally's built-in HTTP capability. Actuals flow back into RunCFO automatically — triggers budget vs actuals dashboard.</p></div>
+        <div class="detail-block"><h4>Technical Path</h4><p>TDL (Tally Definition Language) can call external URLs. Plugin makes POST request to RunCFO API with encrypted company data. RunCFO ingests and maps to financial model.</p><span class="api-ref">Tally TDL HTTP capability</span></div>
+        <div class="detail-block"><h4>Competitive Moat</h4><p>No existing fintech SaaS has live Tally sync. This feature alone makes RunCFO the only tool that bridges founder planning with CA's actual books in real-time. Massive lock-in.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 4: GST -->
+  <div class="section-label">04 — GST Compliance</div>
+  <div class="grid">
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">08</div>
+        <div><div class="row-name">GSTR-1 Data Preparation + Auto-File</div><div class="row-sub">Invoice-wise B2B/B2C data → GSTN JSON → API file</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-partner">⟳ GSP Partnership</span></div>
+        <div><span class="phase-badge ph1">Phase 2 → 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>API Availability</h4><p>GSTN provides full RESTful API via licensed GSPs. API covers: upload invoices, submit, get ARN, check status, pull GSTR-2A/2B. Phase 2: generate JSON (CA files). Phase 3: auto-file via GSP API with OTP confirmation.</p></div>
+        <div class="detail-block"><h4>Integration Route</h4><p>RunCFO acts as ASP (Application Service Provider). Partner with MasterGST or Vayana as the licensed GSP. No GSP license needed for RunCFO itself. GSTN sandbox at devapi.gstsystem.co.in — default OTP: 575757.</p><span class="api-ref">MasterGST API / Vayana GSP</span><span class="cost-note">~₹3–8 per return filing</span></div>
+        <div class="detail-block"><h4>Filing Flow</h4><p>RunCFO prepares data → sends to GSP API → GSP submits to GSTN → GSTN sends OTP to founder's phone → founder enters OTP in RunCFO → filed. Full end-to-end under 2 minutes.</p><div class="tag-list"><span class="tag">AES-256 payload encrypt</span><span class="tag">HMAC-SHA256</span><span class="tag">OTP consent</span></div></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">09</div>
+        <div><div class="row-name">GSTR-3B Working + Auto-File</div><div class="row-sub">Monthly summary + tax payment — API-ready</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-partner">⟳ GSP Partnership</span></div>
+        <div><span class="phase-badge ph1">Phase 2 → 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Low-Med</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>API Availability</h4><p>GSTR-3B filing is fully API-accessible via GSP. As of June 2025: auto-populated GSTR-3B liabilities cannot be edited without GSTR-1A correction first — RunCFO handles this flow automatically.</p></div>
+        <div class="detail-block"><h4>Tax Payment Integration</h4><p>After GSTR-3B filing, challan payment via net banking. Can integrate with Razorpay or direct GSTN challan payment API. Tax payment amount computed deterministically — AI never touches numbers.</p><span class="api-ref">GSTN challan payment API</span></div>
+        <div class="detail-block"><h4>IMS (Invoice Matching System)</h4><p>New GSTN feature (2024+): fetch real-time invoice status from IMS API. RunCFO auto-pulls GSTR-2B for ITC reconciliation via GSP API. Flags mismatches before filing.</p><div class="tag-list"><span class="tag">GSTR-2B pull API</span><span class="tag">ITC reconciliation</span></div></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="gen" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">10</div>
+        <div><div class="row-name">GSTR-9 Annual Return Data</div><div class="row-sub">Consolidation of full year — CA files with DSC</div></div>
+        <div><span class="auto-badge auto-gen">⬡ Generate + Export</span></div>
+        <div><span class="api-badge api-file">⤓ JSON Export</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Situation</h4><p>GSTR-9 consolidates full year's GSTR-1 and GSTR-3B data. RunCFO auto-generates the complete working — HSN summary, ITC summary, amendment reconciliation. Technically can be API-filed via GSP.</p></div>
+        <div class="detail-block"><h4>Why CA Required</h4><p>GSTR-9C (reconciliation statement, mandatory for turnover &gt;₹5Cr) must be certified by a CA with DSC. GSTR-9 itself (non-certification) can theoretically be auto-filed, but in practice CAs review before submission due to annual permanence — it cannot be revised once filed.</p></div>
+        <div class="detail-block"><h4>RunCFO Delivers</h4><p>Complete pre-filled working in GSTN JSON format. CA reviews in 30 minutes instead of 2–3 days. Export as: GSTN JSON + Excel for CA review + GSTR-9C reconciliation format.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">11</div>
+        <div><div class="row-name">E-Invoicing (IRN Generation)</div><div class="row-sub">Mandatory for ₹5Cr+ turnover — NIC API direct</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ NIC/IRP API</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>API Availability</h4><p>NIC provides e-invoice API directly (einv-apisandbox.nic.in for sandbox). Multiple IRP (Invoice Reference Portals) also provide APIs: ClearTax, Razorpay, IRIS. Fully automatable — generate invoice → API call → get IRN + QR code back.</p></div>
+        <div class="detail-block"><h4>Applicability</h4><p>Mandatory for turnover ≥₹5Cr. Will apply to RunCFO's users as they scale. Auto-detects threshold and prompts e-invoicing activation. IRN auto-populates GSTR-1.</p><span class="api-ref">NIC IRP API + IRIS IRP</span><span class="cost-note">~₹0 to ₹3 per IRN</span></div>
+        <div class="detail-block"><h4>Auto-flow</h4><p>RunCFO creates invoice → sends to IRP API → gets IRN + signed QR → embeds in PDF invoice → auto-populates GSTR-1 table. Complete e-invoice lifecycle in one click.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 5: TDS -->
+  <div class="section-label">05 — TDS Compliance</div>
+  <div class="grid">
+
+    <div class="row" data-type="full" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">12</div>
+        <div><div class="row-name">TDS Auto-Detection & Calculation</div><div class="row-sub">Flag applicable transactions, compute TDS by section</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ Internal rules engine</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>Deterministic rules engine checks: vendor type vs TDS section applicability, payment amount vs threshold (194J: ₹30K, 194C: ₹30K/₹1L aggregate, 194I: ₹2.4L/yr, etc.), PAN status (206AB higher rate), and annual aggregate tracking per vendor.</p></div>
+        <div class="detail-block"><h4>No External API Needed</h4><p>Rule-based TypeScript engine. PAN verification via Sandbox.co.in API for PAN validation and 206AB non-filer check. Rate tables hard-coded and versioned (updated per Finance Act).</p><span class="api-ref">sandbox.co.in PAN verify API</span></div>
+        <div class="detail-block"><h4>Output</h4><p>Real-time TDS flag on every payment entry. Running aggregate by vendor/section. Quarterly liability summary. "TDS alert: ₹5,000 TDS due on ABC & Associates — 194J@10%"</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="gen" data-phase="ph1" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">13</div>
+        <div><div class="row-name">Form 26Q / 27Q File Generation</div><div class="row-sub">NSDL FVU-compatible .txt file → user uploads to TRACES</div></div>
+        <div><span class="auto-badge auto-gen">⬡ Generate + Export</span></div>
+        <div><span class="api-badge api-file">⤓ FVU .txt file</span></div>
+        <div><span class="phase-badge ph1">Phase 2</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Situation</h4><p>TRACES (Income Tax TDS portal) has NO public REST API for return submission. TDS returns must be uploaded as FVU-validated .txt files via the IT e-filing portal web interface. No way around this today.</p></div>
+        <div class="detail-block"><h4>What RunCFO Does</h4><p>Generates the complete NSDL FVU-format .txt file (pipe-delimited, with all FH/BH/CD/DD record types). User/CA downloads and uploads to traces.gov.in. Sandbox.co.in TDS API is an alternative that automates end-to-end for registered users.</p><span class="api-ref">sandbox.co.in TDS API</span><span class="cost-note">~₹50–200/return via Sandbox</span></div>
+        <div class="detail-block"><h4>Phase 3 Upgrade</h4><p>Sandbox.co.in offers a commercial API: "Automate TDS compliance with Sandbox APIs. Calculate TDS on salary & non-salary payments, file TDS return forms 24Q/26Q, and generate Form 16/16A." This enables full automation if RunCFO integrates with them.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="full" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">14</div>
+        <div><div class="row-name">TDS Challan Auto-Payment (Challan 281)</div><div class="row-sub">7th of month deposit via net banking integration</div></div>
+        <div><span class="auto-badge auto-full">● Full Auto</span></div>
+        <div><span class="api-badge api-yes">✓ NSDL + Net banking</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div></div><span>High</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>Challan 281 payment goes via NSDL online payment portal (netbanking/UPI). RunCFO pre-fills: TAN, section codes, nature of payment, assessment year, amounts per section. User authorizes payment with net banking OTP.</p></div>
+        <div class="detail-block"><h4>Integration Path</h4><p>Deep-link to NSDL Challan 281 with pre-filled form data. Or integrate with Razorpay Tax Payments API (they support TDS challan payment). BSR code + challan serial number auto-captured for Form 26Q.</p><span class="api-ref">Razorpay Tax Payments</span></div>
+        <div class="detail-block"><h4>Value</h4><p>Late TDS deposit: 1.5%/month interest. 30% expense disallowed if TDS not deposited on time. Automated reminder + one-click payment eliminates this entirely. Auto-captures challan details for 26Q filing.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="gen" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">15</div>
+        <div><div class="row-name">Form 16A / 16 Certificate Generation</div><div class="row-sub">Auto-generate TDS certificates for vendors/employees</div></div>
+        <div><span class="auto-badge auto-gen">⬡ Generate + Export</span></div>
+        <div><span class="api-badge api-partner">⟳ TRACES API</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Low</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>How it Works</h4><p>After 26Q is filed and processed on TRACES, RunCFO pulls Form 16A (TDS certificate for non-salary) via TRACES request API. Auto-distributes to vendors via email with unique certificate number and TRACES watermark.</p></div>
+        <div class="detail-block"><h4>API Route</h4><p>TRACES does allow certificate download requests programmatically (not a full REST API but has integration hooks). Gen TDS and similar tools do this via direct TRACES login. Phase 3 feature once 26Q flow is live.</p></div>
+        <div class="detail-block"><h4>Value</h4><p>Vendors need Form 16A to claim TDS credit. Today CAs email PDFs manually. RunCFO auto-generates and emails with digital signature — saves CA 2–4 hours per quarter.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 6: ROC / ITR -->
+  <div class="section-label">06 — ROC & Income Tax</div>
+  <div class="grid">
+
+    <div class="row" data-type="gen" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">16</div>
+        <div><div class="row-name">ROC Filing Data — AOC-4 & MGT-7A</div><div class="row-sub">Generate all data; CA files on MCA21 V3 with DSC</div></div>
+        <div><span class="auto-badge auto-gen">⬡ Generate + Export</span></div>
+        <div><span class="api-badge api-no">✗ No public API</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Medium</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Hard Reality</h4><p>MCA21 V3 has NO public API for form filing. All 38 e-forms (AOC-4, MGT-7A, ADT-1, DIR-3 KYC etc.) must be filed through the web portal with DSC. New V3 requirements (July 2025): director's photo at registered office required, DSC validation integrated.</p></div>
+        <div class="detail-block"><h4>What RunCFO Does Instead</h4><p>Pre-generates all data CA needs: Schedule III financials, director details, shareholder list (from cap table), depreciation schedule, board meeting dates. CA opens MCA21 → RunCFO data reduces entry from 3 hours to 20 minutes.</p><span class="api-ref">No API — data export only</span></div>
+        <div class="detail-block"><h4>Penalty Risk (Why This Matters)</h4><p>AOC-4 late: ₹100/day, NO maximum cap. MGT-7A late: ₹100/day. Companies not filing for 3 consecutive years can be struck off. Director disqualified for 5 years under Section 164. RunCFO's compliance calendar with 30-day alerts is the mitigation.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="manual" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">17</div>
+        <div><div class="row-name">ITR-6 Corporate Income Tax Return</div><div class="row-sub">Requires CA certification + DSC. Generate JSON for CA.</div></div>
+        <div><span class="auto-badge auto-manual">✗ CA Required</span></div>
+        <div><span class="api-badge api-partner">⟳ ERI API (for CA)</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div></div><span>High</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>ERI API Exists — But CA Certifies</h4><p>Income Tax dept has a documented ERI (e-Return Intermediary) API at incometax.gov.in/api-specifications. Type-2 ERI registration enables programmatic filing. BUT ITR-6 for companies with turnover above audit threshold requires Form 3CA-3CD — a CA must sign with DSC.</p></div>
+        <div class="detail-block"><h4>RunCFO's Role</h4><p>Generate complete ITR-6 JSON (from financial statements, depreciation, MAT computation, 80-IAC claim, advance tax paid). CA validates and uploads via ERI API or portal. RunCFO eliminates 80% of CA's ITR preparation time.</p><span class="api-ref">IT ERI API (Type-2)</span><span class="cost-note">ERI registration: free, 1-time</span></div>
+        <div class="detail-block"><h4>New Tax Act Note</h4><p>Income Tax Act 1961 is repealed effective 01.04.2026. New Income Tax Act 2025 applies from AY 2027-28. RunCFO must track schema changes — ITR-6 JSON schema v1.3 (Jan 2026) is the current reference.</p><div class="tag-list"><span class="tag">80-IAC benefit</span><span class="tag">115BAA option</span><span class="tag">MAT u/s 115JB</span></div></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="semi" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">18</div>
+        <div><div class="row-name">DIR-3 KYC (Director Annual KYC)</div><div class="row-sub">Annual DSC-based filing — MCA21 web form</div></div>
+        <div><span class="auto-badge auto-semi">◑ Semi-Auto</span></div>
+        <div><span class="api-badge api-no">✗ No API (portal only)</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Very Low</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Situation</h4><p>DIR-3 KYC is due every September 30. No API — web form on MCA21 V3. Penalty: ₹5,000 flat if missed. DIN deactivated until paid — blocks ALL MCA filings.</p></div>
+        <div class="detail-block"><h4>RunCFO's Role</h4><p>Reminder 30 days before Sep 30. Pre-fill name, DIN, PAN, email from company profile. Director opens MCA21 portal → applies DSC. No data entry needed from our end — purely a reminder + data-prep service.</p></div>
+        <div class="detail-block"><h4>Leverage</h4><p>This is a high-anxiety annual task for founders. "Your DIN will be deactivated in 30 days" is a powerful trigger message. Even if the action happens outside RunCFO, being the source of the alert builds trust.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 7: PAYROLL COMPLIANCE -->
+  <div class="section-label">07 — Payroll & Employee Compliance</div>
+  <div class="grid">
+
+    <div class="row" data-type="semi" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">19</div>
+        <div><div class="row-name">PF / ESI Challan Computation</div><div class="row-sub">Monthly employer contribution calculation + challan</div></div>
+        <div><span class="auto-badge auto-semi">◑ Semi-Auto</span></div>
+        <div><span class="api-badge api-file">⤓ Challan generate</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Low</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Auto-Calculation</h4><p>PF: 12% employer + 12% employee on basic (capped at ₹15,000 basic). ESI: 3.25% employer on gross ≤₹21,000/month. PT: state-dependent, pre-filled from office city. RunCFO computes all from payroll data.</p></div>
+        <div class="detail-block"><h4>Filing Reality</h4><p>PF filed via EPFO Unified Portal (web). ESI via ESIC portal (web). No clean REST API available for filing. RunCFO generates challan amounts and due dates — founder/CA pays via portal.</p><span class="api-ref">EPFO portal (no API)</span></div>
+        <div class="detail-block"><h4>Value</h4><p>Penalties: PF late = 12–25% damages + ₹5,000–₹50,000 penalty. ESI late = 12%/yr interest. Monthly auto-reminder + computed amounts eliminates non-compliance.</p></div>
+      </div>
+    </div>
+
+    <div class="row" data-type="manual" data-phase="ph3" onclick="toggle(this)">
+      <div class="row-top">
+        <div class="row-num">20</div>
+        <div><div class="row-name">MSME-1 / DPT-3 / MSME Form</div><div class="row-sub">Biannual outstanding dues + deposit return</div></div>
+        <div><span class="auto-badge auto-manual">✗ Manual (portal only)</span></div>
+        <div><span class="api-badge api-no">✗ MCA21 web only</span></div>
+        <div><span class="phase-badge ph3">Phase 3</span></div>
+        <div class="effort"><div class="effort-dots"><div class="effort-dot filled"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div><div class="effort-dot empty"></div></div><span>Very Low</span></div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="row-detail">
+        <div class="detail-block"><h4>Situation</h4><p>MSME-1: report outstanding dues to MSME vendors beyond 45 days. Due April 30 and Oct 31. DPT-3: return of deposits (even if nil). Due June 30 annually. Both filed on MCA21 web portal — no API.</p></div>
+        <div class="detail-block"><h4>RunCFO's Role</h4><p>Auto-detect MSME vendors from bank data (many will self-identify). Flag payments outstanding beyond 45 days. Generate MSME-1 data in MCA's Excel format. Reminder 30 days before due date.</p></div>
+        <div class="detail-block"><h4>Penalties</h4><p>MSME-1 penalty: ₹25,000–₹3L. DPT-3 penalty: company ₹5,000–₹25L, officer ₹1,000–₹25L. These are filed once/twice yearly — high penalty for low-effort compliance RunCFO can prevent.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom verdict box -->
+  <div style="margin-top:48px;background:linear-gradient(135deg,rgba(0,229,160,0.05),rgba(77,166,255,0.05));border:1px solid rgba(0,229,160,0.15);border-radius:20px;padding:32px 36px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--green);margin-bottom:16px;text-transform:uppercase">Strategic Verdict</div>
+    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1.5;color:var(--white);max-width:900px">
+      <span style="color:var(--green)">13 of 20 features</span> can be fully automated or semi-automated today via existing APIs. The critical gap is <span style="color:var(--amber)">TDS 26Q filing</span> (no REST API — Sandbox.co.in bridges this) and <span style="color:var(--red)">ROC/MCA21</span> (zero API, web-only forever). The GST API stack (GSTR-1 + GSTR-3B) is <span style="color:var(--green)">fully automatable</span> via a GSP partnership requiring zero license from RunCFO.
+    </div>
+    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:8px;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.15);border-radius:8px;padding:8px 14px">
+        <span style="color:var(--green);font-size:18px">⚡</span>
+        <span style="font-size:12px;color:#94a3b8"><strong style="color:var(--white)">Week 1 priority:</strong> Build GSP partnership with MasterGST — unlocks GSTR-1 + GSTR-3B auto-filing immediately</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.15);border-radius:8px;padding:8px 14px">
+        <span style="color:var(--amber);font-size:18px">🎯</span>
+        <span style="font-size:12px;color:#94a3b8"><strong style="color:var(--white)">Phase 3 unlock:</strong> Sandbox.co.in TDS API + Sahamati FIU registration → closes the last two gaps</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggle(el) {
+    const wasExpanded = el.classList.contains('expanded');
+    document.querySelectorAll('.row.expanded').forEach(r => r.classList.remove('expanded'));
+    if (!wasExpanded) el.classList.add('expanded');
+  }
+
+  function filterRows(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.row').forEach(row => {
+      if (type === 'all') {
+        row.style.display = '';
+      } else if (type === 'ph1') {
+        row.style.display = row.dataset.phase === 'ph1' ? '' : 'none';
+      } else if (type === 'ph3') {
+        row.style.display = row.dataset.phase === 'ph3' ? '' : 'none';
+      } else {
+        row.style.display = row.dataset.type === type ? '' : 'none';
+      }
+    });
+    // Update section visibility
+    document.querySelectorAll('.section-label').forEach(s => {
+      const next = s.nextElementSibling;
+      if (next) {
+        const visible = Array.from(next.querySelectorAll('.row')).some(r => r.style.display !== 'none');
+        s.style.display = visible ? '' : 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

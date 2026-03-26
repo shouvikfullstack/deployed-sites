@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bachao.AI — Cybersecurity Services for Andhra Pradesh Police</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9fb;
+  --white: #ffffff;
+  --gray-50: #f3f4f6;
+  --gray-100: #e8eaef;
+  --gray-200: #d1d5de;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --blue: #1d4ed8;
+  --blue-light: #3b82f6;
+  --blue-bg: #eff6ff;
+  --red: #b91c1c;
+  --red-bg: #fef2f2;
+  --green: #15803d;
+  --green-bg: #f0fdf4;
+  --amber: #b45309;
+  --amber-bg: #fffbeb;
+  --border: #e5e7eb;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--gray-700);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* HEADER */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top:0; z-index:100;
+}
+.header-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+.header-brand {
+  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-900);
+  text-decoration: none;
+  margin-right: 24px;
+  white-space: nowrap;
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+.header-nav > a {
+  padding: 6px 11px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-decoration: none;
+  border-radius: 5px;
+  white-space: nowrap;
+  transition: color .15s, background .15s;
+}
+.header-nav > a:hover { color: var(--gray-900); background: var(--gray-50); }
+.header-nav > a.active { color: var(--blue); background: var(--blue-bg); }
+.nav-sep { width:1px; height:18px; background:var(--gray-200); margin:0 6px; }
+.nav-more { position:relative; }
+.nav-more button {
+  padding: 6px 11px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-500);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .15s;
+}
+.nav-more button:hover { color: var(--gray-900); background: var(--gray-50); border-color: var(--gray-200); }
+.nav-dd {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+  min-width: 220px;
+  padding: 4px 0;
+  z-index: 200;
+}
+.nav-more.open .nav-dd { display:block; }
+.nav-dd a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--gray-600);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-dd a:hover { background: var(--gray-50); color: var(--gray-900); }
+.nav-dd .dd-head {
+  padding: 8px 14px 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.nav-dd hr { border:none; border-top:1px solid var(--border); margin:4px 10px; }
+.header-tag {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--gray-400);
+  white-space: nowrap;
+  padding-left: 14px;
+  border-left: 1px solid var(--border);
+}
+.header-tag strong { color: var(--gray-700); }
+.hamburger {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--gray-700);
+}
+.mob-nav {
+  display: none;
+  flex-direction: column;
+  padding: 6px 28px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+.mob-nav.open { display:flex; }
+.mob-nav a {
+  padding: 10px 8px;
+  font-size: 15px;
+  color: var(--gray-600);
+  text-decoration: none;
+  border-radius: 5px;
+}
+.mob-nav a:hover { background: var(--gray-50); }
+
+/* LAYOUT */
+.wrap { max-width:1060px; margin:0 auto; padding:0 28px; }
+
+/* HERO */
+.hero { padding: 52px 0 44px; border-bottom:1px solid var(--border); }
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(26px,4.5vw,40px);
+  font-weight: 900;
+  color: var(--gray-900);
+  line-height: 1.3;
+  margin-bottom: 18px;
+}
+.hero-lead {
+  font-size: 18px;
+  color: var(--gray-500);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+.hero-lead strong { color: var(--gray-800); }
+
+/* PROBLEM-SOLUTION BOX */
+.ps-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.ps-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.ps-cell {
+  padding: 24px 28px;
+}
+.ps-cell.problem {
+  background: var(--red-bg);
+  border-right: 1px solid #fecaca;
+}
+.ps-cell.solution {
+  background: var(--green-bg);
+}
+.ps-cell h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.ps-cell.problem h3 { color: var(--red); }
+.ps-cell.solution h3 { color: var(--green); }
+.ps-cell p {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+.ps-cell ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ps-cell ul li {
+  font-size: 15px;
+  color: var(--gray-700);
+  padding: 3px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.ps-cell.problem ul li::before { content:'✕'; position:absolute; left:0; color:var(--red); font-weight:700; font-size:13px; }
+.ps-cell.solution ul li::before { content:'✓'; position:absolute; left:0; color:var(--green); font-weight:700; font-size:13px; }
+
+/* SERVICE STRIP */
+.svc-strip {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+.svc-strip h3 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 14px;
+}
+.tags { display:flex; flex-wrap:wrap; gap:7px; }
+.tag {
+  display: inline-block;
+  padding: 5px 13px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--gray-700);
+  background: var(--gray-50);
+}
+
+/* SECTION */
+.sec { padding:48px 0; border-bottom:1px solid var(--border); }
+.sec-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.sec h2 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(22px,3vw,30px);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+.sec-sub {
+  font-size: 16px;
+  color: var(--gray-500);
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+/* SIMPLE TABLE */
+.tbl-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+table.tbl thead th {
+  background: var(--gray-50);
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+}
+table.tbl thead th.col-us { color: var(--blue); }
+table.tbl tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+table.tbl tbody tr:hover td { background: #f9fafb; }
+table.tbl tbody td:first-child {
+  font-weight: 600;
+  color: var(--gray-800);
+  white-space: nowrap;
+}
+table.tbl tbody td:last-child { background: rgba(29,78,216,.02); }
+.y { display:inline-block; padding:1px 7px; font-size:13px; font-weight:600; border-radius:4px; background:var(--green-bg); color:var(--green); }
+.n { display:inline-block; padding:1px 7px; font-size:13px; font-weight:600; border-radius:4px; background:var(--red-bg); color:var(--red); }
+.p { display:inline-block; padding:1px 7px; font-size:13px; font-weight:600; border-radius:4px; background:var(--amber-bg); color:var(--amber); }
+
+/* EXPLAINER: Plain language */
+.explain {
+  background: var(--blue-bg);
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin: 28px 0;
+  font-size: 16px;
+  color: var(--gray-800);
+  line-height: 1.8;
+}
+.explain h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+/* ANALOGY CARDS */
+.analogy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+.analogy-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 22px;
+}
+.analogy-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+.analogy-card .what {
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.analogy-card p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* SERVICE GRID */
+.sg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.sc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 20px;
+}
+.sc-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-300);
+  margin-bottom: 8px;
+}
+.sc h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+.sc .plain {
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.sc p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ALERT BOX */
+.alert {
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+.alert.red { background: var(--red-bg); border:1px solid #fecaca; }
+.alert.red h4 { color: var(--red); }
+.alert.blue { background: var(--blue-bg); border:1px solid #bfdbfe; }
+.alert.blue h4 { color: var(--blue); }
+.alert h4 { font-size:16px; font-weight:700; margin-bottom:8px; }
+.alert p, .alert li { font-size:15px; color:var(--gray-700); line-height:1.7; }
+.alert ul { margin-top:8px; padding-left:18px; }
+.alert ul li { margin-bottom:4px; }
+
+/* TIMELINE */
+.tl { padding-left:28px; margin-top:20px; position:relative; }
+.tl::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:2px; background:var(--gray-200); }
+.tl-i { position:relative; margin-bottom:22px; }
+.tl-i::before { content:''; position:absolute; left:-26px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--blue); border:2px solid var(--white); box-shadow:0 0 0 2px var(--blue-bg); }
+.tl-i .tl-l { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue); margin-bottom:2px; }
+.tl-i h4 { font-size:16px; font-weight:700; color:var(--gray-800); margin-bottom:4px; }
+.tl-i p { font-size:15px; color:var(--gray-500); line-height:1.6; }
+
+/* PHASE GRID */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.phase-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 18px;
+}
+.phase-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.phase-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* CTA */
+.cta { text-align:center; padding:52px 0; }
+.cta h2 { font-family:'Merriweather',serif; font-size:clamp(22px,3vw,32px); color:var(--gray-900); margin-bottom:10px; }
+.cta p { font-size:17px; color:var(--gray-500); max-width:520px; margin:0 auto 24px; }
+.cta-btn {
+  display:inline-block;
+  background:var(--gray-900);
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  padding:14px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  transition: background .2s;
+}
+.cta-btn:hover { background:#374151; }
+.cta-contact { margin-top:14px; font-size:14px; color:var(--gray-400); }
+.cta-contact strong { color:var(--gray-700); }
+
+/* FOOTER */
+.footer { border-top:1px solid var(--border); padding:20px 0; text-align:center; font-size:13px; color:var(--gray-400); }
+
+/* RESPONSIVE */
+@media print { .header{display:none;} .hero{padding:24px 0;} .sec{padding:20px 0;} }
+
+@media (max-width:900px) {
+  .header-nav, .header-tag { display:none; }
+  .hamburger { display:block; }
+  .ps-row { grid-template-columns:1fr; }
+  .ps-cell.problem { border-right:none; border-bottom:1px solid #fecaca; }
+  .analogy-grid { grid-template-columns:1fr; }
+  .sg { grid-template-columns:repeat(2,1fr); }
+  .phase-grid { grid-template-columns:repeat(2,1fr); }
+  .two-col { grid-template-columns:1fr; }
+}
+
+@media (max-width:640px) {
+  .wrap { padding:0 16px; }
+  .header-inner { padding:0 16px; }
+  .mob-nav { padding:6px 16px 14px; }
+
+  /* Hero */
+  .hero { padding:32px 0 28px; }
+  .hero-eyebrow { font-size:11px; letter-spacing:1px; margin-bottom:10px; }
+  .hero h1 { font-size:24px; line-height:1.3; }
+  .hero h1 br { display:none; }
+  .hero-lead { font-size:15px; margin-bottom:24px; }
+
+  /* Problem/Solution */
+  .ps-box { margin-bottom:20px; }
+  .ps-cell { padding:18px 16px; }
+  .ps-cell h3 { font-size:13px; }
+  .ps-cell ul li { font-size:14px; padding-left:18px; }
+
+  /* Service strip */
+  .svc-strip { padding:16px 14px; }
+  .svc-strip h3 { font-size:11px; margin-bottom:10px; }
+  .tags { gap:5px; }
+  .tag { font-size:13px; padding:4px 10px; }
+
+  /* Sections */
+  .sec { padding:32px 0; }
+  .sec-label { font-size:11px; }
+  .sec h2 { font-size:21px; }
+  .sec-sub { font-size:14px; margin-bottom:20px; }
+
+  /* Tables */
+  .tbl-wrap { margin:0 -16px; padding:0 16px; }
+  table.tbl { font-size:13px; min-width:580px; }
+  table.tbl thead th { font-size:10px; padding:9px 10px; position:static; }
+  table.tbl tbody td { padding:10px 10px; }
+  table.tbl tbody td:first-child { font-size:13px; }
+  .y, .n, .p { font-size:11px; padding:1px 6px; }
+
+  /* Explain box */
+  .explain { padding:18px 16px; font-size:14px; margin:20px 0; }
+  .explain h4 { font-size:15px; }
+
+  /* Analogy cards */
+  .analogy-grid { gap:12px; }
+  .analogy-card { padding:18px 16px; }
+  .analogy-card h4 { font-size:14px; }
+  .analogy-card .what { font-size:13px; }
+  .analogy-card p { font-size:14px; }
+
+  /* Service grid */
+  .sg { grid-template-columns:1fr; gap:10px; }
+  .sc { padding:18px 16px; }
+  .sc-num { font-size:11px; margin-bottom:6px; }
+  .sc h4 { font-size:15px; }
+  .sc .plain { font-size:13px; }
+  .sc p { font-size:13px; }
+  .stag { font-size:10px; }
+
+  /* Two-col compare */
+  .two-col { gap:12px; }
+  .col-card { padding:20px 16px; }
+  .col-card h3 { font-size:18px; }
+  .col-card .subtitle { font-size:12px; }
+  .col-card ul li { font-size:13px; }
+  .rec-badge { font-size:9px; }
+
+  /* Price table */
+  .price-table { font-size:12px; }
+  .price-table thead th { font-size:10px; padding:8px 10px; }
+  .price-table tbody td { padding:8px 10px; }
+
+  /* Alert */
+  .alert { padding:18px 16px; margin:20px 0; }
+  .alert h4 { font-size:15px; }
+  .alert p, .alert li { font-size:14px; }
+
+  /* Timeline */
+  .tl { padding-left:24px; }
+  .tl-i::before { left:-20px; width:8px; height:8px; }
+  .tl::before { left:4px; }
+  .tl-i h4 { font-size:15px; }
+  .tl-i p { font-size:14px; }
+
+  /* Phase grid */
+  .phase-grid { grid-template-columns:1fr; gap:10px; }
+  .phase-card { padding:16px 14px; }
+  .phase-card h4 { font-size:13px; }
+  .phase-card p { font-size:13px; }
+
+  /* CTA */
+  .cta { padding:32px 0; }
+  .cta h2 { font-size:22px; }
+  .cta p { font-size:15px; margin-bottom:20px; }
+  .cta-btn { width:100%; text-align:center; font-size:15px; padding:13px 24px; }
+  .cta-contact { font-size:13px; }
+
+  /* Footer */
+  .footer { font-size:11px; padding:16px 0; }
+}
+
+@media (max-width:380px) {
+  .hero h1 { font-size:21px; }
+  .hero-lead { font-size:14px; }
+  .header-brand { font-size:15px; }
+  .ps-cell ul li { font-size:13px; }
+  .tag { font-size:12px; padding:3px 8px; }
+  .sec h2 { font-size:19px; }
+  .cta h2 { font-size:20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-brand">Bachao.AI</a>
+    <nav class="header-nav">
+      <a href="#what-we-do" class="active">What We Do</a>
+      <a href="#comparison">Comparison</a>
+      <a href="#plain-english">In Simple Terms</a>
+      <a href="#services">All 12 Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#engagement">Deploy Plan</a>
+      <span class="nav-sep"></span>
+      <div class="nav-more">
+        <button onclick="this.parentElement.classList.toggle('open')">More &#9662;</button>
+        <div class="nav-dd">
+          <div class="dd-head">Product Details</div>
+          <a href="#services" data-scroll="vapt">VAPT Scanner</a>
+          <a href="#services" data-scroll="dark-web">Dark Web Monitoring</a>
+          <a href="#services" data-scroll="rasp">RASP Protection</a>
+          <a href="#services" data-scroll="cloud">Cloud Security</a>
+          <a href="#services" data-scroll="api">API Security</a>
+          <a href="#services" data-scroll="training">Security Training</a>
+          <a href="#services" data-scroll="ir">Incident Response</a>
+          <a href="#services" data-scroll="dpdp">DPDP Compliance</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-tag">For <strong>DGP, AP Police</strong></div>
+    <button class="hamburger" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
+  </div>
+  <div class="mob-nav" id="mn">
+    <a href="#what-we-do" onclick="this.closest('.mob-nav').classList.remove('open')">What We Do</a>
+    <a href="#comparison" onclick="this.closest('.mob-nav').classList.remove('open')">Comparison</a>
+    <a href="#plain-english" onclick="this.closest('.mob-nav').classList.remove('open')">In Simple Terms</a>
+    <a href="#services" onclick="this.closest('.mob-nav').classList.remove('open')">All 12 Services</a>
+    <a href="#why-us" onclick="this.closest('.mob-nav').classList.remove('open')">Why Us</a>
+    <a href="#engagement" onclick="this.closest('.mob-nav').classList.remove('open')">Deployment Plan</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Bachao.AI vs APTS &mdash; For the Office of DGP, Andhra Pradesh</div>
+  <h1>Why AP Police Should Choose Bachao.AI for All Cybersecurity Services</h1>
+  <p class="hero-lead">
+    <strong>In one line:</strong> APTS is a government IT procurement agency that also does some cybersecurity. Bachao.AI is a dedicated cybersecurity company that does <em>only</em> cybersecurity &mdash; with <strong>12 specialized services</strong> built on modern AI technology.
+  </p>
+
+  <!-- Problem / Solution -->
+  <div class="ps-box">
+    <div class="ps-row">
+      <div class="ps-cell problem">
+        <h3>The Problem with APTS</h3>
+        <ul>
+          <li>Established in 1986 for IT procurement &mdash; buys hardware, runs networks</li>
+          <li>Cybersecurity is a side activity, not their core business</li>
+          <li>Cannot detect threats on the dark web</li>
+          <li>Cannot protect police apps from hacking in real-time</li>
+          <li>No capability for digital forensics with AI</li>
+          <li>Takes 2&ndash;4 weeks to deliver a security report</li>
+          <li>No public pricing &mdash; everything needs a tender</li>
+        </ul>
+      </div>
+      <div class="ps-cell solution">
+        <h3>What Bachao.AI Offers</h3>
+        <ul>
+          <li>Purpose-built cybersecurity company with 12 services</li>
+          <li>Cybersecurity is our only business</li>
+          <li>24/7 dark web monitoring with instant alerts</li>
+          <li>RASP technology blocks hackers in real-time inside the app</li>
+          <li>AI-powered cyber forensics for criminal investigations</li>
+          <li>Security reports delivered in 45 minutes, not weeks</li>
+          <li>Transparent pricing &mdash; starts free, scales as needed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-strip">
+    <h3>Our 12 Services for AP Police</h3>
+    <div class="tags">
+      <span class="tag">Vulnerability Testing (VAPT)</span>
+      <span class="tag">Dark Web Monitoring</span>
+      <span class="tag">Real-time App Protection (RASP)</span>
+      <span class="tag">Cyber Forensics</span>
+      <span class="tag">Ethical Hacking</span>
+      <span class="tag">Incident Response</span>
+      <span class="tag">Cloud Security</span>
+      <span class="tag">API Security</span>
+      <span class="tag">Employee Security Training</span>
+      <span class="tag">Data Protection Compliance (DPDP)</span>
+      <span class="tag">Red Teaming</span>
+      <span class="tag">Security Operations Centre (SOC)</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLAIN ENGLISH SECTION -->
+<section class="sec" id="plain-english">
+  <div class="sec-label">Understanding the Services</div>
+  <h2>What Each Service Does &mdash; In Simple Terms</h2>
+  <p class="sec-sub">No jargon. Here is what each service means for AP Police operations.</p>
+
+  <div class="analogy-grid">
+    <div class="analogy-card">
+      <div class="what">Vulnerability Testing (VAPT)</div>
+      <h4>Think: Security audit of a police station</h4>
+      <p>Just like you would inspect a police station for weak locks, broken CCTV, or unguarded entry points &mdash; VAPT checks all police websites and apps for security weaknesses that hackers could exploit. We find the weak points before criminals do.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">Dark Web Monitoring</div>
+      <h4>Think: Informer network in the criminal underworld</h4>
+      <p>The dark web is where criminals trade stolen data, passwords, and hacking tools. Our AI monitors these hidden networks 24/7 &mdash; like having informers in every criminal gang. If AP Police data appears on the dark web, we alert you within 5 minutes.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">RASP (Real-time App Protection)</div>
+      <h4>Think: Armed guard inside the building, not just at the gate</h4>
+      <p>Traditional security (firewalls) is like posting guards at the gate. RASP puts a guard inside every room. If a hacker gets past the gate, RASP stops them at the point of attack &mdash; blocking the hack in real-time, from inside the application.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">Cyber Forensics</div>
+      <h4>Think: Crime scene investigation, but for computers</h4>
+      <p>When a cyber crime occurs, we preserve digital evidence, trace the attacker's steps, and build a timeline &mdash; exactly like forensic teams at a crime scene. Our reports are court-admissible and ready for FIR documentation.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">Ethical Hacking</div>
+      <h4>Think: Mock drill to test your defences</h4>
+      <p>Just like police conduct mock drills to test emergency response, ethical hackers attempt to break into your systems using the same techniques real criminals use &mdash; but safely. We find what a real attacker would find, and fix it before they can.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">Incident Response (2-Hour SLA)</div>
+      <h4>Think: Emergency response team for cyber attacks</h4>
+      <p>When a cyber attack happens, every minute counts. Our team responds within 2 hours, contains the breach, preserves evidence, and files the mandatory CERT-In notification within the 6-hour government deadline. Like a QRT for cyber emergencies.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">Employee Security Training</div>
+      <h4>Think: Training constables to spot fake ID cards</h4>
+      <p>91% of cyber attacks start with a phishing email. We train AP Police staff to recognise fake emails, WhatsApp messages, and scam links &mdash; in Hindi, Telugu, and English. Using realistic Indian scenarios like fake GST notices and UPI requests.</p>
+    </div>
+    <div class="analogy-card">
+      <div class="what">SOC-as-a-Service</div>
+      <h4>Think: 24/7 control room monitoring all CCTV feeds</h4>
+      <p>Just like a police control room monitors CCTV across the city, our Security Operations Centre monitors all AP Police digital systems 24/7, detecting suspicious activity and responding immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="sec" id="what-we-do">
+  <div class="sec-label">The Numbers</div>
+  <h2>Why This Matters for AP Police</h2>
+  <p class="sec-sub">The cyber threat to Indian law enforcement is real and growing.</p>
+
+  <div class="explain">
+    <h4>Key Facts</h4>
+    <p>
+      <strong>2.94 million</strong> cyber incidents were tracked by CERT-In in 2025 alone.<br>
+      The average data breach costs <strong>&#8377;22 crore</strong> (IBM 2025).<br>
+      <strong>Only 7%</strong> of Indian organisations are considered cyber-mature (Cisco 2025).<br>
+      India's new data protection law (DPDP Act) carries penalties up to <strong>&#8377;250 crore per violation</strong> &mdash; enforcement begins <strong>May 2027</strong>.<br>
+      CERT-In mandates breach reporting within <strong>6 hours</strong>. Without an incident response plan, this deadline is nearly impossible to meet.
+    </p>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="sec" id="comparison">
+  <div class="sec-label">Service-by-Service</div>
+  <h2>What APTS Offers vs What Bachao.AI Offers</h2>
+  <p class="sec-sub">A direct comparison of all 12 services AP Police needs.</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>APTS</th>
+          <th class="col-us">Bachao.AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1. Vulnerability Testing (VAPT)</td><td>Manual, takes weeks, needs tender</td><td><span class="y">Yes</span> AI-powered, report in 45 minutes. Free first scan.</td></tr>
+        <tr><td>2. Dark Web Monitoring</td><td><span class="n">No</span></td><td><span class="y">Yes</span> 24/7 monitoring, alerts in under 5 minutes. &#8377;999/month.</td></tr>
+        <tr><td>3. Real-time App Protection (RASP)</td><td><span class="n">No</span></td><td><span class="y">Yes</span> Blocks hackers inside the app. Free monitoring mode.</td></tr>
+        <tr><td>4. Cyber Forensics</td><td><span class="p">Limited</span> basic, reactive</td><td><span class="y">Yes</span> AI-assisted, court-admissible, FIR-ready reports.</td></tr>
+        <tr><td>5. Ethical Hacking</td><td><span class="p">Limited</span> manual only</td><td><span class="y">Yes</span> AI + manual. Tests the same techniques real criminals use.</td></tr>
+        <tr><td>6. Incident Response</td><td><span class="p">Limited</span> no guaranteed response time</td><td><span class="y">Yes</span> 2-hour response guarantee. CERT-In notification handled. &#8377;9,999/month.</td></tr>
+        <tr><td>7. Cloud Security</td><td><span class="n">No</span></td><td><span class="y">Yes</span> Checks AWS, Azure, Google Cloud for misconfigurations. Free audit.</td></tr>
+        <tr><td>8. API Security</td><td><span class="n">No</span></td><td><span class="y">Yes</span> Tests all digital connections between systems. Free scan.</td></tr>
+        <tr><td>9. Employee Security Training</td><td><span class="n">No</span></td><td><span class="y">Yes</span> Phishing training in Hindi, Telugu, English. &#8377;200 per person/year.</td></tr>
+        <tr><td>10. Data Protection (DPDP) Compliance</td><td><span class="n">No</span></td><td><span class="y">Yes</span> Free compliance score in 5 minutes. Full report &#8377;2,000.</td></tr>
+        <tr><td>11. Red Teaming</td><td><span class="p">Limited</span> manual only</td><td><span class="y">Yes</span> AI-powered attack simulation + expert-led testing.</td></tr>
+        <tr><td>12. Security Operations Centre (SOC)</td><td><span class="y">Yes</span> (APCSOC)</td><td><span class="y">Yes</span> AI-augmented 24/7 monitoring with dark web integration.</td></tr>
+        <tr>
+          <td style="color:var(--blue);font-weight:700">Speed of delivery</td>
+          <td>2&ndash;4 weeks (through tender process)</td>
+          <td style="color:var(--blue);font-weight:600">45 minutes to 24 hours</td>
+        </tr>
+        <tr>
+          <td style="color:var(--blue);font-weight:700">Pricing</td>
+          <td>Not published. Requires formal RFP.</td>
+          <td style="color:var(--blue);font-weight:600">Published on website. Free tiers available.</td>
+        </tr>
+        <tr>
+          <td style="color:var(--blue);font-weight:700">Languages supported</td>
+          <td>English only</td>
+          <td style="color:var(--blue);font-weight:600">Hindi, Telugu, English + 20 more Indian languages</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="explain" style="margin-top:28px">
+    <h4>How to read this table</h4>
+    <p>
+      <span class="y">Yes</span> = Service is available as a dedicated product with published pricing.<br>
+      <span class="n">No</span> = Service is not offered at all.<br>
+      <span class="p">Limited</span> = Some capability exists but without dedicated focus, SLA, or modern technology.<br><br>
+      <strong>APTS offers 4 of 12 services</strong> (and 3 of those are limited). <strong>Bachao.AI offers all 12</strong> as dedicated products.
+    </p>
+  </div>
+</section>
+
+<!-- ALL 12 SERVICES -->
+<section class="sec" id="services">
+  <div class="sec-label">Complete Service Suite</div>
+  <h2>All 12 Services for AP Police</h2>
+  <p class="sec-sub">Each service is explained in plain language with its real-world purpose for law enforcement.</p>
+
+  <div class="sg">
+    <div class="sc">
+      <div class="sc-num">01</div>
+      <h4>Vulnerability Testing (VAPT)</h4>
+      <div class="plain">"Find the weak locks before thieves do"</div>
+      <p>Automated security check of all AP Police websites and applications. AI finds weaknesses and explains how to fix them. Report delivered in 45 minutes.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">02</div>
+      <h4>Dark Web Monitoring</h4>
+      <div class="plain">"Informer network in the digital underworld"</div>
+      <p>24/7 watch on criminal marketplaces for leaked AP Police data, officer credentials, or fake police websites. Alerts in under 5 minutes. Monitors WhatsApp and Telegram too.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">03</div>
+      <h4>RASP Protection</h4>
+      <div class="plain">"Guard inside the building, not just at the gate"</div>
+      <p>Blocks hacking attempts in real-time from inside the application. Even if hackers bypass the firewall, RASP stops them at the point of attack. Works for Java, Python, Node.js, PHP applications.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">04</div>
+      <h4>Cyber Forensics</h4>
+      <div class="plain">"CSI for computers and phones"</div>
+      <p>When a cyber crime happens, we collect and preserve digital evidence, trace attacker activity, and produce court-admissible reports. Chain-of-custody documentation for FIR and legal proceedings.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">05</div>
+      <h4>Ethical Hacking</h4>
+      <div class="plain">"Mock drill for your digital systems"</div>
+      <p>Our experts attempt to hack AP Police systems using the same methods real criminals use &mdash; but safely and with permission. We find what an attacker would find, and close those gaps.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">06</div>
+      <h4>Incident Response</h4>
+      <div class="plain">"QRT for cyber emergencies"</div>
+      <p>When a cyber attack hits, our team responds within 2 hours. We contain the damage, preserve evidence, and file the mandatory CERT-In report within the 6-hour government deadline. Retainer from &#8377;9,999/month.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">07</div>
+      <h4>Cloud Security</h4>
+      <div class="plain">"Check if your online storage is actually locked"</div>
+      <p>Many government systems now run on cloud (AWS, Azure, Google). We check 200+ security settings to ensure data isn't accidentally exposed to the public. Free first audit.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">08</div>
+      <h4>API Security</h4>
+      <div class="plain">"Secure the connections between your systems"</div>
+      <p>Modern apps communicate through APIs (digital pipelines). We test these connections for weaknesses &mdash; including UPI payment APIs, Aadhaar verification, and inter-system communication.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">09</div>
+      <h4>Employee Security Training</h4>
+      <div class="plain">"Train your people to spot scams"</div>
+      <p>91% of attacks start with a fake email or message. We send realistic test phishing messages in Hindi, Telugu, and English &mdash; using Indian scenarios like fake GST notices, UPI requests, and Aadhaar alerts. &#8377;200 per person per year.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">10</div>
+      <h4>DPDP Act Compliance</h4>
+      <div class="plain">"Get ready for India's new data protection law"</div>
+      <p>The Digital Personal Data Protection Act carries penalties up to &#8377;250 crore. We check your compliance status in 5 minutes (free) and provide a detailed roadmap to meet all 7 legal obligations.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">11</div>
+      <h4>Red Teaming</h4>
+      <div class="plain">"Full-scale attack simulation"</div>
+      <p>A comprehensive simulated attack on AP Police infrastructure &mdash; combining digital hacking, social engineering (tricking employees), and even physical intrusion testing. Tests your entire defence posture.</p>
+    </div>
+    <div class="sc">
+      <div class="sc-num">12</div>
+      <h4>Security Operations Centre (SOC)</h4>
+      <div class="plain">"24/7 control room for all cyber threats"</div>
+      <p>Like a police control room that monitors all CCTV feeds, our SOC monitors all digital systems around the clock. AI detects suspicious activity and our team responds immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec" id="why-us">
+  <div class="sec-label">The Decision</div>
+  <h2>Why Bachao.AI Over APTS</h2>
+  <p class="sec-sub">Six clear reasons for the decision-maker.</p>
+
+  <div class="tl">
+    <div class="tl-i">
+      <div class="tl-l">Reason 1</div>
+      <h4>Dedicated vs Part-Time</h4>
+      <p>APTS does IT procurement, networking, Aadhaar services, digital signatures &mdash; and some cybersecurity on the side. Bachao.AI does only cybersecurity, with 12 dedicated products. You want a specialist, not a generalist.</p>
+    </div>
+    <div class="tl-i">
+      <div class="tl-l">Reason 2</div>
+      <h4>12 Services vs 4</h4>
+      <p>APTS offers 4 of the 12 services AP Police needs (and 3 are limited). Bachao.AI offers all 12 as production-ready products with published pricing and SLAs.</p>
+    </div>
+    <div class="tl-i">
+      <div class="tl-l">Reason 3</div>
+      <h4>45 Minutes vs 4 Weeks</h4>
+      <p>A security assessment from APTS takes weeks through the tender process. Bachao.AI delivers the same assessment in 45 minutes, with AI validating every finding.</p>
+    </div>
+    <div class="tl-i">
+      <div class="tl-l">Reason 4</div>
+      <h4>Guaranteed Response Time</h4>
+      <p>When a cyber attack hits, APTS has no guaranteed response time. Bachao.AI guarantees a 2-hour response with the CERT-In notification handled within the 6-hour legal deadline.</p>
+    </div>
+    <div class="tl-i">
+      <div class="tl-l">Reason 5</div>
+      <h4>Indian Language Support</h4>
+      <p>Cyber criminals increasingly target Indian officials in Hindi and Telugu. Bachao.AI's training and dark web monitoring work in 22+ Indian languages. APTS has no regional language capability.</p>
+    </div>
+    <div class="tl-i">
+      <div class="tl-l">Reason 6</div>
+      <h4>Transparent, Affordable Pricing</h4>
+      <p>APTS requires formal tenders with no public pricing. Bachao.AI publishes all pricing online, with free tiers for initial assessment. VAPT: &#8377;2,000. Dark web: &#8377;999/month. Training: &#8377;200/person/year. Incident response: &#8377;9,999/month.</p>
+    </div>
+  </div>
+
+  <div class="alert blue" style="margin-top:32px">
+    <h4>Single-Vendor Advantage</h4>
+    <p>By choosing Bachao.AI for all 12 services, AP Police gets:</p>
+    <ul>
+      <li><strong>One vendor, one contract, one point of accountability</strong> &mdash; no coordination between multiple agencies</li>
+      <li><strong>Integrated protection</strong> &mdash; our vulnerability scanner automatically creates protection rules in our RASP system</li>
+      <li><strong>Consistent reporting</strong> &mdash; all security data in one dashboard for the DGP's office</li>
+      <li><strong>Cost efficiency</strong> &mdash; bundled pricing significantly cheaper than procuring 12 services separately</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DEPLOYMENT -->
+<section class="sec" id="engagement">
+  <div class="sec-label">Implementation</div>
+  <h2>How We Deploy &mdash; Step by Step</h2>
+  <p class="sec-sub">A phased approach with zero disruption to ongoing police operations.</p>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <h4>Phase 1: Week 1&ndash;2</h4>
+      <p><strong>Assessment.</strong> Free security scan of all AP Police digital assets. Dark web check for existing data leaks. DPDP compliance score. Zero cost for this phase.</p>
+    </div>
+    <div class="phase-card">
+      <h4>Phase 2: Week 3&ndash;4</h4>
+      <p><strong>Monitoring.</strong> Activate 24/7 dark web monitoring. Deploy RASP in observation mode. Run first phishing simulation for staff in Hindi and Telugu.</p>
+    </div>
+    <div class="phase-card">
+      <h4>Phase 3: Month 2&ndash;3</h4>
+      <p><strong>Protection.</strong> Enable real-time attack blocking. Activate incident response retainer with 2-hour SLA. Set up cyber forensics capability and SOC integration.</p>
+    </div>
+    <div class="phase-card">
+      <h4>Ongoing</h4>
+      <p><strong>Operations.</strong> Monthly security scans. Quarterly attack simulations. Continuous dark web and SOC monitoring. Regular employee training. Compliance reporting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>12 Services. One Partner. Full Protection.</h2>
+  <p>Bachao.AI provides every cybersecurity service AP Police needs &mdash; from dark web intelligence to cyber forensics to real-time protection.</p>
+  <a href="#" class="cta-btn" onclick="return false;">Schedule a Briefing &rarr;</a>
+  <div class="cta-contact">
+    <strong>ceo@bachao.ai</strong> &middot; <strong>+91 91631 73405</strong> &middot; Response within 4 hours
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    Confidential &mdash; Prepared for the Office of the Director General of Police, Andhra Pradesh &middot; &copy; 2026 Bachao.AI
+  </div>
+</footer>
+
+<script>
+(function() {
+  var moreBtn = document.querySelector('.nav-more');
+
+  // Close dropdown when clicking anywhere outside
+  document.addEventListener('click', function() {
+    if (moreBtn) moreBtn.classList.remove('open');
+  });
+
+  // Prevent close when clicking inside the dropdown container
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
+
+  // Close dropdown after clicking a dropdown link
+  document.querySelectorAll('.nav-dd a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.stopPropagation();
+      moreBtn.classList.remove('open');
+    });
+  });
+
+  // Active nav highlight on scroll
+  var navLinks = document.querySelectorAll('.header-nav > a[href^="#"]');
+  var sections = [];
+  navLinks.forEach(function(a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) sections.push({ el: el, link: a });
+  });
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY + 80;
+    var active = null;
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollY) active = s;
+    });
+    navLinks.forEach(function(a) { a.classList.remove('active'); });
+    if (active) active.link.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

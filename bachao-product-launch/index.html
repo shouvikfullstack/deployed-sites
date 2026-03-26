@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bachao.AI — Partner Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#030714;
+  --s1:#080E22;
+  --g1:rgba(255,255,255,.045);
+  --g2:rgba(255,255,255,.085);
+  --g3:rgba(255,255,255,.13);
+  --bl:#3B82F6;--bll:#93C5FD;--bld:#1D4ED8;
+  --cy:#06B6D4;--cyl:#67E8F9;
+  --gn:#10B981;--gnl:#6EE7B7;
+  --am:#F59E0B;--aml:#FDE68A;
+  --pu:#8B5CF6;--pul:#C4B5FD;
+  --rd:#EF4444;--rdl:#FCA5A5;
+  --tx:#EEF2FF;--mu:#94A3B8;--di:#6B7E99;
+  --fs:"Syne",sans-serif;
+  --fb:"DM Sans",sans-serif;
+  --fm:"DM Mono",monospace;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);font-family:var(--fb);color:var(--tx);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+/* noise layer */
+body::after{content:'';position:fixed;inset:0;opacity:.03;pointer-events:none;z-index:9000;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* chrome */
+#bar{position:fixed;top:0;left:0;height:2px;z-index:500;background:linear-gradient(90deg,var(--bl),var(--cy),var(--gn));transition:width .45s cubic-bezier(.4,0,.2,1);box-shadow:0 0 14px rgba(59,130,246,.7),0 0 28px rgba(59,130,246,.3)}
+.logofx{position:fixed;top:14px;left:20px;z-index:500;line-height:0;cursor:default}
+.logofx img{height:58px;width:auto;filter:drop-shadow(0 0 10px rgba(59,130,246,.45));transition:filter .3s}
+.logofx:hover img{filter:drop-shadow(0 0 22px rgba(59,130,246,.8))}
+#ctr{position:fixed;top:20px;right:18px;z-index:500;font-family:var(--fm);font-size:10px;color:var(--di);letter-spacing:.1em;background:var(--g1);border:1px solid var(--g2);padding:4px 11px;border-radius:20px}
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:500;display:flex;align-items:center;gap:10px}
+.nb{width:33px;height:33px;border-radius:9px;background:var(--g1);border:1px solid var(--g2);color:var(--mu);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;user-select:none;transition:all .2s cubic-bezier(.4,0,.2,1)}
+.nb:hover{background:rgba(59,130,246,.18);border-color:rgba(59,130,246,.5);color:var(--bll);transform:scale(1.1);box-shadow:0 4px 18px rgba(59,130,246,.3)}
+/* #sn removed — replaced by dot indicators */
+/* deck */
+#deck{width:100%;height:100%;position:relative;overflow:hidden}
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:88px 68px 60px;opacity:0;pointer-events:none;transition:opacity .42s cubic-bezier(.4,0,.2,1),transform .42s cubic-bezier(.4,0,.2,1);overflow:hidden}
+.sl.on{opacity:1;transform:none!important;pointer-events:all}
+/* mesh bg per slide — each unique */
+.sl::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0}
+#s1::before{background:radial-gradient(ellipse 70% 55% at 18% 52%,rgba(59,130,246,.2),transparent 58%),radial-gradient(ellipse 50% 50% at 82% 28%,rgba(6,182,212,.12),transparent 55%),radial-gradient(ellipse 35% 35% at 55% 85%,rgba(139,92,246,.08),transparent 50%)}
+#s2::before{background:radial-gradient(ellipse 65% 50% at 78% 32%,rgba(239,68,68,.16),transparent 55%),radial-gradient(ellipse 45% 45% at 18% 72%,rgba(245,158,11,.08),transparent 50%)}
+#s3::before{background:radial-gradient(ellipse 60% 50% at 68% 38%,rgba(245,158,11,.12),transparent 55%),radial-gradient(ellipse 40% 45% at 22% 68%,rgba(239,68,68,.07),transparent 50%)}
+#s4::before{background:radial-gradient(ellipse 55% 50% at 28% 52%,rgba(16,185,129,.12),transparent 55%),radial-gradient(ellipse 40% 40% at 78% 28%,rgba(6,182,212,.08),transparent 50%)}
+#s5::before{background:radial-gradient(ellipse 55% 48% at 52% 22%,rgba(139,92,246,.12),transparent 55%),radial-gradient(ellipse 40% 45% at 82% 72%,rgba(59,130,246,.07),transparent 50%)}
+#s6::before{background:radial-gradient(ellipse 60% 52% at 52% 52%,rgba(59,130,246,.11),transparent 58%)}
+#s7::before{background:radial-gradient(ellipse 58% 52% at 22% 55%,rgba(139,92,246,.12),transparent 55%),radial-gradient(ellipse 42% 42% at 82% 28%,rgba(6,182,212,.08),transparent 50%)}
+#s8::before{background:radial-gradient(ellipse 58% 52% at 72% 38%,rgba(16,185,129,.1),transparent 55%)}
+#s9::before{background:radial-gradient(ellipse 52% 48% at 72% 28%,rgba(16,185,129,.1),transparent 55%),radial-gradient(ellipse 38% 45% at 18% 72%,rgba(59,130,246,.07),transparent 50%)}
+#s10::before{background:radial-gradient(ellipse 58% 52% at 78% 22%,rgba(6,182,212,.12),transparent 55%),radial-gradient(ellipse 38% 42% at 18% 65%,rgba(59,130,246,.07),transparent 50%)}
+#s11::before{background:radial-gradient(ellipse 62% 58% at 52% 52%,rgba(59,130,246,.14),transparent 60%),radial-gradient(ellipse 38% 38% at 88% 18%,rgba(139,92,246,.08),transparent 45%)}
+#s12::before{background:radial-gradient(ellipse 68% 62% at 52% 44%,rgba(59,130,246,.22),transparent 62%),radial-gradient(ellipse 38% 42% at 8% 82%,rgba(139,92,246,.12),transparent 52%),radial-gradient(ellipse 32% 38% at 92% 18%,rgba(6,182,212,.1),transparent 48%)}
+/* grid overlay */
+.sl::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(59,130,246,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.022) 1px,transparent 1px);background-size:50px 50px}
+/* content sits above overlays */
+.cx{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%}
+/* === ANIMATIONS === */
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:.85}50%{opacity:.4}}
+@keyframes gR{0%,100%{box-shadow:0 0 0 rgba(239,68,68,0)}55%{box-shadow:0 0 22px 3px rgba(239,68,68,.32)}}
+@keyframes gG{0%,100%{box-shadow:0 0 0 rgba(16,185,129,0)}55%{box-shadow:0 0 20px 2px rgba(16,185,129,.3)}}
+@keyframes gA{0%,100%{box-shadow:0 0 0 rgba(245,158,11,0)}55%{box-shadow:0 0 22px 3px rgba(245,158,11,.32)}}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes scan{from{transform:translateY(100%)}to{transform:translateY(-100%)}}
+@keyframes star{0%{opacity:0;transform:translateY(100vh)}20%{opacity:.7}80%{opacity:.3}100%{opacity:0;transform:translateY(-20vh) scale(1.3)}}
+@keyframes shimmer{from{transform:translateX(-100%)}to{transform:translateX(300%)}}
+.fu{opacity:0;animation:up .5s cubic-bezier(.4,0,.2,1) both}
+.fi{opacity:0;animation:in .45s ease both}
+/* === TYPOGRAPHY === */
+.title{font-family:var(--fs);font-size:clamp(1.5rem,2.65vw,2.45rem);font-weight:700;text-align:center;line-height:1.1;letter-spacing:-.022em}
+.eye{display:inline-flex;align-items:center;gap:7px;font-family:var(--fs);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.eye.bl{background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);color:var(--bll)}
+.eye.rd{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:var(--rdl)}
+.eye.gn{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:var(--gnl)}
+.eye.am{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--aml)}
+.eye.pu{background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--pul)}
+.eye.cy{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.3);color:var(--cyl)}
+.sub{font-family:var(--fb);font-size:.875rem;color:var(--mu);text-align:center;margin-top:7px;line-height:1.6;font-weight:400}
+/* gradient text */
+.tbl{background:linear-gradient(130deg,var(--bl),var(--cy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tgn{background:linear-gradient(130deg,var(--gn),var(--cy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tam{background:linear-gradient(130deg,var(--am),var(--rd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tpu{background:linear-gradient(130deg,var(--pu),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* === GLASS CARD === */
+.gc{
+  background:var(--g1);
+  border:1px solid var(--g2);
+  border-radius:14px;
+  position:relative;overflow:hidden;
+  transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease;
+}
+/* shimmer sweep on hover */
+.gc::before{
+  content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.055),transparent);
+  transition:left .55s ease;pointer-events:none;z-index:1;
+}
+.gc:hover::before{left:180%}
+.gc:hover{transform:translateY(-5px);border-color:var(--g3);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+/* color variants */
+.gc.cbl:hover{border-color:rgba(59,130,246,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(59,130,246,.18),0 0 30px rgba(59,130,246,.1)}
+.gc.cgn:hover{border-color:rgba(16,185,129,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(16,185,129,.18),0 0 30px rgba(16,185,129,.1)}
+.gc.cam:hover{border-color:rgba(245,158,11,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(245,158,11,.18),0 0 30px rgba(245,158,11,.1)}
+.gc.crd:hover{border-color:rgba(239,68,68,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(239,68,68,.18),0 0 30px rgba(239,68,68,.1)}
+.gc.cpu:hover{border-color:rgba(139,92,246,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(139,92,246,.18),0 0 30px rgba(139,92,246,.1)}
+.gc.ccy:hover{border-color:rgba(6,182,212,.4);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(6,182,212,.18),0 0 30px rgba(6,182,212,.1)}
+/* top accent bar */
+.gc .acc{position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:14px 14px 0 0}
+
+/* ===========================
+   S1 – HOOK
+   =========================== */
+#s1 .herologo{margin-bottom:30px;animation:in .8s ease .1s both;line-height:0}
+#s1 .s1-pre{font-family:var(--fb);font-size:clamp(1rem,1.8vw,1.25rem);color:var(--mu);text-align:center;margin-bottom:14px;letter-spacing:.01em;opacity:0;animation:in .6s ease .15s both}
+#s1 .s1-stat{font-family:var(--fb);font-size:clamp(.95rem,1.7vw,1.15rem);color:var(--mu);text-align:center;margin-top:20px;opacity:0;transition:opacity .8s}
+#s1 .s1-stat strong{color:var(--rdl);font-weight:600}
+#s1 .herologo img{height:106px;filter:drop-shadow(0 0 28px rgba(59,130,246,.55)) drop-shadow(0 0 70px rgba(59,130,246,.25));animation:flt 5s ease-in-out infinite}
+#s1 .hl{font-family:var(--fs);font-size:clamp(1.95rem,4.2vw,3.6rem);font-weight:700;letter-spacing:-.016em;text-align:center;line-height:1.12;max-width:780px;color:var(--tx);text-shadow:0 2px 50px rgba(59,130,246,.25)}
+.cur{display:inline-block;width:3px;height:.9em;background:var(--bl);vertical-align:middle;border-radius:1px;animation:blink 1s infinite;margin-left:3px;box-shadow:0 0 8px var(--bl)}
+
+#s1 .hint{position:absolute;bottom:58px;font-family:var(--fm);font-size:11px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:pulse 3s ease infinite}
+
+/* ===========================
+   S2 – SMB CRISIS
+   =========================== */
+#s2 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:790px;margin:14px 0 12px}
+.sc{padding:21px 20px;border-radius:16px;cursor:default;position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+.sc::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.05),transparent);transition:left .55s ease;pointer-events:none}
+.sc:hover::after{left:180%}
+.sc:hover{transform:translateY(-5px)}
+.sc.sr{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2)}.sc.sr::before{background:linear-gradient(90deg,var(--rd),var(--am))}.sc.sr:hover{border-color:rgba(239,68,68,.38);box-shadow:0 16px 40px rgba(239,68,68,.13)}
+.sc.sb{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2)}.sc.sb::before{background:linear-gradient(90deg,var(--bl),var(--cy))}.sc.sb:hover{border-color:rgba(59,130,246,.38);box-shadow:0 16px 40px rgba(59,130,246,.13)}
+.sc.sa{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2)}.sc.sa::before{background:linear-gradient(90deg,var(--am),var(--gn))}.sc.sa:hover{border-color:rgba(245,158,11,.38);box-shadow:0 16px 40px rgba(245,158,11,.1)}
+.sc.sg{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2)}.sc.sg::before{background:linear-gradient(90deg,var(--gn),var(--cy))}.sc.sg:hover{border-color:rgba(16,185,129,.38);box-shadow:0 16px 40px rgba(16,185,129,.1)}
+.sn{font-family:var(--fs);font-size:2.4rem;font-weight:800;line-height:1;margin-bottom:7px}
+.sn.r{color:var(--rdl)}.sn.b{color:var(--bll)}.sn.a{color:var(--aml)}.sn.g{color:var(--gnl)}
+.sd{font-size:.81rem;color:var(--mu);line-height:1.55}.sd strong{color:var(--tx);font-weight:600}
+.ss{font-size:.68rem;color:var(--di);margin-top:6px;font-style:italic;border-top:1px solid rgba(255,255,255,.06);padding-top:5px}
+#s2 .callout{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.22);border-radius:11px;padding:12px 20px;width:100%;max-width:790px;font-size:.77rem;color:var(--mu);line-height:1.58;position:relative;overflow:hidden}
+#s2 .callout::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--bl),var(--cy));border-radius:3px 0 0 3px}
+#s2 .callout strong{color:var(--bll)}
+
+/* ===========================
+   S3 – DPDP CATALYST
+   =========================== */
+.tlrow{display:flex;align-items:flex-start;width:100%;max-width:750px;margin:18px auto 20px}
+.tln{display:flex;flex-direction:column;align-items:center;flex:1;z-index:2}
+.tlc{width:48px;height:48px;border-radius:50%;background:var(--g1);border:2px solid var(--di);display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:11px;font-weight:700;color:var(--mu);flex-shrink:0;transition:all .4s}
+.tlc.done{border-color:var(--gn);color:var(--gn);background:rgba(16,185,129,.1);animation:gG 3.2s infinite}
+.tlc.warn{border-color:var(--am);color:var(--am);background:rgba(245,158,11,.1);width:58px;height:58px;font-size:20px;animation:gA 2.8s infinite}
+.tli{text-align:center;margin-top:10px;padding:0 4px}
+.tld{font-family:var(--fm);font-size:12px;color:var(--tx);font-weight:500;letter-spacing:.03em}
+.tll{font-size:10.5px;color:var(--tx);line-height:1.35;margin-top:3px}
+.tlbr{flex:1;display:flex;align-items:flex-start;padding-top:24px;z-index:1}
+.tlline{width:100%;height:2px;background:var(--di);border-radius:2px}
+.tlline.lit{background:linear-gradient(90deg,var(--gn),var(--am))}
+.penbox{background:rgba(239,68,68,.07);border:1.5px solid rgba(239,68,68,.28);border-radius:14px;padding:16px 32px;text-align:center;max-width:500px;width:100%;animation:gR 3.5s infinite;opacity:1!important}
+.penn{font-family:var(--fs);font-size:2.2rem;font-weight:800;color:var(--rdl)}
+.penl{font-size:11px;color:var(--mu);margin-top:5px;line-height:1.5}
+.penctx{font-size:11px;color:var(--aml);font-weight:600;margin-top:8px;padding-top:8px;border-top:1px solid rgba(239,68,68,.2)}.penctx strong{color:var(--rdl)}
+.insight{margin-top:13px;font-family:var(--fb);font-size:.82rem;color:var(--bll);font-weight:600;text-align:center;max-width:560px}
+
+/* ===========================
+   S4 – DPDP WHAT WE DO
+   =========================== */
+#s4 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:850px;margin:14px 0 11px}
+.dpanel{border-radius:14px;padding:19px 21px;position:relative;overflow:hidden}
+.dpanel.do{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22)}
+.dpanel.tgt{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.22)}
+.dph{font-family:var(--fs);font-size:.83rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.do .dph{color:var(--gnl)}.tgt .dph{color:var(--bll)}
+.dr{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.dck{font-size:.8rem;flex-shrink:0;margin-top:.5px}
+.do .dck{color:var(--gnl)}.tgt .dck{color:var(--bll)}
+.dt{font-size:.72rem;color:var(--mu);line-height:1.5}.dt strong{color:var(--tx);font-weight:600}
+.ddiv{border-top:1px solid rgba(255,255,255,.06);margin:9px 0;padding-top:9px}
+.dt.dim{color:var(--di)}.dt.dim strong{color:var(--mu)}
+#s4 .clar{width:100%;max-width:850px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:11px;padding:11px 16px;display:flex;align-items:flex-start;gap:10px}
+.ci{font-size:.9rem;flex-shrink:0;margin-top:2px}
+.ct{font-size:.73rem;color:var(--mu);line-height:1.55}.ct strong{color:var(--aml)}
+
+/* ===========================
+   S5 – PRODUCT SUITE TIMELINE
+   =========================== */
+#s5 .swrap{width:100%;max-width:940px;margin:12px 0 9px;position:relative}
+/* 4 cards above */
+#s5 .row-a{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+/* spine */
+#s5 .spine{position:relative;height:24px;margin:0}
+#s5 .spineline{position:absolute;top:50%;left:0;right:0;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,transparent 0%,var(--bl) 12%,var(--cy) 32%,var(--gn) 52%,var(--pu) 72%,var(--bl) 88%,transparent 100%);z-index:0}
+#s5 .spinedots{position:absolute;top:0;left:0;right:0;height:24px;display:grid;grid-template-columns:repeat(8,1fr);z-index:2}
+.sdot{width:12px;height:12px;border-radius:50%;border:2.5px solid var(--ink);justify-self:center;align-self:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease;cursor:default}
+.sdot:hover{transform:scale(1.8)}
+/* 4 cards below */
+#s5 .row-b{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+/* product card */
+.pc{padding:14px 12px;border-radius:12px;background:var(--g1);position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease;cursor:default}
+.pc::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transition:left .5s ease;pointer-events:none}
+.pc:hover::before{left:180%}
+.pc:hover{transform:translateY(-6px) scale(1.03);z-index:5}
+.pbl{border:1px solid rgba(59,130,246,.28)}.pbl:hover{border-color:rgba(59,130,246,.6);box-shadow:0 14px 34px rgba(59,130,246,.2)}
+.pcy{border:1px solid rgba(6,182,212,.28)}.pcy:hover{border-color:rgba(6,182,212,.6);box-shadow:0 14px 34px rgba(6,182,212,.2)}
+.pgn{border:1px solid rgba(16,185,129,.28)}.pgn:hover{border-color:rgba(16,185,129,.6);box-shadow:0 14px 34px rgba(16,185,129,.2)}
+.pam{border:1px solid rgba(245,158,11,.28)}.pam:hover{border-color:rgba(245,158,11,.6);box-shadow:0 14px 34px rgba(245,158,11,.2)}
+.ppu{border:1px solid rgba(139,92,246,.28)}.ppu:hover{border-color:rgba(139,92,246,.6);box-shadow:0 14px 34px rgba(139,92,246,.2)}
+.prd{border:1px solid rgba(239,68,68,.28)}.prd:hover{border-color:rgba(239,68,68,.6);box-shadow:0 14px 34px rgba(239,68,68,.2)}
+.pico{font-size:1.2rem;display:block;margin-bottom:8px}
+.pname{font-family:var(--fs);font-size:.75rem;font-weight:700;color:var(--tx);line-height:1.25;margin-bottom:6px}
+.pprice{font-size:.68rem;font-weight:500;font-family:var(--fm);padding:2px 8px;border-radius:8px;display:inline-block}
+.pbl .pprice{background:rgba(59,130,246,.15);color:var(--bll)}
+.pcy .pprice{background:rgba(6,182,212,.15);color:var(--cyl)}
+.pgn .pprice{background:rgba(16,185,129,.15);color:var(--gnl)}
+.pam .pprice{background:rgba(245,158,11,.15);color:var(--aml)}
+.ppu .pprice{background:rgba(139,92,246,.15);color:var(--pul)}
+.prd .pprice{background:rgba(239,68,68,.15);color:var(--rdl)}
+.snote{font-size:.75rem;color:var(--mu);text-align:center;font-style:italic;margin-top:3px}
+
+/* ===========================
+   S6 – PRICING GAP
+   =========================== */
+#s6 .gbar{display:grid;grid-template-columns:1fr 1.25fr 1fr;border-radius:13px;overflow:hidden;width:100%;max-width:820px;height:104px;margin:13px 0 11px;border:1px solid var(--g2)}
+.gs{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px 14px;gap:4px;position:relative}
+.gs.gfree{background:rgba(255,255,255,.03)}
+.gs.ggap{background:rgba(59,130,246,.1);border-left:1.5px solid rgba(59,130,246,.38);border-right:1.5px solid rgba(59,130,246,.38);overflow:hidden}
+.gs.ggap::before{content:'';position:absolute;left:0;width:100%;height:28%;background:linear-gradient(transparent,rgba(59,130,246,.08),transparent);animation:scan 4.2s linear infinite}
+.gs.gent{background:rgba(255,255,255,.02)}
+.gl{font-family:var(--fm);font-size:8.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--di)}
+.gv{font-family:var(--fs);font-size:1rem;font-weight:800;text-align:center}
+.gsub{font-size:8px;color:var(--mu);text-align:center;line-height:1.38}
+#s6 .emark{width:100%;max-width:820px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:10px;padding:10px 18px;margin-bottom:11px;display:flex;align-items:center;gap:11px}
+.ea{font-family:var(--fs);font-size:.9rem;font-weight:800;color:var(--bll)}
+.et{font-size:.78rem;color:var(--tx);font-weight:500}.et span{color:var(--bll);font-weight:700}
+#s6 .dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;width:100%;max-width:820px;margin-bottom:10px}
+.db{padding:14px 12px;border-radius:12px;text-align:center;background:var(--g1);border:1px solid var(--g2);transition:transform .26s cubic-bezier(.34,1.56,.64,1),border-color .26s ease,box-shadow .26s ease;cursor:default}
+.db:hover{transform:translateY(-5px);border-color:rgba(59,130,246,.38);box-shadow:0 12px 28px rgba(59,130,246,.14)}
+.dn{font-family:var(--fs);font-size:1.35rem;font-weight:800;color:var(--bll)}
+.dl{font-size:.69rem;color:var(--mu);margin-top:4px;line-height:1.35}
+.dnote{font-size:.72rem;color:var(--mu);text-align:center;max-width:760px;line-height:1.6}.dnote strong{color:var(--bll)}
+
+/* ===========================
+   S7 – MOATS
+   =========================== */
+#s7 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:800px;margin-top:15px}
+.mc{padding:20px;border-radius:14px;background:var(--g1);position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:14px 14px 0 0;opacity:0;transition:opacity .26s}
+.mc::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.042),transparent);transition:left .5s ease;pointer-events:none}
+.mc:hover::after{left:180%}
+.mc:hover{transform:translateY(-5px)}.mc:hover::before{opacity:1}
+.mc.mbl{border:1px solid rgba(59,130,246,.22)}.mc.mbl::before{background:linear-gradient(90deg,var(--bl),var(--cy))}.mc.mbl:hover{border-color:rgba(59,130,246,.42);box-shadow:0 18px 42px rgba(59,130,246,.14)}
+.mc.mcy{border:1px solid rgba(6,182,212,.22)}.mc.mcy::before{background:linear-gradient(90deg,var(--cy),var(--gn))}.mc.mcy:hover{border-color:rgba(6,182,212,.42);box-shadow:0 18px 42px rgba(6,182,212,.14)}
+.mc.mpu{border:1px solid rgba(139,92,246,.22)}.mc.mpu::before{background:linear-gradient(90deg,var(--pu),var(--bl))}.mc.mpu:hover{border-color:rgba(139,92,246,.42);box-shadow:0 18px 42px rgba(139,92,246,.14)}
+.mc.mam{border:1px solid rgba(245,158,11,.22)}.mc.mam::before{background:linear-gradient(90deg,var(--am),var(--gn))}.mc.mam:hover{border-color:rgba(245,158,11,.42);box-shadow:0 18px 42px rgba(245,158,11,.11)}
+.mci{font-size:1.3rem;margin-bottom:9px;display:block}
+.mh{font-family:var(--fs);font-size:.87rem;font-weight:600;margin-bottom:7px}
+.mbl .mh{color:var(--bll)}.mcy .mh{color:var(--cyl)}.mpu .mh{color:var(--pul)}.mam .mh{color:var(--aml)}
+.mp{font-size:.73rem;color:var(--mu);line-height:1.55}
+.mt{display:inline-block;font-size:7.5px;padding:2px 8px;border-radius:8px;margin-top:9px;font-family:var(--fm);font-weight:500;letter-spacing:.06em}
+.mbl .mt{background:rgba(59,130,246,.15);color:var(--bll)}.mcy .mt{background:rgba(6,182,212,.15);color:var(--cyl)}.mpu .mt{background:rgba(139,92,246,.15);color:var(--pul)}.mam .mt{background:rgba(245,158,11,.15);color:var(--aml)}
+
+/* ===========================
+   S8 – BIZ MODEL
+   =========================== */
+#s8 .phs{display:flex;gap:12px;width:100%;max-width:820px;margin:14px 0 14px}
+.ph{flex:1;padding:20px;border-radius:14px;background:var(--g1);position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease}
+.ph::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0}
+.ph::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.04),transparent);transition:left .5s ease;pointer-events:none}
+.ph:hover::after{left:180%}.ph:hover{transform:translateY(-5px)}
+.ph.p1{border:1px solid rgba(59,130,246,.2)}.ph.p1::before{background:linear-gradient(90deg,var(--bl),var(--cy))}.ph.p1:hover{border-color:rgba(59,130,246,.42);box-shadow:0 18px 42px rgba(59,130,246,.13)}
+.ph.p2{border:1px solid rgba(6,182,212,.2)}.ph.p2::before{background:linear-gradient(90deg,var(--cy),var(--gn))}.ph.p2:hover{border-color:rgba(6,182,212,.42);box-shadow:0 18px 42px rgba(6,182,212,.13)}
+.ph.p3{border:1px solid rgba(139,92,246,.2)}.ph.p3::before{background:linear-gradient(90deg,var(--pu),var(--bl))}.ph.p3:hover{border-color:rgba(139,92,246,.42);box-shadow:0 18px 42px rgba(139,92,246,.13)}
+.phe{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--di);margin-bottom:6px}
+.phn{font-family:var(--fs);font-size:.87rem;font-weight:600;margin-bottom:7px;color:var(--tx)}
+.php{font-family:var(--fs);font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.p1 .php{color:var(--bll)}.p2 .php{color:var(--cyl)}.p3 .php{color:var(--pul)}
+.phd{font-size:.75rem;color:var(--mu);line-height:1.55}
+#s8 .mets{display:flex;gap:10px;width:100%;max-width:820px}
+.met{flex:1;padding:13px 10px;border-radius:11px;text-align:center;background:var(--g1);border:1px solid var(--g2);transition:transform .26s cubic-bezier(.34,1.56,.64,1),border-color .26s ease,box-shadow .26s ease;cursor:default}
+.met:hover{transform:translateY(-4px);border-color:rgba(16,185,129,.38);box-shadow:0 10px 26px rgba(16,185,129,.12)}
+.metv{font-family:var(--fs);font-size:1.1rem;font-weight:800;color:var(--gnl)}
+.metl{font-size:8px;color:var(--mu);margin-top:3px;line-height:1.35;letter-spacing:.02em}
+
+/* ===========================
+   S9 – VALIDATION
+   =========================== */
+#s9 .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:820px;margin:14px 0 11px}
+.vc{padding:15px 14px;border-radius:13px;position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease;cursor:default}
+.vc::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.05),transparent);transition:left .5s ease;pointer-events:none}
+.vc:hover::before{left:180%}
+.vc.vd{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22)}.vc.vd:hover{border-color:rgba(16,185,129,.48);box-shadow:0 13px 30px rgba(16,185,129,.14);transform:translateY(-5px)}
+.vc.vn{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.16);opacity:.8}.vc.vn:hover{border-color:rgba(59,130,246,.44);box-shadow:0 13px 30px rgba(59,130,246,.12);transform:translateY(-5px);opacity:1}
+.vbg{position:absolute;top:8px;right:8px;font-family:var(--fm);font-size:7px;font-weight:500;padding:2px 7px;border-radius:8px}
+.vd .vbg{background:rgba(16,185,129,.18);color:var(--gnl)}.vn .vbg{background:rgba(59,130,246,.14);color:var(--bll)}
+.vico{font-size:1.25rem;margin-bottom:8px;display:block}
+.vtit{font-family:var(--fs);font-size:.79rem;font-weight:700;margin-bottom:5px}
+.vd .vtit{color:var(--gnl)}.vn .vtit{color:var(--bll)}
+.vdesc{font-size:.76rem;color:var(--mu);line-height:1.55}
+.vfoot{font-size:.78rem;color:var(--mu);font-style:italic;text-align:center;max-width:540px}
+
+/* ===========================
+   S10 – FOUNDER
+   =========================== */
+#s10 .fw{display:flex;gap:14px;width:100%;max-width:860px;margin-top:13px;align-items:stretch}
+#s10 .fm{flex:1.25;background:var(--g1);border:1px solid var(--g2);border-radius:16px;padding:24px 27px;position:relative;overflow:hidden}
+#s10 .fm::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--bl),var(--cy),var(--gn));pointer-events:none;z-index:1}
+.flog img{height:44px;width:auto;opacity:.82;margin-bottom:13px}
+.fnm{font-family:var(--fs);font-size:1.42rem;font-weight:700;margin-bottom:2px}
+.frl{font-size:.76rem;color:var(--cyl);font-weight:500;margin-bottom:15px}
+.fpts{display:flex;flex-direction:column;gap:8px}
+.fpt{display:flex;align-items:flex-start;gap:8px;font-size:.74rem;color:var(--mu);line-height:1.5}
+.fpdot{width:4px;height:4px;border-radius:50%;background:var(--cy);flex-shrink:0;margin-top:8px}
+#s10 .fs{flex:1;display:flex;flex-direction:column;gap:9px}
+.cc{background:var(--g1);border:1px solid var(--g2);border-radius:12px;padding:13px 14px;transition:transform .26s cubic-bezier(.4,0,.2,1),border-color .26s ease,background .26s ease}
+.cc:hover{transform:translateX(5px);border-color:rgba(6,182,212,.32);background:rgba(6,182,212,.05)}
+.cce{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:var(--di);margin-bottom:3px}
+.cco{font-family:var(--fs);font-size:.79rem;font-weight:700;color:var(--tx);margin-bottom:3px}
+.ccd{font-size:.75rem;color:var(--mu);line-height:1.45}
+.cchi{color:var(--cyl);font-weight:600}
+.fq{background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.22);border-left:3px solid var(--cy);border-radius:0 11px 11px 0;padding:12px 14px;font-size:.73rem;color:var(--cyl);line-height:1.6;font-style:italic}
+
+/* ===========================
+   S11 – PARTNER PROGRAM
+   =========================== */
+#s11 .pgrid{display:flex;gap:13px;width:100%;max-width:820px;margin:14px 0 13px}
+.pp{flex:1;padding:21px 20px;border-radius:15px;position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,border-color .26s ease;cursor:default}
+.pp::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:15px 15px 0 0}
+.pp::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.052),transparent);transition:left .55s ease;pointer-events:none}
+.pp:hover::after{left:180%}
+.pp.ps{background:rgba(59,130,246,.07);border:1.5px solid rgba(59,130,246,.24)}.pp.ps::before{background:linear-gradient(90deg,var(--bl),var(--cy))}.pp.ps:hover{border-color:rgba(59,130,246,.48);box-shadow:0 20px 46px rgba(59,130,246,.18);transform:translateY(-6px)}
+.pp.pb{background:rgba(139,92,246,.07);border:1.5px solid rgba(139,92,246,.24)}.pp.pb::before{background:linear-gradient(90deg,var(--pu),var(--bl))}.pp.pb:hover{border-color:rgba(139,92,246,.48);box-shadow:0 20px 46px rgba(139,92,246,.18);transform:translateY(-6px)}
+.ppico{font-size:2rem;margin-bottom:12px;display:block}
+.pptit{font-family:var(--fs);font-size:1rem;font-weight:700;margin-bottom:4px}
+.ps .pptit{color:var(--bll)}.pb .pptit{color:var(--pul)}
+.ppwho{font-size:.72rem;color:var(--mu);margin-bottom:13px;font-style:italic}
+.ppbens{display:flex;flex-direction:column;gap:6px}
+.ppben{display:flex;align-items:flex-start;gap:8px;font-size:.76rem;color:var(--mu);line-height:1.5}
+.ppck{font-size:.8rem;flex-shrink:0;margin-top:1px}
+.ps .ppck{color:var(--bll)}.pb .ppck{color:var(--pul)}
+#s11 .pcta{width:100%;max-width:820px;background:rgba(59,130,246,.07);border:1.5px solid rgba(59,130,246,.24);border-radius:11px;padding:13px 21px;text-align:center;cursor:pointer;position:relative;overflow:hidden;transition:transform .26s cubic-bezier(.4,0,.2,1),border-color .26s ease,background .26s ease,box-shadow .26s ease}
+#s11 .pcta::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transition:left .5s ease;pointer-events:none}
+#s11 .pcta:hover::after{left:180%}
+#s11 .pcta:hover{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.45);transform:translateY(-2px);box-shadow:0 8px 26px rgba(59,130,246,.2)}
+#s11 .pcta p{font-size:.78rem;color:var(--mu);line-height:1.65}.pcta p strong{color:var(--bll)}
+
+/* ===========================
+   S12 – CLOSE
+   =========================== */
+.star{position:absolute;border-radius:50%;animation:star linear infinite;pointer-events:none}
+#s12 .clogo{margin-bottom:16px;animation:in .8s ease .18s both;position:relative;z-index:1}
+#s12 .clogo img{height:96px;filter:brightness(1.1) drop-shadow(0 0 38px rgba(59,130,246,.65)) drop-shadow(0 0 80px rgba(59,130,246,.25));animation:flt 5s ease-in-out infinite}
+#s12 .ctag{font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--mu);text-align:center;max-width:520px;line-height:1.65;margin-bottom:16px;position:relative;z-index:1}
+#s12 .ctag strong{font-family:var(--fs);color:var(--bll)}
+#s12 .mrow{display:flex;gap:9px;width:100%;max-width:680px;margin-bottom:14px;position:relative;z-index:1}
+.mb{flex:1;border-radius:12px;padding:14px 10px;text-align:center;position:relative;overflow:hidden;cursor:default;transition:transform .28s cubic-bezier(.34,1.56,.64,1),border-color .28s ease,box-shadow .28s ease}
+.mb::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:14px 14px 0 0}
+.mb::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.07),transparent);transition:left .55s ease;pointer-events:none}
+.mb:hover::after{left:180%}
+.mb:hover{transform:translateY(-7px) scale(1.04)}
+.mb.mbl{background:rgba(59,130,246,.09);border:1px solid rgba(59,130,246,.26)}.mb.mbl::before{background:linear-gradient(90deg,var(--bl),var(--cy))}.mb.mbl:hover{border-color:rgba(59,130,246,.58);box-shadow:0 16px 38px rgba(59,130,246,.25)}
+.mb.mgn{background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.26)}.mb.mgn::before{background:linear-gradient(90deg,var(--gn),var(--cy))}.mb.mgn:hover{border-color:rgba(16,185,129,.58);box-shadow:0 16px 38px rgba(16,185,129,.25)}
+.mb.mam{background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.26)}.mb.mam::before{background:linear-gradient(90deg,var(--am),var(--gn))}.mb.mam:hover{border-color:rgba(245,158,11,.58);box-shadow:0 16px 38px rgba(245,158,11,.2)}
+.mb.mpu{background:rgba(139,92,246,.09);border:1px solid rgba(139,92,246,.26)}.mb.mpu::before{background:linear-gradient(90deg,var(--pu),var(--bl))}.mb.mpu:hover{border-color:rgba(139,92,246,.58);box-shadow:0 16px 38px rgba(139,92,246,.25)}
+.mbv{font-family:var(--fs);font-size:1.55rem;font-weight:800}
+.mbl .mbv{color:var(--bll)}.mgn .mbv{color:var(--gnl)}.mam .mbv{color:var(--aml)}.mpu .mbv{color:var(--pul)}
+.mbl2{font-size:.76rem;color:var(--mu);margin-top:4px;line-height:1.35}
+#s12 .klines{display:flex;flex-direction:column;gap:6px;width:100%;max-width:600px;margin-bottom:16px;position:relative;z-index:1}
+.kl{font-size:.72rem;color:var(--mu);text-align:center;padding:7px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.07)}
+.kl.khi{color:var(--bll);font-weight:600;border-color:rgba(59,130,246,.26);background:rgba(59,130,246,.07)}
+#s12 .cbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:12px;position:relative;z-index:1}
+.cl{display:flex;align-items:center;gap:6px;font-size:.87rem;color:var(--mu);text-decoration:none;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .22s cubic-bezier(.4,0,.2,1)}
+.cl:hover{color:var(--bll);background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.28);transform:translateY(-2px)}
+.csep{color:var(--di)}
+#s12 .cprot{font-size:.7rem;color:var(--di);text-align:center;font-style:italic;max-width:360px;line-height:1.65;position:relative;z-index:1}
+
+/* ═══ BACKGROUND ANIMATIONS (per-slide) ═══ */
+.diag{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+
+/* --- Grid Perspective (S1, S8) --- */
+#s1 .diag,#s8 .diag{perspective:400px}
+#s1 .diag::before,#s8 .diag::before{
+  content:'';position:absolute;inset:-60% -20% -30%;
+  background:
+    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(59,130,246,.05) 49px,rgba(59,130,246,.05) 50px),
+    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(6,182,212,.04) 49px,rgba(6,182,212,.04) 50px);
+  transform:rotateX(58deg);animation:gridScroll 25s linear infinite}
+@keyframes gridScroll{0%{background-position:0 0,0 0}100%{background-position:0 500px,0 500px}}
+
+/* --- Bokeh Float OUTLINE (S2, S6) --- */
+#s2 .diag::before,#s6 .diag::before{
+  content:'';position:absolute;width:160px;height:160px;top:15%;left:8%;
+  border-radius:50%;border:1px solid rgba(59,130,246,.12);
+  filter:blur(2px);animation:bokehO1 20s ease-in-out infinite}
+#s2 .diag::after,#s6 .diag::after{
+  content:'';position:absolute;width:120px;height:120px;bottom:18%;right:12%;
+  border-radius:50%;border:1px solid rgba(139,92,246,.1);
+  filter:blur(2px);animation:bokehO2 26s ease-in-out infinite}
+@keyframes bokehO1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(80px,-40px) scale(1.15)}66%{transform:translate(-30px,50px) scale(.9)}}
+@keyframes bokehO2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-50px,30px) scale(1.1)}66%{transform:translate(40px,-60px) scale(.85)}}
+
+/* --- Electric Arc (S3, S10) --- */
+#s3 .diag::before,#s10 .diag::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 48%,rgba(239,68,68,.1) 49%,rgba(245,158,11,.12) 50%,rgba(239,68,68,.1) 51%,transparent 52%);
+  clip-path:polygon(0% 50%,10% 48%,20% 52%,30% 46%,40% 54%,50% 44%,60% 56%,70% 42%,80% 55%,90% 47%,100% 50%,100% 52%,90% 49%,80% 57%,70% 44%,60% 58%,50% 46%,40% 56%,30% 48%,20% 54%,10% 50%,0% 52%);
+  animation:arcS1 7s ease-in-out infinite;filter:blur(1px)}
+#s3 .diag::after,#s10 .diag::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 48%,rgba(59,130,246,.08) 49%,rgba(6,182,212,.1) 50%,rgba(59,130,246,.08) 51%,transparent 52%);
+  clip-path:polygon(0% 55%,12% 52%,22% 58%,35% 50%,45% 60%,55% 48%,65% 58%,78% 50%,88% 56%,100% 53%,100% 55%,88% 58%,78% 52%,65% 60%,55% 50%,45% 62%,35% 52%,22% 60%,12% 54%,0% 57%);
+  animation:arcS2 9s ease-in-out infinite;filter:blur(1.5px)}
+@keyframes arcS1{
+  0%,100%{clip-path:polygon(0% 50%,10% 48%,20% 52%,30% 46%,40% 54%,50% 44%,60% 56%,70% 42%,80% 55%,90% 47%,100% 50%,100% 52%,90% 49%,80% 57%,70% 44%,60% 58%,50% 46%,40% 56%,30% 48%,20% 54%,10% 50%,0% 52%);opacity:.7}
+  50%{clip-path:polygon(0% 48%,10% 52%,20% 44%,30% 55%,40% 42%,50% 56%,60% 45%,70% 53%,80% 46%,90% 54%,100% 48%,100% 50%,90% 56%,80% 48%,70% 55%,60% 47%,50% 58%,40% 44%,30% 57%,20% 46%,10% 54%,0% 50%);opacity:1}}
+@keyframes arcS2{
+  0%,100%{clip-path:polygon(0% 55%,12% 52%,22% 58%,35% 50%,45% 60%,55% 48%,65% 58%,78% 50%,88% 56%,100% 53%,100% 55%,88% 58%,78% 52%,65% 60%,55% 50%,45% 62%,35% 52%,22% 60%,12% 54%,0% 57%);opacity:.5}
+  50%{clip-path:polygon(0% 53%,12% 57%,22% 50%,35% 58%,45% 48%,55% 56%,65% 47%,78% 57%,88% 50%,100% 56%,100% 58%,88% 52%,78% 59%,65% 49%,55% 58%,45% 50%,35% 60%,22% 52%,12% 59%,0% 55%);opacity:.8}}
+
+/* --- Radial Rings (S4, S9, S12) --- */
+#s4 .diag::before,#s9 .diag::before,#s12 .diag::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:1px solid rgba(6,182,212,.12);
+  animation:ringExp 10s ease-out infinite}
+#s4 .diag::after,#s9 .diag::after,#s12 .diag::after{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:1px solid rgba(59,130,246,.1);
+  animation:ringExp 10s ease-out infinite;animation-delay:-5s}
+@keyframes ringExp{0%{width:20px;height:20px;opacity:.8}100%{width:600px;height:600px;opacity:0}}
+
+/* --- Morph Blob OUTLINE (S5, S7, S11) --- */
+#s5 .diag::before,#s7 .diag::before,#s11 .diag::before{
+  content:'';position:absolute;top:50%;left:50%;width:200px;height:200px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(139,92,246,.12);
+  animation:morphO 20s ease-in-out infinite}
+#s5 .diag::after,#s7 .diag::after,#s11 .diag::after{
+  content:'';position:absolute;top:45%;left:55%;width:140px;height:140px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(59,130,246,.1);
+  animation:morphO 20s ease-in-out infinite;animation-delay:-10s;animation-direction:reverse}
+@keyframes morphO{
+  0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}
+  25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}
+  50%{border-radius:50% 60% 30% 60%/30% 40% 70% 60%}
+  75%{border-radius:60% 30% 60% 40%/70% 50% 40% 60%}}
+
+/* ═══ CORNER BRACKETS (cycling corners effect) ═══ */
+.cbr{position:relative}
+.cbr .ck{position:absolute;width:13px;height:13px;border-style:solid;border-color:inherit;pointer-events:none;border-radius:0;z-index:2}
+.cbr .ck.tl{top:-1px;left:-1px;border-width:2px 0 0 2px;border-top-left-radius:3px}
+.cbr .ck.tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-top-right-radius:3px}
+.cbr .ck.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-bottom-left-radius:3px}
+.cbr .ck.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-bottom-right-radius:3px}
+@keyframes cbrCycle{0%,100%{opacity:.12;transform:scale(1)}50%{opacity:.75;transform:scale(1.12)}}
+.cbr .ck.tl{animation:cbrCycle 3.2s ease-in-out infinite 0s}
+.cbr .ck.tr{animation:cbrCycle 3.2s ease-in-out infinite .8s}
+.cbr .ck.br{animation:cbrCycle 3.2s ease-in-out infinite 1.6s}
+.cbr .ck.bl{animation:cbrCycle 3.2s ease-in-out infinite 2.4s}
+
+/* Specific corner colors */
+.cbr.cbr-rd .ck{border-color:rgba(239,68,68,.9)}
+.cbr.cbr-bl .ck{border-color:rgba(59,130,246,.9)}
+.cbr.cbr-gn .ck{border-color:rgba(16,185,129,.9)}
+.cbr.cbr-am .ck{border-color:rgba(245,158,11,.9)}
+.cbr.cbr-pu .ck{border-color:rgba(139,92,246,.9)}
+.cbr.cbr-cy .ck{border-color:rgba(6,182,212,.9)}
+
+/* ═══ SPINE DOT RIPPLE (S5) ═══ */
+@keyframes ripple{0%{box-shadow:0 0 0 0 currentColor,0 0 6px currentColor}70%{box-shadow:0 0 0 8px transparent,0 0 6px currentColor}100%{box-shadow:0 0 0 0 transparent,0 0 6px currentColor}}
+.sdot{animation:ripple 3s ease-out infinite}
+.sdot:nth-child(1){animation-delay:0s}
+.sdot:nth-child(2){animation-delay:.4s}
+.sdot:nth-child(3){animation-delay:.8s}
+.sdot:nth-child(4){animation-delay:1.2s}
+.sdot:nth-child(5){animation-delay:1.6s}
+.sdot:nth-child(6){animation-delay:2s}
+.sdot:nth-child(7){animation-delay:2.4s}
+.sdot:nth-child(8){animation-delay:2.8s}
+
+/* ═══ AMBIENT ORBS (S1, S3, S6, S11) ═══ */
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0;opacity:0;animation:orbFloat linear infinite}
+@keyframes orbFloat{
+  0%{opacity:0;transform:translate(0,0) scale(1)}
+  15%{opacity:var(--op,.35)}
+  85%{opacity:var(--op,.35)}
+  100%{opacity:0;transform:translate(var(--dx,20px),var(--dy,-40px)) scale(1.3)}
+}
+
+/* ═══ TIMELINE NODE PULSE (S3) ═══ */
+@keyframes warnPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,0),0 0 18px 2px rgba(245,158,11,.28)}
+  50%{box-shadow:0 0 0 10px rgba(245,158,11,0),0 0 24px 4px rgba(245,158,11,.45)}
+}
+.tlc.warn{animation:warnPulse 2s ease-in-out infinite!important}
+
+/* ═══ SCAN BEAM (S6 gap center, already has scan, enhance) ═══ */
+.gs.ggap::after{content:'';position:absolute;left:0;width:100%;height:1.5px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.7),rgba(6,182,212,.5),transparent);box-shadow:0 0 10px 2px rgba(59,130,246,.35);animation:scanLine 3.2s ease-in-out infinite}
+@keyframes scanLine{0%{top:-2%;opacity:0}8%{opacity:1}90%{opacity:.5}100%{top:102%;opacity:0}}
+
+/* ═══ VALIDATION CARD SHIMMER (S9 done cards) ═══ */
+@keyframes vcShimmer{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}60%{box-shadow:0 0 0 3px rgba(16,185,129,.12)}}
+.vc.vd{animation:vcShimmer 4s ease-in-out infinite}
+.vc.vd:nth-child(1){animation-delay:0s}
+.vc.vd:nth-child(2){animation-delay:.5s}
+.vc.vd:nth-child(3){animation-delay:1s}
+.vc.vd:nth-child(4){animation-delay:1.5s}
+.vc.vd:nth-child(5){animation-delay:2s}
+.vc.vd:nth-child(6){animation-delay:2.5s}
+
+/* S6 gap-why strip */
+#s6 .gap-why{display:flex;gap:10px;width:100%;max-width:820px;margin-bottom:10px}
+.gw-item{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;transition:all .26s cubic-bezier(.34,1.56,.64,1)}
+.gw-item:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.32);box-shadow:0 10px 26px rgba(59,130,246,.1)}
+.gw-ico{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.gw-text{font-size:.72rem;color:var(--mu);line-height:1.5}.gw-text strong{color:var(--tx);font-weight:600;display:block;margin-bottom:3px}
+
+/* S10 Founder Timeline */
+#s10 .ftl{display:grid;grid-template-columns:1fr 36px 1fr;gap:0;width:100%;max-width:900px;margin:12px 0 0;align-items:start}
+.ftl-col{display:flex;flex-direction:column;gap:10px}
+.ftl-center{display:flex;flex-direction:column;align-items:center;padding-top:14px}
+.ftl-line{width:2px;flex:1;background:linear-gradient(180deg,var(--di),rgba(255,255,255,.06));min-height:30px}
+.ftl-line-b{background:linear-gradient(180deg,rgba(59,130,246,.4),transparent)}
+.ftl-now{font-family:var(--fm);font-size:8px;color:var(--bll);letter-spacing:.14em;text-transform:uppercase;writing-mode:vertical-rl;text-orientation:mixed;padding:6px 0;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:6px;margin:4px 0}
+.ftl-node{display:flex;align-items:flex-start;gap:8px;position:relative}
+.ftl-col:first-child .ftl-node{flex-direction:row-reverse}
+.ftl-col:first-child .ftl-node .ftl-card{text-align:right}
+.ftl-col:last-child .ftl-node{flex-direction:row}
+.ftl-dot{width:10px;height:10px;border-radius:50%;border:2px solid;flex-shrink:0;margin-top:14px;position:relative;z-index:2}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.4),0 0 8px rgba(59,130,246,.3)}70%{box-shadow:0 0 0 8px rgba(59,130,246,0),0 0 8px rgba(59,130,246,.5)}}
+.ftl-dot-pulse{animation:dotPulse 2.4s ease-out infinite}
+.ftl-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:11px 13px;flex:1;transition:all .26s cubic-bezier(.4,0,.2,1)}
+.ftl-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+.ftl-card-active{border-color:rgba(59,130,246,.28);background:rgba(59,130,246,.06)}
+.ftl-card-active:hover{border-color:rgba(59,130,246,.5);box-shadow:0 10px 24px rgba(59,130,246,.12)}
+.ftl-era{font-family:var(--fm);font-size:8.5px;color:var(--di);letter-spacing:.08em;margin-bottom:3px;text-transform:uppercase}
+.ftl-role{font-family:var(--fs);font-size:.77rem;font-weight:700;color:var(--tx);margin-bottom:5px;line-height:1.25}
+.ftl-desc{font-size:.7rem;color:var(--mu);line-height:1.5}
+.ftl-tagbox{display:flex;flex-direction:column;gap:6px;padding:2px 0}
+.ftl-tag{font-size:.68rem;color:var(--mu);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:6px 10px;line-height:1.45}
+
+/* === BUG FIX: Font fallback stack (P1 #4) === */
+@font-face{font-family:'Syne-Fallback';src:local('Arial Black'),local('Arial Bold'),local('Helvetica Neue Bold');font-weight:600 800;font-style:normal;font-display:swap;ascent-override:90%;descent-override:22%;line-gap-override:0%}
+:root{
+  --fs:"Syne","Syne-Fallback","Arial Black",system-ui,sans-serif;
+}
+
+/* === BUG FIX: S12 close slide viewport-aware scaling (P1 #1) === */
+#s12 .cx{padding:0 40px;max-height:100vh;overflow:hidden}
+@media (max-height:760px){
+  #s12{padding-top:60px;padding-bottom:30px}
+  #s12 .clogo img{height:64px}
+  #s12 .ctag{font-size:clamp(.78rem,1.4vw,1rem);margin-bottom:10px}
+  #s12 .mrow{margin-bottom:8px;gap:6px}
+  .mb{padding:10px 8px}.mbv{font-size:1.2rem}.mbl2{font-size:.68rem}
+  #s12 .klines{gap:4px;margin-bottom:10px}
+  .kl{padding:5px 12px;font-size:.66rem}
+  #s12 .cbar{margin-bottom:8px;gap:8px}.cl{font-size:.78rem;padding:5px 10px}
+  #s12 .cprot{font-size:.62rem}
+}
+
+/* === BUG FIX: S10 founder timeline 1024px fallback (P1 #3) === */
+@media (max-width:1024px){
+  #s10 .ftl{grid-template-columns:1fr;gap:10px}
+  .ftl-center{flex-direction:row;padding:0;gap:8px;justify-content:center}
+  .ftl-line{width:auto;height:2px;min-height:auto;min-width:30px;flex:1}
+  .ftl-now{writing-mode:horizontal-tb;text-orientation:initial}
+  .ftl-col:first-child .ftl-node{flex-direction:row}
+  .ftl-col:first-child .ftl-node .ftl-card{text-align:left}
+}
+
+/* === BUG FIX: Dot indicators (P3 #8) === */
+#dots{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:500;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g2);border:1px solid var(--g3);cursor:pointer;transition:all .25s ease;flex-shrink:0}
+.dot:hover{background:rgba(59,130,246,.4);transform:scale(1.3)}
+.dot.active{background:var(--bl);border-color:var(--bll);box-shadow:0 0 8px rgba(59,130,246,.5);transform:scale(1.2)}
+
+/* === BUG FIX: Subtle keyboard hint on all slides (P3 #9) === */
+.nav-hint{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:9px;color:var(--di);letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .6s;pointer-events:none}
+.sl.on .nav-hint{opacity:.35}
+#s1 .nav-hint{display:none}
+
+/* === SOURCE REFERENCES === */
+.ss a{color:inherit;text-decoration:none;transition:all .22s}
+.ss a::after{content:' ↗';font-size:.55em;opacity:.35;transition:opacity .2s;vertical-align:super}
+.ss a:hover{color:var(--bll)}
+.ss a:hover::after{opacity:1}
+.src{display:inline-flex;align-items:center;gap:2px;font-family:var(--fm);font-size:7.5px;letter-spacing:.03em;color:var(--di);text-decoration:none;padding:2px 7px 2px 5px;border-radius:8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);margin-left:4px;vertical-align:middle;transition:all .22s ease;white-space:nowrap;font-style:normal}
+.src:hover{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.28);color:var(--bll);transform:translateY(-1px);box-shadow:0 3px 10px rgba(59,130,246,.12)}
+.src::before{content:'↗';font-size:7px;opacity:.5;margin-right:1px}
+.src:hover::before{opacity:1}
+
+/* ═══════════════════════════════════════════════
+   PREMIUM OVERHAUL — overflow fixes + AI-template elimination
+   ═══════════════════════════════════════════════ */
+
+/* Viewport-aware slide padding — prevents overflow on all slides */
+.sl{padding:clamp(48px,7vh,88px) clamp(32px,4vw,68px) clamp(34px,5vh,60px)}
+
+/* S3: Compact everything so penalty box fits on screen */
+#s3 .title{font-size:clamp(1.3rem,2.4vw,2.2rem)}
+.tlrow{margin:10px auto 12px}
+.tlc{width:38px;height:38px;font-size:10px}
+.tlc.warn{width:46px;height:46px;font-size:17px}
+.tli{margin-top:6px}
+.tld{font-size:11px}
+.tll{font-size:9.5px}
+.penbox{padding:11px 22px;max-width:460px}
+.penn{font-size:1.8rem}
+.penl{font-size:9.5px;line-height:1.4;margin-top:3px}
+.penctx{font-size:9.5px;margin-top:5px;padding-top:5px}
+#s3 .insight{margin-top:8px;font-size:.76rem}
+
+/* S4: Tighter spacing, less wall-of-text */
+#s4 .title{font-size:clamp(1.3rem,2.4vw,2.2rem)}
+#s4 .twocol{margin:10px 0 8px;gap:10px}
+.dpanel{padding:14px 16px}
+.dr{margin-bottom:4px}
+.dph{font-size:.78rem;margin-bottom:8px}
+.dt{font-size:.68rem;line-height:1.45}
+#s4 .clar{padding:9px 14px}
+.ct{font-size:.68rem;line-height:1.5}
+
+/* S10: Compact timeline cards to fit viewport */
+#s10 .title{font-size:clamp(1.1rem,2vw,1.8rem)}
+#s10 .sub{font-size:.8rem;margin-top:4px}
+#s10 .ftl{margin:6px 0 0}
+.ftl-card{padding:7px 10px}
+.ftl-desc{font-size:.62rem;line-height:1.4}
+.ftl-role{font-size:.7rem;margin-bottom:2px}
+.ftl-era{font-size:7.5px;margin-bottom:1px}
+.ftl-dot{width:8px;height:8px;margin-top:8px}
+.ftl-col{gap:6px}
+
+/* Remove AI-template corner brackets from dense slides */
+#s2 .ck{display:none}
+#s7 .ck{display:none}
+
+/* S2: Make stat numbers more dramatic — bigger is better for impact */
+#s2 .sn{font-size:2.8rem}
+#s2 .sgrid{gap:10px;margin:10px 0 10px}
+#s2 .sc{padding:16px 18px}
+#s2 .callout{padding:10px 16px;font-size:.73rem}
+
+/* S7: Tighter moat cards */
+#s7 .mc{padding:16px}
+#s7 .mp{font-size:.7rem;line-height:1.5}
+#s7 .mgrid{margin-top:12px;gap:10px}
+
+/* S9: Tighter validation grid */
+#s9 .vgrid{gap:8px;margin:10px 0 8px}
+.vc{padding:12px 12px}
+.vdesc{font-size:.72rem}
+
+/* Nav area: more breathing room */
+#nav{bottom:14px}
+.nav-hint{bottom:46px}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE FIXES — projector, tablet, mobile
+   ═══════════════════════════════════════════════ */
+
+/* --- Projector / small laptop (height ≤ 600px) --- */
+@media (max-height:600px){
+  .sl{padding:clamp(32px,5vh,48px) clamp(24px,3vw,56px) clamp(24px,3vh,36px)}
+  .title{font-size:clamp(1.2rem,2.2vw,2rem)}
+  .sub{font-size:.78rem;margin-top:4px}
+  .eye{font-size:9px;padding:4px 11px;margin-bottom:8px}
+
+  /* S2: prevent title/logo overlap + fit callout */
+  #s2 .sn{font-size:2.2rem}
+  #s2 .sgrid{gap:6px;margin:6px 0 6px}
+  #s2 .sc{padding:10px 14px}
+  #s2 .sd{font-size:.72rem}
+  #s2 .ss{font-size:.6rem;margin-top:3px;padding-top:3px}
+  #s2 .callout{padding:7px 12px;font-size:.66rem}
+
+  /* S3: tighter timeline */
+  .tlrow{margin:6px auto 8px}
+  .tlc{width:32px;height:32px;font-size:9px}
+  .tlc.warn{width:40px;height:40px;font-size:15px}
+  .penbox{padding:8px 18px}
+  .penn{font-size:1.5rem}
+  .penl{font-size:8.5px}
+  .penctx{font-size:8.5px;margin-top:4px;padding-top:4px}
+  #s3 .insight{margin-top:5px;font-size:.7rem}
+
+  /* S4: compact panels */
+  #s4 .twocol{margin:6px 0 5px}
+  .dpanel{padding:10px 12px}
+  .dph{font-size:.72rem;margin-bottom:6px}
+  .dt{font-size:.62rem}
+  .dr{margin-bottom:3px}
+  #s4 .clar{padding:6px 10px}
+  .ct{font-size:.62rem}
+
+  /* S5: smaller product cards */
+  .pc{padding:8px 8px}
+  .pname{font-size:.65rem}
+  .pprice{font-size:.6rem}
+  .pico{font-size:1rem;margin-bottom:4px}
+  #s5 .spine{height:18px}
+  #s5 .row-a,#s5 .row-b{gap:6px}
+  #s5 .row-a{margin-bottom:8px}
+  #s5 .row-b{margin-top:8px}
+
+  /* S6: compact gap bar + cards */
+  #s6 .gbar{height:80px;margin:8px 0 7px}
+  .gl{font-size:7.5px}
+  .gv{font-size:.85rem}
+  .gsub{font-size:7px}
+  #s6 .gap-why{gap:6px;margin-bottom:6px}
+  .gw-text{font-size:.64rem}
+  .gw-ico{font-size:.9rem}
+  #s6 .dnote{font-size:.65rem}
+
+  /* S7: compact moats */
+  #s7 .mgrid{gap:8px;margin-top:8px}
+  #s7 .mc{padding:12px}
+  #s7 .mp{font-size:.64rem}
+  .mci{font-size:1rem;margin-bottom:5px}
+  .mh{font-size:.78rem;margin-bottom:4px}
+
+  /* S8: compact phases */
+  #s8 .phs{margin:8px 0 8px;gap:8px}
+  .ph{padding:14px}
+  .php{font-size:1rem}
+  .phd{font-size:.68rem}
+  #s8 .mets{gap:6px}
+  .met{padding:8px 6px}
+  .metv{font-size:.9rem}
+
+  /* S9: compact validation */
+  #s9 .vgrid{gap:6px;margin:6px 0 5px}
+  .vc{padding:9px 10px}
+  .vtit{font-size:.72rem}
+  .vdesc{font-size:.65rem}
+  .vico{font-size:1rem;margin-bottom:4px}
+
+  /* S10: tighter timeline */
+  .ftl-card{padding:5px 8px}
+  .ftl-desc{font-size:.58rem}
+  .ftl-role{font-size:.65rem}
+
+  /* S11: compact partners */
+  #s11 .pgrid{gap:8px;margin:8px 0 8px}
+  .pp{padding:14px 16px}
+  .ppico{font-size:1.5rem;margin-bottom:8px}
+  .pptit{font-size:.88rem}
+  .ppben{font-size:.68rem}
+  #s11 .pcta{padding:8px 14px}
+  #s11 .pcta p{font-size:.7rem}
+
+  /* S12: already has max-height media query, enhance */
+  #s12 .mrow{gap:5px}
+  .mb{padding:8px 6px}
+  .mbv{font-size:1.1rem}
+  .mbl2{font-size:.64rem}
+  #s12 .klines{gap:3px;margin-bottom:8px}
+  .kl{padding:4px 10px;font-size:.6rem}
+}
+
+/* --- Mobile (width ≤ 480px) --- */
+@media (max-width:480px){
+  .sl{padding:44px 16px 28px;justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .title{font-size:clamp(1.1rem,5vw,1.6rem)}
+  .sub{font-size:.74rem}
+
+  /* S2: stack stat grid to single column */
+  #s2 .sgrid{grid-template-columns:1fr;max-width:400px}
+  #s2 .sn{font-size:2rem}
+  #s2 .sc{padding:12px 14px}
+
+  /* S4: stack two-col to single column */
+  #s4 .twocol{grid-template-columns:1fr}
+
+  /* S5/S6: 4-col → 2x2 grid */
+  #s5 .row-a,#s5 .row-b{grid-template-columns:1fr 1fr}
+  #s6 .gbar{grid-template-columns:1fr;height:auto}
+  #s6 .gap-why{flex-direction:column}
+  #s6 .dgrid{grid-template-columns:1fr 1fr}
+
+  /* S7: stack moats to single column */
+  #s7 .mgrid{grid-template-columns:1fr}
+
+  /* S8: stack phases */
+  #s8 .phs{flex-direction:column}
+  #s8 .mets{flex-wrap:wrap}
+  .met{min-width:calc(50% - 6px)}
+
+  /* S9: 3-col → 2-col */
+  #s9 .vgrid{grid-template-columns:1fr 1fr}
+
+  /* S10: already single-col via 1024 query */
+
+  /* S11: stack partner cards */
+  #s11 .pgrid{flex-direction:column}
+
+  /* S12: metrics 4-col → 2x2 */
+  #s12 .mrow{flex-wrap:wrap}
+  .mb{min-width:calc(50% - 6px)}
+  #s12 .cbar{flex-direction:column;gap:6px}
+
+  /* Nav: smaller dots for mobile */
+  .dot{width:6px;height:6px}
+  #dots{gap:4px}
+  .nb{display:none}
+  #ctr{font-size:8px;padding:3px 8px}
+  .logofx img{height:38px}
+  .nav-hint{display:none!important}
+  #s1 .hint{display:none!important}
+
+  /* Hide dot indicators on mobile — Next/Back buttons are sufficient */
+  #dots{display:none}
+  #nav{bottom:6px;gap:0}
+
+  /* Mobile nav button positioning — clear of content */
+  #mobile-next{bottom:28px}
+  #mobile-prev{bottom:28px}
+
+  /* Source pills readable on mobile */
+  .src{font-size:9px;padding:3px 8px 3px 6px}
+  .ss{font-size:.72rem}
+
+  /* S5: more compact product cards to show all 8 */
+  .pc{padding:6px 8px}
+  .pico{font-size:.9rem;margin-bottom:3px}
+  .pname{font-size:.62rem;margin-bottom:3px}
+  .pprice{font-size:.58rem;padding:1px 5px}
+  #s5 .spine{height:14px}
+  #s5 .row-a,#s5 .row-b{gap:5px}
+  #s5 .row-a{margin-bottom:6px}
+  #s5 .row-b{margin-top:6px}
+  .sdot{width:8px;height:8px}
+  .snote{font-size:.62rem}
+
+  /* S8: compact phases so metrics row is visible */
+  #s8 .phs{gap:6px;margin:6px 0 6px}
+  .ph{padding:10px 12px}
+  .phe{font-size:7px;margin-bottom:3px}
+  .phn{font-size:.72rem;margin-bottom:2px}
+  .php{font-size:.95rem;margin-bottom:3px}
+  .phd{font-size:.6rem;line-height:1.4}
+  #s8 .mets{gap:4px}
+  .met{padding:6px 4px}
+  .metv{font-size:.82rem}
+  .metl{font-size:7px}
+
+  /* S11: compact partner cards to show both */
+  .pp{padding:12px 14px}
+  .ppico{font-size:1.3rem;margin-bottom:6px}
+  .pptit{font-size:.85rem;margin-bottom:2px}
+  .ppwho{font-size:.62rem;margin-bottom:6px}
+  .ppben{font-size:.65rem;line-height:1.4}
+  .ppbens{gap:4px}
+  #s11 .pcta{padding:6px 12px}
+  #s11 .pcta p{font-size:.62rem;line-height:1.5}
+
+  /* Bottom safe area — solid bar behind nav buttons so content never shows through */
+  .sl .cx{padding-bottom:60px}
+  #mobile-nav-bg{display:block!important}
+
+  /* Mobile Next CTA */
+  #mobile-next{display:flex!important}
+}
+
+/* === MOBILE NAVIGATION UX === */
+
+/* Mobile nav background strip — prevents content showing behind buttons */
+#mobile-nav-bg{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;height:62px;z-index:590;
+  background:linear-gradient(transparent,rgba(3,7,20,.95) 30%);
+  pointer-events:none;
+}
+
+/* Floating "Next" CTA button — mobile only */
+#mobile-next{
+  display:none;
+  position:fixed;bottom:52px;right:16px;z-index:600;
+  align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--bl),var(--cy));
+  color:#fff;font-family:var(--fs);font-size:13px;font-weight:700;letter-spacing:.04em;
+  padding:10px 20px 10px 16px;border-radius:28px;border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(59,130,246,.4),0 0 0 1px rgba(59,130,246,.3);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  -webkit-tap-highlight-color:transparent;
+}
+#mobile-next:active{transform:scale(.92);box-shadow:0 2px 10px rgba(59,130,246,.3)}
+#mobile-next .mn-arrow{font-size:16px;transition:transform .2s}
+#mobile-next:active .mn-arrow{transform:translateX(3px)}
+
+/* "Prev" button — mobile only */
+#mobile-prev{
+  display:none;
+  position:fixed;bottom:52px;left:16px;z-index:600;
+  align-items:center;gap:4px;
+  background:var(--g1);
+  color:var(--mu);font-family:var(--fs);font-size:12px;font-weight:600;
+  padding:8px 14px 8px 12px;border-radius:24px;border:1px solid var(--g2);cursor:pointer;
+  transition:all .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+#mobile-prev:active{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:var(--bll)}
+@media (max-width:480px){
+  #mobile-prev{display:flex!important}
+}
+
+/* Swipe nudge — subtle content shift to hint "swipe right" */
+@keyframes nudgeRight{
+  0%,100%{transform:translateX(0)}
+  40%{transform:translateX(-28px)}
+  70%{transform:translateX(6px)}
+}
+@keyframes nudgeLeft{
+  0%,100%{transform:translateX(0)}
+  40%{transform:translateX(28px)}
+  70%{transform:translateX(-6px)}
+}
+.sl.nudge-right>.cx{animation:nudgeRight .7s cubic-bezier(.4,0,.2,1)}
+.sl.nudge-left>.cx{animation:nudgeLeft .7s cubic-bezier(.4,0,.2,1)}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="logofx"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjEwbW0iCiAgIGhlaWdodD0iMTIwbW0iCiAgIHZpZXdCb3g9IjAgMCAyMTAgMTIwIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICBpbmtzY2FwZTpleHBvcnQtZmlsZW5hbWU9Im9nLWxvZ28ucG5nIgogICBpbmtzY2FwZTpleHBvcnQteGRwaT0iOTYiCiAgIGlua3NjYXBlOmV4cG9ydC15ZHBpPSI5NiIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS40ICgxOjEuNCsyMDI0MTAxNjEzNTErZTdjM2ZlYjEwMCkiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvZ283LnN2ZyIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjMDAwMDAwIgogICAgIGJvcmRlcm9wYWNpdHk9IjAuMjUiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0ibW0iCiAgICAgaW5rc2NhcGU6ZXhwb3J0LWJnY29sb3I9IiNmZmZmZmZmZiIKICAgICBpbmtzY2FwZTp6b29tPSIwLjUyMjAzOTg0IgogICAgIGlua3NjYXBlOmN4PSIzOTcuNDc5MjQiCiAgICAgaW5rc2NhcGU6Y3k9IjU2MS4yNTk4NCIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE0NDAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODMxIgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIzMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMSI+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJncmFkaWVudDEiCiAgICAgICB4MT0iMjEuOTY0NTEyIgogICAgICAgeTE9IjEzNi45MjY5NiIKICAgICAgIHgyPSIyMDYuNzIyNjYiCiAgICAgICB5Mj0iMTM2LjkyNjk2IgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjEyNzM2NTgsMCwwLDAuMTYwMjI5MDksLTIwLjM4NjE4NywyMy4yNTg0ODgpIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcAogICAgICAgICBvZmZzZXQ9IjAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjZjk3MzE2IgogICAgICAgICBpZD0ic3RvcDEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iNTAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjM2I4MmY2IgogICAgICAgICBpZD0ic3RvcDIiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iMTAwJSIKICAgICAgICAgc3RvcC1jb2xvcj0iIzIyYzU1ZSIKICAgICAgICAgaWQ9InN0b3AzIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcKICAgICBpbmtzY2FwZTpsYWJlbD0iTGF5ZXIgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiPgogICAgPHRleHQKICAgICAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgICBmaWxsPSJ1cmwoI2dyYWRpZW50MSkiCiAgICAgICBzdHlsZT0iZm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MzYuNzUxMXB4O2ZvbnQtZmFtaWx5OlN5c3RlbS11aTstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOidTeXN0ZW0tdWkgQm9sZCc7dGV4dC1hbGlnbjpjZW50ZXI7bGV0dGVyLXNwYWNpbmc6MHB4O3dyaXRpbmctbW9kZTpsci10YjtkaXJlY3Rpb246bHRyO3RleHQtYW5jaG9yOm1pZGRsZTtkaXNwbGF5OmlubGluZTtmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiCiAgICAgICB4PSIxMDUuMDA4OTciCiAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICBpZD0idGV4dDEiCiAgICAgICBpbmtzY2FwZTpsYWJlbD0iQmFjaGFvLkFJIj48dHNwYW4KICAgICAgICAgc29kaXBvZGk6cm9sZT0ibGluZSIKICAgICAgICAgaWQ9InRzcGFuMSIKICAgICAgICAgeD0iMTA1LjAwODk3IgogICAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICAgIHN0eWxlPSJmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiPkJhY2hhby5BSTwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="Bachao.AI"></div>
+<div id="ctr">1 / 12</div>
+<div id="nav">
+  <div class="nb" onclick="prev()">&#8592;</div>
+  <div id="dots"></div>
+  <div class="nb" onclick="next()">&#8594;</div>
+</div>
+<!-- Mobile navigation -->
+<div id="mobile-nav-bg"></div>
+<button id="mobile-prev" onclick="prev()"><span>&#8592;</span> Back</button>
+<button id="mobile-next" onclick="next()">Next <span class="mn-arrow">&#8594;</span></button>
+
+<div id="deck">
+
+<div class="sl on" id="s1">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="herologo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjEwbW0iCiAgIGhlaWdodD0iMTIwbW0iCiAgIHZpZXdCb3g9IjAgMCAyMTAgMTIwIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICBpbmtzY2FwZTpleHBvcnQtZmlsZW5hbWU9Im9nLWxvZ28ucG5nIgogICBpbmtzY2FwZTpleHBvcnQteGRwaT0iOTYiCiAgIGlua3NjYXBlOmV4cG9ydC15ZHBpPSI5NiIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS40ICgxOjEuNCsyMDI0MTAxNjEzNTErZTdjM2ZlYjEwMCkiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvZ283LnN2ZyIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjMDAwMDAwIgogICAgIGJvcmRlcm9wYWNpdHk9IjAuMjUiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0ibW0iCiAgICAgaW5rc2NhcGU6ZXhwb3J0LWJnY29sb3I9IiNmZmZmZmZmZiIKICAgICBpbmtzY2FwZTp6b29tPSIwLjUyMjAzOTg0IgogICAgIGlua3NjYXBlOmN4PSIzOTcuNDc5MjQiCiAgICAgaW5rc2NhcGU6Y3k9IjU2MS4yNTk4NCIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE0NDAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODMxIgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIzMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMSI+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJncmFkaWVudDEiCiAgICAgICB4MT0iMjEuOTY0NTEyIgogICAgICAgeTE9IjEzNi45MjY5NiIKICAgICAgIHgyPSIyMDYuNzIyNjYiCiAgICAgICB5Mj0iMTM2LjkyNjk2IgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjEyNzM2NTgsMCwwLDAuMTYwMjI5MDksLTIwLjM4NjE4NywyMy4yNTg0ODgpIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcAogICAgICAgICBvZmZzZXQ9IjAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjZjk3MzE2IgogICAgICAgICBpZD0ic3RvcDEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iNTAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjM2I4MmY2IgogICAgICAgICBpZD0ic3RvcDIiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iMTAwJSIKICAgICAgICAgc3RvcC1jb2xvcj0iIzIyYzU1ZSIKICAgICAgICAgaWQ9InN0b3AzIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcKICAgICBpbmtzY2FwZTpsYWJlbD0iTGF5ZXIgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiPgogICAgPHRleHQKICAgICAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgICBmaWxsPSJ1cmwoI2dyYWRpZW50MSkiCiAgICAgICBzdHlsZT0iZm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MzYuNzUxMXB4O2ZvbnQtZmFtaWx5OlN5c3RlbS11aTstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOidTeXN0ZW0tdWkgQm9sZCc7dGV4dC1hbGlnbjpjZW50ZXI7bGV0dGVyLXNwYWNpbmc6MHB4O3dyaXRpbmctbW9kZTpsci10YjtkaXJlY3Rpb246bHRyO3RleHQtYW5jaG9yOm1pZGRsZTtkaXNwbGF5OmlubGluZTtmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiCiAgICAgICB4PSIxMDUuMDA4OTciCiAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICBpZD0idGV4dDEiCiAgICAgICBpbmtzY2FwZTpsYWJlbD0iQmFjaGFvLkFJIj48dHNwYW4KICAgICAgICAgc29kaXBvZGk6cm9sZT0ibGluZSIKICAgICAgICAgaWQ9InRzcGFuMSIKICAgICAgICAgeD0iMTA1LjAwODk3IgogICAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICAgIHN0eWxlPSJmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiPkJhY2hhby5BSTwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="Bachao.AI"></div>
+    <div class="s1-pre fi" id="s1pre">In 2026, every Indian business will be asked:</div>
+    <div class="hl" id="thl"></div>
+    <div class="s1-stat" id="s1stat"><strong>74%</strong> of Indian businesses can't answer it &nbsp;&middot;&nbsp; Most of them have already been attacked <a class="src" href="https://www.dsci.in" target="_blank" rel="noopener">DSCI 2024</a></div>
+  </div>
+  <div class="hint">Press &rarr; to continue</div>
+</div>
+
+<div class="sl" id="s2">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye rd fi" style="animation-delay:.05s">&#9888; The Silent Crisis</div>
+    <div class="title fu" style="animation-delay:.12s">Most businesses get hacked <span class="tam">before</span> they care about security</div>
+    <div class="sub fu" style="animation-delay:.2s">India&rsquo;s 63M+ startups &amp; SMBs are targeted 4&times; more than large companies &mdash; 87% completely unprepared <a class="src" href="https://msme.gov.in" target="_blank" rel="noopener">MSME</a> <a class="src" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">Verizon DBIR</a></div>
+    <div class="sgrid fu" style="animation-delay:.3s">
+      <div class="sc sr cbr cbr-rd"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><div class="sn r"><span data-target="74">0</span>%</div><div class="sd">of Indian SMEs experienced at least <strong>one cyberattack</strong> in the past year</div><div class="ss"><a href="https://www.dsci.in" target="_blank" rel="noopener">India SME Forum + DSCI 2024</a></div></div>
+      <div class="sc sb cbr cbr-bl"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><div class="sn b"><span data-target="87">0</span>%</div><div class="sd">operate with <strong>zero formal cybersecurity policy</strong> &mdash; completely exposed</div><div class="ss"><a href="https://www.cert-in.org.in" target="_blank" rel="noopener">India SME Forum / CERT-In 2024</a></div></div>
+      <div class="sc sa cbr cbr-am"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><div class="sn a">&#8377;22<small style="font-size:1.2rem">Cr</small></div><div class="sd"><strong>Average cost of a data breach</strong> per organization in India &mdash; devastating for any SMB</div><div class="ss"><a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener">IBM Cost of Data Breach Report 2025</a></div></div>
+      <div class="sc sg cbr cbr-gn"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><div class="sn g"><span data-target="60">0</span>%</div><div class="sd">of breached SMBs <strong>shut down within 6 months</strong> and never recover</div><div class="ss"><a href="https://www.cert-in.org.in" target="_blank" rel="noopener">CERT-In / India SME Forum 2024</a></div></div>
+    </div>
+    <div class="callout fu" style="animation-delay:.58s"><strong>Our primary market:</strong> Non-regulated startups, SaaS companies, D2C brands, and SMBs who don&rsquo;t have mandatory compliance obligations <em>yet</em>. They get hacked, lose contracts, and often close. They just can&rsquo;t afford &#8377;16,000/month for protection. <a class="src" href="https://www.getastra.com/pricing" target="_blank" rel="noopener">Astra Security</a></div>
+  </div>
+</div>
+
+<div class="sl" id="s3">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye am fi" style="animation-delay:.05s">The Regulatory Catalyst</div>
+    <div class="title fu" style="animation-delay:.12s">India just made <span class="tam">security mandatory</span> for every business</div>
+    <div class="tlrow fu" style="animation-delay:.28s">
+      <div class="tln"><div class="tlc done">&#10003;</div><div class="tli"><div class="tld">Nov 2025</div><div class="tll">Data Protection<br>Board constituted</div></div></div>
+      <div class="tlbr"><div class="tlline lit"></div></div>
+      <div class="tln"><div class="tlc" style="border-color:var(--bl);color:var(--bll)">2</div><div class="tli"><div class="tld">Nov 2026</div><div class="tll">Compliance<br>registration opens</div></div></div>
+      <div class="tlbr"><div class="tlline"></div></div>
+      <div class="tln"><div class="tlc warn">!</div><div class="tli"><div class="tld" style="color:var(--aml);font-weight:800">May 13, 2027</div><div class="tll" style="color:var(--tx);font-weight:600">Full enforcement.<br>No grace period.</div></div></div>
+    </div>
+    <div class="penbox cbr cbr-rd"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><div class="penn">&#8377;250 Crore</div><div class="penl">Max penalty per security safeguard failure &mdash; verified per DPDP Act 2023 Schedule I <a class="src" href="https://www.meity.gov.in/data-protection-framework" target="_blank" rel="noopener">DPDP Act 2023</a><br>Cumulative cap: &#8377;500 Crore per entity per year</div><div class="penctx">For a startup with &#8377;2 Crore revenue &mdash; this is <strong>125 years of revenue</strong></div></div>
+    <div class="insight fu" style="animation-delay:.62s">83%+ of organizations haven&rsquo;t started compliance work <a class="src" href="https://www.pwc.in" target="_blank" rel="noopener">PwC India 2024</a> &nbsp;&middot;&nbsp; Peak buying window: Oct 2026 &ndash; Apr 2027</div>
+  </div>
+</div>
+
+<div class="sl" id="s4">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye gn fi" style="animation-delay:.05s">DPDP Compliance</div>
+    <div class="title fu" style="animation-delay:.12s">We help you <span class="tgn">get compliant</span> &mdash; not certify you</div>
+    <div class="sub fu" style="animation-delay:.2s">Implementation, audit-readiness &amp; security safeguards. No external certification required.</div>
+    <div class="twocol fu" style="animation-delay:.3s">
+      <div class="dpanel do">
+        <div class="dph">&#9989; What Bachao.AI Does</div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Security gap assessment</strong> &mdash; maps controls against DPDP Schedule I requirements</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Vulnerability assessment</strong> &mdash; documented evidence for &ldquo;reasonable safeguards&rdquo;</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Privacy &amp; breach readiness</strong> &mdash; DPDP-aligned policies + CERT-In formatted breach reports</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Audit-ready documentation</strong> &mdash; board-presentable compliance records</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Phishing simulation</strong> &mdash; awareness training in Hindi + regional languages</div></div>
+      </div>
+      <div class="dpanel tgt">
+        <div class="dph">&#127919; Who We Serve First</div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>SaaS startups &amp; tech companies</strong> processing Indian personal data, seeking enterprise trust</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>D2C brands &amp; e-commerce</strong> with customer databases but no security team</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Funded startups</strong> facing investor due diligence or enterprise security questionnaires</div></div>
+        <div class="dr"><div class="dck">&#10003;</div><div class="dt"><strong>Web development agencies</strong> building client platforms that collect personal data</div></div>
+        <div class="ddiv"></div>
+        <div class="dr"><div class="dck" style="color:var(--di)">&#10005;</div><div class="dt dim"><strong>Not targeting yet:</strong> Banks, NBFCs, Insurance &mdash; require SOC2, ISO 27001. We start where we win, expand as we grow.</div></div>
+      </div>
+    </div>
+    <div class="clar fu" style="animation-delay:.62s"><div class="ci">&#128161;</div><div class="ct"><strong>Not a certification body &mdash; we partner with those who are.</strong> We make businesses audit-ready. For formal certifications (ISO 27001, SOC 2, PCI-DSS), our vCISO partner network handles the full process. Partners can earn <strong>BCSP, CEH, CISSP</strong> credentials with our support.</div></div>
+  </div>
+</div>
+
+<div class="sl" id="s5">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye pu fi" style="animation-delay:.05s">&#10024; Full Platform Suite</div>
+    <div class="title fu" style="animation-delay:.12s">One platform. Every layer of protection.</div>
+    <div class="sub fu" style="animation-delay:.2s">Pick the products that fit your situation &mdash; like a tailored suit</div>
+    <div class="swrap fu" style="animation-delay:.32s">
+      <div class="row-a">
+        <div class="pc pbl"><span class="pico">&#128269;</span><div class="pname">Automated VA (VAPT)</div><span class="pprice">&#8377;1,999/scan</span></div>
+        <div class="pc pgn"><span class="pico">&#127831;</span><div class="pname">Hindi Phishing Simulation</div><span class="pprice">&#8377;200/user/yr</span></div>
+        <div class="pc ppu"><span class="pico">&#127758;</span><div class="pname">Brand &amp; Phishing Monitor</div><span class="pprice">&#8377;4,999/mo</span></div>
+        <div class="pc prd"><span class="pico">&#128187;</span><div class="pname">SAST + SCA Bundle</div><span class="pprice">&#8377;5K&ndash;25K/mo</span></div>
+      </div>
+      <div class="spine">
+        <div class="spineline"></div>
+        <div class="spinedots">
+          <div class="sdot" style="background:var(--bl);box-shadow:0 0 8px var(--bl)"></div>
+          <div class="sdot" style="background:var(--cy);box-shadow:0 0 8px var(--cy)"></div>
+          <div class="sdot" style="background:var(--gn);box-shadow:0 0 8px var(--gn)"></div>
+          <div class="sdot" style="background:var(--am);box-shadow:0 0 8px var(--am)"></div>
+          <div class="sdot" style="background:var(--pu);box-shadow:0 0 8px var(--pu)"></div>
+          <div class="sdot" style="background:var(--bl);box-shadow:0 0 8px var(--bl)"></div>
+          <div class="sdot" style="background:var(--rd);box-shadow:0 0 8px var(--rd)"></div>
+          <div class="sdot" style="background:var(--cy);box-shadow:0 0 8px var(--cy)"></div>
+        </div>
+      </div>
+      <div class="row-b">
+        <div class="pc pcy"><span class="pico">&#9989;</span><div class="pname">DPDP Readiness Score</div><span class="pprice">Free</span></div>
+        <div class="pc pam"><span class="pico">&#128481;</span><div class="pname">Deepfake Detection Bot</div><span class="pprice">&#8377;99/check</span></div>
+        <div class="pc pbl"><span class="pico">&#127959;</span><div class="pname">Cyber Insurance Score</div><span class="pprice">&#8377;999&ndash;4,999</span></div>
+        <div class="pc pcy"><span class="pico">&#128275;</span><div class="pname">DPDP Compliance Platform</div><span class="pprice">&#8377;2,999&ndash;4,999/mo</span></div>
+      </div>
+    </div>
+    <div class="snote fu" style="animation-delay:.7s">All products available &nbsp;&middot;&nbsp; Choose what fits &nbsp;&middot;&nbsp; Combine for full coverage</div>
+  </div>
+</div>
+
+<div class="sl" id="s6">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye bl fi" style="animation-delay:.05s">Market Opportunity</div>
+    <div class="title fu" style="animation-delay:.12s">Every Indian business is stuck between <span class="tbl">free and unaffordable</span></div>
+    <div class="sub fu" style="animation-delay:.2s">Free tools need expert operators. Enterprise tools cost ₹16,000&ndash;₹1.2Cr+/month. The 63M+ businesses in between have nowhere to go &mdash; until now. <a class="src" href="https://msme.gov.in" target="_blank" rel="noopener">MSME</a></div>
+
+    <!-- Redesigned 3-column gap visualization -->
+    <div class="gbar fu" style="animation-delay:.3s">
+      <div class="gs gfree">
+        <div class="gl">Free / DIY</div>
+        <div class="gv" style="color:var(--di);font-size:.78rem;line-height:1.4;font-family:var(--fb)">OpenVAS &middot; Nessus Community<br>OWASP ZAP &middot; Nikto</div>
+        <div class="gsub">Powerful but need a<br>security expert to run.<br>No reports. No support.</div>
+      </div>
+      <div class="gs ggap">
+        <div class="gl" style="color:var(--bll);font-weight:700;font-size:9px">BACHAO.AI ZONE</div>
+        <div class="gv" style="color:var(--bll);font-size:1.4rem;line-height:1.1">&#8377;1,999<br><span style="font-size:.68rem;font-weight:500;color:var(--cyl);font-family:var(--fb)">per scan &nbsp;&middot;&nbsp; no subscription lock-in</span></div>
+        <div class="gsub" style="color:var(--cyl)">Full VA report.<br>DPDP-mapped findings.<br>Any SMB can afford it.</div>
+      </div>
+      <div class="gs gent">
+        <div class="gl">Enterprise / Managed</div>
+        <div class="gv" style="color:var(--mu);font-size:.7rem;line-height:1.5;font-family:var(--fb)">
+          <span style="color:var(--di)">Global:</span> Astra &middot; HackerOne &middot; Bugcrowd<br>
+          <span style="color:var(--di)">India:</span> CyberNX &middot; Protectt.ai &middot; Lucideus &middot; Sequretek<br>
+          <span style="color:var(--di)">MSS:</span> Tata, Wipro, IBM Security
+        </div>
+        <div class="gsub">&#8377;16K&ndash;₹1.2Cr+/month<br>Enterprise sales cycles.<br>Fortune 500 focus.</div>
+      </div>
+    </div>
+
+    <!-- Why the gap exists -->
+    <div class="gap-why fu" style="animation-delay:.46s">
+      <div class="gw-item">
+        <div class="gw-ico">&#127919;</div>
+        <div class="gw-text"><strong>Our target first</strong><br>Non-regulated SMBs, SaaS startups, D2C brands &mdash; too small for enterprise vendors, too exposed to rely on free tools</div>
+      </div>
+      <div class="gw-item">
+        <div class="gw-ico">&#128200;</div>
+        <div class="gw-text"><strong>Disruption path</strong><br>Win SMB trust and data first. Enterprise credibility follows. Indian competitors built reputation bottom-up too.</div>
+      </div>
+      <div class="gw-item">
+        <div class="gw-ico">&#9889;</div>
+        <div class="gw-text"><strong>8&times; cheaper than nearest Indian competitor</strong><br>CyberNX and Protectt.ai serve mid-market at ₹15K&ndash;50K/month. We enter at ₹1,999/scan. <a class="src" href="https://www.cybernx.com" target="_blank" rel="noopener">CyberNX</a> <a class="src" href="https://www.protectt.ai" target="_blank" rel="noopener">Protectt.ai</a></div>
+      </div>
+    </div>
+
+    <div class="dnote fu" style="animation-delay:.64s"><strong>Why enterprise vendors can&rsquo;t come down to this price:</strong> their cost structures (manual pentesters, account managers, enterprise SLAs) make ₹1,999/scan structurally impossible. AI-native architecture is the only way to serve this segment profitably.</div>
+  </div>
+</div>
+
+<div class="sl" id="s7">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye pu fi" style="animation-delay:.05s">Competitive Moats</div>
+    <div class="title fu" style="animation-delay:.12s">Advantages that <span class="tpu">compound over time</span></div>
+    <div class="sub fu" style="animation-delay:.2s">Four structural advantages that get harder to copy the longer we operate</div>
+    <div class="mgrid fu" style="animation-delay:.32s">
+      <div class="mc mbl cbr cbr-bl"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><span class="mci">&#127963;</span><div class="mh">Regulatory Moat</div><p class="mp">DPDP Rule 4: Consent Manager requires India incorporation + &#8377;2Cr net worth. <a class="src" href="https://www.meity.gov.in/data-protection-framework" target="_blank" rel="noopener">DPDP Rule 4</a> OneTrust, TrustArc, BigID &mdash; permanently blocked from this market.</p><span class="mt">Legally verified &middot; Permanent</span></div>
+      <div class="mc mcy cbr cbr-cy"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><span class="mci">&#128483;</span><div class="mh">Language Moat</div><p class="mp">AI generates natively authored Hindi, Tamil, Telugu phishing templates &mdash; not machine-translated. India-specific lures: UPI alerts, GST notices, Aadhaar. KnowBe4 uses auto-translate. Quality gap is obvious.</p><span class="mt">22 Indian languages &middot; Zero competitors</span></div>
+      <div class="mc mpu cbr cbr-pu"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><span class="mci">&#128202;</span><div class="mh">Data Moat</div><p class="mp">Every scan builds India-specific vulnerability patterns by industry, stack, and size. After 1,000 scans: the most detailed Indian SMB security dataset ever built. Cannot be purchased &mdash; earned scan by scan.</p><span class="mt">Compounds with every scan</span></div>
+      <div class="mc mam cbr cbr-am"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span><span class="mci">&#9889;</span><div class="mh">Speed Moat</div><p class="mp">&#8377;16K vs &#8377;1,999 gap is a massive opportunity window. Once incumbents notice, they&rsquo;ll respond. The window to build brand, data, and distribution is finite.</p><span class="mt">18-month window &middot; Closing</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="sl" id="s8">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye gn fi" style="animation-delay:.05s">Business Model</div>
+    <div class="title fu" style="animation-delay:.12s">Simple. <span class="tgn">Profitable.</span> Compounding.</div>
+    <div class="sub fu" style="animation-delay:.2s">Three phases building on each other &mdash; each expanding revenue from the same customer</div>
+    <div class="phs fu" style="animation-delay:.32s">
+      <div class="ph p1"><div class="phe">Phase 1 &mdash; Entry</div><div class="phn">Per-Scan</div><div class="php">&#8377;1,999</div><div class="phd">India &middot; $49 global<br>Below SMB procurement threshold.<br>No sales call. UPI payment.<br>A CTO can approve instantly.</div></div>
+      <div class="ph p2"><div class="phe">Phase 2 &mdash; Retention</div><div class="phn">Subscriptions</div><div class="php">&#8377;4,999&ndash;19,999/mo</div><div class="phd">Starter, Growth, Agency tiers.<br>vCISO white-label channel.<br>Quarterly automated assessments.<br>Predictable recurring revenue.</div></div>
+      <div class="ph p3"><div class="phe">Phase 3 &mdash; Platform</div><div class="phn">Full Suite</div><div class="php">&#8377;9,999+/mo</div><div class="phd">DPDP Compliance Platform<br>Phishing Simulation<br>SAST + SCA + Dark Web<br>Same customer, 5&times; revenue</div></div>
+    </div>
+    <div class="mets fu" style="animation-delay:.54s">
+      <div class="met"><div class="metv">&#8377;130&ndash;280</div><div class="metl">Cost per scan<br>fully loaded</div></div>
+      <div class="met"><div class="metv">&#8377;1,999</div><div class="metl">Revenue per scan<br>India entry</div></div>
+      <div class="met"><div class="metv" style="color:var(--cyl)">72&ndash;78%</div><div class="metl">True contribution<br>margin</div></div>
+      <div class="met"><div class="metv" style="color:var(--aml)">Lean</div><div class="metl">AI-native team<br>minimal burn</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sl" id="s9">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye gn fi" style="animation-delay:.05s">Validation</div>
+    <div class="title fu" style="animation-delay:.12s">The signals are early. <span class="tgn">The direction is clear.</span></div>
+    <div class="vgrid fu" style="animation-delay:.3s">
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#9881;</span><div class="vtit">Technical Stack</div><div class="vdesc">Firecracker + Nuclei + ZAP + Claude API pipeline tested. Architecture is sound.</div></div>
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#128176;</span><div class="vtit">Pricing Threshold</div><div class="vdesc">&#8377;1,999 confirmed below SMB decision threshold &mdash; no procurement needed.</div></div>
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#128203;</span><div class="vtit">Regulatory Basis</div><div class="vdesc">DPDP &#8377;250Cr penalty verified per Schedule I. May 2027 enforcement confirmed. <a class="src" href="https://www.meity.gov.in/data-protection-framework" target="_blank" rel="noopener">DPDP Act</a></div></div>
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#127919;</span><div class="vtit">Market Gap</div><div class="vdesc">&#8377;10&ndash;70/month band confirmed empty globally across 60+ competitor analysis.</div></div>
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#128202;</span><div class="vtit">Product Roadmap</div><div class="vdesc">18-feature platform scored. Unit economics: &#8377;130&ndash;280/scan cost.</div></div>
+      <div class="vc vd"><span class="vbg">Verified</span><span class="vico">&#129309;</span><div class="vtit">Distribution Design</div><div class="vdesc">vCISO channel: 25&ndash;30% recurring commission. White-label available. BCSP cert.</div></div>
+      <div class="vc vn"><span class="vbg">In Motion</span><span class="vico">&#128640;</span><div class="vtit">First Customers</div><div class="vdesc">Outreach to funded Indian startups and CTO networks underway.</div></div>
+      <div class="vc vn"><span class="vbg">In Motion</span><span class="vico">&#128198;</span><div class="vtit">DPDP Wave Prep</div><div class="vdesc">Building brand and partner network for the Oct 2026&ndash;Apr 2027 peak window.</div></div>
+      <div class="vc vn"><span class="vbg">In Motion</span><span class="vico">&#127942;</span><div class="vtit">CERT-In Track</div><div class="vdesc">Empanelment qualification started. Unlocks BFSI in 12&ndash;18 months.</div></div>
+    </div>
+    <div class="vfoot fu" style="animation-delay:.74s">Hard thinking done. Market is real. Distribution designed. Execution is next.</div>
+  </div>
+</div>
+
+<div class="sl" id="s10">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye cy fi" style="animation-delay:.05s">The Founder</div>
+    <div class="title fu" style="animation-delay:.12s">₹4K/month call centre → <span class="tbl">building India&rsquo;s AI security layer</span></div>
+    <div class="sub fu" style="animation-delay:.2s">500 days without a single day off. ₹40L in debt. 90 LPA and walked away. Every chapter proves something different.</div>
+
+    <div class="ftl fu" style="animation-delay:.3s">
+
+      <!-- LEFT COLUMN: early career (consolidated) -->
+      <div class="ftl-col">
+
+        <div class="ftl-node ftl-past">
+          <div class="ftl-dot" style="background:var(--di);border-color:var(--di)"></div>
+          <div class="ftl-card">
+            <div class="ftl-era">2007 &ndash; 2010</div>
+            <div class="ftl-role ftl-hi" style="color:var(--aml)">Call Centres &rarr; Branch Manager</div>
+            <div class="ftl-desc">₹4K/month. Self-taught SEO on dial-up. Then managed <strong style="color:var(--aml)">70+ people, 500+ days zero leave</strong>. Full P&amp;L ownership at 20.</div>
+          </div>
+        </div>
+
+        <div class="ftl-node ftl-past">
+          <div class="ftl-dot" style="background:var(--di);border-color:var(--di)"></div>
+          <div class="ftl-card">
+            <div class="ftl-era">2011 &ndash; 2013</div>
+            <div class="ftl-role ftl-hi" style="color:var(--cyl)">Wipro &middot; No Degree</div>
+            <div class="ftl-desc">Got into Wipro on self-taught VBA alone. Saved capital, learned enterprise delivery, planned Cantrip.</div>
+          </div>
+        </div>
+
+        <div class="ftl-node ftl-past">
+          <div class="ftl-dot" style="background:var(--di);border-color:var(--di)"></div>
+          <div class="ftl-card">
+            <div class="ftl-era">2013 &ndash; 2018</div>
+            <div class="ftl-role ftl-hi" style="color:var(--cyl)">Cantrip Solutions &middot; Founder</div>
+            <div class="ftl-desc"><strong style="color:var(--cyl)">₹20K &rarr; 46 engineers, ₹2Cr+ revenue</strong>. Bootstrapped, 100% international. Father&rsquo;s terminal cancer wiped everything. ₹40L debt. Shut down.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CENTRE SPINE -->
+      <div class="ftl-center">
+        <div class="ftl-line"></div>
+        <div class="ftl-now">NOW</div>
+        <div class="ftl-line ftl-line-b"></div>
+      </div>
+
+      <!-- RIGHT COLUMN: rebuild + now (consolidated) -->
+      <div class="ftl-col">
+
+        <div class="ftl-node ftl-past">
+          <div class="ftl-dot" style="background:var(--gn);border-color:var(--gnl)"></div>
+          <div class="ftl-card">
+            <div class="ftl-era">2018 &ndash; 2022</div>
+            <div class="ftl-role ftl-hi" style="color:var(--gnl)">Debt Rebuild &middot; 18 &rarr; 40 LPA</div>
+            <div class="ftl-desc">Micronic (Tech Lead) &rarr; <strong style="color:var(--gnl)">Intuit</strong> (QBO India compliance) &rarr; GoodWorker (<strong style="color:var(--gnl)">Temasek-backed</strong>). Systematic climb. Debt cleared.</div>
+          </div>
+        </div>
+
+        <div class="ftl-node ftl-past">
+          <div class="ftl-dot" style="background:var(--gn);border-color:var(--gnl)"></div>
+          <div class="ftl-card">
+            <div class="ftl-era">2023 &ndash; 2024</div>
+            <div class="ftl-role ftl-hi" style="color:var(--gnl)">IDFC &rarr; K12 Techno &middot; 55 &rarr; 90 LPA</div>
+            <div class="ftl-desc">Banking tech + launched <strong style="color:var(--gnl)">Zakaria Streets</strong> (150+ orders/day, 4.6★). K12: <strong style="color:var(--gnl)">Peak XV + Kedaara</strong>-backed, ₹90L package. Left on principle.</div>
+          </div>
+        </div>
+
+        <div class="ftl-node ftl-active">
+          <div class="ftl-dot ftl-dot-pulse" style="background:var(--bl);border-color:var(--bll);box-shadow:0 0 0 4px rgba(59,130,246,.2)"></div>
+          <div class="ftl-card ftl-card-active">
+            <div class="ftl-era" style="color:var(--bll)">2025 &mdash; Present</div>
+            <div class="ftl-role" style="color:var(--bll)">Bachao.AI &middot; Founder &amp; CEO</div>
+            <div class="ftl-desc">Pivoted B2C &rarr; B2B after investor feedback. Building India&rsquo;s first affordable AI-native cybersecurity platform. ₹4K/month &rarr; ₹90L/year &rarr; all-in on Bachao.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sl" id="s11">
+  <div class="diag"></div>
+  <div class="cx">
+    <div class="eye bl fi" style="animation-delay:.05s">Partnership &amp; Collaboration</div>
+    <div class="title fu" style="animation-delay:.12s">Not looking for investors.<br><span class="tbl">Looking for collaborators.</span></div>
+    <div class="sub fu" style="animation-delay:.2s">Help protect India&rsquo;s businesses &mdash; and build a recurring revenue stream for yourself</div>
+    <div class="pgrid fu" style="animation-delay:.32s">
+      <div class="pp ps cbr cbr-bl"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span>
+        <span class="ppico">&#128737;</span><div class="pptit">Security Professionals</div>
+        <div class="ppwho">vCISOs, cybersecurity consultants, freelance security experts</div>
+        <div class="ppbens">
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Resell under <strong>your brand</strong> with fully white-labeled reports</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Earn <strong>25&ndash;30% recurring commission</strong> for every client</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Add automated assessments to your offering &mdash; no tech build</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>BCSP certification for LinkedIn &mdash; valuable as DPDP 2027 approaches</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>10 clients &times; &#8377;9,999/mo = <strong>&#8377;25,000+/month passive income</strong></span></div>
+        </div>
+      </div>
+      <div class="pp pb cbr cbr-pu"><span class="ck tl"></span><span class="ck tr"></span><span class="ck br"></span><span class="ck bl"></span>
+        <span class="ppico">&#127970;</span><div class="pptit">Digital Businesses</div>
+        <div class="ppwho">IT companies, agencies, MSPs, tech consultants, system integrators</div>
+        <div class="ppbens">
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Bundle security with your <strong>existing client services</strong></span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Earn <strong>20&ndash;25% commission</strong> on every referral and renewal</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Your clients get DPDP-ready security. Zero expertise needed on your end.</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>Partner portal, client dashboard, co-marketing support</span></div>
+          <div class="ppben"><span class="ppck">&#10003;</span><span>30 clients &times; &#8377;4,999/mo = <strong>&#8377;30,000+/month revenue</strong></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pcta fu" style="animation-delay:.62s" onclick="window.open('mailto:ceo@bachao.ai?subject=Partner Program Interest','_blank')">
+      <p>Program structure &amp; revenue sharing designed <strong>collaboratively with our first partners</strong> &mdash; not imposed on them.<br>Interested? Let&rsquo;s design the right partnership for you. <strong>&#9993; ceo@bachao.ai</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="sl" id="s12">
+  <div class="diag"></div>
+  <div id="sd"></div>
+  <div class="cx">
+    <div class="clogo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjEwbW0iCiAgIGhlaWdodD0iMTIwbW0iCiAgIHZpZXdCb3g9IjAgMCAyMTAgMTIwIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICBpbmtzY2FwZTpleHBvcnQtZmlsZW5hbWU9Im9nLWxvZ28ucG5nIgogICBpbmtzY2FwZTpleHBvcnQteGRwaT0iOTYiCiAgIGlua3NjYXBlOmV4cG9ydC15ZHBpPSI5NiIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS40ICgxOjEuNCsyMDI0MTAxNjEzNTErZTdjM2ZlYjEwMCkiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvZ283LnN2ZyIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjMDAwMDAwIgogICAgIGJvcmRlcm9wYWNpdHk9IjAuMjUiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0ibW0iCiAgICAgaW5rc2NhcGU6ZXhwb3J0LWJnY29sb3I9IiNmZmZmZmZmZiIKICAgICBpbmtzY2FwZTp6b29tPSIwLjUyMjAzOTg0IgogICAgIGlua3NjYXBlOmN4PSIzOTcuNDc5MjQiCiAgICAgaW5rc2NhcGU6Y3k9IjU2MS4yNTk4NCIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE0NDAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODMxIgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIzMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMSI+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJncmFkaWVudDEiCiAgICAgICB4MT0iMjEuOTY0NTEyIgogICAgICAgeTE9IjEzNi45MjY5NiIKICAgICAgIHgyPSIyMDYuNzIyNjYiCiAgICAgICB5Mj0iMTM2LjkyNjk2IgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLjEyNzM2NTgsMCwwLDAuMTYwMjI5MDksLTIwLjM4NjE4NywyMy4yNTg0ODgpIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcAogICAgICAgICBvZmZzZXQ9IjAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjZjk3MzE2IgogICAgICAgICBpZD0ic3RvcDEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iNTAlIgogICAgICAgICBzdG9wLWNvbG9yPSIjM2I4MmY2IgogICAgICAgICBpZD0ic3RvcDIiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIG9mZnNldD0iMTAwJSIKICAgICAgICAgc3RvcC1jb2xvcj0iIzIyYzU1ZSIKICAgICAgICAgaWQ9InN0b3AzIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcKICAgICBpbmtzY2FwZTpsYWJlbD0iTGF5ZXIgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiPgogICAgPHRleHQKICAgICAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgICBmaWxsPSJ1cmwoI2dyYWRpZW50MSkiCiAgICAgICBzdHlsZT0iZm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MzYuNzUxMXB4O2ZvbnQtZmFtaWx5OlN5c3RlbS11aTstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOidTeXN0ZW0tdWkgQm9sZCc7dGV4dC1hbGlnbjpjZW50ZXI7bGV0dGVyLXNwYWNpbmc6MHB4O3dyaXRpbmctbW9kZTpsci10YjtkaXJlY3Rpb246bHRyO3RleHQtYW5jaG9yOm1pZGRsZTtkaXNwbGF5OmlubGluZTtmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiCiAgICAgICB4PSIxMDUuMDA4OTciCiAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICBpZD0idGV4dDEiCiAgICAgICBpbmtzY2FwZTpsYWJlbD0iQmFjaGFvLkFJIj48dHNwYW4KICAgICAgICAgc29kaXBvZGk6cm9sZT0ibGluZSIKICAgICAgICAgaWQ9InRzcGFuMSIKICAgICAgICAgeD0iMTA1LjAwODk3IgogICAgICAgICB5PSI3My43MDA5MTIiCiAgICAgICAgIHN0eWxlPSJmaWxsOnVybCgjZ3JhZGllbnQxKTtzdHJva2Utd2lkdGg6MC40MjUwMTQiPkJhY2hhby5BSTwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="Bachao.AI"></div>
+    <div class="ctag fu" style="animation-delay:.34s">The first <strong>affordable AI-native cybersecurity platform</strong><br>built for India&rsquo;s 63M+ businesses that can&rsquo;t afford to wait.</div>
+    <div class="mrow fu" style="animation-delay:.5s">
+      <div class="mb mbl"><div class="mbv">&#8377;1,999</div><div class="mbl2">Entry price<br>India scan</div></div>
+      <div class="mb mgn"><div class="mbv">72&ndash;78%</div><div class="mbl2">Contribution<br>margin</div></div>
+      <div class="mb mam"><div class="mbv">8&times;</div><div class="mbl2">Cheaper than<br>nearest competitor</div></div>
+      <div class="mb mpu"><div class="mbv">May&nbsp;&rsquo;27</div><div class="mbl2">DPDP enforcement<br>peak approaches</div></div>
+    </div>
+    <div class="klines fu" style="animation-delay:.64s">
+      <div class="kl">India-incorporated structural moat &nbsp;&middot;&nbsp; Foreign platforms legally blocked from DPDP Consent Manager</div>
+      <div class="kl khi">Non-regulated first &nbsp;&middot;&nbsp; Startups, SaaS, D2C, SMBs &nbsp;&middot;&nbsp; 87% unprotected &nbsp;&middot;&nbsp; 74% already attacked</div>
+      <div class="kl">AI-native team &nbsp;&middot;&nbsp; 18-feature platform &nbsp;&middot;&nbsp; vCISO partner channel &nbsp;&middot;&nbsp; DPDP buying wave builds</div>
+    </div>
+    <div class="cbar fu" style="animation-delay:.78s">
+      <a class="cl" href="mailto:ceo@bachao.ai">&#9993; ceo@bachao.ai</a>
+      <span class="csep">|</span>
+      <a class="cl" href="https://www.bachao.ai" target="_blank">&#127760; www.bachao.ai</a>
+      <span class="csep">|</span>
+      <a class="cl" href="https://linkedin.com/company/bachao-ai" target="_blank">&#128101; LinkedIn</a>
+    </div>
+    <div class="cprot fu" style="animation-delay:.9s"><em>&ldquo;Bachao&rdquo; means protect. We&rsquo;re building the platform that protects the businesses building India.</em></div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+<script>
+let cur=0,total=12,busy=false;
+const slides=document.querySelectorAll('.sl');
+
+function goTo(n){
+  if(busy||n<0||n>=total)return;
+  busy=true;
+  const old=slides[cur];
+  const dir=n>cur?1:-1;
+  cur=n;
+  const nw=slides[cur];
+  // exit current slide
+  old.classList.remove('on');
+  old.style.transform='translateX('+(dir>0?'-60':'60')+'px) scale(.98)';
+  old.style.opacity='0';
+  // prep incoming slide off-screen
+  nw.style.transition='none';
+  nw.style.transform='translateX('+(dir>0?'60':'-60')+'px) scale(.98)';
+  nw.style.opacity='0';
+  nw.classList.add('on');
+  // force layout flush
+  nw.getBoundingClientRect();
+  // animate in
+  nw.style.transition='';
+  nw.style.transform='';
+  nw.style.opacity='';
+  setTimeout(()=>{
+    old.style.transform='';
+    old.style.opacity='';
+    old.style.transition='';
+    busy=false;
+  },480);
+  updateUI();
+  triggerAnims(cur);
+}
+function next(){goTo(cur+1)}
+function prev(){goTo(cur-1)}
+
+function updateUI(){
+  document.getElementById('bar').style.width=((cur+1)/total*100).toFixed(1)+'%';
+  const t=(cur+1)+' / '+total;
+  document.getElementById('ctr').textContent=t;
+  document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('active',i===cur);});
+}
+
+/* Build dot indicators (P3 #8) */
+(function(){
+  const dc=document.getElementById('dots');
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===0?' active':'');
+    d.title='Slide '+(i+1);
+    d.addEventListener('click',()=>goTo(i));
+    dc.appendChild(d);
+  }
+})();
+
+/* Inject subtle nav hint into slides 2-11 (P3 #9) */
+(function(){
+  for(let i=1;i<total-1;i++){
+    const h=document.createElement('div');
+    h.className='nav-hint';
+    h.textContent='\u2190 \u2192 navigate';
+    slides[i].appendChild(h);
+  }
+})();
+
+// Typing animation S1
+const HLT='When was your last security assessment?';
+let typed=false;
+function typeHL(){
+  if(typed)return;typed=true;
+  const el=document.getElementById('thl');
+  let i=0;el.innerHTML='<span class="cur"></span>';
+  const iv=setInterval(()=>{
+    el.innerHTML=HLT.slice(0,i)+'<span class="cur"></span>';i++;
+    if(i>HLT.length){
+      clearInterval(iv);el.innerHTML=HLT;
+      setTimeout(()=>{
+        const st=document.getElementById('s1stat');if(st)st.style.opacity='1';
+        const hn=document.querySelector('#s1 .hint');if(hn)hn.style.opacity='.7';
+      },550);
+    }
+  },46);
+}
+
+// Counter animation
+function animC(sl){
+  sl.querySelectorAll('[data-target]').forEach(el=>{
+    const t=+el.dataset.target;let c=0;
+    const iv=setInterval(()=>{c=Math.min(c+t/36,t);el.textContent=Math.round(c);if(c>=t)clearInterval(iv);},22);
+  });
+}
+
+// Stars for close slide
+let starsSpawned=false;
+function spawnStars(){
+  if(starsSpawned)return;starsSpawned=true;
+  const c=document.getElementById('sd');if(!c)return;
+  const cols=['rgba(59,130,246,.6)','rgba(6,182,212,.5)','rgba(139,92,246,.5)','rgba(16,185,129,.4)','rgba(245,158,11,.4)'];
+  for(let i=0;i<30;i++){
+    const s=document.createElement('div');
+    const sz=Math.random()*5+2;
+    s.className='star';
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;background:'+cols[i%cols.length]+';animation-duration:'+(Math.random()*8+6)+'s;animation-delay:'+(Math.random()*6)+'s;border-radius:50%;position:absolute;pointer-events:none';
+    c.appendChild(s);
+  }
+}
+
+// Re-trigger stagger animations on slide enter
+function triggerAnims(idx){
+  const s=slides[idx];
+  setTimeout(()=>{
+    s.querySelectorAll('.fu,.fi').forEach(el=>{
+      el.style.animation='none';
+      el.getBoundingClientRect();
+      el.style.animation='';
+    });
+  },42);
+  if(idx===0)typeHL();
+  if(idx===1)animC(slides[1]);
+  if(idx===11)spawnStars();
+}
+
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();next();}
+  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();prev();}
+});
+/* Enhanced touch handling — horizontal swipe with vertical scroll protection */
+let tx=0,ty=0;
+
+document.addEventListener('touchstart',e=>{
+  tx=e.touches[0].clientX;
+  ty=e.touches[0].clientY;
+},{passive:true});
+
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  const dy=e.changedTouches[0].clientY-ty;
+  // Only trigger for clear horizontal swipes (not vertical scroll)
+  if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.5){
+    dx<0?next():prev();
+  }
+},{passive:true});
+
+/* Swipe nudge — guide user naturally without blocking content */
+const isMobile=window.matchMedia('(max-width:480px)').matches;
+let nudgedS1=false,nudgedS2=false;
+
+function nudgeSlide(slideIdx,direction){
+  const sl=slides[slideIdx];
+  if(!sl)return;
+  sl.classList.add('nudge-'+direction);
+  sl.addEventListener('animationend',function handler(){
+    sl.classList.remove('nudge-'+direction);
+    sl.removeEventListener('animationend',handler);
+  });
+}
+
+// On S1: after 3.5s, nudge content left to hint "swipe left for next"
+if(isMobile){
+  setTimeout(()=>{
+    if(cur===0 && !nudgedS1){
+      nudgedS1=true;
+      nudgeSlide(0,'right'); // content shifts left = "there's more to the right"
+    }
+  },3500);
+}
+
+// On S2 first visit: nudge to show "you can go back"
+const _origGoTo=goTo;
+goTo=function(n){
+  _origGoTo(n);
+  if(isMobile && n===1 && !nudgedS2){
+    nudgedS2=true;
+    setTimeout(()=>nudgeSlide(1,'left'),800); // content shifts right = "you can go back left"
+  }
+};
+
+/* Update mobile nav button states */
+function updateMobileNav(){
+  const mp=document.getElementById('mobile-prev');
+  const mn=document.getElementById('mobile-next');
+  if(mp)mp.style.visibility=cur===0?'hidden':'visible';
+  if(mn){
+    if(cur===total-1){
+      mn.innerHTML='Start Over <span class="mn-arrow">&#8635;</span>';
+      mn.onclick=function(){goTo(0);};
+    }else{
+      mn.innerHTML='Next <span class="mn-arrow">&#8594;</span>';
+      mn.onclick=function(){next();};
+    }
+  }
+}
+
+/* Patch updateUI to also update mobile nav */
+const _origUpdateUI=updateUI;
+updateUI=function(){
+  _origUpdateUI();
+  updateMobileNav();
+};
+updateMobileNav();
+
+updateUI();typeHL();
+
+/* Ambient orbs: inject into specific slides */
+const ORB_SLIDES = {
+  0: [{c:'rgba(59,130,246,.22)',s:120,x:'15%',y:'20%',dx:'-30px',dy:'-60px',dur:'22s',op:.18},
+      {c:'rgba(6,182,212,.18)',s:80,x:'78%',y:'65%',dx:'25px',dy:'-45px',dur:'18s',op:.14,delay:'3s'},
+      {c:'rgba(139,92,246,.16)',s:60,x:'55%',y:'80%',dx:'-20px',dy:'-35px',dur:'25s',op:.12,delay:'7s'}],
+  2: [{c:'rgba(245,158,11,.2)',s:100,x:'8%',y:'35%',dx:'20px',dy:'-50px',dur:'20s',op:.16},
+      {c:'rgba(239,68,68,.15)',s:70,x:'85%',y:'72%',dx:'-25px',dy:'-40px',dur:'17s',op:.12,delay:'5s'}],
+  5: [{c:'rgba(59,130,246,.18)',s:90,x:'5%',y:'50%',dx:'30px',dy:'-40px',dur:'22s',op:.14},
+      {c:'rgba(59,130,246,.14)',s:60,x:'88%',y:'25%',dx:'-20px',dy:'-30px',dur:'19s',op:.11,delay:'4s'}],
+  10: [{c:'rgba(59,130,246,.2)',s:110,x:'6%',y:'30%',dx:'25px',dy:'-55px',dur:'24s',op:.16},
+       {c:'rgba(139,92,246,.16)',s:75,x:'80%',y:'70%',dx:'-30px',dy:'-40px',dur:'20s',op:.13,delay:'6s'}]
+};
+
+function spawnOrbs(idx){
+  const sl = slides[idx];
+  if(sl.querySelector('.orb')) return;
+  const orbs = ORB_SLIDES[idx];
+  if(!orbs) return;
+  orbs.forEach(o=>{
+    const el = document.createElement('div');
+    el.className = 'orb';
+    el.style.cssText = [
+      'background:' + o.c,
+      'width:' + o.s + 'px',
+      'height:' + o.s + 'px',
+      'left:' + o.x,
+      'top:' + o.y,
+      '--dx:' + (o.dx||'20px'),
+      '--dy:' + (o.dy||'-40px'),
+      '--op:' + (o.op||'.3'),
+      'animation-duration:' + (o.dur||'20s'),
+      'animation-delay:' + (o.delay||'0s'),
+      'filter:blur(' + Math.round(o.s * .35) + 'px)'
+    ].join(';');
+    sl.insertBefore(el, sl.firstChild.nextSibling);
+  });
+}
+
+/* Patch triggerAnims to also spawn orbs */
+const _origTrigger = triggerAnims;
+triggerAnims = function(idx) {
+  _origTrigger(idx);
+  spawnOrbs(idx);
+};
+/* Spawn orbs for first slide immediately */
+setTimeout(()=>spawnOrbs(0), 200);
+
+</script>
+</body>
+</html>

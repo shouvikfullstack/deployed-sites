@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Clinic — Voice AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <!-- Left: Phone Panel -->
+        <div class="phone-panel">
+            <div class="clinic-logo">🏥</div>
+            <div>
+                <div class="clinic-name">Sunrise Multi-Specialty Clinic</div>
+                <div class="clinic-subtitle">AI-Powered Appointment Line</div>
+            </div>
+
+            <div class="call-status" id="callStatus">
+                <span class="dot"></span>
+                <span id="callStatusText">Ready to call</span>
+            </div>
+
+            <div class="call-timer" id="callTimer">00:00</div>
+            <div class="waveform" id="waveform"></div>
+
+            <div class="lang-picker" id="langPicker">
+                <label class="lang-picker-label">Language</label>
+                <div class="lang-input-wrap">
+                    <input type="text" id="langInput" class="lang-input" placeholder="Type or select language..." autocomplete="off" spellcheck="false" />
+                    <span class="lang-input-arrow" id="langArrow">&#9662;</span>
+                </div>
+                <ul class="lang-dropdown" id="langDropdown"></ul>
+            </div>
+
+            <button class="call-btn start" id="callBtn" onclick="toggleCall()">📞</button>
+            <div class="call-btn-label" id="callBtnLabel">Call Clinic</div>
+            <div class="latency-display" id="latencyDisplay">—</div>
+        </div>
+
+        <!-- Center: Transcript -->
+        <div class="transcript-panel">
+            <div class="panel-header">
+                <span>Live Transcript</span>
+                <span id="turnCount">Turn 0</span>
+            </div>
+            <div class="transcript-body" id="transcriptBody">
+                <div class="empty-state">Click the green Call button to start</div>
+            </div>
+            <div class="cost-bar" id="costBar">
+                <div class="cost-item">
+                    <span class="cost-label">STT</span>
+                    <span class="cost-val" id="costStt">₹0.000</span>
+                </div>
+                <div class="cost-item">
+                    <span class="cost-label">LLM</span>
+                    <span class="cost-val" id="costLlm">₹0.000</span>
+                </div>
+                <div class="cost-item">
+                    <span class="cost-label">TTS</span>
+                    <span class="cost-val" id="costTts">₹0.000</span>
+                </div>
+                <div class="cost-divider"></div>
+                <div class="cost-item">
+                    <span class="cost-label">Subtotal</span>
+                    <span class="cost-val" id="costSubtotal">₹0.000</span>
+                </div>
+                <div class="cost-item">
+                    <span class="cost-label">GST 18%</span>
+                    <span class="cost-val" id="costGst">₹0.000</span>
+                </div>
+                <div class="cost-divider"></div>
+                <div class="cost-item cost-total">
+                    <span class="cost-label">Call Burn</span>
+                    <span class="cost-val" id="costTotal">₹0.000</span>
+                </div>
+                <div class="cost-item cost-usd">
+                    <span class="cost-val" id="costUsd">$0.0000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Tabbed Panel (Info / Schedule) -->
+        <div class="right-panel">
+            <div class="tab-bar">
+                <button class="tab active" data-tab="info" onclick="switchTab('info')">Extracted Info</button>
+                <button class="tab" data-tab="schedule" onclick="switchTab('schedule')">Doctor Schedule</button>
+            </div>
+
+            <!-- Tab: Extracted Info -->
+            <div class="tab-content active" id="tab-info">
+                <div class="panel-header-sub">
+                    <span id="intentBadge">—</span>
+                </div>
+                <div class="entity-list" id="entityList">
+                    <div class="entity-item" data-entity="patient_name">
+                        <span class="entity-label">Patient Name</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="phone">
+                        <span class="entity-label">Phone</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="preferred_doctor">
+                        <span class="entity-label">Doctor</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="specialty">
+                        <span class="entity-label">Specialty</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="date">
+                        <span class="entity-label">Date</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="time">
+                        <span class="entity-label">Time</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                    <div class="entity-item" data-entity="symptoms">
+                        <span class="entity-label">Symptoms</span>
+                        <span class="entity-value">Not provided</span>
+                    </div>
+                </div>
+                <div class="appointment-card" id="appointmentCard">
+                    <div class="apt-title">Appointment Confirmed</div>
+                    <div class="apt-detail"><span>Doctor</span><span id="aptDoctor">—</span></div>
+                    <div class="apt-detail"><span>Date</span><span id="aptDate">—</span></div>
+                    <div class="apt-detail"><span>Time</span><span id="aptTime">—</span></div>
+                    <div class="apt-id" id="aptId">—</div>
+                </div>
+            </div>
+
+            <!-- Tab: Doctor Schedule -->
+            <div class="tab-content" id="tab-schedule">
+                <div class="schedule-list" id="scheduleList">
+                    <div class="empty-state">Connect a call to see doctor schedules</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

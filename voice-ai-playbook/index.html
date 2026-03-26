@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice AI Agents — India Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1728;
+  --navy-mid: #152236;
+  --navy-light: #1E3355;
+  --saffron: #F5A623;
+  --saffron-dim: #C98B1E;
+  --cream: #F7F2E8;
+  --cream-dark: #EDE7D6;
+  --emerald: #27B99A;
+  --rose: #E8526A;
+  --sky: #4CA7D0;
+  --text-light: rgba(247,242,232,0.85);
+  --text-muted: rgba(247,242,232,0.45);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(245,166,35,0.15);
+  --radius: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; overflow-x: hidden; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ───── NAV ───── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11,23,40,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(245,166,35,0.12);
+  padding: 0 32px;
+  display: flex; align-items: center; gap: 8px;
+  height: 56px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display:none; }
+.nav-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--saffron);
+  white-space: nowrap;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+nav a:hover { color: var(--saffron); background: rgba(245,166,35,0.08); }
+
+/* ───── HERO ───── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 120px 64px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-glow {
+  position: absolute; top: -120px; right: -120px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute; bottom: -80px; left: 10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(39,185,154,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  color: var(--saffron);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: fadeUp 0.8s ease both;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--saffron);
+}
+.hero-sub {
+  margin-top: 28px;
+  font-size: 17px;
+  color: var(--text-light);
+  max-width: 640px;
+  line-height: 1.65;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-stats {
+  display: flex; gap: 40px;
+  margin-top: 56px;
+  animation: fadeUp 0.8s 0.35s ease both;
+}
+.hero-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--saffron);
+  white-space: nowrap;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+.hero-verdict {
+  margin-top: 56px;
+  padding: 20px 24px;
+  background: rgba(232,82,106,0.1);
+  border: 1px solid rgba(232,82,106,0.25);
+  border-left: 3px solid var(--rose);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text-light);
+  max-width: 720px;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+.hero-verdict strong { color: var(--rose); }
+
+/* ───── SECTION WRAPPER ───── */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 40px;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 40px;
+}
+.divider {
+  border: none;
+  border-top: 1px solid rgba(245,166,35,0.1);
+}
+
+/* ───── CARDS ───── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card:hover {
+  border-color: rgba(245,166,35,0.35);
+  transform: translateY(-2px);
+}
+.card-grid { display: grid; gap: 16px; }
+.card-grid-2 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.card-grid-3 { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+.card-icon { font-size: 28px; margin-bottom: 14px; }
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--cream);
+}
+.card-body { font-size: 14px; color: var(--text-light); line-height: 1.65; }
+
+/* ───── TABLES ───── */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead { background: rgba(245,166,35,0.1); }
+thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  border-bottom: 1px solid rgba(245,166,35,0.15);
+  white-space: nowrap;
+}
+tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+tbody tr:hover { background: rgba(245,166,35,0.04); }
+td {
+  padding: 13px 16px;
+  color: var(--text-light);
+  vertical-align: top;
+}
+td:first-child { color: var(--cream); font-weight: 500; }
+
+/* ───── BADGE ───── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.badge-green { background: rgba(39,185,154,0.15); color: var(--emerald); }
+.badge-red { background: rgba(232,82,106,0.15); color: var(--rose); }
+.badge-yellow { background: rgba(245,166,35,0.15); color: var(--saffron); }
+.badge-blue { background: rgba(76,167,208,0.15); color: var(--sky); }
+
+/* ───── VERDICT CARDS ───── */
+.verdict-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media(max-width:700px){ .verdict-row { grid-template-columns: 1fr; } }
+
+.verdict-card {
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid;
+}
+.verdict-card.good {
+  background: rgba(39,185,154,0.07);
+  border-color: rgba(39,185,154,0.25);
+}
+.verdict-card.bad {
+  background: rgba(232,82,106,0.07);
+  border-color: rgba(232,82,106,0.25);
+}
+.verdict-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.verdict-card.good h4 { color: var(--emerald); }
+.verdict-card.bad h4 { color: var(--rose); }
+.verdict-card ul { list-style: none; }
+.verdict-card ul li {
+  font-size: 14px;
+  color: var(--text-light);
+  padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.verdict-card ul li::before { flex-shrink: 0; margin-top: 2px; }
+.verdict-card.good ul li::before { content: '✓'; color: var(--emerald); font-weight: 700; }
+.verdict-card.bad ul li::before { content: '✗'; color: var(--rose); font-weight: 700; }
+
+/* ───── USE CASE CARDS ───── */
+.usecase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.usecase-card:hover { transform: translateY(-3px); border-color: rgba(245,166,35,0.3); }
+.usecase-header {
+  padding: 20px 24px 16px;
+  display: flex; align-items: center; gap: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.usecase-emoji { font-size: 26px; }
+.usecase-name {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.usecase-cost {
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--saffron);
+  white-space: nowrap;
+}
+.usecase-body { padding: 18px 24px; }
+.usecase-row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.usecase-row label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding-top: 4px; flex-shrink: 0; min-width: 60px; }
+.usecase-row span { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+.usecase-roi {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(39,185,154,0.08);
+  border-radius: 8px;
+  border-left: 2px solid var(--emerald);
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ───── COST TIERS ───── */
+.tier-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.tier-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.tier-header {
+  padding: 16px 20px;
+  background: var(--navy-mid);
+}
+.tier-name { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; }
+.tier-range { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.tier-body { padding: 20px; }
+.tier-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+}
+.tier-row:last-child { border-bottom: none; }
+.tier-label { color: var(--text-muted); }
+.tier-val { font-family: 'DM Mono', monospace; color: var(--cream); font-size: 12px; }
+.tier-highlight { color: var(--saffron) !important; font-weight: 600; }
+.tier-rec {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(245,166,35,0.07);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ───── PATH CARDS ───── */
+.path-card {
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+.path-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.path-1 { border-color: rgba(76,167,208,0.25); background: rgba(76,167,208,0.04); }
+.path-1::before { background: var(--sky); }
+.path-2 { border-color: rgba(245,166,35,0.25); background: rgba(245,166,35,0.04); }
+.path-2::before { background: var(--saffron); }
+.path-3 { border-color: rgba(39,185,154,0.25); background: rgba(39,185,154,0.04); }
+.path-3::before { background: var(--emerald); }
+.path-num {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 900;
+  opacity: 0.08;
+  position: absolute;
+  top: 8px; right: 20px;
+  line-height: 1;
+}
+.path-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.path-1 .path-tag { color: var(--sky); }
+.path-2 .path-tag { color: var(--saffron); }
+.path-3 .path-tag { color: var(--emerald); }
+.path-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+.path-desc { font-size: 14px; color: var(--text-light); line-height: 1.65; margin-bottom: 18px; }
+.path-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+.path-meta-item label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2px; }
+.path-meta-item span { font-size: 13px; font-weight: 500; font-family: 'DM Mono', monospace; }
+
+/* ───── COMPLIANCE BOX ───── */
+.compliance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.compliance-item {
+  padding: 20px;
+  border-radius: var(--radius);
+  background: rgba(232,82,106,0.06);
+  border: 1px solid rgba(232,82,106,0.18);
+}
+.compliance-item h4 { font-size: 14px; font-weight: 600; color: var(--rose); margin-bottom: 8px; }
+.compliance-item p { font-size: 13px; color: var(--text-light); line-height: 1.55; }
+
+/* ───── STACK TABLE ───── */
+.stack-table th { white-space: nowrap; }
+.stack-table td:first-child { white-space: nowrap; }
+
+/* ───── REALITY CHECK ───── */
+.reality-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 16px; }
+.reality-card {
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--navy-mid);
+}
+.reality-level {
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--saffron); margin-bottom: 8px;
+}
+.reality-income { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+.reality-desc { font-size: 13px; color: var(--text-light); line-height: 1.55; }
+
+/* ───── FOOTER ───── */
+footer {
+  background: var(--navy-mid);
+  border-top: 1px solid rgba(245,166,35,0.1);
+  padding: 40px 64px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+footer strong { color: var(--saffron); }
+
+/* ───── ANIMATIONS ───── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ───── MISC ───── */
+.mono { font-family: 'DM Mono', monospace; font-size: 0.92em; }
+p { color: var(--text-light); font-size: 14.5px; line-height: 1.75; margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+.highlight { color: var(--saffron); font-weight: 600; }
+.gap-sm { height: 20px; }
+.gap-md { height: 40px; }
+
+/* ───── NEW: HUMAN VS AI ───── */
+.econ-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+@media(max-width:700px){ .econ-compare { grid-template-columns: 1fr; } }
+.econ-card { border-radius: var(--radius); overflow: hidden; border: 1px solid; }
+.econ-card.human { border-color: rgba(76,167,208,0.25); }
+.econ-card.ai { border-color: rgba(39,185,154,0.25); }
+.econ-header { padding: 16px 20px; display: flex; align-items: center; gap: 10px; }
+.econ-card.human .econ-header { background: rgba(76,167,208,0.08); }
+.econ-card.ai .econ-header { background: rgba(39,185,154,0.08); }
+.econ-icon { font-size: 24px; }
+.econ-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; }
+.econ-card.human .econ-title { color: var(--sky); }
+.econ-card.ai .econ-title { color: var(--emerald); }
+.econ-body { padding: 16px 20px; }
+.econ-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
+.econ-row:last-child { border-bottom: none; }
+.econ-label { color: var(--text-muted); }
+.econ-val { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--cream); }
+.econ-total { margin-top: 12px; padding: 12px 16px; border-radius: 8px; font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; text-align: center; }
+.econ-card.human .econ-total { background: rgba(76,167,208,0.1); color: var(--sky); }
+.econ-card.ai .econ-total { background: rgba(39,185,154,0.1); color: var(--emerald); }
+
+/* ───── NEW: BENCHMARK BARS ───── */
+.bench-grid { display: grid; gap: 10px; }
+.bench-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 13px; }
+.bench-label { color: var(--text-light); }
+.bench-wer { font-family: 'DM Mono', monospace; font-size: 11px; }
+.bench-bar-bg { height: 8px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+.bench-bar { height: 100%; border-radius: 4px; }
+.bench-bar.good { background: var(--emerald); }
+.bench-bar.ok { background: var(--saffron); }
+.bench-bar.poor { background: var(--rose); }
+
+/* ───── NEW: TIMELINE ───── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: rgba(245,166,35,0.2); }
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot { position: absolute; left: -26px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--saffron); border: 2px solid var(--navy); }
+.tl-step { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron); margin-bottom: 4px; }
+.tl-title { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.tl-duration { display: inline-block; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); padding: 2px 10px; border-radius: 100px; font-size: 11px; color: var(--saffron); margin-bottom: 8px; font-family: 'DM Mono', monospace; }
+.tl-body { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+/* ───── NEW: COMPETITOR CARDS ───── */
+.competitor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.comp-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+.comp-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-2px); }
+.comp-header { padding: 16px 20px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.comp-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; }
+.comp-funding { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--saffron); white-space: nowrap; }
+.comp-body { padding: 14px 20px; }
+.comp-row { display: flex; gap: 8px; margin-bottom: 7px; font-size: 12px; line-height: 1.4; }
+.comp-row label { color: var(--text-muted); flex-shrink: 0; min-width: 68px; }
+.comp-row span { color: var(--text-light); }
+.comp-tier { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.tier-1 { background: rgba(245,166,35,0.15); color: var(--saffron); }
+.tier-2 { background: rgba(76,167,208,0.15); color: var(--sky); }
+.tier-3 { background: rgba(255,255,255,0.08); color: var(--text-muted); }
+
+/* ───── NEW: LATENCY STACK ───── */
+.latency-stack { display: flex; flex-direction: column; gap: 8px; }
+.lat-row { display: flex; align-items: center; gap: 12px; }
+.lat-label { font-size: 12px; color: var(--text-muted); width: 180px; flex-shrink: 0; }
+.lat-bar-wrap { flex: 1; height: 22px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+.lat-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--navy); font-weight: 600; }
+.lat-val { width: 70px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--cream); text-align: right; flex-shrink: 0; }
+
+/* ───── NEW: MARKET GAP CARDS ───── */
+.gap-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.gap-card { padding: 20px; border-radius: var(--radius); background: rgba(245,166,35,0.04); border: 1px solid rgba(245,166,35,0.15); border-top: 3px solid var(--saffron); }
+.gap-card h4 { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.gap-card p { font-size: 13px; color: var(--text-light); margin: 0; line-height: 1.55; }
+
+/* ───── NEW: FAILURE MODE ───── */
+.failmode-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.failmode-card { padding: 20px; border-radius: var(--radius); background: rgba(232,82,106,0.05); border: 1px solid rgba(232,82,106,0.18); }
+.failmode-card h4 { font-size: 13px; font-weight: 700; color: var(--rose); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.failmode-card p { font-size: 13px; color: var(--text-light); margin-bottom: 6px; line-height: 1.5; }
+.failmode-card .fix { font-size: 12px; color: var(--emerald); padding: 6px 10px; background: rgba(39,185,154,0.08); border-radius: 6px; border-left: 2px solid var(--emerald); }
+
+/* ───── FOCUS INDICATORS (WCAG 2.4.7) ───── */
+a:focus-visible, button:focus-visible, .card:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* ───── HAMBURGER BUTTON ───── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+  z-index: 101;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Desktop: nav-links inline */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+/* ───── NAV SCROLL AFFORDANCE (desktop/tablet) ───── */
+nav::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background: linear-gradient(to right, transparent, rgba(11,23,40,0.95));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ───── TABLE SCROLL HINT ───── */
+.table-wrap {
+  position: relative;
+}
+.table-wrap::after {
+  content: '→';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--saffron);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.table-wrap:hover::after {
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE: TABLET (≤1200px)
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  nav { padding: 0 20px; }
+  .hero { padding: 100px 40px 60px; }
+  .hero-stats { gap: 28px; }
+  footer { padding: 32px 40px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE: MOBILE (≤768px)
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* NAV: Hamburger + Drawer */
+  .nav-toggle { display: flex; }
+  nav { flex-wrap: wrap; padding: 0 16px; height: auto; min-height: 56px; }
+  nav::after { display: none; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 0 16px;
+    gap: 2px;
+    overflow-x: visible;
+    border-top: 1px solid rgba(245,166,35,0.12);
+  }
+  nav.nav-open .nav-links { display: flex; }
+  .nav-links a {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  .nav-divider { display: none; }
+
+  /* HERO */
+  .hero { padding: 80px 24px 48px; min-height: auto; }
+  .hero h1 { font-size: clamp(32px, 8vw, 52px); }
+  .hero-sub { font-size: 15px; margin-top: 20px; }
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 36px;
+  }
+  .hero-stats > div { min-width: calc(50% - 12px); }
+  .hero-stat-val { font-size: 28px; }
+  .hero-stat-label { font-size: 11px; }
+  .hero-verdict { margin-top: 32px; padding: 16px 18px; font-size: 13px; }
+
+  /* SECTIONS */
+  section { padding: 56px 20px; }
+  .section-title { margin-bottom: 28px; }
+
+  /* CARDS */
+  .card { padding: 20px; }
+  .card-grid-2 { grid-template-columns: 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+
+  /* GRIDS */
+  .tier-grid { grid-template-columns: 1fr; }
+  .competitor-grid { grid-template-columns: 1fr; }
+  .compliance-grid { grid-template-columns: 1fr; }
+  .reality-grid { grid-template-columns: 1fr; }
+  .gap-cards { grid-template-columns: 1fr; }
+  .failmode-grid { grid-template-columns: 1fr; }
+
+  /* LATENCY BARS */
+  .lat-row { flex-wrap: wrap; gap: 4px; }
+  .lat-label { width: 100%; font-size: 11px; }
+  .lat-bar-wrap { flex: 1; min-width: 0; }
+  .lat-val { width: auto; }
+
+  /* PATH CARDS */
+  .path-card { padding: 24px 20px; }
+  .path-title { font-size: 18px; }
+  .path-meta { gap: 12px; }
+
+  /* TABLES */
+  table { font-size: 12px; }
+  thead th { padding: 10px 12px; font-size: 10px; }
+  td { padding: 10px 12px; }
+
+  /* ECON */
+  .econ-total { font-size: 18px; }
+
+  /* FOOTER */
+  footer { padding: 28px 20px; font-size: 12px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE: SMALL MOBILE (≤480px)
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero { padding: 72px 16px 40px; }
+  .hero h1 { font-size: clamp(28px, 9vw, 40px); }
+  .hero-stats { gap: 12px 16px; }
+  .hero-stats > div { min-width: calc(50% - 8px); }
+  .hero-stat-val { font-size: 24px; }
+  .hero-verdict { font-size: 12px; padding: 12px 14px; }
+
+  section { padding: 40px 14px; }
+
+  .card { padding: 16px; }
+  .usecase-header { padding: 14px 16px 12px; gap: 10px; }
+  .usecase-body { padding: 14px 16px; }
+  .usecase-name { font-size: 15px; }
+  .usecase-cost { font-size: 12px; }
+
+  .comp-header { padding: 12px 14px 10px; }
+  .comp-body { padding: 12px 14px; }
+
+  .tier-header { padding: 12px 16px; }
+  .tier-body { padding: 16px; }
+
+  .path-card { padding: 20px 16px; }
+
+  .timeline { padding-left: 24px; }
+
+  footer { padding: 24px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🎙 Voice AI India</div>
+  <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('nav-open')" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="#vapi">VAPI</a>
+    <a href="#alternatives">Alternatives</a>
+    <a href="#languages">Languages</a>
+    <a href="#usecases">Use Cases</a>
+    <a href="#costs">Costs</a>
+    <a href="#deploy">Deploy</a>
+    <a href="#market">Market</a>
+    <a href="#global">Global</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#verdict">Verdict</a>
+    <span class="nav-divider" style="color:rgba(245,166,35,0.3);padding:0 4px">|</span>
+    <a href="#humvai">Human vs AI</a>
+    <a href="#benchmarks">Benchmarks</a>
+    <a href="#technical">Technical</a>
+    <a href="#competitors">Competitors</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-tag">Complete Research Report · 2026</div>
+  <h1>Voice AI for <em>India</em> &<br>the World</h1>
+  <p class="hero-sub">Everything you need to evaluate platforms, choose the right stack, price correctly, and build a real business — with ruthless honesty about what works and what doesn't.</p>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-val">$1.8B</div>
+      <div class="hero-stat-label">India Market by 2030</div>
+    </div>
+    <div>
+      <div class="hero-stat-val">26%</div>
+      <div class="hero-stat-label">CAGR Growth</div>
+    </div>
+    <div>
+      <div class="hero-stat-val">₹10–15</div>
+      <div class="hero-stat-label">AI Cost per Call</div>
+    </div>
+    <div>
+      <div class="hero-stat-val">₹32–36</div>
+      <div class="hero-stat-label">Human Cost per Call</div>
+    </div>
+    <div>
+      <div class="hero-stat-val">5–15%</div>
+      <div class="hero-stat-label">Agency Success Rate</div>
+    </div>
+  </div>
+  <div class="hero-verdict">
+    ⚠️ <strong>Bottom line up front:</strong> VAPI suffers from <strong>&gt;1,500ms latency from India</strong>, no native Indian numbers, and zero Hinglish support. The winning India stack is <strong>Bolna.dev + Sarvam AI + Exotel</strong> — delivering ₹3–7/min total cost vs. ₹10–28/min on VAPI's premium stack.
+  </div>
+</div>
+
+<!-- ══════════════════════ SECTION 1 — VAPI ══════════════════════ -->
+<section id="vapi">
+  <div class="section-label">Section 01</div>
+  <h2 class="section-title">VAPI.AI — Powerful but<br>Built for America</h2>
+
+  <p>VAPI is a developer-first voice AI orchestration platform. It coordinates three pipeline modules — <span class="highlight">Transcriber (STT)</span>, <span class="highlight">Model (LLM)</span>, and <span class="highlight">Voice (TTS)</span> — processing audio in 20ms chunks with streaming at every layer. Partial STT results feed immediately into the LLM, which starts generating before the user even finishes speaking.</p>
+  <div class="gap-sm"></div>
+
+  <div class="verdict-row reveal">
+    <div class="verdict-card good">
+      <h4>✅ Where VAPI Shines</h4>
+      <ul>
+        <li>Best-in-class developer flexibility — mix any provider</li>
+        <li>~465ms latency achievable (US-based deployments)</li>
+        <li>Proprietary interruption handling (not just silence detection)</li>
+        <li>Wide LLM support: GPT-4o, Claude, Gemini, Groq, Mistral</li>
+        <li>Function calling, webhooks, Make/GoHighLevel integrations</li>
+        <li>Active developer community & good documentation</li>
+      </ul>
+    </div>
+    <div class="verdict-card bad">
+      <h4>❌ Critical India Failures</h4>
+      <ul>
+        <li>&gt;1,500ms latency from India (us-west-2 servers only)</li>
+        <li>Zero Hinglish / code-switching support</li>
+        <li>No Indian phone numbers natively (US numbers only)</li>
+        <li>No TRAI/DLT compliance features built in</li>
+        <li>No Indian accent training in STT models</li>
+        <li>Trustpilot rating: 2.6/5 — pricing complaints dominant</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;font-weight:700;">The Real Cost of VAPI <span style="color:var(--text-muted);font-size:14px;font-weight:400;">(the $0.05/min headline is misleading)</span></h3>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Component</th><th>Cost / min</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>VAPI Orchestration</td><td class="mono">$0.050</td><td>The advertised number — not the full story</td></tr>
+        <tr><td>STT (Deepgram Nova-3)</td><td class="mono">$0.008</td><td>Best-in-class for English</td></tr>
+        <tr><td>LLM (GPT-4o)</td><td class="mono">$0.004</td><td>Negligible — often 2–5% of total</td></tr>
+        <tr><td>TTS (ElevenLabs)</td><td class="mono">$0.048</td><td>The hidden cost killer</td></tr>
+        <tr><td>Telephony (Twilio)</td><td class="mono">$0.008</td><td>Plus Indian routing surcharges</td></tr>
+        <tr style="background:rgba(232,82,106,0.06)"><td style="color:var(--rose);font-weight:700;">ACTUAL TOTAL</td><td class="mono" style="color:var(--rose);font-weight:700;">$0.12–$0.33</td><td style="color:var(--rose)">2.4–6.6× the advertised price</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 2 — ALTERNATIVES ══════════════════════ -->
+<section id="alternatives">
+  <div class="section-label">Section 02</div>
+  <h2 class="section-title">Every Alternative,<br>Compared Honestly</h2>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Indian Languages</th>
+          <th>Latency</th>
+          <th>Cost / min</th>
+          <th>Best For</th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VAPI</td>
+          <td>Config required, no Hinglish</td>
+          <td>&gt;1.5s (India)</td>
+          <td class="mono">$0.12–0.33</td>
+          <td>US-focused devs</td>
+          <td><span class="badge badge-yellow">⚠ Not for India</span></td>
+        </tr>
+        <tr style="background:rgba(39,185,154,0.04)">
+          <td style="color:var(--emerald);">Bolna.dev ⭐</td>
+          <td>10+ langs, code-switching ✅</td>
+          <td>&lt;500ms</td>
+          <td class="mono">₹3–7</td>
+          <td>India enterprise</td>
+          <td><span class="badge badge-green">Best India Orchestrator</span></td>
+        </tr>
+        <tr style="background:rgba(39,185,154,0.04)">
+          <td style="color:var(--emerald);">Sarvam AI ⭐</td>
+          <td>22 Indian languages ✅</td>
+          <td>&lt;250ms TTS</td>
+          <td class="mono">₹0.50 STT</td>
+          <td>STT/TTS layer</td>
+          <td><span class="badge badge-green">Essential for India</span></td>
+        </tr>
+        <tr>
+          <td>Retell AI</td>
+          <td>Limited</td>
+          <td>&lt;500ms</td>
+          <td class="mono">$0.07–0.31</td>
+          <td>Dev teams, global</td>
+          <td><span class="badge badge-green">Strong Global Pick</span></td>
+        </tr>
+        <tr>
+          <td>Synthflow</td>
+          <td>Partial (50+ claimed)</td>
+          <td>&lt;500ms</td>
+          <td class="mono">$0.08–0.13</td>
+          <td>Non-technical teams</td>
+          <td><span class="badge badge-blue">Best No-Code</span></td>
+        </tr>
+        <tr>
+          <td>Bland AI</td>
+          <td>English only ❌</td>
+          <td>~800ms</td>
+          <td class="mono">$0.11–0.14</td>
+          <td>English enterprise</td>
+          <td><span class="badge badge-red">Skip</span></td>
+        </tr>
+        <tr>
+          <td>Twilio DIY</td>
+          <td>Via custom providers</td>
+          <td>Depends</td>
+          <td class="mono">$0.04–0.08</td>
+          <td>Engineers</td>
+          <td><span class="badge badge-blue">Cheapest if you build</span></td>
+        </tr>
+        <tr>
+          <td>Exotel</td>
+          <td>10+ langs, TRAI ✅</td>
+          <td>Varies</td>
+          <td class="mono">Custom</td>
+          <td>Indian CPaaS</td>
+          <td><span class="badge badge-green">Best Indian Telephony</span></td>
+        </tr>
+        <tr>
+          <td>Azure Speech</td>
+          <td>140+ languages ✅</td>
+          <td>Varies</td>
+          <td class="mono">$0.017 STT</td>
+          <td>Microsoft enterprise</td>
+          <td><span class="badge badge-blue">Good compliance</span></td>
+        </tr>
+        <tr>
+          <td>Google CCAI</td>
+          <td>Hindi, Tamil, Telugu+ ✅</td>
+          <td>Varies</td>
+          <td class="mono">Per-request</td>
+          <td>GCP enterprises</td>
+          <td><span class="badge badge-blue">Enterprise only</span></td>
+        </tr>
+        <tr>
+          <td>Amazon Connect</td>
+          <td>Poor Hindi ⚠</td>
+          <td>Varies</td>
+          <td class="mono">~$0.06</td>
+          <td>AWS stacks</td>
+          <td><span class="badge badge-red">Skip for India</span></td>
+        </tr>
+        <tr>
+          <td>Krutrim (Ola)</td>
+          <td>13+ languages ✅</td>
+          <td>N/A</td>
+          <td class="mono">Free (consumer)</td>
+          <td>Consumer</td>
+          <td><span class="badge badge-yellow">No dev API yet</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 3 — LANGUAGES ══════════════════════ -->
+<section id="languages">
+  <div class="section-label">Section 03</div>
+  <h2 class="section-title">Indian Language Support —<br>What Actually Works</h2>
+
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card">
+      <div class="card-icon">🎤</div>
+      <h3 class="card-title">STT (Speech → Text)</h3>
+      <div class="card-body">
+        <p><strong style="color:var(--emerald)">Sarvam Saaras v3</strong> — Clear winner. 19.31% WER on IndicVoices, covers all 22 scheduled languages, sub-150ms TTFT. Trained on 1M+ hours including real Hinglish conversations.</p>
+        <p><strong style="color:var(--sky)">AI4Bharat IndicWhisper</strong> — Best open-source option. Lowest WER on 39/59 Vistaar benchmarks, MIT license, 12 languages. One model per language, no native code-switching.</p>
+        <p><strong style="color:var(--text-muted)">Google Cloud STT</strong> — Broadest coverage but 23.9% WER on Hindi benchmarks. Inconsistent on accents.</p>
+        <p><strong style="color:var(--text-muted)">Deepgram Nova-3</strong> — Supports Hindi, Bengali, Tamil, Telugu, Kannada, Marathi but outputs mixed-script on code-switched audio.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔊</div>
+      <h3 class="card-title">TTS (Text → Speech)</h3>
+      <div class="card-body">
+        <p><strong style="color:var(--emerald)">Sarvam Bulbul v3</strong> — 35+ voices, 10 Indian languages, native Hinglish code-switching. Correct pronunciation of Lajpat Nagar, Koramangala etc. ₹30/10K characters.</p>
+        <p><strong style="color:var(--sky)">AI4Bharat Indic-TTS</strong> — Open source, 13 languages (FastPitch + HiFi-GAN). Indic Parler-TTS supports 21 languages with style prompts.</p>
+        <p><strong style="color:var(--text-muted)">Google/Azure Neural TTS</strong> — Decent Indian voices at $13–16/M characters. Generic quality, not India-optimised.</p>
+        <p><strong style="color:var(--rose)">ElevenLabs</strong> — Only Hindi & Tamil supported. Avoid for multilingual Indian deployments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="card reveal" style="border-color: rgba(232,82,106,0.25); background: rgba(232,82,106,0.05);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <span style="font-size:28px">⚡</span>
+      <h3 class="card-title" style="margin:0;">The Hinglish / Code-Switching Problem</h3>
+    </div>
+    <p><strong>~250 million Indians</strong> speak code-switched (Hinglish) daily. Standard ASR models see a <span class="highlight">30–50% WER increase</span> on code-switched speech. A sentence like <em>"I want to check my balance aur ek cheque deposit bhi karna hai"</em> — that's everyday India.</p>
+    <div class="gap-sm"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:8px;">
+      <div style="padding:14px;background:rgba(39,185,154,0.1);border-radius:8px;border:1px solid rgba(39,185,154,0.2);">
+        <div style="font-size:12px;color:var(--emerald);font-weight:600;margin-bottom:6px;">SARVAM AI ✅</div>
+        <div style="font-size:13px;color:var(--text-light)">Treats code-mixing as primary architectural feature. <code>mode="codemix"</code> maintains entity recognition across language switches. Currently irreplaceable.</div>
+      </div>
+      <div style="padding:14px;background:rgba(245,166,35,0.07);border-radius:8px;border:1px solid rgba(245,166,35,0.15);">
+        <div style="font-size:12px;color:var(--saffron);font-weight:600;margin-bottom:6px;">DEEPGRAM ⚠</div>
+        <div style="font-size:13px;color:var(--text-light)">Can transcribe code-switched audio but outputs English in Latin script + Hindi in Devanagari — mixed-script mess.</div>
+      </div>
+      <div style="padding:14px;background:rgba(232,82,106,0.07);border-radius:8px;border:1px solid rgba(232,82,106,0.15);">
+        <div style="font-size:12px;color:var(--rose);font-weight:600;margin-bottom:6px;">GOOGLE / AZURE / WHISPER ❌</div>
+        <div style="font-size:13px;color:var(--text-light)">All struggle significantly with mid-sentence language switching. Not production-ready for India.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 4 — USE CASES ══════════════════════ -->
+<section id="usecases">
+  <div class="section-label">Section 04</div>
+  <h2 class="section-title">8 Use Cases — Stacks,<br>Flows & ROI</h2>
+
+  <div class="card-grid card-grid-2 reveal">
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">🚨</span>
+        <span class="usecase-name">Scam Alert Helpline</span>
+        <span class="usecase-cost">₹5–8/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Sarvam STT/TTS + GPT-4o/Claude Sonnet + Exotel + Bolna.dev</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Outbound alert → identify vulnerable person → explain scam → guide action → log report</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>Emotional sensitivity, elderly users, TRAI 9AM–9PM restriction</span></div>
+        <div class="usecase-roi">💰 Gov/NGO contracts ₹2–5L/month. Handles 10,000+ calls/day vs ₹1Cr+ human call center cost.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">🏦</span>
+        <span class="usecase-name">Loan DSA Lead Qualification</span>
+        <span class="usecase-cost">₹4–6/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Sarvam/Deepgram STT + GPT-4o-mini + Sarvam Bulbul TTS + Exotel + CRM webhook</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Verify identity → collect income/employment → check eligibility → capture consent → transfer lead</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>Salary extraction from speech ("roughly 50–60 thousand"), PAN/Aadhaar accuracy, RBI consent recording</span></div>
+        <div class="usecase-roi">💰 ₹800/lead → ₹120/lead (15× improvement). 5,000 leads/month = ₹34L savings.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">🎧</span>
+        <span class="usecase-name">B2B Customer Support</span>
+        <span class="usecase-cost">₹4–5/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Deepgram + Claude Haiku/GPT-4o-mini + Azure TTS + Exotel + RAG pipeline</span></div>
+        <div class="usecase-row"><label>Flow</label><span>IVR → intent classification → knowledge base query (RAG) → answer or escalate → ticket creation</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>CRM integration (Freshdesk/Zendesk), warm transfer, 70%+ first-call resolution target</span></div>
+        <div class="usecase-roi">💰 Replace 10 agents (₹2.5L/month) handling 60% of queries → saves ₹1.5L/month. Scales linearly.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">📣</span>
+        <span class="usecase-name">Marketing & Sales Outbound</span>
+        <span class="usecase-cost">₹6–10/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Deepgram/Sarvam + GPT-4o + ElevenLabs voice + Exotel + Bolna.dev</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Dial prospect → pitch → handle objections → book meeting → update CRM</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>TRAI 140-series numbers, DND scrubbing, 9AM–9PM only, uncertain AI call tolerance in India</span></div>
+        <div class="usecase-roi">💰 AI: 1,000+ calls/day at ₹3,000/day vs. human SDR: 100 calls/day at ₹30K/month.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">💳</span>
+        <span class="usecase-name">Payment Reminders & Recovery</span>
+        <span class="usecase-cost">₹4–6/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Sarvam STT/TTS + GPT-4o-mini + Exotel + custom RBI-compliant orchestration</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Identify borrower → state amount → capture commitment → send payment link → schedule follow-up</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>RBI: 8AM–7PM only, no threatening language, all calls recorded, IIBF cert unclear for AI</span></div>
+        <div class="usecase-roi">💰 Traditional agencies: 25–40% commission. AI at ₹15–20/call achieves 40–60% of human recovery.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">📅</span>
+        <span class="usecase-name">Voice Receptionist / Booking</span>
+        <span class="usecase-cost">₹4–8/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Deepgram + GPT-4o-mini + Google TTS + Twilio/Exotel + VAPI or Bolna.dev</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Answer call → identify intent → check calendar API → book → send WhatsApp confirmation</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>Calendar API integration, rescheduling flows, multi-location availability</span></div>
+        <div class="usecase-roi">💰 Replaces ₹15–25K/month receptionist. 70–80% cost saving + 24/7 availability.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">👔</span>
+        <span class="usecase-name">HR / Recruitment Screening</span>
+        <span class="usecase-cost">₹5–7/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Deepgram/Sarvam + GPT-4o + Google TTS + Exotel + ATS webhook</span></div>
+        <div class="usecase-row"><label>Flow</label><span>Outbound to candidate → verify interest → screen questions → score/rank → schedule interview</span></div>
+        <div class="usecase-row"><label>Challenge</label><span>Nuanced evaluation (notice period, salary expectation), ATS integration, candidate experience</span></div>
+        <div class="usecase-roi">💰 ₹25–50/AI screen vs. ₹500+ human. 100+ hires/month = ₹5L+/month saved.</div>
+      </div>
+    </div>
+
+    <div class="usecase-card">
+      <div class="usecase-header">
+        <span class="usecase-emoji">🌐</span>
+        <span class="usecase-name">US AI Receptionist Agency</span>
+        <span class="usecase-cost">$0.06–0.10/min</span>
+      </div>
+      <div class="usecase-body">
+        <div class="usecase-row"><label>Stack</label><span>Deepgram Nova-3 + GPT-4o-mini + ElevenLabs + Twilio + GoHighLevel or VAPI</span></div>
+        <div class="usecase-row"><label>Niches</label><span>Dental clinics, law firms, HVAC, real estate agents, med spas</span></div>
+        <div class="usecase-row"><label>Pitch</label><span>Businesses lose $120K–126K/year from missed calls. Position at $200–500/month vs. $500–1,500/month human services</span></div>
+        <div class="usecase-roi">💰 Realistic: $0–1K/month (0–3 months), $1–5K (3–12 months), $5–40K (12+ months). Only 5–15% reach $3K+/month sustainably.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 5 — COSTS ══════════════════════ -->
+<section id="costs">
+  <div class="section-label">Section 05</div>
+  <h2 class="section-title">Cost Analysis —<br>All Four Volume Tiers</h2>
+
+  <p>All models assume <span class="highlight">3-minute average call duration</span>. Prices exclude 18% GST on Indian cloud services. LLM costs are often <strong>less than 2%</strong> of total — TTS and orchestration are the real cost drivers.</p>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:18px;margin-bottom:20px;">Component Layer Pricing</h3>
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Component</th><th>Budget Option</th><th>Mid-Tier</th><th>Premium</th></tr></thead>
+      <tbody>
+        <tr><td>STT</td><td>Sarvam Saaras <span class="mono">₹0.50/min</span></td><td>Google Cloud <span class="mono">₹1.34/min</span></td><td>Deepgram Nova-3 <span class="mono">₹0.65/min</span></td></tr>
+        <tr><td>LLM</td><td>GPT-4o-mini <span class="mono">₹0.02/min</span></td><td>Claude Haiku <span class="mono">₹0.12/min</span></td><td>GPT-4o <span class="mono">₹0.32/min</span></td></tr>
+        <tr><td>TTS</td><td>Google Standard <span class="mono">₹0.27/min</span></td><td>Sarvam Bulbul <span class="mono">₹2.40/min</span></td><td>ElevenLabs <span class="mono">₹4.03/min</span></td></tr>
+        <tr><td>Telephony</td><td>TATA SIP <span class="mono">₹0.50/min</span></td><td>Exotel <span class="mono">₹1.00/min</span></td><td>Twilio <span class="mono">₹0.63/min</span></td></tr>
+        <tr><td>Orchestration</td><td>Self-built <span class="mono">₹0.42/min</span></td><td>Bolna.dev <span class="mono">₹1.68/min</span></td><td>VAPI <span class="mono">₹4.20/min</span></td></tr>
+        <tr style="background:rgba(245,166,35,0.06)"><td style="font-weight:700">Total</td><td style="font-weight:700;color:var(--emerald)">₹1.71/min</td><td style="font-weight:700">₹6.54/min</td><td style="font-weight:700;color:var(--rose)">₹9.83/min</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="tier-grid reveal">
+    <div class="tier-card">
+      <div class="tier-header" style="border-top:3px solid var(--sky);">
+        <div class="tier-name">Startup</div>
+        <div class="tier-range">Under 1,000 calls/month · 3,000 min</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-row"><span class="tier-label">Budget stack cost</span><span class="tier-val tier-highlight">₹5,100</span></div>
+        <div class="tier-row"><span class="tier-label">Cost per call</span><span class="tier-val">₹5.10</span></div>
+        <div class="tier-row"><span class="tier-label">Margin at ₹15/call</span><span class="tier-val tier-highlight">66%</span></div>
+        <div class="tier-row"><span class="tier-label">Mid-tier stack cost</span><span class="tier-val" style="color:var(--rose)">₹19,600</span></div>
+        <div class="tier-row"><span class="tier-label">Premium stack cost</span><span class="tier-val" style="color:var(--rose)">₹29,500</span></div>
+        <div class="tier-rec">💡 Budget stack only. Use Sarvam free ₹1,000 credits + Google free tier aggressively.</div>
+      </div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header" style="border-top:3px solid var(--saffron);">
+        <div class="tier-name">SMB</div>
+        <div class="tier-range">1,000–10,000 calls · 15,000 min</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-row"><span class="tier-label">Budget stack cost</span><span class="tier-val tier-highlight">₹25,650 ($305)</span></div>
+        <div class="tier-row"><span class="tier-label">Cost per call</span><span class="tier-val">₹5.13</span></div>
+        <div class="tier-row"><span class="tier-label">Margin at ₹20/call</span><span class="tier-val tier-highlight">74%</span></div>
+        <div class="tier-row"><span class="tier-label">Mid-tier stack cost</span><span class="tier-val">₹58,000 ($690)</span></div>
+        <div class="tier-row"><span class="tier-label">Premium stack cost</span><span class="tier-val" style="color:var(--rose)">₹1,47,400</span></div>
+        <div class="tier-rec">💡 Budget or mid-tier. Bolna.dev all-in at $0.04–0.08/min if you can't self-build.</div>
+      </div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header" style="border-top:3px solid var(--emerald);">
+        <div class="tier-name">Growth</div>
+        <div class="tier-range">10K–1L calls · 1,50,000 min</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-row"><span class="tier-label">Budget + discounts</span><span class="tier-val tier-highlight">₹3,78,000 ($4.5K)</span></div>
+        <div class="tier-row"><span class="tier-label">Cost per call</span><span class="tier-val">₹7.56</span></div>
+        <div class="tier-row"><span class="tier-label">Margin at ₹12/call</span><span class="tier-val tier-highlight">37%</span></div>
+        <div class="tier-row"><span class="tier-label">Mid-tier cost</span><span class="tier-val">₹4,79,000</span></div>
+        <div class="tier-row"><span class="tier-label">Premium cost</span><span class="tier-val" style="color:var(--rose)">₹11,97,000</span></div>
+        <div class="tier-rec">💡 Self-build orchestration now — TATA SIP + Sarvam + self-hosted Llama saves ₹7.5L+/month.</div>
+      </div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header" style="border-top:3px solid var(--rose);">
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-range">1 Lakh+ calls · 3,00,000 min</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-row"><span class="tier-label">Negotiated budget</span><span class="tier-val tier-highlight">₹5,04,000 ($6K)</span></div>
+        <div class="tier-row"><span class="tier-label">Cost per call</span><span class="tier-val">₹5.04</span></div>
+        <div class="tier-row"><span class="tier-label">Margin at ₹8/call</span><span class="tier-val tier-highlight">37%</span></div>
+        <div class="tier-row"><span class="tier-label">Self-hosted GPU stack</span><span class="tier-val tier-highlight">₹1.25–1.68/min</span></div>
+        <div class="tier-row"><span class="tier-label">Mid-tier cost</span><span class="tier-val">₹7,06,000</span></div>
+        <div class="tier-rec">💡 Full self-hosted: Whisper + Llama + custom TTS on dedicated GPUs. ROI is overwhelming at this scale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 6 — DEPLOY ══════════════════════ -->
+<section id="deploy">
+  <div class="section-label">Section 06</div>
+  <h2 class="section-title">How to Deploy —<br>End to End Guide</h2>
+
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">01</span>
+        <h3 class="card-title" style="margin:0">Choose Stack by Scale</h3>
+      </div>
+      <div class="card-body">Under 10K calls/month: <strong style="color:var(--emerald)">Bolna.dev</strong> (India) or Retell (English) + Sarvam STT/TTS + Exotel. Over 10K calls: Build custom orchestration on Exotel's WebSocket streaming API connecting your own STT→LLM→TTS pipeline directly.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">02</span>
+        <h3 class="card-title" style="margin:0">Telephony & TRAI Compliance</h3>
+      </div>
+      <div class="card-body">DLT registration with telecom operators is mandatory for outbound. Use <strong>140-series numbers</strong> for promotional, <strong>1600-series</strong> for transactional. NDNC scrub before every dial. Penalty: up to ₹10 lakh per instance. February 2025: consent validity now 7 days only.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">03</span>
+        <h3 class="card-title" style="margin:0">Build a Context Agent, Not IVR</h3>
+      </div>
+      <div class="card-body"><strong>RAG:</strong> Connect LLM to a vector DB (Pinecone/pgvector) with your product docs. <strong>System prompts:</strong> Define persona, escalation triggers, compliance rules, code-switching instructions. <strong>Function calling:</strong> CRM updates, calendar booking, payment links. <strong>Memory:</strong> Maintain 10–15 turn sliding window + extracted entities.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">04</span>
+        <h3 class="card-title" style="margin:0">Voice + WhatsApp Hybrid</h3>
+      </div>
+      <div class="card-body">Most effective Indian architecture. After voice call, trigger a webhook → send WhatsApp with summary, payment link, or appointment confirmation via Exotel or Gupshup WhatsApp Business API. This hybrid approach increases completion rates by <strong style="color:var(--emerald)">40–60%</strong> versus voice-only.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">05</span>
+        <h3 class="card-title" style="margin:0">CRM & Webhook Architecture</h3>
+      </div>
+      <div class="card-body"><code style="background:rgba(245,166,35,0.1);padding:2px 6px;border-radius:4px;font-size:12px;">call.started</code> → log to CRM → <code style="background:rgba(245,166,35,0.1);padding:2px 6px;border-radius:4px;font-size:12px;">call.ended</code> → push transcript + extracted entities + recording URL. Use <strong>Make.com</strong> or <strong>n8n</strong> (self-hosted, free) for complex multi-step webhook orchestration.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-family:'Fraunces',serif;font-size:28px;color:var(--saffron);">06</span>
+        <h3 class="card-title" style="margin:0">Test Before You Launch</h3>
+      </div>
+      <div class="card-body">Test 50+ scenarios per language — background noise, children crying, bad signal, code-switching, Aadhaar/PAN capture, escalation triggers. Target <strong style="color:var(--emerald)">95%+ intent accuracy</strong> per language before go-live. Use native speakers, not translations. Run weekly regression tests after any model update.</div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">India Compliance Summary</h3>
+  <div class="compliance-grid reveal">
+    <div class="compliance-item">
+      <h4>TRAI — Marketing Calls</h4>
+      <p>140-series numbers only. NDNC scrub mandatory. Calling hours: <strong>9 AM–9 PM</strong> only. DLT registration required for all commercial communications.</p>
+    </div>
+    <div class="compliance-item">
+      <h4>RBI — Debt Collection</h4>
+      <p>Calling hours: <strong>8 AM–7 PM</strong> only. No threatening or coercive language. No disclosure to third parties. All calls must be recorded and logged.</p>
+    </div>
+    <div class="compliance-item">
+      <h4>RBI — Digital Lending</h4>
+      <p>Explicit consent recording mandatory. PAN/Aadhaar handling subject to data localisation rules. High STT accuracy critical for compliance record-keeping.</p>
+    </div>
+    <div class="compliance-item">
+      <h4>DPDPA 2023</h4>
+      <p>Data Principal consent required before processing personal data. Purpose limitation applies. Cross-border transfer restrictions for sensitive categories.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 7 — MARKET ══════════════════════ -->
+<section id="market">
+  <div class="section-label">Section 07</div>
+  <h2 class="section-title">India's Voice AI Market —<br>Who's Buying & at What Price</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:40px;" class="reveal">
+    <div style="padding:24px;background:var(--navy-mid);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--saffron)">$450M–650M</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Market size 2024–25</div>
+    </div>
+    <div style="padding:24px;background:var(--navy-mid);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--saffron)">25–26%</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-top:4px">CAGR growth rate</div>
+    </div>
+    <div style="padding:24px;background:var(--navy-mid);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--saffron)">100M+</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-top:4px">AI calls handled/month in India</div>
+    </div>
+    <div style="padding:24px;background:var(--navy-mid);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--saffron)">$643M</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Indian AI funding in 2025</div>
+    </div>
+  </div>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead><tr><th>Startup</th><th>Funding</th><th>Key Round</th><th>Revenue</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td>Observe.AI</td><td>$214M</td><td>$125M Series C (SoftBank)</td><td>$44M ARR</td><td>Contact center AI</td></tr>
+        <tr><td>Yellow.ai</td><td>$102M</td><td>$78M Series C</td><td>$79.5M ARR</td><td>Enterprise conversational AI</td></tr>
+        <tr><td>Sarvam AI</td><td>$53.8M</td><td>$41M Series A (Lightspeed)</td><td>₹29 Cr</td><td>Indian language models</td></tr>
+        <tr><td>Nurix AI</td><td>$27.5M</td><td>$15M Series A (Accel)</td><td>₹5.35 Cr</td><td>BPO voice agents</td></tr>
+        <tr><td>Gnani.ai</td><td>$7.7M</td><td>Series A</td><td>₹57 Cr</td><td>Voice AI platform</td></tr>
+        <tr><td style="color:var(--emerald)">Bolna.dev</td><td>$6.3M</td><td>Seed (General Catalyst, YC F'25)</td><td>$700K ARR</td><td>India voice orchestration</td></tr>
+        <tr><td>Kore.ai</td><td>$150M</td><td>FTV Capital + NVIDIA</td><td>—</td><td>Enterprise conversational AI</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">What Companies Actually Pay</h3>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card">
+      <h3 class="card-title" style="font-size:15px;margin-bottom:14px;">💼 Pricing by Contract Size</h3>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">SMB</span><span class="mono" style="font-size:13px;color:var(--cream)">₹10,000–50,000/month</span></div>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Mid-market</span><span class="mono" style="font-size:13px;color:var(--cream)">₹50,000–5,00,000/month</span></div>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Enterprise</span><span class="mono" style="font-size:13px;color:var(--saffron)">₹5–50 lakh/month+</span></div>
+    </div>
+    <div class="card">
+      <h3 class="card-title" style="font-size:15px;margin-bottom:14px;">📊 Pricing Models</h3>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Per-minute (SMB)</span><span class="mono" style="font-size:13px;color:var(--cream)">₹5–15/min</span></div>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Per-minute (Enterprise)</span><span class="mono" style="font-size:13px;color:var(--cream)">₹3–8/min</span></div>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Per-agent-per-month</span><span class="mono" style="font-size:13px;color:var(--cream)">₹15,000–50,000</span></div>
+      <div class="tier-row"><span style="color:var(--text-muted);font-size:13px">Lead qualification</span><span class="mono" style="font-size:13px;color:var(--emerald)">₹120–200/lead</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 8 — GLOBAL ══════════════════════ -->
+<section id="global">
+  <div class="section-label">Section 08</div>
+  <h2 class="section-title">The "Lakhs from Instagram" Model —<br>Hype vs. Reality</h2>
+
+  <div class="card reveal" style="border-color:rgba(245,166,35,0.25);background:rgba(245,166,35,0.05);margin-bottom:32px;">
+    <h3 class="card-title">What the Reels Claim</h3>
+    <p>78,000+ Instagram Reels tagged "AI receptionist," mostly by Indian creators. The pitch: set up a GoHighLevel-based AI receptionist for a US dental clinic, charge $300–$997/month, get 10–20 clients, earn $5K–$10K/month from India. <strong>GoHighLevel Agency Pro at $497/month</strong> lets you white-label the whole platform.</p>
+    <p style="margin-top:10px;">Math example: 10 clients × $500/month = $5,000 revenue. Cost: ~$900 total (GHL + AI costs). <strong style="color:var(--emerald)">~$4,100 profit/month</strong>. In theory, clean. In practice...</p>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Realistic Income by Stage</h3>
+  <div class="reality-grid reveal">
+    <div class="reality-card">
+      <div class="reality-level">Beginner · 0–3 Months</div>
+      <div class="reality-income">$0–$1,000/mo</div>
+      <div class="reality-desc">First 4–8 weeks: pure learning. Timeline to first client: 1–3 months of cold outreach (50–100 emails per client). Most quit here.</div>
+    </div>
+    <div class="reality-card">
+      <div class="reality-level">Intermediate · 3–12 Months</div>
+      <div class="reality-income">$1K–$5K/mo</div>
+      <div class="reality-desc">3–10 clients at $300–$500 each. Client churn of 10–20% monthly is the primary challenge. Revenue feels unstable.</div>
+    </div>
+    <div class="reality-card">
+      <div class="reality-level">Advanced · 12+ Months</div>
+      <div class="reality-income">$5K–$40K/mo</div>
+      <div class="reality-desc">15–50+ clients at $800–$2,000 each. Requires niche specialisation, proven ROI metrics, referral networks.</div>
+    </div>
+    <div class="reality-card" style="border-color:rgba(232,82,106,0.2);background:rgba(232,82,106,0.07);">
+      <div class="reality-level" style="color:var(--rose)">Success Rate</div>
+      <div class="reality-income" style="color:var(--rose)">5–15%</div>
+      <div class="reality-desc">Of entrants reach sustainable income ($3K+/month) within 12 months. Comparable to any other agency model.</div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="verdict-row reveal">
+    <div class="verdict-card good">
+      <h4>✅ The Model is Legit When...</h4>
+      <ul>
+        <li>You have domain expertise in the target niche (dental, legal, HVAC)</li>
+        <li>You treat it as a real services business, not passive income</li>
+        <li>You niche down — generic AI receptionist = very competitive</li>
+        <li>You invest in onboarding & ROI reporting to reduce churn</li>
+        <li>You build demo agents before pitching</li>
+      </ul>
+    </div>
+    <div class="verdict-card bad">
+      <h4>❌ Red Flags to Watch</h4>
+      <ul>
+        <li>67% of DIY voice AI builds fail according to practitioner data</li>
+        <li>Many "₹10 lakh/month" creators earn primarily from course sales</li>
+        <li>HIPAA compliance adds ~$1,000/month on VAPI for healthcare</li>
+        <li>Smith.ai, Ruby, RingCentral AI competing as incumbents</li>
+        <li>Liam Ottley AAA course: "I wasted £5k joining this course"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 9 — STRATEGY ══════════════════════ -->
+<section id="strategy">
+  <div class="section-label">Section 09</div>
+  <h2 class="section-title">Build vs. Buy vs. Resell —<br>Strategic Framework</h2>
+
+  <div class="table-wrap reveal" style="margin-bottom:40px;">
+    <table>
+      <thead><tr><th>Scenario</th><th>Calls/month</th><th>Engineering team</th><th>Launch speed</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td>Early stage, no engineers</td><td>&lt;10,000</td><td>None</td><td>&lt;4 weeks</td><td><span class="badge badge-green">Bolna.dev (India) or Retell (US)</span></td></tr>
+        <tr><td>SMB agency</td><td>1K–10K</td><td>1 developer</td><td>2–4 weeks</td><td><span class="badge badge-blue">Managed platform + custom prompts</span></td></tr>
+        <tr><td>Growth stage</td><td>&gt;10,000</td><td>2+ engineers</td><td>4–8 weeks build</td><td><span class="badge badge-yellow">Custom orchestration via Exotel WebSocket</span></td></tr>
+        <tr><td>Enterprise</td><td>&gt;1 lakh</td><td>ML + backend team</td><td>3–6 months</td><td><span class="badge badge-green">Full self-hosted (Sarvam + Llama + GPU)</span></td></tr>
+        <tr><td>US/UK agency — fastest</td><td>N/A</td><td>None required</td><td>1–2 weeks</td><td><span class="badge badge-blue">GoHighLevel white-label ($497/month)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Pricing Strategy</h3>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card" style="border-color:rgba(39,185,154,0.2)">
+      <div class="card-icon">🇮🇳</div>
+      <h3 class="card-title">For Indian Clients</h3>
+      <p>Price at <strong>₹5–15/min</strong> or <strong>₹15,000–50,000/month per virtual agent</strong>. Compete on multilingual support + TRAI/RBI compliance — global platforms genuinely cannot match this. Target BFSI, e-commerce, healthcare where call volumes are high.</p>
+    </div>
+    <div class="card" style="border-color:rgba(76,167,208,0.2)">
+      <div class="card-icon">🌐</div>
+      <h3 class="card-title">For US/UK Clients</h3>
+      <p>Price at <strong>$297–$997/month</strong> for AI receptionist. Lead with missed-call revenue loss ($120K/year). Position against human answering services ($500–$1,500/month). Specialize in dental, legal, HVAC or real estate for referral network effect.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════ SECTION 10 — VERDICT ══════════════════════ -->
+<section id="verdict">
+  <div class="section-label">Section 10</div>
+  <h2 class="section-title">Final Verdict &<br>Three Quick-Start Paths</h2>
+
+  <div class="card reveal" style="border-color:rgba(39,185,154,0.3);background:rgba(39,185,154,0.06);margin-bottom:40px;">
+    <h3 class="card-title" style="font-size:20px;">🏆 The Winning India Stack</h3>
+    <p style="font-size:15px;"><strong style="color:var(--emerald)">Bolna.dev + Sarvam AI + Exotel</strong> — Code-switching support, 10+ Indian languages, TRAI compliance, sub-500ms latency, ₹3–7/min total. No global platform matches this for Indian deployments.</p>
+    <p>For English-primary or global: <strong>Retell AI</strong> for simplicity, or <strong>VAPI</strong> for maximum provider flexibility (if you have engineering resources to optimise it).</p>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Recommended Stack by Use Case</h3>
+  <div class="table-wrap reveal" style="margin-bottom:40px;">
+    <table class="stack-table">
+      <thead><tr><th>Use Case</th><th>STT</th><th>LLM</th><th>TTS</th><th>Telephony</th><th>Orchestration</th></tr></thead>
+      <tbody>
+        <tr><td>Indian multilingual support</td><td>Sarvam Saaras</td><td>GPT-4o-mini</td><td>Sarvam Bulbul</td><td>Exotel</td><td>Bolna.dev</td></tr>
+        <tr><td>Loan DSA qualification</td><td>Sarvam Saaras</td><td>GPT-4o</td><td>Sarvam Bulbul</td><td>Exotel</td><td>Custom</td></tr>
+        <tr><td>Collections / recovery</td><td>Sarvam Saaras</td><td>Claude Haiku</td><td>Sarvam Bulbul</td><td>Exotel</td><td>Custom (RBI)</td></tr>
+        <tr><td>US AI receptionist agency</td><td>Deepgram Nova-3</td><td>GPT-4o-mini</td><td>ElevenLabs</td><td>Twilio</td><td>VAPI or GHL</td></tr>
+        <tr><td>Enterprise English support</td><td>Deepgram Nova-3</td><td>Claude Sonnet</td><td>Azure TTS</td><td>Twilio</td><td>Retell AI</td></tr>
+        <tr><td>Budget / open-source</td><td>IndicWhisper</td><td>Llama 3.1</td><td>AI4Bharat TTS</td><td>Exotel</td><td>Custom</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Three Paths to Market</h3>
+  <div style="display:grid;grid-template-columns:1fr;gap:20px;" class="reveal">
+    <div class="path-card path-1">
+      <div class="path-num">1</div>
+      <div class="path-tag">Fastest Revenue · Lowest Bar</div>
+      <div class="path-title">US AI Receptionist Agency via GoHighLevel</div>
+      <div class="path-desc">Learn prompt engineering, build 2–3 demo agents for dental/legal/HVAC, start cold email campaigns. GoHighLevel Agency Pro at $497/month gives white-label platform instantly. This is a real services business — not passive income.</div>
+      <div class="path-meta">
+        <div class="path-meta-item"><label>Budget</label><span style="color:var(--sky)">₹5,000/month</span></div>
+        <div class="path-meta-item"><label>First client</label><span style="color:var(--sky)">4–8 weeks</span></div>
+        <div class="path-meta-item"><label>Target (6 months)</label><span style="color:var(--sky)">$1K–$3K/month</span></div>
+        <div class="path-meta-item"><label>Risk</label><span style="color:var(--sky)">Saturated, thin margins</span></div>
+      </div>
+    </div>
+    <div class="path-card path-2">
+      <div class="path-num">2</div>
+      <div class="path-tag">Indian Market Focus · Moderate Technical Skill</div>
+      <div class="path-title">India BFSI / E-Commerce with Bolna + Sarvam + Exotel</div>
+      <div class="path-desc">Build a lead qualification or collections bot in Hindi + English. Approach NBFCs and insurance companies with a pilot offer (₹500 for pilot). TRAI/RBI compliance as your genuine moat — global players simply cannot offer this.</div>
+      <div class="path-meta">
+        <div class="path-meta-item"><label>Budget</label><span style="color:var(--saffron)">₹25K–50K/month</span></div>
+        <div class="path-meta-item"><label>First client</label><span style="color:var(--saffron)">1–3 months</span></div>
+        <div class="path-meta-item"><label>Target (6 months)</label><span style="color:var(--saffron)">₹1–3L/month</span></div>
+        <div class="path-meta-item"><label>Risk</label><span style="color:var(--saffron)">Longer sales cycle</span></div>
+      </div>
+    </div>
+    <div class="path-card path-3">
+      <div class="path-num">3</div>
+      <div class="path-tag">Custom Platform · Highest Margin · Widest Moat</div>
+      <div class="path-title">Enterprise Platform: Sarvam + Llama + Exotel WebSocket</div>
+      <div class="path-desc">Build a custom voice AI platform targeting banks, telecom, or large e-commerce with a vertical-specific solution (e.g., loan recovery compliance bot). Requires a 2–3 person engineering team and 3–6 months to production. Highest ROI, highest barrier, most defensible.</div>
+      <div class="path-meta">
+        <div class="path-meta-item"><label>Budget</label><span style="color:var(--emerald)">₹3–5L/month (incl. team)</span></div>
+        <div class="path-meta-item"><label>First client</label><span style="color:var(--emerald)">3–6 months</span></div>
+        <div class="path-meta-item"><label>Target (12 months)</label><span style="color:var(--emerald)">₹5–15L/month</span></div>
+        <div class="path-meta-item"><label>Risk</label><span style="color:var(--emerald)">Engineering complexity</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="card reveal" style="border-color:rgba(245,166,35,0.25);background:rgba(245,166,35,0.04);">
+    <h3 class="card-title" style="font-size:18px;margin-bottom:12px;">🧭 The Honest Bottom Line</h3>
+    <p>Voice AI in India is not a get-rich-quick scheme — it's a <strong style="color:var(--saffron)">genuine, fast-growing market with real structural demand</strong> from enterprises drowning in call volume across a linguistically complex country. The technology has reached production-readiness for Indian languages thanks to Sarvam AI, AI4Bharat, and Bolna.dev.</p>
+    <p>The winners will solve <strong>TRAI/RBI compliance</strong>, master <strong>multilingual code-switching</strong>, and build relationships in specific verticals. The global AI agency model is legitimate but competitive — treat it as a real services business requiring sales persistence, not a passive income stream.</p>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="humvai">
+  <div class="section-label">Section 11</div>
+  <h2 class="section-title">Human Call Center vs.<br>Voice AI — Full Economics</h2>
+  <p>A 50-seat call center in Kolkata's Salt Lake IT corridor carries far more cost than the ₹7,000–12,000 agent salary on paper. Stack in management, statutory benefits, attrition, and infrastructure — the real cost is <span class="highlight">₹32–36 per call</span> versus ₹10–15 for an AI-handled call on the India stack. That is a 60% cost advantage, compounding with zero attrition, instant scalability, and 24/7 availability.</p>
+
+  <div class="econ-compare reveal">
+    <div class="econ-card human">
+      <div class="econ-header"><span class="econ-icon">🏢</span><div><div class="econ-title">Human Call Center</div><div style="font-size:12px;color:var(--text-muted)">Kolkata · 50 seats · domestic voice process</div></div></div>
+      <div class="econ-body">
+        <div class="econ-row"><span class="econ-label">Agent salaries (50 × ₹16,000 avg blended)</span><span class="econ-val">₹8,00,000</span></div>
+        <div class="econ-row"><span class="econ-label">Statutory benefits — PF 12% + ESIC 3.25% + Gratuity 4.81%</span><span class="econ-val">₹1,60,000</span></div>
+        <div class="econ-row"><span class="econ-label">Management: 4 TLs + AM + Ops Mgr + QA + Trainer + HR + IT</span><span class="econ-val">₹4,56,000</span></div>
+        <div class="econ-row"><span class="econ-label">Office rent — ₹50/sqft, Salt Lake Sector V (2,800 sqft)</span><span class="econ-val">₹1,40,000</span></div>
+        <div class="econ-row"><span class="econ-label">Electricity + Internet + IT equipment amortised</span><span class="econ-val">₹1,65,000</span></div>
+        <div class="econ-row"><span class="econ-label">Attrition / recruitment (30–35% annual BPO churn)</span><span class="econ-val">₹93,750</span></div>
+        <div class="econ-row"><span class="econ-label">CRM + WFM + QA + dialer software licenses</span><span class="econ-val">₹50,000</span></div>
+        <div class="econ-row"><span class="econ-label">Transport, canteen, health insurance, misc</span><span class="econ-val">₹75,000</span></div>
+        <div class="econ-total">₹19.9 Lakhs / month</div>
+        <div style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:8px">Net productive hours with 10% absenteeism + 15% shrinkage = 115 hrs/agent/month. 55,000 calls → <strong style="color:var(--sky)">₹36/call</strong></div>
+      </div>
+    </div>
+    <div class="econ-card ai">
+      <div class="econ-header"><span class="econ-icon">🤖</span><div><div class="econ-title">Voice AI Stack</div><div style="font-size:12px;color:var(--text-muted)">Bolna.dev + Sarvam AI + Exotel</div></div></div>
+      <div class="econ-body">
+        <div class="econ-row"><span class="econ-label">STT — Sarvam Saaras v3 (₹30/hour verified)</span><span class="econ-val">₹0.50/min</span></div>
+        <div class="econ-row"><span class="econ-label">LLM — Sarvam 105B (currently free via API)</span><span class="econ-val">₹0.00/min</span></div>
+        <div class="econ-row"><span class="econ-label">TTS — Sarvam Bulbul v3 (₹30/10K chars)</span><span class="econ-val">₹1.10–1.50/min</span></div>
+        <div class="econ-row"><span class="econ-label">Telephony — Exotel outbound to Indian mobile</span><span class="econ-val">₹1.00–1.50/min</span></div>
+        <div class="econ-row"><span class="econ-label">Platform — Bolna.dev orchestration all-inclusive</span><span class="econ-val">₹1.50–2.50/min</span></div>
+        <div class="econ-row"><span class="econ-label">One-time setup + DLT + integration (amortised 12 mo)</span><span class="econ-val">~₹33,000</span></div>
+        <div class="econ-row"><span class="econ-label">Prompt engineer + monthly maintenance</span><span class="econ-val">₹50,000</span></div>
+        <div class="econ-row"><span class="econ-label">No attrition · No rent · No PF/ESIC · No absenteeism</span><span class="econ-val">₹0</span></div>
+        <div class="econ-total">₹6–9 Lakhs / month</div>
+        <div style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:8px">Same 55,000 calls/month → <strong style="color:var(--emerald)">₹11–16/call</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Side-by-Side Operational Comparison</h3>
+  <div class="table-wrap reveal" style="margin-bottom:36px;">
+    <table>
+      <thead><tr><th>Metric</th><th>Voice AI (India stack)</th><th>Human — Kolkata/Jaipur BPO</th><th>Edge</th></tr></thead>
+      <tbody>
+        <tr><td>Cost per call (3 min avg)</td><td class="mono" style="color:var(--emerald)">₹10–15</td><td class="mono" style="color:var(--sky)">₹32–36</td><td><span class="badge badge-green">AI ~60% cheaper</span></td></tr>
+        <tr><td>500 calls/day monthly cost</td><td class="mono">₹1.5–2.5L</td><td class="mono">₹19.9L (50 seats, mostly idle)</td><td><span class="badge badge-green">AI wins heavily</span></td></tr>
+        <tr><td>2,000 calls/day monthly cost</td><td class="mono">₹6–9L</td><td class="mono">₹19.9L (50 seats well-utilised)</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>10,000 calls/day monthly cost</td><td class="mono">₹30–45L</td><td class="mono">₹80–100L (200+ seats)</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Availability</td><td>24/7/365 — zero wait time</td><td>8–16 hrs (night shift = premium pay)</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Scalability</td><td>Instant — add concurrency in minutes</td><td>4–12 weeks: hire + train</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Language coverage</td><td>10+ languages simultaneously</td><td>1–2 languages per agent max</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Script compliance</td><td>100% every single call — scripted</td><td>Variable — fatigue, mood, skill drift</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Attrition cost</td><td>None</td><td>30–35% annual churn = ₹93,750/month hidden</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Compliance auditability</td><td>100% recorded + auto-transcript searchable</td><td>Only 5% of calls manually reviewed</td><td><span class="badge badge-green">AI wins</span></td></tr>
+        <tr><td>Complex query handling</td><td>⚠️ Needs escalation</td><td>✅ Empathy, judgment, nuanced reading</td><td><span class="badge badge-blue">Human wins</span></td></tr>
+        <tr><td>Emotional de-escalation</td><td>⚠️ Limited, scripted response only</td><td>✅ Real empathy, situational judgment</td><td><span class="badge badge-blue">Human wins</span></td></tr>
+        <tr><td>Novel / unprecedented issues</td><td>⚠️ Fails outside training data</td><td>✅ Can improvise and adapt</td><td><span class="badge badge-blue">Human wins</span></td></tr>
+        <tr><td>High-value relationship calls</td><td>⚠️ Not appropriate</td><td>✅ Human touch needed</td><td><span class="badge badge-blue">Human wins</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">Volume Break-Even: When Does Switching Make Financial Sense?</h3>
+  <div class="card-grid card-grid-2 reveal" style="margin-bottom:32px;">
+    <div class="card" style="border-color:rgba(39,185,154,0.2)">
+      <h3 class="card-title" style="font-size:15px">📊 Break-Even Analysis</h3>
+      <p>One-time setup investment: <strong style="color:var(--saffron)">₹2–6 lakhs</strong> (DLT registration, Exotel setup, prompt engineering, testing, integration). Monthly savings vs equivalent human operation:</p>
+      <div style="margin-top:14px;">
+        <div class="econ-row"><span class="econ-label">At 500 calls/day</span><span class="econ-val" style="color:var(--emerald)">Save ₹17L/month</span></div>
+        <div class="econ-row"><span class="econ-label">At 2,000 calls/day</span><span class="econ-val" style="color:var(--emerald)">Save ₹11–13L/month</span></div>
+        <div class="econ-row"><span class="econ-label">At 10,000 calls/day</span><span class="econ-val" style="color:var(--emerald)">Save ₹40–55L/month</span></div>
+        <div class="econ-row"><span class="econ-label">Break-even timeline</span><span class="econ-val">2–6 months at any volume</span></div>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:rgba(245,166,35,0.06);border-radius:8px;font-size:12px;color:var(--text-muted)">⚠️ Gartner caution: by 2030, GenAI cost per resolution may exceed $3 (~₹252) — above Indian offshore agents at ₹36–50. ROI depends on optimising the stack and containing LLM costs.</div>
+    </div>
+    <div class="card" style="border-color:rgba(76,167,208,0.2)">
+      <h3 class="card-title" style="font-size:15px">🎯 Which Call Types Are Automatable?</h3>
+      <div style="margin-top:8px;">
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:var(--emerald);font-weight:600;margin-bottom:4px">AI Handles Well (85–95% containment)</div>
+          <div style="font-size:13px;color:var(--text-light)">Password resets · Balance inquiries · Order tracking · Appointment scheduling · Payment reminders · KYC collection · Survey calls · FAQ answers · EMI due date queries</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--rose);font-weight:600;margin-bottom:4px">Human Required (escalate always)</div>
+          <div style="font-size:13px;color:var(--text-light)">Billing disputes + negotiation · Emotional de-escalation · Multi-system complex troubleshooting · VIP relationship management · Regulatory/compliance-sensitive decisions · Novel situations outside training data</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">The Optimal Hybrid Architecture</h3>
+  <div class="card reveal" style="border-color:rgba(39,185,154,0.2);margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><span style="font-size:22px">📞</span><h3 class="card-title" style="margin:0">80/20 AI + Human Flow</h3></div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;margin-bottom:10px;">
+      <span style="padding:6px 14px;background:rgba(245,166,35,0.1);border-radius:6px;color:var(--saffron)">Caller dials</span>
+      <span style="color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(76,167,208,0.1);border-radius:6px;color:var(--sky)">Exotel IVR / routing</span>
+      <span style="color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(39,185,154,0.12);border-radius:6px;color:var(--emerald)">🤖 Bolna AI Agent</span>
+      <span style="color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(39,185,154,0.08);border-radius:6px;color:var(--emerald)">✅ Resolved (70–80%)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;">
+      <span style="visibility:hidden;padding:6px 14px">Caller dials</span>
+      <span style="visibility:hidden;color:var(--text-muted)">→</span>
+      <span style="visibility:hidden;padding:6px 14px">Exotel IVR / routing</span>
+      <span style="visibility:hidden;color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(232,82,106,0.1);border-radius:6px;color:var(--rose)">⚡ Escalation trigger</span>
+      <span style="color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(76,167,208,0.1);border-radius:6px;color:var(--sky)">👤 Human Tier 2/3</span>
+      <span style="color:var(--text-muted)">→</span>
+      <span style="padding:6px 14px;background:rgba(76,167,208,0.08);border-radius:6px;color:var(--sky)">✅ Resolved (20–30%)</span>
+    </div>
+    <div style="margin-top:14px;font-size:12px;color:var(--text-muted);padding:10px 14px;background:var(--navy-mid);border-radius:8px;">
+      <strong style="color:var(--cream)">Escalation triggers:</strong> Negative sentiment detected · Explicit customer request · 3+ consecutive misunderstandings · Compliance keyword (legal, complaint, fraud, harassment) · Call duration exceeds threshold · Call type outside approved scope
+    </div>
+  </div>
+  <div class="table-wrap reveal" style="margin-bottom:36px;">
+    <table>
+      <thead><tr><th>Hybrid model at 2,000 calls/day</th><th>Daily calls</th><th>Monthly cost (₹)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>AI handles Tier 1 (80%)</td><td>1,600</td><td>₹6,00,000</td><td>Bolna + Sarvam + Exotel all-in</td></tr>
+        <tr><td>Human Tier 2 — 5 agents</td><td>300</td><td>₹2,00,000</td><td>Fully-loaded cost incl. management share</td></tr>
+        <tr><td>Human Tier 3 specialists — 2 agents</td><td>100</td><td>₹1,20,000</td><td>Senior compliance-trained staff</td></tr>
+        <tr style="background:rgba(39,185,154,0.05)"><td style="color:var(--emerald);font-weight:700">Hybrid total</td><td style="font-weight:700">2,000</td><td style="color:var(--emerald);font-weight:700">₹9,20,000</td><td style="color:var(--emerald)">~23% savings vs full human operation</td></tr>
+        <tr><td style="color:var(--text-muted)">Full human equivalent benchmark</td><td>2,000</td><td style="color:var(--rose)">₹10–12 Lakhs</td><td>Plus ongoing attrition replacement cost</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card reveal" style="border-color:rgba(232,82,106,0.2);background:rgba(232,82,106,0.04);">
+    <h3 class="card-title" style="font-size:16px;margin-bottom:12px;">⚠️ BPO Disruption: The Warning India Cannot Ignore</h3>
+    <p>Gartner forecasts conversational AI will cut global contact center labor costs by <strong style="color:var(--rose)">$80 billion by 2026</strong>. McKinsey estimates GenAI could automate <strong>30% of Indian customer operations hours</strong> near-term. NASSCOM data: <strong>640,000 low-skilled service jobs face displacement</strong> against only 160,000 mid-to-high-skill roles being created. The Indian BPO industry's competitive advantage — low wages, English-trained graduates — is precisely what voice AI replicates most easily. Voice-based services represent 35% of BPO revenue and face the highest automation exposure. Kolkata and Jaipur centers serving domestic BFSI processes are most immediately at risk.</p>
+    <p style="margin-top:10px;"><strong>New roles emerging:</strong> AI trainers (₹4–8 LPA), prompt engineers (₹6–15 LPA), conversation designers (₹5–10 LPA), AI quality analysts, orchestration engineers — but net job displacement is negative in the near term.</p>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="benchmarks">
+  <div class="section-label">Section 12</div>
+  <h2 class="section-title">Stack Accuracy Benchmarks —<br>What the 2026 Data Actually Shows</h2>
+  <p>The recommended stack is now validated against independent third-party benchmarks, not just vendor claims. Hindi and Bengali are <span class="highlight">production-ready at 5–6% WER</span>. Dravidian languages (Tamil, Telugu, Kannada, Malayalam) remain at 15–20% WER — use simpler flows with human fallbacks until further model improvements arrive.</p>
+  <div class="gap-sm"></div>
+
+  <div class="card-grid card-grid-2 reveal" style="margin-bottom:36px;">
+    <div class="card">
+      <h3 class="card-title">🎤 Sarvam Saaras v3 — STT Accuracy by Language</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;"><strong style="color:var(--emerald)">Source: Voice of India benchmark</strong> (Josh Talks + AI4Bharat, Feb 2026) — 15 languages, 35,000+ speakers, district-level sampling, fully independent third-party. Lower WER = better.</p>
+      <div class="bench-grid">
+        <div><div class="bench-header"><span class="bench-label">Hindi</span><span class="bench-wer" style="color:var(--emerald)">~5–6% WER ✅ Production-ready</span></div><div class="bench-bar-bg"><div class="bench-bar good" style="width:6%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Bengali</span><span class="bench-wer" style="color:var(--emerald)">~5–6% WER ✅ Production-ready</span></div><div class="bench-bar-bg"><div class="bench-bar good" style="width:6%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Urdu</span><span class="bench-wer" style="color:var(--emerald)">6.95% WER ✅</span></div><div class="bench-bar-bg"><div class="bench-bar good" style="width:7%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Marathi</span><span class="bench-wer" style="color:var(--saffron)">~10–12% WER ⚠️</span></div><div class="bench-bar-bg"><div class="bench-bar ok" style="width:11%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Gujarati</span><span class="bench-wer" style="color:var(--saffron)">~10–13% WER ⚠️</span></div><div class="bench-bar-bg"><div class="bench-bar ok" style="width:12%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Tamil</span><span class="bench-wer" style="color:var(--rose)">~15–20% WER ⚠️ Marginal</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:17%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Telugu</span><span class="bench-wer" style="color:var(--rose)">~15–20% WER ⚠️</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:17%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Kannada</span><span class="bench-wer" style="color:var(--rose)">~15–20% WER ⚠️</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:18%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Malayalam</span><span class="bench-wer" style="color:var(--rose)">~15–20% WER ⚠️</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:16%"></div></div></div>
+      </div>
+      <div style="margin-top:12px;padding:10px 14px;background:rgba(245,166,35,0.06);border-radius:8px;font-size:12px;color:var(--text-muted)">⚠️ IndicVoices overall 19.31% WER is self-reported by Sarvam. Voice of India = independent third-party and more reliable for client proposals. Dravidian WERs are verified ranges, not exact figures.</div>
+    </div>
+    <div class="card">
+      <h3 class="card-title">📊 Sarvam vs Competitors — Hindi WER</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Global AI platforms show catastrophic failure on Indian languages. This is the definitive case for India-native STT.</p>
+      <div class="bench-grid">
+        <div><div class="bench-header"><span class="bench-label" style="color:var(--emerald)">Sarvam Saaras v3</span><span class="bench-wer" style="color:var(--emerald)">~5–6% — BEST</span></div><div class="bench-bar-bg"><div class="bench-bar good" style="width:6%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Gemini 3 Pro</span><span class="bench-wer" style="color:var(--saffron)">~12–15%</span></div><div class="bench-bar-bg"><div class="bench-bar ok" style="width:13%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Azure Speech</span><span class="bench-wer" style="color:var(--saffron)">~20%</span></div><div class="bench-bar-bg"><div class="bench-bar ok" style="width:20%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Google Cloud STT</span><span class="bench-wer" style="color:var(--rose)">~23.9%</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:24%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">Deepgram Nova-3</span><span class="bench-wer" style="color:var(--rose)">~18–22%</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:20%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">OpenAI GPT-4o Transcribe</span><span class="bench-wer" style="color:var(--rose)">50%+ on Indic ❌</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:50%"></div></div></div>
+        <div><div class="bench-header"><span class="bench-label">GPT-4o-mini Transcribe</span><span class="bench-wer" style="color:var(--rose)">55%+ — Catastrophic ❌</span></div><div class="bench-bar-bg"><div class="bench-bar poor" style="width:55%"></div></div></div>
+      </div>
+      <div style="margin-top:12px;padding:10px 14px;background:rgba(39,185,154,0.06);border-radius:8px;font-size:12px;color:var(--text-muted)">✅ Saaras v3 trained on 1M+ hours of real Indian speech from 65 districts across 19 states. Sub-150ms TTFT in Realtime Fast mode. Supports all 22 scheduled languages + code-mixed audio natively.</div>
+    </div>
+  </div>
+
+  <div class="card-grid card-grid-2 reveal" style="margin-bottom:36px;">
+    <div class="card">
+      <h3 class="card-title">🔊 Sarvam Bulbul v3 TTS — Blind Test Results</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;"><strong style="color:var(--emerald)">Source: Josh Talks independent blind study</strong> — 500+ annotators, 20,000+ votes across 11 languages. 8kHz = actual telephony quality used in production call centers. 48kHz = studio quality.</p>
+      <div style="display:grid;gap:10px;">
+        <div style="padding:14px;background:rgba(39,185,154,0.07);border-radius:8px;border-left:3px solid var(--emerald)"><div style="font-size:13px;font-weight:600;color:var(--emerald);margin-bottom:4px">At 8kHz Telephony — Actual Call Center Condition</div><div style="font-size:13px;color:var(--text-light)"><strong>#1 across ALL competitors including ElevenLabs</strong>. Listener preference up to <strong>77.95%</strong> for Bulbul v3 in head-to-head tests. This is the actual audio quality your production voice agent runs on — 8kHz PSTN.</div></div>
+        <div style="padding:14px;background:rgba(245,166,35,0.06);border-radius:8px;border-left:3px solid var(--saffron)"><div style="font-size:13px;font-weight:600;color:var(--saffron);margin-bottom:4px">At 48kHz Studio Quality</div><div style="font-size:13px;color:var(--text-light)">ElevenLabs v3 alpha leads on pure audio quality. Bulbul v3 outperforms Cartesia Sonic-3, Google Neural TTS, and Azure TTS for Indian language voice quality.</div></div>
+        <div style="padding:14px;background:rgba(76,167,208,0.06);border-radius:8px;border-left:3px solid var(--sky)"><div style="font-size:13px;font-weight:600;color:var(--sky);margin-bottom:4px">Robustness on Indian-Specific Content</div><div style="font-size:13px;color:var(--text-light)">Lowest character error rate on: Indian numerics, STEM terms, named entities (Lajpat Nagar, Koramangala, Borivali), Romanised text, Hinglish code-mixing. These are exactly the failure modes that matter in production.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="card-title">🧠 LLM Selection for Indian Voice Agents — 2026 Data</h3>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Hallucination rates from Vectara leaderboard (March 2026) where available. Cost/min assumes 3-minute call with average conversation density.</p>
+      <div class="table-wrap">
+        <table style="font-size:12px;">
+          <thead><tr><th>Model</th><th>Hallucination</th><th>Cost/min</th><th>India DC</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr style="background:rgba(39,185,154,0.05)"><td style="color:var(--emerald)">Sarvam 105B</td><td>TBD (new)</td><td class="mono" style="color:var(--emerald)">₹0 FREE</td><td>✅ India</td><td>Indian language tasks</td></tr>
+            <tr><td>Gemini 2.5 Flash</td><td style="color:var(--emerald)">0.7% lowest</td><td class="mono">₹0.03–0.06</td><td>✅ Mumbai</td><td>Compliance-sensitive calls</td></tr>
+            <tr><td>GPT-4o-mini / 4.1</td><td>~3%</td><td class="mono">₹0.05–0.08</td><td>❌ US only</td><td>English + structured data</td></tr>
+            <tr><td>Claude Haiku 4.5</td><td style="color:var(--emerald)">Very low</td><td class="mono" style="color:var(--rose)">₹0.30–0.50</td><td>❌ US only</td><td>High-accuracy compliance</td></tr>
+            <tr><td>Llama 3.1 (self-hosted)</td><td>Varies</td><td class="mono" style="color:var(--emerald)">GPU cost only</td><td>✅ Self-host</td><td>Enterprise &gt;50K calls/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px;padding:10px 14px;background:rgba(245,166,35,0.06);border-radius:8px;font-size:12px;color:var(--text-muted)">
+        💡 <strong>RAG reduces hallucinations ~71%</strong> — always use a knowledge base. Schema enforcement (GPT-4.1 Structured Outputs) achieves near-100% compliance.<br>
+        ⚠️ <strong>Reasoning models (o3, o4-mini) HALLUCINATE MORE</strong> than standard models — counterintuitive but verified. Avoid for any compliance-sensitive voice tasks.
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">WER Decision Framework — When Is AI Autonomous Deployment Safe?</h3>
+  <div class="table-wrap reveal" style="margin-bottom:36px;">
+    <table>
+      <thead><tr><th>WER Range</th><th>Suitability</th><th>Languages now</th><th>Safe use cases</th><th>Strategy</th></tr></thead>
+      <tbody>
+        <tr style="background:rgba(39,185,154,0.05)"><td style="color:var(--emerald)">&lt;5%</td><td><span class="badge badge-green">Excellent</span></td><td>Hindi, Bengali</td><td>High-stakes BFSI, PAN/Aadhaar capture, legal reminders, medical bookings</td><td>Full autonomous AI, minimal escalation</td></tr>
+        <tr><td style="color:var(--emerald)">5–10%</td><td><span class="badge badge-green">Production-ready</span></td><td>Hindi, Bengali, Urdu</td><td>Loan qualification, appointment booking, payment reminders, collections</td><td>AI primary with human escalation path</td></tr>
+        <tr style="background:rgba(245,166,35,0.03)"><td style="color:var(--saffron)">10–15%</td><td><span class="badge badge-yellow">Acceptable</span></td><td>Marathi, Gujarati</td><td>Intent recognition, IVR routing, simple yes/no confirmations</td><td>AI with frequent escalation prompts</td></tr>
+        <tr><td style="color:var(--saffron)">15–20%</td><td><span class="badge badge-yellow">Marginal</span></td><td>Tamil, Telugu, Kannada, Malayalam</td><td>Simple scripted flows only — greetings, basic routing</td><td>Simpler scripts + human fallback always available</td></tr>
+        <tr style="background:rgba(232,82,106,0.04)"><td style="color:var(--rose)">&gt;20%</td><td><span class="badge badge-red">Not recommended</span></td><td>Low-resource dialects, heavy noise environments</td><td>Do not deploy autonomous AI</td><td>Human-only or defer AI deployment</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card reveal" style="border-color:rgba(76,167,208,0.2);background:rgba(76,167,208,0.04);">
+    <h3 class="card-title" style="font-size:16px;margin-bottom:16px;">📋 Bolna.dev + Exotel Production Reality Check</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--emerald);margin-bottom:6px;display:flex;align-items:center;gap:6px;">✅ Bolna — Independently Verified</div>
+        <div style="font-size:13px;color:var(--text-light)">500K+ minutes/month · 200K+ calls/day · 95% completion rate (ElevenLabs case study) · 1,050+ paying customers · $700K ARR · YC F25 + General Catalyst backed.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--rose);margin-bottom:6px;display:flex;align-items:center;gap:6px;">⚠️ Bolna — Verify Before Committing</div>
+        <div style="font-size:13px;color:var(--text-light)">No public SLA/uptime page · 10 concurrent call cap on paid plans (queues beyond) · Exotel integration + Sarvam STT/TTS listed as "coming soon" in GitHub README — confirm directly with Bolna team before finalising architecture.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--emerald);margin-bottom:6px;display:flex;align-items:center;gap:6px;">✅ Exotel — Independently Verified</div>
+        <div style="font-size:13px;color:var(--text-light)">70M+ daily conversations · 99.99% uptime claimed · 7,100+ enterprise clients (Uber, Flipkart, Ola, Zomato) · UL-VNO licensed across 11 telecom circles · AgentStream WebSocket API live since August 2025.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--rose);margin-bottom:6px;display:flex;align-items:center;gap:6px;">⚠️ Exotel — Known Limitations</div>
+        <div style="font-size:13px;color:var(--text-light)">Infrastructure only — no built-in STT/TTS · KYC verification required before streaming enabled (can delay launch 1–2 weeks) · Max 3 custom params per WebSocket URL · IP-PSTN mixing only on Mumbai (Veeno) instance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="technical">
+  <div class="section-label">Section 13</div>
+  <h2 class="section-title">Technical Architecture,<br>Onboarding & Complexity</h2>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">Full Pipeline Architecture & Latency Budget</h3>
+  <div class="card reveal" style="border-color:rgba(245,166,35,0.2);margin-bottom:36px;">
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Every hop in the pipeline adds latency. PSTN telephony is the single biggest bottleneck — you cannot engineer it away. Real-world p50 latency on Exotel + Sarvam + GPT is approximately 800–1,000ms per turn including PSTN overhead.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;margin-bottom:28px;">
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(245,166,35,0.25);border-radius:8px;text-align:center;min-width:72px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">CALLER</div><div style="color:var(--saffron)">📱 Phone</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(76,167,208,0.25);border-radius:8px;text-align:center;min-width:80px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">PSTN/VoIP</div><div style="color:var(--sky)">📞 Exotel</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(245,166,35,0.25);border-radius:8px;text-align:center;min-width:84px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">ORCHESTRATE</div><div style="color:var(--saffron)">⚙️ Bolna.dev</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(39,185,154,0.25);border-radius:8px;text-align:center;min-width:78px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">STT</div><div style="color:var(--emerald)">🎤 Sarvam</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(39,185,154,0.25);border-radius:8px;text-align:center;min-width:88px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">LLM</div><div style="color:var(--emerald)">🧠 GPT/Gemini</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(39,185,154,0.25);border-radius:8px;text-align:center;min-width:76px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">TTS</div><div style="color:var(--emerald)">🔊 Bulbul v3</div></div>
+      <span style="color:var(--text-muted);font-size:16px">→</span>
+      <div style="padding:8px 12px;background:var(--navy-mid);border:1px solid rgba(76,167,208,0.25);border-radius:8px;text-align:center;min-width:72px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">BACK TO</div><div style="color:var(--sky)">📱 Caller</div></div>
+    </div>
+    <div class="latency-stack">
+      <div class="lat-row"><span class="lat-label">Audio capture + encode</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:2%;background:var(--emerald)">10ms</div></div><span class="lat-val">10–50ms</span></div>
+      <div class="lat-row"><span class="lat-label">Network upload (India mobile)</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:3%;background:var(--emerald)">20ms</div></div><span class="lat-val">20–100ms</span></div>
+      <div class="lat-row"><span class="lat-label">STT — Sarvam Saaras v3</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:12%;background:var(--emerald)">70ms</div></div><span class="lat-val">70–200ms</span></div>
+      <div class="lat-row"><span class="lat-label">LLM — first token (Gemini Flash)</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:35%;background:var(--saffron)">300ms</div></div><span class="lat-val">250–1,000ms</span></div>
+      <div class="lat-row"><span class="lat-label">TTS — Sarvam Bulbul v3</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:22%;background:var(--saffron)">200ms</div></div><span class="lat-val">100–250ms</span></div>
+      <div class="lat-row"><span class="lat-label">Network download</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:3%;background:var(--emerald)">20ms</div></div><span class="lat-val">20–100ms</span></div>
+      <div class="lat-row"><span class="lat-label">⚠️ PSTN overhead — unavoidable</span><div class="lat-bar-wrap"><div class="lat-bar" style="width:48%;background:var(--rose)">~500ms — cannot be reduced</div></div><span class="lat-val">200–500ms</span></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:18px;padding:16px;background:rgba(245,166,35,0.05);border-radius:10px;align-items:flex-start;">
+      <div><div style="font-size:11px;color:var(--text-muted);margin-bottom:2px">Typical total RTT</div><div style="font-family:'Fraunces',serif;font-size:22px;color:var(--saffron);font-weight:700">670–2,200ms</div></div>
+      <div><div style="font-size:11px;color:var(--text-muted);margin-bottom:2px">Optimised RTT</div><div style="font-family:'Fraunces',serif;font-size:22px;color:var(--emerald);font-weight:700">~570–970ms</div></div>
+      <div><div style="font-size:11px;color:var(--text-muted);margin-bottom:2px">Natural conversation threshold</div><div style="font-family:'Fraunces',serif;font-size:22px;color:var(--cream);font-weight:700">&lt;800ms</div></div>
+      <div style="flex:1;min-width:200px"><div style="font-size:12px;color:var(--text-muted);line-height:1.5">Bolna claims &lt;300ms latency but this likely measures AI processing time only, excluding PSTN overhead (200–500ms unavoidable). Real-world production RTT on Indian PSTN is 800–1,100ms, which is still acceptable for voice AI.</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:20px;">New Client Onboarding — Step by Step</h3>
+  <div class="card reveal" style="margin-bottom:36px;">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-step">Step 01</div>
+        <div class="tl-title">Discovery &amp; Scoping</div>
+        <div class="tl-duration">1–2 weeks</div>
+        <div class="tl-body">Collect existing call transcripts and agent scripts. Define use cases, call volumes per day, languages spoken by callers, current CRM system and its API maturity. Map compliance requirements (RBI for BFSI, TRAI for outbound, DPDP Act for data handling). Define escalation triggers and KPIs. Critical output: a signed-off conversation flow diagram, integration list, and compliance checklist before a single line of code is written.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--rose)"></div>
+        <div class="tl-step">Step 02 — ⚠️ START FROM DAY 1 IN PARALLEL — DO NOT DELAY</div>
+        <div class="tl-title">DLT Registration — The Biggest Timeline Blocker</div>
+        <div class="tl-duration">2–6 weeks (blocks go-live if delayed)</div>
+        <div class="tl-body">TRAI mandates DLT (Distributed Ledger Technology) registration before any outbound commercial voice calls. Must register separately on Airtel, Jio, Vi, and BSNL portals for full nationwide coverage. Entity registration: 3–7 business days per operator. Header (Sender ID) registration: additional 3–7 days per operator. One-time cost: approximately ₹5,900 incl. GST. Promotional calls must use <strong>140-series numbers</strong>. Transactional/service calls use <strong>1600-series</strong>. Mandatory AI voice disclosure at call start (per TRAI Feb 2025 amendment). Start this on Day 1 — it blocks your entire go-live if delayed.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-step">Step 03</div>
+        <div class="tl-title">Prompt Engineering &amp; Conversation Design</div>
+        <div class="tl-duration">2–4 weeks</div>
+        <div class="tl-body">Convert existing call scripts into voice-specific AI prompts. Voice prompting is fundamentally different from text: short sentences, no markdown, natural Hinglish code-switching, interruption handling, real-time uncertainty management. Design the AI persona (name, tone, escalation language). Map 50+ edge cases including rage quits, garbled audio, topic drift. <strong>Hard-code all compliance guardrails outside the LLM</strong> — never trust the LLM to generate regulatory disclosures, legal disclaimers, or compliance scripts. These must be static strings. Expect 3–5 rounds of iteration before the conversation feels natural to native speakers.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-step">Step 04</div>
+        <div class="tl-title">Technical Integration</div>
+        <div class="tl-duration">1–3 weeks</div>
+        <div class="tl-body">Set up API keys and credentials across Sarvam (STT + TTS), Bolna (orchestration), and Exotel (telephony). Provision Indian phone numbers — Exotel KYC verification required before streaming is enabled (potential 1–2 week delay). CRM webhook architecture: <code style="background:rgba(245,166,35,0.1);padding:1px 5px;border-radius:3px;font-size:11px">call.started</code> → log metadata to CRM → during call, function calls extract structured data → <code style="background:rgba(245,166,35,0.1);padding:1px 5px;border-radius:3px;font-size:11px">call.ended</code> → push full transcript + extracted entities + recording URL to CRM. WhatsApp Business API integration via Exotel or Gupshup for post-call follow-ups. Use Make.com (for no-code) or n8n (self-hosted, free) for multi-step webhook workflows. <strong>Verify Bolna-Exotel integration is confirmed as production-ready before finalising architecture</strong> — listed as "coming soon" in public docs as of March 2026.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-step">Step 05</div>
+        <div class="tl-title">QA &amp; Testing</div>
+        <div class="tl-duration">1–2 weeks</div>
+        <div class="tl-body">Build a test suite of 50+ scenarios per language. Include real-world edge cases: heavy background noise (market, traffic), children crying in background, poor mobile signal, mid-sentence code-switching, numeric capture (Aadhaar, PAN, salary amounts), multiple-topic digressions, and explicit compliance trigger phrases. Test with native speakers from target dialects — not just city-educated speakers. Load test to 10–30 concurrent calls. Run compliance script review with legal/compliance team. Target <strong>95%+ intent accuracy</strong> per language before go-live. All test calls should be recorded for manual spot-audit.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-step">Step 06</div>
+        <div class="tl-title">Soft Launch → Full Production</div>
+        <div class="tl-duration">1–2 weeks soft + ongoing iteration</div>
+        <div class="tl-body">Route 5–10% of live traffic to the AI agent first. Monitor five KPIs weekly: STT accuracy per language, intent recognition rate, call completion rate, escalation rate, and average handle time. Iterate on prompts based on real conversation data — this is ongoing, not one-time. After 2 consecutive stable weeks: ramp to full traffic. Client SLA to offer: 99% platform uptime, &lt;800ms p95 latency, 95%+ intent accuracy (Hindi/Bengali), human escalation path within 30 seconds, 100% call recording retention.</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;">
+      <div style="padding:16px;background:var(--navy-mid);border-radius:10px;text-align:center;border:1px solid rgba(76,167,208,0.2)"><div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">Simple: 1 lang · 1 use case</div><div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--sky)">4–8 weeks</div></div>
+      <div style="padding:16px;background:var(--navy-mid);border-radius:10px;text-align:center;border:1px solid rgba(245,166,35,0.2)"><div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">Moderate: 3–4 langs + CRM</div><div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--saffron)">8–12 weeks</div></div>
+      <div style="padding:16px;background:var(--navy-mid);border-radius:10px;text-align:center;border:1px solid rgba(39,185,154,0.2)"><div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">Enterprise: multi-use · compliance</div><div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--emerald)">10–16 weeks</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">Integration Complexity Matrix</h3>
+  <div class="table-wrap reveal" style="margin-bottom:36px;">
+    <table>
+      <thead><tr><th>Integration target</th><th>Complexity</th><th>Realistic timeline</th><th>No-code possible?</th><th>Key notes</th></tr></thead>
+      <tbody>
+        <tr><td>Freshdesk / Zendesk</td><td><span class="badge badge-green">Low</span></td><td>1–2 days</td><td>✅ Make.com / n8n</td><td>Well-documented REST APIs, standard webhook support</td></tr>
+        <tr><td>HubSpot CRM</td><td><span class="badge badge-green">Low–Medium</span></td><td>2–4 days</td><td>✅ Native integrations</td><td>Good API, standard OAuth 2.0, many pre-built connectors</td></tr>
+        <tr><td>Salesforce</td><td><span class="badge badge-yellow">Medium–High</span></td><td>1–2 weeks</td><td>⚠️ Partial via Zapier</td><td>OAuth + custom object configuration, sandbox testing needed</td></tr>
+        <tr><td>Zoho CRM</td><td><span class="badge badge-yellow">Medium</span></td><td>3–5 days</td><td>⚠️ Partial</td><td>Good API but ecosystem lock-in; watch for rate limits</td></tr>
+        <tr><td>Google Calendar / Calendly</td><td><span class="badge badge-green">Low</span></td><td>1–2 days</td><td>✅ Yes</td><td>Real-time slot availability during call via function calling</td></tr>
+        <tr><td>Razorpay / PayU / Paytm</td><td><span class="badge badge-green">Low–Medium</span></td><td>2–3 days</td><td>⚠️ Partial</td><td>Function call → generate payment link → send via SMS/WhatsApp</td></tr>
+        <tr><td>WhatsApp Business API</td><td><span class="badge badge-yellow">Medium</span></td><td>3–7 days</td><td>⚠️ Partial</td><td>Post-call follow-up increases completion by 40–60%. Via Exotel or Gupshup</td></tr>
+        <tr><td>Custom / legacy in-house CRM</td><td><span class="badge badge-red">High</span></td><td>2–6 weeks</td><td>❌ Custom dev required</td><td>Immature APIs, poor documentation — the most common project timeline killer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">Failure Modes &amp; How to Prevent Them</h3>
+  <div class="failmode-grid reveal">
+    <div class="failmode-card">
+      <h4>🎤 STT Accuracy Degrades in Production</h4>
+      <p>Street noise, crowds, children crying, or poor mobile signal can degrade accuracy by 30%+. The 8kHz PSTN audio quality vs. 16kHz lab test conditions is a permanent gap. Dravidian languages start at 15–20% WER baseline before noise.</p>
+      <div class="fix">✅ Use Sarvam for all Indian language calls — 5–6× better than global platforms on Hindi/Bengali. Add automatic gain control on the audio stream. Set confidence threshold escalation: if STT confidence &lt;0.6 on critical data capture, repeat or escalate to human. Always test with real mobile recordings from target geography, not studio samples.</div>
+    </div>
+    <div class="failmode-card">
+      <h4>🧠 LLM Hallucination in Compliance Contexts</h4>
+      <p>An LLM fabricating a payment amount, wrong EMI date, or incorrect regulatory disclosure in a collections or lending call creates immediate RBI/TRAI violation and legal liability. Hallucination risk is highest when LLM is asked to recall specific policy details from memory.</p>
+      <div class="fix">✅ RAG with a verified, human-reviewed knowledge base reduces hallucinations by ~71%. Hard-code ALL compliance disclosures, legal disclaimers, and consent scripts as static strings outside the LLM — never generated. Use GPT-4.1 Structured Outputs for any financial data extraction (near-100% schema compliance). Avoid reasoning models (o3, o4-mini) — they hallucinate more than standard models in constrained tasks.</div>
+    </div>
+    <div class="failmode-card">
+      <h4>📞 Telephony Outage — Platform Down</h4>
+      <p>Exotel attempts one automatic WebSocket retry on connection failure. Extended outages (minutes+) have no built-in fallback. Full platform downtime means all concurrent calls fail simultaneously.</p>
+      <div class="fix">✅ Build an explicit fallback chain in Exotel's applet config: WebSocket AI Agent → on failure → traditional IVR (pre-recorded) → on failure → human agent queue → on failure → call-back scheduling. Set up monitoring alerts via Pagerduty/Slack within 60 seconds of failure. Maintain a small human agent reserve during peak hours as immediate backup capacity.</div>
+    </div>
+    <div class="failmode-card">
+      <h4>⚖️ Regulatory Violation — TRAI / RBI / DPDP</h4>
+      <p>Missing mandatory AI disclosure at call start. Dialling outside permitted hours. Calling a DND-registered number. Storing call recordings without proper consent. TRAI penalty: up to ₹10 lakh per instance + 2-year blacklisting. DPDP Act (effective 2027): up to ₹250 crore per breach.</p>
+      <div class="fix">✅ AI voice disclosure must be the literal first utterance of every call (not optional). Scrub every dial list against NDNC registry before each batch. Time-gate all outbound calls: TRAI marketing = 9AM–9PM only; RBI collections = 8AM–7PM only. Store call recordings minimum 1 year with encrypted PII. Treat compliance as a hard-coded layer, never a prompt instruction.</div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="card reveal" style="border-color:rgba(39,185,154,0.2);background:rgba(39,185,154,0.04);">
+    <h3 class="card-title" style="font-size:16px;margin-bottom:14px;">👥 Team, Skills &amp; Honest Feasibility Assessment</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;font-size:13px;">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--emerald);margin-bottom:8px">Minimum viable team — 3 people</div>
+        <div style="color:var(--text-light)"><strong>1 Prompt engineer</strong> with domain expertise in the target vertical (BFSI, healthcare, etc.) — this is the most critical hire.<br><br><strong>1 Backend developer</strong> — Python, FastAPI, WebSocket handling, REST API integration, webhook architecture.<br><br><strong>1 Account/compliance person</strong> who understands TRAI/RBI requirements and can interface with the client.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--sky);margin-bottom:8px">Can a non-technical founder do this alone?</div>
+        <div style="color:var(--text-light)"><strong>Simple single-language bots</strong> (appointment booking, basic FAQ): Partially yes — Bolna's no-code dashboard + Make.com/Zapier handles the basics.<br><br><strong>BFSI/compliance-heavy deployments</strong>: No. Complex CRM integrations, custom function calling, regulatory compliance wrappers, and production hardening require an engineer.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--saffron);margin-bottom:8px">Not required at launch</div>
+        <div style="color:var(--text-light)">ML engineers · Data scientists · Model fine-tuning specialists · DevOps/infrastructure team<br><br>Bolna's team of ~8 engineers processes 1 million+ calls/month. Small teams can operate at significant scale when using the managed stack. Don't over-hire for launch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="competitors">
+  <div class="section-label">Section 14</div>
+  <h2 class="section-title">India Voice AI —<br>Full Competitor Landscape 2026</h2>
+  <p>At least <span class="highlight">15 funded Indian companies</span> are competing for the same enterprise voice AI market, with total funding exceeding $103 million across 26 voice AI startups. The Indian conversational AI market stands at $4.6 billion (2024) and is projected to reach $18.3 billion by 2030 — large enough for multiple winners — but consolidation accelerates in the next 12–18 months.</p>
+  <div class="gap-sm"></div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:18px;margin-bottom:16px;color:var(--saffron)">Tier 1 — Well-Funded Incumbents with Enterprise Traction</h3>
+  <div class="competitor-grid reveal">
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-1">Tier 1 · Enterprise Platform</span><div class="comp-name">Yellow.ai</div></div>
+        <div class="comp-funding">$102–133M raised</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue</label><span>~$28M India revenue FY25</span></div>
+        <div class="comp-row"><label>Scale</label><span>16B+ conversations/year · 135+ languages · 1,100+ enterprise clients</span></div>
+        <div class="comp-row"><label>Key clients</label><span>Sony, Domino's, Hyundai, Waste Connections</span></div>
+        <div class="comp-row"><label>⚠️ Watch</label><span style="color:var(--rose)">30% workforce layoffs in 2025 · No new equity funding since August 2021 · Shifting to "agentic AI" pivot</span></div>
+        <div class="comp-row"><label>vs Bolna+Sarvam</label><span>Massive enterprise relationships and scale but chat-first DNA — not voice-native; Indian language voice depth is weaker</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-1">Tier 1 · Global Leader</span><div class="comp-name">Kore.ai</div></div>
+        <div class="comp-funding">$234–296M raised</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue</label><span style="color:var(--emerald)">$100M+ ARR — strongest revenue in class</span></div>
+        <div class="comp-row"><label>Recognition</label><span>Gartner Magic Quadrant Leader (2 consecutive years, 2024–2025)</span></div>
+        <div class="comp-row"><label>Clients</label><span>480 Global 2000 clients · Microsoft and NVIDIA strategic partners</span></div>
+        <div class="comp-row"><label>⚠️ Watch</label><span style="color:var(--saffron)">January 2026 funding round was debt-led (AllianceBernstein Private Credit) — equity may be under pressure</span></div>
+        <div class="comp-row"><label>vs Bolna</label><span>Deepest enterprise penetration; consulting-heavy model limits SaaS scaling; India is not their primary market</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-1">Tier 1 · Full Call Center Lifecycle</span><div class="comp-name">Observe.AI</div></div>
+        <div class="comp-funding">$214M raised</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue</label><span>$100–250M ARR estimated · $44M ARR as of Series C</span></div>
+        <div class="comp-row"><label>Unique position</label><span>Only player covering the full lifecycle: AI agents + QA + coaching + compliance analytics for both AI and human agents simultaneously</span></div>
+        <div class="comp-row"><label>Recognition</label><span>Gartner Cool Vendor · IDC MarketScape Leader · SoftBank-backed Series C</span></div>
+        <div class="comp-row"><label>vs Bolna</label><span>Unique unified platform but US-centric; limited Indian language optimisation; enterprise setup complexity</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:18px;margin-bottom:16px;color:var(--sky)">Tier 2 — India-Focused Challengers with Strong Growth</h3>
+  <div class="competitor-grid reveal">
+    <div class="comp-card" style="border-color:rgba(39,185,154,0.3);">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-2">Foundation Models · Government Trust</span><div class="comp-name" style="color:var(--emerald)">Sarvam AI ⭐ (Your STT/TTS Partner)</div></div>
+        <div class="comp-funding">$53.8M · Lightspeed India</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue</label><span>~₹29 Cr (~$3.5M) FY25 — early commercial stage</span></div>
+        <div class="comp-row"><label>Unique moat</label><span>Only Indian company building foundational AI models at scale · 22 scheduled languages · 105B parameter sovereign LLM open-sourced February 2026 · Free API</span></div>
+        <div class="comp-row"><label>Enterprise clients</label><span>UIDAI (Aadhaar) · Tata Capital · SBI Life (8 crore customers) · IndiaAI Mission (Government of India)</span></div>
+        <div class="comp-row"><label>Latest (Feb 2026)</label><span style="color:var(--emerald)">Sarvam 30B + 105B open-sourced · Saaras v3 beats GPT-4o Transcribe and Gemini on all Indian language benchmarks · Bulbul v3 wins telephony quality blind test</span></div>
+        <div class="comp-row"><label>Strategic role</label><span>Deep partner for your stack, not direct competitor. Open-source + free API builds developer ecosystem that supports Bolna's growth.</span></div>
+      </div>
+    </div>
+    <div class="comp-card" style="border-color:rgba(232,82,106,0.3);">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-2">Most Direct Full-Stack Threat</span><div class="comp-name" style="color:var(--rose)">Gnani.ai ⚠️ Watch Closely</div></div>
+        <div class="comp-funding">~$7M raised · Actively fundraising</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue trajectory</label><span style="color:var(--emerald)">~₹160 Cr projected FY26 — 3× year-on-year growth · Was ₹56 Cr FY25</span></div>
+        <div class="comp-row"><label>Full-stack moat</label><span style="color:var(--rose)">14 million hours of proprietary Indian voice training data · India Voice OS (14B parameter model) · Agent orchestration platform · Complete vertical integration = models + application + clients</span></div>
+        <div class="comp-row"><label>Enterprise clients</label><span>200+ enterprises: Tata Group, Mahindra, Air India, HDFC, Airtel — the exact same BFSI targets as any Indian voice AI player</span></div>
+        <div class="comp-row"><label>Why this matters</label><span style="color:var(--rose)">Gnani builds both the foundational models AND the agent platform. If they close BFSI enterprise contracts before you, they create a data flywheel that's very hard to compete against.</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-2">BPO Disruption Play</span><div class="comp-name">Nurix AI</div></div>
+        <div class="comp-funding">$27.5M · Accel + General Catalyst</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Founder pedigree</label><span>Mukesh Bansal — founded Myntra (sold to Flipkart $300M+), co-founded Cult.fit ($1.5B unicorn). Serial unicorn builder entering this space.</span></div>
+        <div class="comp-row"><label>Revenue target</label><span>$10M ARR by H1 2026 · Targeting $300B global BPO disruption opportunity</span></div>
+        <div class="comp-row"><label>Product</label><span>NuPlay platform · Claims 24-hour AI agent deployment and 50% efficiency improvement for enterprise BPO</span></div>
+        <div class="comp-row"><label>vs Bolna+Sarvam</label><span>Strong brand + investor backing + US market traction; India multilingual capabilities less developed vs. Sarvam/Bolna combination</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-2">BFSI Compliance Specialist</span><div class="comp-name">GreyLabs AI</div></div>
+        <div class="comp-funding">$11.2M raised</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Unique positioning</label><span>Focuses exclusively on BFSI voice AI · RBI compliance built into the model layer itself, not bolted on as prompts</span></div>
+        <div class="comp-row"><label>50+ FI clients</label><span>RBL Bank, AU Small Finance Bank, IDFC FIRST Bank, SBI Life Insurance — active production deployments</span></div>
+        <div class="comp-row"><label>Team background</label><span>Founded by ex-Cogno AI and Exotel alumni with deep domain expertise in Indian banking voice operations</span></div>
+        <div class="comp-row"><label>vs Bolna</label><span>Narrow vertical focus creates deep compliance moat in BFSI; limited TAM outside financial services</span></div>
+      </div>
+    </div>
+    <div class="comp-card" style="border-color:rgba(39,185,154,0.2);">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-2">India-Native Orchestration · Recommended</span><div class="comp-name" style="color:var(--emerald)">Bolna.dev</div></div>
+        <div class="comp-funding">$6.3M · YC F25 + General Catalyst</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Revenue</label><span>~$700K ARR · 1,050+ paying customers · 75% revenue from self-serve</span></div>
+        <div class="comp-row"><label>Scale</label><span>200,000+ calls/day · 500K+ minutes/month · 14 large enterprise clients · 200K+ GitHub stars on open-source</span></div>
+        <div class="comp-row"><label>India moat</label><span style="color:var(--emerald)">Truecaller integration · DLT registration support · TRAI compliance built-in · Hinglish code-switching · Sarvam AI integration · Noise cancellation for Indian calling environments</span></div>
+        <div class="comp-row"><label>Risk factors</label><span style="color:var(--rose)">Tiny team (~8 people) · No proprietary models · Exotel + Sarvam integration unconfirmed in production docs · Limited enterprise SLA track record</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:18px;margin-bottom:16px;color:var(--text-muted)">Tier 3 — Infrastructure, Platform &amp; Distribution Players</h3>
+  <div class="competitor-grid reveal">
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-3">Infrastructure · Partner + Bottleneck</span><div class="comp-name">Exotel</div></div>
+        <div class="comp-funding">$97.7M raised · ₹507 Cr revenue FY25</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Dominance</label><span>70M+ daily conversations · 99.99% claimed uptime · 7,100+ enterprise clients including Uber, Flipkart, Ola, Zomato</span></div>
+        <div class="comp-row"><label>AI play</label><span>AgentStream bidirectional WebSocket streaming API (August 2025) — infrastructure only, not intelligence</span></div>
+        <div class="comp-row"><label>Strategic note</label><span>Dominant India telephony layer. Acquired Cogno AI (2021). Both a key partner AND a potential competitive bottleneck. If they move up-stack into AI agent orchestration, dynamics change significantly.</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-3">Distribution Giant · Price Threat</span><div class="comp-name">Haptik / Jio (Reliance)</div></div>
+        <div class="comp-funding">Reliance-owned · ~₹700 Cr acquisition price</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Price threat</label><span style="color:var(--rose)">"AI for All" launch at ₹10,000 for 2,000 conversations — aggressively targeting SMBs and potentially setting market price floors</span></div>
+        <div class="comp-row"><label>Distribution</label><span>1B+ Jio users · BharatGPT access · Reliance Retail network · Reverie Language Technologies (acquired) for 15+ Indian languages</span></div>
+        <div class="comp-row"><label>Risk level</label><span style="color:var(--rose)">High — unmatched distribution advantage, Jio telecom infrastructure, and ability to subsidise prices. The one company that could commoditise the market.</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-3">Full CCaaS · 17-Year Incumbent</span><div class="comp-name">Ozonetel</div></div>
+        <div class="comp-funding">~$5M raised · Estimated profitable</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Scale</label><span>10M+ call minutes daily · KOOKOO platform · 17+ years of Indian cloud telephony incumbency</span></div>
+        <div class="comp-row"><label>Differentiator vs Exotel</label><span>Unlike Exotel, Ozonetel has built-in AI: voice agents, speech analytics, sentiment analysis, smart routing — a complete contact center stack, not just pipes</span></div>
+        <div class="comp-row"><label>Pricing</label><span>₹1,500–3,000/user/month · Full CCaaS model · Targets mid-market businesses</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header">
+        <div><span class="comp-tier tier-3">Government Sector · Massive Scale</span><div class="comp-name">CoRover.ai</div></div>
+        <div class="comp-funding">$5.7M raised</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><label>Scale</label><span>400M+ unique users — India's highest-volume voice AI deployment by far</span></div>
+        <div class="comp-row"><label>Key deployments</label><span>IRCTC AskDISHA 2.0 (train booking) · AskSarkar (endorsed by PM Modi) · National public infrastructure</span></div>
+        <div class="comp-row"><label>Technology</label><span>BharatGPT Mini (534M params) — runs offline/on-device in 14 Indian languages. Strong for connectivity-challenged environments.</span></div>
+        <div class="comp-row"><label>Strategic position</label><span>Government sector moat but zero private enterprise traction — different market entirely</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">Full Competitor Matrix</h3>
+  <div class="table-wrap reveal" style="margin-bottom:36px;">
+    <table>
+      <thead><tr><th>Company</th><th>Funding</th><th>Revenue est.</th><th>Indian langs</th><th>Code-switch</th><th>TRAI compl.</th><th>Target segment</th><th>Key moat</th></tr></thead>
+      <tbody>
+        <tr><td>Yellow.ai</td><td>$133M</td><td>~$28M</td><td>135+</td><td>✅</td><td>Via partners</td><td>Large enterprise</td><td>Scale + relationships (but fading)</td></tr>
+        <tr><td>Kore.ai</td><td>$296M</td><td>$100M+</td><td>Multiple</td><td>Limited</td><td>Via partners</td><td>Fortune 2000</td><td>Gartner MQ Leader status</td></tr>
+        <tr><td>Observe.AI</td><td>$214M</td><td>$44M–250M</td><td>Limited</td><td>Limited</td><td>US-focused</td><td>Contact centers</td><td>Full lifecycle (AI + human QA)</td></tr>
+        <tr style="background:rgba(39,185,154,0.04)"><td style="color:var(--emerald)">Sarvam AI ⭐</td><td>$53.8M</td><td>~$3.5M</td><td>22 languages</td><td>✅ Best-in-class</td><td>Via Bolna/Exotel</td><td>Developers + Govt</td><td>Sovereign foundational AI models</td></tr>
+        <tr style="background:rgba(232,82,106,0.04)"><td style="color:var(--rose)">Gnani.ai ⚠️</td><td>~$7M</td><td>~$19M</td><td>15+</td><td>✅ Strong</td><td>Built-in</td><td>Enterprise BFSI</td><td>14M hrs proprietary data + full-stack vertical</td></tr>
+        <tr><td>Nurix AI</td><td>$27.5M</td><td>$10M target</td><td>Multiple</td><td>Limited</td><td>Built-in</td><td>Global BPO</td><td>Mukesh Bansal brand + investor backing</td></tr>
+        <tr style="background:rgba(39,185,154,0.04)"><td style="color:var(--emerald)">Bolna.dev ⭐</td><td>$6.3M</td><td>~$700K</td><td>10+</td><td>✅ Strong</td><td>Via Exotel</td><td>SMB + Enterprise</td><td>India-native orchestration, fastest growth</td></tr>
+        <tr><td>GreyLabs AI</td><td>$11.2M</td><td>Growing</td><td>Multiple</td><td>✅</td><td>BFSI-built-in</td><td>BFSI only</td><td>RBI compliance in model layer</td></tr>
+        <tr><td>Exotel</td><td>$97.7M</td><td>₹507 Cr</td><td>Via partners</td><td>Via partners</td><td>✅ UL-VNO</td><td>Enterprise infra</td><td>India telephony near-monopoly</td></tr>
+        <tr><td>Haptik / Jio</td><td>Reliance</td><td>N/A</td><td>22 (BharatGPT)</td><td>✅</td><td>Jio infrastructure</td><td>SMB + Mass market</td><td>1B+ user distribution + telecom infra</td></tr>
+        <tr><td>Ozonetel</td><td>~$5M</td><td>Profitable est.</td><td>Via partners</td><td>Limited</td><td>✅ Built-in</td><td>Mid-market CCaaS</td><td>17yr incumbency + built-in AI stack</td></tr>
+        <tr><td>CoRover.ai</td><td>$5.7M</td><td>Limited</td><td>14 languages</td><td>✅</td><td>Govt-managed</td><td>Government only</td><td>400M users, PM Modi endorsement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:16px;">Where New Entrants Can Still Win</h3>
+  <div class="gap-cards reveal">
+    <div class="gap-card">
+      <h4>🌾 Agriculture &amp; Rural Advisory</h4>
+      <p>Government subsidy verification, MSP pricing queries, crop advisory in Odia/Punjabi/Bhojpuri/Chhattisgarhi. Zero dedicated private enterprise players. High central + state government demand.</p>
+    </div>
+    <div class="gap-card">
+      <h4>⚕️ Regional Healthcare</h4>
+      <p>Appointment booking, prescription reminders, patient follow-ups in tier-2/3 city languages with WhatsApp+Voice hybrid. No focused player across all required languages.</p>
+    </div>
+    <div class="gap-card">
+      <h4>⚖️ Legal Services</h4>
+      <p>Court date reminders, advocate appointment booking, case status updates in Hindi and regional languages via PSTN. High per-call value, completely unserved niche.</p>
+    </div>
+    <div class="gap-card">
+      <h4>📊 Voice QA Analytics Layer</h4>
+      <p>Only 5% of calls receive manual quality analysis today. AI-powered compliance monitoring, CRM enrichment, and agent coaching from conversation data — a layer above the calling platforms.</p>
+    </div>
+    <div class="gap-card">
+      <h4>🏪 Micro-SMB (&lt;₹2K/month)</h4>
+      <p>Kirana stores, local clinics, neighbourhood services, small manufacturers. Even Haptik's ₹10,000 entry price is too high. WhatsApp-first voice AI at ₹500–2,000/month is a massive untapped market.</p>
+    </div>
+    <div class="gap-card">
+      <h4>📴 On-Device / Offline AI</h4>
+      <p>Rural healthcare, agriculture, mining — connectivity-challenged sectors. CoRover's BharatGPT Mini (14 languages, offline) is first mover but has zero private enterprise deployment. Opportunity is open.</p>
+    </div>
+  </div>
+
+  <div class="gap-md"></div>
+  <div class="card reveal" style="border-color:rgba(245,166,35,0.25);background:rgba(245,166,35,0.04);">
+    <h3 class="card-title" style="font-size:16px;margin-bottom:14px;">🔮 Consolidation Outlook — 2–3 Major M&amp;A Events Expected by End-2027</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;font-size:13px;color:var(--text-light);">
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--saffron);margin-bottom:8px">Most Likely Acquirers</div>
+        <div>Reliance/Jio — already owns Haptik + Reverie; could add Gnani.ai or Bolna for AI capabilities<br><br>Exotel — acquired Cogno AI in 2021; may move up-stack from infrastructure to intelligence by acquiring Bolna<br><br>Gupshup — acquired Knowlarity (2022) for voice; needs to modernise the ageing technology stack<br><br>Global players (Twilio, Infobip, RingCentral) — seeking India market entry with local language capabilities</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--saffron);margin-bottom:8px">Most Likely Acquisition Targets</div>
+        <div>Skit.ai / Vernacular.ai — voice-first, strong government traction, attractive to Jio or Tata<br><br>CoRover.ai — 400M user base makes it attractive to any platform needing scale<br><br>Bolna — Exotel acquiring Bolna would combine India's dominant telephony infrastructure with leading AI voice orchestration. This is the highest-probability M&amp;A scenario.<br><br>Gnani.ai — if active fundraise stalls, strategic acquirer likely</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:600;color:var(--saffron);margin-bottom:8px">The Strategic Question Defining the Market</div>
+        <div>Every company must choose: be <strong>"Twilio for India"</strong> (infrastructure layer) or <strong>"OpenAI for India"</strong> (intelligence layer) or <strong>"Salesforce for India"</strong> (application layer).<br><br>Exotel chose infrastructure. Sarvam chose intelligence. Bolna occupies orchestration (the middle). Companies that successfully integrate across all three layers — or build defensible partnerships covering all three — will win.<br><br>Prediction: Voice AI overtakes chatbot AI as India's primary automation interface by end-2026, driven by 65%+ of India's internet users accessing primarily via voice on mobile.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <strong>Voice AI India Playbook</strong> · Research compiled March 2026 · All cost figures in INR/USD at ≈₹84/$ exchange rate · Prices indicative — verify with providers before quoting clients
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--saffron)' : '';
+    a.style.background = a.getAttribute('href') === '#' + cur ? 'rgba(245,166,35,0.1)' : '';
+  });
+}, { passive: true });
+
+// Close mobile nav on link click
+navLinks.forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('nav').classList.remove('nav-open');
+  });
+});
+</script>
+</body>
+</html>

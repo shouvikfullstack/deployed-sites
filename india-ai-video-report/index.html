@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
+<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India AI Video Platform — Full Technical Report v2</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #f8f7f4;
+  --bg2:      #ffffff;
+  --bg3:      #f2f0ec;
+  --bg4:      #e8e5df;
+  --border:   #dbd8d0;
+  --border2:  #c8c4bb;
+  --text:     #1a1916;
+  --text2:    #4a4742;
+  --text3:    #7a776f;
+  --blue:     #1a56db;
+  --blue-bg:  #eff4ff;
+  --blue-bd:  #c3d3f9;
+  --green:    #057a55;
+  --green-bg: #f3faf7;
+  --green-bd: #a7d7c5;
+  --amber:    #8e4b10;
+  --amber-bg: #fffbeb;
+  --amber-bd: #f8d399;
+  --red:      #9b1c1c;
+  --red-bg:   #fdf2f2;
+  --red-bd:   #f8b4b4;
+  --purple:   #5521b5;
+  --purple-bg:#f5f3ff;
+  --purple-bd:#ddd6fe;
+  --teal:     #0e7490;
+  --teal-bg:  #ecfeff;
+  --teal-bd:  #a5f3fc;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(248,247,244,0.95);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;display:flex;align-items:center;gap:0;overflow-x:auto;
+}
+nav a{
+  display:block;padding:.625rem .875rem;font-family:var(--mono);font-size:11px;
+  color:var(--text3);text-decoration:none;white-space:nowrap;
+  border-bottom:2px solid transparent;transition:color .15s,border-color .15s;
+}
+nav a:hover{color:var(--blue);border-color:var(--blue)}
+.nav-logo{
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  color:var(--text);margin-right:1.5rem;white-space:nowrap;
+  border-bottom:none!important;letter-spacing:-.2px;
+}
+
+.page{max-width:1080px;margin:0 auto;padding:0 2rem 6rem}
+section{padding:3.5rem 0 1.5rem;border-top:1px solid var(--border)}
+section:first-child{border-top:none}
+
+h1{font-size:clamp(26px,3.5vw,40px);font-weight:600;letter-spacing:-.6px;line-height:1.15}
+h2{font-size:21px;font-weight:600;letter-spacing:-.3px;margin-bottom:1.25rem;color:var(--text)}
+h3{font-size:16px;font-weight:600;margin:2rem 0 .625rem;color:var(--text)}
+h4{font-size:14px;font-weight:600;margin-bottom:.25rem;color:var(--text)}
+p{color:var(--text2);margin-bottom:.75rem}
+code{font-family:var(--mono);font-size:12px;background:var(--bg3);border:1px solid var(--border);padding:1px 6px;border-radius:3px;color:var(--blue)}
+strong{color:var(--text);font-weight:600}
+a{color:var(--blue);text-decoration:none}
+
+.sec-label{
+  display:block;font-family:var(--mono);font-size:10px;
+  color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-bottom:.625rem;
+}
+
+/* HERO */
+.hero{padding:4rem 0 2.5rem;border-top:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.25rem}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:3px;border:1px solid}
+.tag-blue{border-color:var(--blue-bd);color:var(--blue);background:var(--blue-bg)}
+.tag-green{border-color:var(--green-bd);color:var(--green);background:var(--green-bg)}
+.tag-amber{border-color:var(--amber-bd);color:var(--amber);background:var(--amber-bg)}
+.tag-purple{border-color:var(--purple-bd);color:var(--purple);background:var(--purple-bg)}
+.tag-teal{border-color:var(--teal-bd);color:var(--teal);background:var(--teal-bg)}
+.tag-red{border-color:var(--red-bd);color:var(--red);background:var(--red-bg)}
+
+/* METRIC CARDS */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.metric{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.125rem}
+.metric .num{font-family:var(--sans);font-size:24px;font-weight:600;line-height:1.1;margin-bottom:3px}
+.metric .lbl{font-size:11px;color:var(--text3);font-family:var(--mono)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:1.25rem 0}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.125rem;transition:border-color .15s}
+.card:hover{border-color:var(--border2)}
+.card .badge{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;margin-bottom:.5rem;border:1px solid}
+.card p{font-size:13px;color:var(--text2);margin:0}
+.card h4{font-size:13px}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin:1.25rem 0;border-radius:8px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:9px 13px;font-family:var(--mono);font-size:10px;color:var(--text3);background:var(--bg3);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg3)}
+td strong{color:var(--text)}
+
+/* PILLS */
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid;white-space:nowrap}
+.pill-green{background:var(--green-bg);color:var(--green);border-color:var(--green-bd)}
+.pill-amber{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bd)}
+.pill-red{background:var(--red-bg);color:var(--red);border-color:var(--red-bd)}
+.pill-blue{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bd)}
+.pill-purple{background:var(--purple-bg);color:var(--purple);border-color:var(--purple-bd)}
+.pill-teal{background:var(--teal-bg);color:var(--teal);border-color:var(--teal-bd)}
+.pill-gray{background:var(--bg3);color:var(--text3);border-color:var(--border)}
+
+/* CALLOUT */
+.callout{border-radius:0 8px 8px 0;padding:.875rem 1.125rem;margin:1.25rem 0;border-left:3px solid}
+.callout p{margin:0;font-size:14px}
+.callout-blue{background:var(--blue-bg);border-color:var(--blue)}
+.callout-green{background:var(--green-bg);border-color:var(--green)}
+.callout-amber{background:var(--amber-bg);border-color:var(--amber)}
+.callout-red{background:var(--red-bg);border-color:var(--red)}
+.callout-purple{background:var(--purple-bg);border-color:var(--purple)}
+
+/* DIAGRAMS */
+.diagram{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.75rem;overflow-x:auto;margin:1.5rem 0}
+.diagram-title{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1.5px;background:var(--border)}
+.tl-item{position:relative;padding-bottom:2.25rem}
+.tl-dot{position:absolute;left:-2rem;top:5px;width:13px;height:13px;border-radius:50%;background:var(--blue);border:2px solid var(--bg2);box-shadow:0 0 0 2px var(--blue-bd)}
+.tl-dot.green{background:var(--green);box-shadow:0 0 0 2px var(--green-bd)}
+.tl-dot.amber{background:var(--amber);box-shadow:0 0 0 2px var(--amber-bd)}
+.tl-item h4{font-size:15px;margin-bottom:.25rem}
+.tl-item .budget{font-family:var(--mono);font-size:12px;color:var(--blue);margin-top:4px}
+.tl-item .phase-tag{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;margin-bottom:.5rem;border:1px solid}
+
+/* PRICING */
+.tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:1.25rem 0}
+.tier{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
+.tier.featured{border-color:var(--blue);border-width:2px;background:var(--blue-bg)}
+.tier .t-name{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:.25rem;letter-spacing:1px}
+.tier .t-price{font-size:22px;font-weight:600;margin-bottom:.25rem}
+.tier .t-credits{font-size:11px;color:var(--text3);line-height:1.6}
+.tier .t-badge{display:block;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd);margin-bottom:.375rem}
+
+/* RISK */
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.risk{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.125rem}
+.risk h4{font-size:13px;margin-bottom:.375rem;display:flex;align-items:center;gap:6px}
+
+/* STACK */
+.stack-grid{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:1.25rem 0}
+.stack-row{display:grid;grid-template-columns:140px 1fr;border-bottom:1px solid var(--border)}
+.stack-row:last-child{border-bottom:none}
+.stack-lbl{background:var(--bg3);padding:.75rem 1rem;font-family:var(--mono);font-size:11px;color:var(--text3);display:flex;align-items:flex-start;padding-top:.875rem}
+.stack-val{padding:.75rem 1rem;background:var(--bg2);font-size:13px;color:var(--text2)}
+
+/* COST BOX */
+.cost-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin:10px 0}
+.cost-box h4{font-size:13px;margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between}
+.cost-row{display:flex;justify-content:space-between;align-items:center;padding:.375rem 0;border-bottom:1px solid var(--bg3);font-size:13px}
+.cost-row:last-child{border-bottom:none;font-weight:600;color:var(--text);padding-top:.5rem;margin-top:.25rem;border-top:1px solid var(--border)}
+.cost-label{color:var(--text2)}
+.cost-val{font-family:var(--mono);font-size:12px}
+
+/* SERVICE CARD */
+.service-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:10px}
+.service-card .sc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem;gap:1rem}
+.service-card .sc-title{font-size:15px;font-weight:600}
+.service-card .sc-cost{font-family:var(--mono);font-size:13px;color:var(--blue);white-space:nowrap;font-weight:500}
+.service-card p{font-size:13px;margin-bottom:.5rem}
+.service-card .sc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem}
+
+/* TWO / THREE COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+
+/* FACE ACCURACY SECTION */
+.accuracy-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.25rem 0}
+.acc-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.125rem}
+.acc-card .acc-head{display:flex;align-items:center;gap:8px;margin-bottom:.5rem}
+.acc-bar{height:6px;border-radius:3px;background:var(--bg3);margin:.25rem 0 .5rem;overflow:hidden}
+.acc-fill{height:100%;border-radius:3px}
+
+/* FEATURE FLOW */
+.flow-steps{display:flex;flex-direction:column;gap:0}
+.flow-step{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--bg3)}
+.flow-step:last-child{border-bottom:none}
+.flow-num{width:24px;height:24px;border-radius:50%;background:var(--blue-bg);border:1px solid var(--blue-bd);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--blue);flex-shrink:0;margin-top:2px}
+.flow-step h5{font-size:13px;font-weight:600;margin-bottom:2px}
+.flow-step p{font-size:12px;margin:0;color:var(--text3)}
+
+@media(max-width:768px){
+  .hero-grid,.two-col,.three-col,.accuracy-grid{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:repeat(2,1fr)}
+  .risks{grid-template-columns:1fr}
+  .stack-row{grid-template-columns:1fr}
+}
+@media print{nav{display:none}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">VidGenIndia · Technical Report</a>
+  <a href="#overview">Overview</a>
+  <a href="#services">Services</a>
+  <a href="#dance">Dance Transfer</a>
+  <a href="#face">Face Accuracy</a>
+  <a href="#costs">Cost Per Video</a>
+  <a href="#pipeline">Pipeline</a>
+  <a href="#identity">Identity</a>
+  <a href="#voice">Voice</a>
+  <a href="#infra">Infra</a>
+  <a href="#competitors">Competitors</a>
+  <a href="#market">Market</a>
+  <a href="#regulatory">Regulatory</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#stack">Tech Stack</a>
+</nav>
+
+<div class="page">
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="hero-grid">
+    <div>
+      <span class="sec-label">India AI Video Platform · Technical Research Report · March 2026</span>
+      <h1>Credit-Based AI Video Generation for Indian Creators</h1>
+      <p style="font-size:15px;margin-top:1rem;color:var(--text2)">Full technical blueprint covering architecture, per-video cost modelling, service types, reference video dance transfer, face accuracy limitations, infrastructure, regulatory compliance, and 16-week build roadmap.</p>
+      <div class="hero-tags">
+        <span class="tag tag-blue">Human Avatars</span>
+        <span class="tag tag-teal">Pet / Animal Videos</span>
+        <span class="tag tag-purple">Faceless Trends</span>
+        <span class="tag tag-amber">AI Influencers</span>
+        <span class="tag tag-green">Fantasy Scenes</span>
+        <span class="tag tag-red">Dance Transfer ↗ New</span>
+        <span class="tag tag-green">11 Indian Languages</span>
+        <span class="tag tag-blue">Credits-Based · India-First</span>
+      </div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="num" style="color:var(--blue)">₹2.5B</div><div class="lbl">India creator economy 2025</div></div>
+      <div class="metric"><div class="num" style="color:var(--green)">100M+</div><div class="lbl">YouTube channels India</div></div>
+      <div class="metric"><div class="num" style="color:var(--purple)">95%</div><div class="lbl">Content in regional language</div></div>
+      <div class="metric"><div class="num" style="color:var(--amber)">₹15–40</div><div class="lbl">Cost per 30s video (self-hosted)</div></div>
+      <div class="metric"><div class="num" style="color:var(--teal)">₹70/hr</div><div class="lbl">H100 spot · E2E Networks India</div></div>
+      <div class="metric"><div class="num" style="color:var(--green)">16 wk</div><div class="lbl">MVP launch timeline</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICE TYPES -->
+<section id="services">
+  <span class="sec-label">Section 01 — Platform Services</span>
+  <h2>All Service Types & What Users Get</h2>
+  <p>Every service is credit-based. Users buy credits; each service type consumes a different credit amount based on compute time and model quality.</p>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 1 — Avatar Video from Photos</div>
+        <p>User uploads 10–20 photos of themselves, their child, or any person. System trains a LoRA character model. From then on, that character can be placed in any scene, speaking any script in any Indian language.</p>
+      </div>
+      <div class="sc-cost">8–11 credits / video<br><span style="font-size:11px;color:var(--text3)">₹100–138 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> 10–20 photos (JPEG/PNG) · Script text · Language selection · Scene description</p>
+    <p><strong>Output:</strong> 720p/1080p video with your face, speaking your script, in your chosen scene. Lip-synced audio in selected Indian language.</p>
+    <p><strong>Training required:</strong> One-time LoRA training (45–90 min background job). Reusable for unlimited videos.</p>
+    <div class="sc-tags">
+      <span class="tag tag-blue">LoRA Fine-tuning</span><span class="tag tag-green">Wan 2.1 I2V</span><span class="tag tag-purple">Sarvam TTS</span><span class="tag tag-teal">LatentSync</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 2 — Reference Video Dance Transfer (Motion Copy)</div>
+        <p>User uploads a reference video (any dancer, any reel) and 1–3 photos of their character. System extracts the motion/dance from the reference and applies it to the character's body. Face stays consistent with the uploaded photos.</p>
+      </div>
+      <div class="sc-cost">7–9 credits / video<br><span style="font-size:11px;color:var(--text3)">₹84–113 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> Reference dance video (MP4/MOV, up to 60s) · Character photos (1–3 minimum) · Optional: music/audio override</p>
+    <p><strong>Output:</strong> Your character performing the exact same dance moves. Face from your photos, body motion from reference video.</p>
+    <p><strong>Technology:</strong> DWPose → pose sequence extraction → MimicMotion or Champ for body rendering → InstantID/LoRA for face preservation → lip sync if voice added.</p>
+    <div class="sc-tags">
+      <span class="tag tag-red">MimicMotion / Champ</span><span class="tag tag-blue">DWPose Extraction</span><span class="tag tag-green">InstantID</span><span class="tag tag-amber">Wan 2.1 I2V</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 3 — Pet / Animal Videos</div>
+        <p>User describes a scene (or uploads pet photos). System generates a photorealistic video of the animal — dancing, reacting, being rescued, doing cute things. No animal training required; text or image-to-video.</p>
+      </div>
+      <div class="sc-cost">8–10 credits / video<br><span style="font-size:11px;color:var(--text3)">₹93–125 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> Pet photos (optional, for consistency) · Scene description text · Duration (5–30 seconds)</p>
+    <p><strong>Output:</strong> Photorealistic video of animal in described scenario. Best quality via Kling 3.0 or Hailuo 02 API.</p>
+    <div class="sc-tags">
+      <span class="tag tag-blue">Kling 3.0 API</span><span class="tag tag-teal">Hailuo 02 API</span><span class="tag tag-green">Image-to-Video</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 4 — Faceless Trend Videos</div>
+        <p>Viral trend content (baby dance, expression challenges, reaction videos) using AI characters. No real face shown — uses AI-generated characters or cartoon/animated style. Safe for creators who don't want to be on camera.</p>
+      </div>
+      <div class="sc-cost">4–5 credits / video<br><span style="font-size:11px;color:var(--text3)">₹47–63 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> Trend description or template selection · Music/audio · Character style preference (realistic / cartoon / anime)</p>
+    <p><strong>Output:</strong> Trend-format short video with AI character performing the viral action. Ready to post on Reels/Shorts.</p>
+    <div class="sc-tags">
+      <span class="tag tag-purple">AnimateDiff</span><span class="tag tag-blue">ControlNet</span><span class="tag tag-green">PuLID character</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 5 — AI Influencer Channel Builder</div>
+        <p>Create a recurring AI character (consistent beautiful girl/boy) that runs a lifestyle, makeup, or vlog channel. Same character across all videos, growing audience without the creator ever appearing on camera.</p>
+      </div>
+      <div class="sc-cost">10–13 credits / video<br><span style="font-size:11px;color:var(--text3)">₹121–163 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> Character reference images (or AI-generated preset) · Daily script/idea · Channel theme</p>
+    <p><strong>Output:</strong> Consistent AI character across all videos — same face, same style. Voice-cloned or TTS audio. Professional video blog content.</p>
+    <div class="sc-tags">
+      <span class="tag tag-purple">Per-char LoRA</span><span class="tag tag-blue">Wan 2.1</span><span class="tag tag-red">ElevenLabs clone</span><span class="tag tag-green">Hallo2 long-form</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 6 — Fantasy & Impossible Scene Videos</div>
+        <p>Hulk walking through Mumbai, tigers farming in Gujarat, mythological characters, sci-fi scenes. Pure text-to-video generation — no face consistency needed. Highest realism-to-effort ratio.</p>
+      </div>
+      <div class="sc-cost">8–10 credits / video<br><span style="font-size:11px;color:var(--text3)">₹93–125 per 30s</span></div>
+    </div>
+    <p><strong>Input:</strong> Scene description text · Style preference · Duration (up to 30s via clip stitching)</p>
+    <p><strong>Output:</strong> Photorealistic impossible scene video. Highest "wow factor" — these fool even expert eyes most reliably.</p>
+    <div class="sc-tags">
+      <span class="tag tag-blue">Kling 3.0</span><span class="tag tag-teal">Hailuo 02</span><span class="tag tag-amber">Wan 2.1 T2V</span>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="sc-head">
+      <div>
+        <div class="sc-title">Service 7 — Script-to-Full-Video (Daily Content Auto-gen)</div>
+        <p>User feeds only a script or idea. LLM converts to structured prompts → TTS generates voice → identity frame created → video generated → lip-synced → delivered. Fully automated pipeline. The "daily blog" use case.</p>
+      </div>
+      <div class="sc-cost">18–21 credits / video<br><span style="font-size:11px;color:var(--text3)">₹195–263 per 60s</span></div>
+    </div>
+    <p><strong>Input:</strong> Script text in any Indian language (or just an idea — LLM expands it) · Saved character</p>
+    <p><strong>Output:</strong> Complete video with character, voice, lip sync. Ready for direct upload to YouTube/Instagram.</p>
+    <div class="sc-tags">
+      <span class="tag tag-blue">Full pipeline</span><span class="tag tag-green">LLM script expansion</span><span class="tag tag-purple">Auto-post integration</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- DANCE TRANSFER — KEY NEW SECTION -->
+<section id="dance">
+  <span class="sec-label">Section 02 — Reference Video Dance Transfer</span>
+  <h2>How "Upload Reference Video → Your Character Does the Same Dance" Works</h2>
+  <p>This is the most technically complex and commercially valuable feature. A user uploads any viral dance reel + 2–3 photos of themselves. The system makes their character perform the exact same moves. Here's the full technical flow.</p>
+
+  <div class="diagram">
+    <div class="diagram-title">// Dance Transfer Pipeline · Reference Video → Character Dance Output</div>
+    <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;display:block;">
+      <defs>
+        <marker id="da" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#1a56db"/></marker>
+        <marker id="dg" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#057a55"/></marker>
+        <marker id="dr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#9b1c1c"/></marker>
+      </defs>
+      <g font-family="IBM Plex Mono,monospace">
+
+        <!-- INPUT BRANCH A: Reference video -->
+        <rect x="20" y="20" width="130" height="54" rx="6" fill="#fff" stroke="#dbd8d0" stroke-width="1"/>
+        <text x="85" y="40" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">Reference Video</text>
+        <text x="85" y="56" fill="#7a776f" text-anchor="middle" font-size="9">Any viral dance reel</text>
+        <text x="85" y="68" fill="#7a776f" text-anchor="middle" font-size="9">MP4 · up to 60s</text>
+
+        <!-- INPUT BRANCH B: Character photos -->
+        <rect x="20" y="100" width="130" height="54" rx="6" fill="#fff" stroke="#dbd8d0" stroke-width="1"/>
+        <text x="85" y="119" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">Character Photos</text>
+        <text x="85" y="135" fill="#7a776f" text-anchor="middle" font-size="9">User uploads 2–3 pics</text>
+        <text x="85" y="147" fill="#7a776f" text-anchor="middle" font-size="9">or LoRA already saved</text>
+
+        <!-- Step 1: Pose extraction -->
+        <line x1="150" y1="47" x2="190" y2="80" stroke="#1a56db" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="191" y="56" width="130" height="56" rx="6" fill="#eff4ff" stroke="#c3d3f9" stroke-width="1.5"/>
+        <text x="256" y="76" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">DWPose Extraction</text>
+        <text x="256" y="90" fill="#4a4742" text-anchor="middle" font-size="9">Extract skeleton poses</text>
+        <text x="256" y="103" fill="#4a4742" text-anchor="middle" font-size="9">every frame (30fps)</text>
+
+        <!-- Step 2: Pose sequence -->
+        <line x1="321" y1="84" x2="363" y2="84" stroke="#1a56db" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="364" y="58" width="130" height="56" rx="6" fill="#fff" stroke="#dbd8d0" stroke-width="1"/>
+        <text x="429" y="78" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">Pose Sequence</text>
+        <text x="429" y="92" fill="#7a776f" text-anchor="middle" font-size="9">JSON: [{x,y,conf}]</text>
+        <text x="429" y="105" fill="#7a776f" text-anchor="middle" font-size="9">per keypoint, per frame</text>
+
+        <!-- Face identity prep -->
+        <line x1="150" y1="127" x2="190" y2="140" stroke="#057a55" stroke-width="1.5" marker-end="url(#dg)"/>
+        <rect x="191" y="126" width="130" height="56" rx="6" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1.5"/>
+        <text x="256" y="146" fill="#057a55" text-anchor="middle" font-size="11" font-weight="500">InstantID / LoRA</text>
+        <text x="256" y="160" fill="#4a4742" text-anchor="middle" font-size="9">Extract ArcFace embed</text>
+        <text x="256" y="173" fill="#4a4742" text-anchor="middle" font-size="9">or load LoRA weights</text>
+
+        <!-- Reference frame from identity -->
+        <line x1="321" y1="154" x2="363" y2="154" stroke="#057a55" stroke-width="1.5" marker-end="url(#dg)"/>
+        <rect x="364" y="128" width="130" height="56" rx="6" fill="#fff" stroke="#dbd8d0" stroke-width="1"/>
+        <text x="429" y="148" fill="#057a55" text-anchor="middle" font-size="11" font-weight="500">Identity Frame</text>
+        <text x="429" y="162" fill="#7a776f" text-anchor="middle" font-size="9">1024×1024 first frame</text>
+        <text x="429" y="175" fill="#7a776f" text-anchor="middle" font-size="9">face-consistent</text>
+
+        <!-- Converge to MimicMotion -->
+        <line x1="494" y1="84" x2="534" y2="120" stroke="#1a56db" stroke-width="1.5" marker-end="url(#da)"/>
+        <line x1="494" y1="154" x2="534" y2="140" stroke="#057a55" stroke-width="1.5" marker-end="url(#dg)"/>
+        <rect x="535" y="102" width="140" height="66" rx="6" fill="#fdf2f2" stroke="#f8b4b4" stroke-width="2"/>
+        <text x="605" y="125" fill="#9b1c1c" text-anchor="middle" font-size="12" font-weight="600">MimicMotion</text>
+        <text x="605" y="139" fill="#4a4742" text-anchor="middle" font-size="9">pose guide + identity frame</text>
+        <text x="605" y="152" fill="#4a4742" text-anchor="middle" font-size="9">→ animated body</text>
+        <text x="605" y="162" fill="#9b1c1c" text-anchor="middle" font-size="9">OR Champ (SMPL-X 3D)</text>
+
+        <!-- Output: face-stitched video -->
+        <line x1="675" y1="135" x2="715" y2="135" stroke="#9b1c1c" stroke-width="1.5" marker-end="url(#dr)"/>
+        <rect x="716" y="105" width="130" height="60" rx="6" fill="#fff" stroke="#dbd8d0" stroke-width="1"/>
+        <text x="781" y="128" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">Raw Dance Video</text>
+        <text x="781" y="143" fill="#7a776f" text-anchor="middle" font-size="9">body: from reference</text>
+        <text x="781" y="156" fill="#7a776f" text-anchor="middle" font-size="9">face: from photos</text>
+
+        <!-- FACE ENHANCEMENT STAGE -->
+        <line x1="781" y1="165" x2="781" y2="210" stroke="#1a56db" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="535" y="210" width="340" height="60" rx="6" fill="#eff4ff" stroke="#c3d3f9" stroke-width="1.5"/>
+        <text x="705" y="234" fill="#1a56db" text-anchor="middle" font-size="11" font-weight="500">Face Enhancement Pass</text>
+        <text x="705" y="248" fill="#4a4742" text-anchor="middle" font-size="9">GFPGAN / CodeFormer face restoration · expression blending</text>
+        <text x="705" y="260" fill="#4a4742" text-anchor="middle" font-size="9">temporal smoothing (reduces "weird expression" frames)</text>
+
+        <!-- Final output -->
+        <line x1="705" y1="270" x2="705" y2="300" stroke="#057a55" stroke-width="1.5" marker-end="url(#dg)"/>
+        <rect x="590" y="300" width="230" height="34" rx="6" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1.5"/>
+        <text x="705" y="322" fill="#057a55" text-anchor="middle" font-size="12" font-weight="500">Final Dance Video · 720p · Ready to Post</text>
+
+        <!-- Confidence label -->
+        <rect x="20" y="200" width="490" height="54" rx="6" fill="#fffbeb" stroke="#f8d399" stroke-width="1"/>
+        <text x="245" y="221" fill="#8e4b10" text-anchor="middle" font-size="10" font-weight="500">Face Accuracy Limitation (see Section 04)</text>
+        <text x="245" y="235" fill="#4a4742" text-anchor="middle" font-size="9">Face is ~80–90% consistent · Expressions matching motion (open mouth, wide eyes) look natural</text>
+        <text x="245" y="248" fill="#4a4742" text-anchor="middle" font-size="9">Extreme expressions (fear, rage) can look "weird" · Fixed by face restoration pass + blending</text>
+      </g>
+    </svg>
+  </div>
+
+  <h3>Motion Transfer Technology Comparison</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Model</th><th>Approach</th><th>Face Quality</th><th>Motion Quality</th><th>VRAM</th><th>Speed</th><th>Best For</th></tr>
+      <tr><td><strong>MimicMotion</strong></td><td>SVD-based + confidence-aware pose</td><td>Good with InstantID overlay</td><td>Excellent — hands, fingers</td><td>20–24 GB</td><td>~8 min/30s</td><td><span class="pill pill-green">Primary dance</span></td></tr>
+      <tr><td><strong>Champ</strong></td><td>SMPL-X 3D parametric body</td><td>Good</td><td>Best physical accuracy</td><td>20–24 GB</td><td>~12 min/30s</td><td><span class="pill pill-blue">Complex movements</span></td></tr>
+      <tr><td><strong>AnimateDiff MotionLoRA</strong></td><td>Latent diffusion + motion module</td><td>Moderate</td><td>Good, less precise</td><td>12–16 GB</td><td>~5 min/30s</td><td><span class="pill pill-amber">Fast/budget</span></td></tr>
+      <tr><td><strong>UniAnimate</strong></td><td>Unified pose + appearance</td><td>Best face consistency</td><td>Very good</td><td>24 GB</td><td>~10 min/30s</td><td><span class="pill pill-purple">Face+body unified</span></td></tr>
+      <tr><td>ControlNet DWPose</td><td>Pose conditioning only</td><td>Depends on base model</td><td>Moderate</td><td>12 GB</td><td>~3 min/30s</td><td><span class="pill pill-gray">Simple motions</span></td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-blue">
+    <p><strong>Pipeline recommendation:</strong> DWPose for pose extraction (open-source, fast) → MimicMotion for video generation (best hand rendering) → GFPGAN/CodeFormer face restoration pass (reduces weird expressions) → InstantID re-injection for final face consistency → LatentSync if adding voice. This 5-stage pipeline is what achieves production-quality dance transfer.</p>
+  </div>
+</section>
+
+
+<!-- FACE ACCURACY -->
+<section id="face">
+  <span class="sec-label">Section 03 — Face Accuracy Analysis</span>
+  <h2>Face Accuracy: What Works, What Looks Weird, and How to Fix It</h2>
+  <p>This is the most honest section of this report. Current diffusion models produce faces that are <strong>~80–92% accurate</strong> across neutral expressions, but degrade on extreme poses and motions. Understanding why — and the fixes — is critical to building a quality product.</p>
+
+  <div class="accuracy-grid">
+    <div class="acc-card">
+      <div class="acc-head"><span style="font-size:16px">✓</span><h4 style="color:var(--green)">What looks natural (works well)</h4></div>
+      <div style="font-size:13px;color:var(--text2)">
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Neutral talking-head videos · straight-on angle</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Gentle expressions (smile, slight eyebrow raise)</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Slow to medium-pace dance with small head movement</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Consistent lighting matching training photos</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Fantasy / animal scenes (no identity to match)</div>
+        <div style="padding:.3rem 0">Profile shots if training set included profile images</div>
+      </div>
+    </div>
+    <div class="acc-card">
+      <div class="acc-head"><span style="font-size:16px">⚠</span><h4 style="color:var(--amber)">What looks "weird" (known issues)</h4></div>
+      <div style="font-size:13px;color:var(--text2)">
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Wide-open mouth (screaming, laughing hard) — teeth artifacts</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Fear/shock expression — eyes go "uncanny valley"</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Fast head turns > 45° — face warps momentarily</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Skin tone mismatches under harsh/coloured lighting</div>
+        <div style="padding:.3rem 0;border-bottom:1px solid var(--bg3)">Hands near face — collision artifacts</div>
+        <div style="padding:.3rem 0">Multi-person scenes — wrong face applied to wrong body</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Why Face Accuracy Degrades — Root Causes</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Issue</th><th>Root Cause</th><th>Current Accuracy</th><th>Fix</th></tr>
+      <tr><td><strong>Extreme expressions</strong></td><td>LoRA/InstantID was trained on neutral-to-mild expression photos; extreme poses outside training distribution</td><td>~55–70%</td><td>Include extreme expression photos in training set; GFPGAN face restoration post-pass</td></tr>
+      <tr><td><strong>Fast head rotation (&gt;45°)</strong></td><td>Video generation models process frames semi-independently; large pose changes exceed continuity model capacity</td><td>~60–75%</td><td>Temporal smoothing; face-specific ControlNet; optical flow loss</td></tr>
+      <tr><td><strong>Skin tone under lighting</strong></td><td>Indian skin tones underrepresented in base model training → biased response to unfamiliar lighting</td><td>~70–80%</td><td>Fine-tune base model on Indian face dataset (IMFDB); use lighting-diverse training photos</td></tr>
+      <tr><td><strong>Teeth / open mouth</strong></td><td>Diffusion models generate teeth probabilistically; high entropy region = inconsistent generation</td><td>~50–65%</td><td>CodeFormer inpainting on mouth region; LatentSync overrides mouth area anyway during lip sync</td></tr>
+      <tr><td><strong>Temporal flicker</strong></td><td>Frame-to-frame independence in base video models; face details regenerated each frame</td><td>Present in ~30% of clips</td><td>Optical flow warp; FILM frame interpolation; temporal consistency loss during training</td></tr>
+    </table>
+  </div>
+
+  <h3>The Fix Pipeline for Face Accuracy</h3>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div><h5>Quality training photos</h5><p>Require users to upload: front, 3/4 left, 3/4 right, slight smile, slight eyebrow raise, under natural light. 15–20 photos minimum. Auto-reject blurry, low-light, masked, or sunglassed photos via quality classifier.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div><h5>Diverse lighting regularisation in LoRA</h5><p>During LoRA training, include regularisation images of Indian faces under varied lighting (indoor yellow, outdoor, shade). Prevents skin tone drift under different scene lighting. Add 20–30 Indian face reg images from IMFDB.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div><h5>GFPGAN / CodeFormer face restoration pass</h5><p>After video generation, run a per-frame face restoration pass (GFPGAN v1.4 or CodeFormer). Fixes: blurry details, teeth artifacts, skin tone inconsistency. ~2–4 min on A100 for 30s video. Significant quality improvement for minimal extra cost (~₹3/video).</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div><h5>Temporal smoothing with FILM</h5><p>Google FILM (Frame Interpolation for Large Motion) inserted between frames reduces flicker. Smooths face transitions during head turns. Run on RTX 3090 (16 GB VRAM), fast (~1 min/30s video).</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div><h5>LatentSync overrides mouth region (for talking videos)</h5><p>If voice/speech is added, LatentSync's lip sync completely regenerates the mouth region synchronised to audio. This actually solves teeth/mouth artifacts automatically — the lip sync model learns correct mouth shapes from audio features.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">6</div>
+      <div><h5>User instruction: "Avoid extreme expressions in reference videos"</h5><p>UI-level guidance: "For best results, upload reference videos with moderate expressions. Screaming/horror expressions will have lower face accuracy." Set expectations; give quality score preview before full generation.</p></div>
+    </div>
+  </div>
+
+  <h3>Face Accuracy Benchmark by Use Case (Current State, March 2026)</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Use Case</th><th>Expression Type</th><th>Face Accuracy</th><th>Human Detects as AI?</th><th>After Fix Pipeline</th></tr>
+      <tr><td>Talking head, neutral</td><td>Mild smile, calm</td><td><span class="pill pill-green">88–93%</span></td><td>~15% casual / ~55% expert</td><td><span class="pill pill-green">92–96%</span></td></tr>
+      <tr><td>Dance, moderate pace</td><td>Happy, engaged</td><td><span class="pill pill-green">80–88%</span></td><td>~25% casual / ~60% expert</td><td><span class="pill pill-green">86–92%</span></td></tr>
+      <tr><td>Dance, fast head turns</td><td>Excited, fast</td><td><span class="pill pill-amber">65–78%</span></td><td>~40% casual / ~75% expert</td><td><span class="pill pill-amber">75–84%</span></td></tr>
+      <tr><td>Extreme expression</td><td>Fear, shock, scream</td><td><span class="pill pill-red">50–65%</span></td><td>~55% casual / ~85% expert</td><td><span class="pill pill-amber">65–78%</span></td></tr>
+      <tr><td>Fantasy / animal</td><td>N/A (no identity)</td><td><span class="pill pill-green">N/A</span></td><td>~8% casual / ~35% expert</td><td><span class="pill pill-green">N/A</span></td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-amber">
+    <p><strong>Honest assessment:</strong> For content like "baby doing a cute dance" or "AI girl doing a makeup tutorial," the output is compelling to casual viewers — which is the target audience for social media. Creators should understand that extreme emotion scenes will have visible artifacts. The fix pipeline reduces but does not eliminate this. Quality will improve significantly with Wan 2.2 and future models over the next 12 months.</p>
+  </div>
+</section>
+
+
+<!-- COST PER VIDEO -->
+<section id="costs">
+  <span class="sec-label">Section 04 — Per-Video Cost Estimation</span>
+  <h2>Complete Cost Breakdown Per Video Type</h2>
+  <p>Every cost component is accounted for: GPU compute, storage, CDN delivery, TTS, API calls, face restoration, and platform overhead. All prices reflect E2E Networks H100 spot at ₹70/hr for self-hosted components.</p>
+
+  <div class="three-col">
+    <div class="cost-box">
+      <h4>Service 1 — Avatar Talking Head (30s)
+        <span class="pill pill-green" style="font-size:10px">Self-hosted</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">LLM prompt generation (GPT-4o-mini)</span><span class="cost-val">₹0.80</span></div>
+      <div class="cost-row"><span class="cost-label">Sarvam TTS (script ~500 chars)</span><span class="cost-val">₹0.75</span></div>
+      <div class="cost-row"><span class="cost-label">InstantID first frame (A100, ~30s)</span><span class="cost-val">₹0.38</span></div>
+      <div class="cost-row"><span class="cost-label">Wan 2.1 14B I2V (H100 ~60 min)</span><span class="cost-val">₹70.00</span></div>
+      <div class="cost-row"><span class="cost-label">LatentSync lip sync (A100, ~2 min)</span><span class="cost-val">₹1.50</span></div>
+      <div class="cost-row"><span class="cost-label">GFPGAN face restoration (A100)</span><span class="cost-val">₹2.50</span></div>
+      <div class="cost-row"><span class="cost-label">FFmpeg post-process (CPU)</span><span class="cost-val">₹0.20</span></div>
+      <div class="cost-row"><span class="cost-label">Cloudflare R2 storage (20MB)</span><span class="cost-val">₹0.025</span></div>
+      <div class="cost-row"><span class="cost-label">Total cost (self-hosted H100 spot)</span><span class="cost-val" style="color:var(--green)">₹76.18</span></div>
+    </div>
+
+    <div class="cost-box">
+      <h4>Service 2 — Dance Transfer (30s)
+        <span class="pill pill-amber" style="font-size:10px">GPU-heavy</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">DWPose extraction (CPU/RTX3090)</span><span class="cost-val">₹0.50</span></div>
+      <div class="cost-row"><span class="cost-label">InstantID face prep (A100, ~30s)</span><span class="cost-val">₹0.38</span></div>
+      <div class="cost-row"><span class="cost-label">MimicMotion (H100, ~8 min/5s × 6)</span><span class="cost-val">₹56.00</span></div>
+      <div class="cost-row"><span class="cost-label">Clip stitching (FFmpeg)</span><span class="cost-val">₹0.20</span></div>
+      <div class="cost-row"><span class="cost-label">GFPGAN face restoration</span><span class="cost-val">₹2.50</span></div>
+      <div class="cost-row"><span class="cost-label">FILM temporal smoothing</span><span class="cost-val">₹1.20</span></div>
+      <div class="cost-row"><span class="cost-label">Optional: Sarvam TTS (if voice added)</span><span class="cost-val">₹0.75</span></div>
+      <div class="cost-row"><span class="cost-label">Storage + CDN</span><span class="cost-val">₹0.025</span></div>
+      <div class="cost-row"><span class="cost-label">Total cost (self-hosted)</span><span class="cost-val" style="color:var(--green)">₹61.58</span></div>
+    </div>
+
+    <div class="cost-box">
+      <h4>Service 3 — Pet / Fantasy Video (30s)
+        <span class="pill pill-blue" style="font-size:10px">API-based</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">LLM prompt generation</span><span class="cost-val">₹0.80</span></div>
+      <div class="cost-row"><span class="cost-label">Kling 2.5 Turbo API (6 × 5s clips)</span><span class="cost-val">₹175.00</span></div>
+      <div class="cost-row"><span class="cost-label">Clip stitching (FFmpeg)</span><span class="cost-val">₹0.20</span></div>
+      <div class="cost-row"><span class="cost-label">Optional: TTS + lip sync</span><span class="cost-val">₹4.00</span></div>
+      <div class="cost-row"><span class="cost-label">AI label injection (post-process)</span><span class="cost-val">₹0.10</span></div>
+      <div class="cost-row"><span class="cost-label">Storage + CDN</span><span class="cost-val">₹0.025</span></div>
+      <div class="cost-row"><span class="cost-label">Total cost (Kling API)</span><span class="cost-val" style="color:var(--amber)">₹180.13</span></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:.5rem">Alt: Wan 2.1 T2V self-hosted: ₹72</div>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div class="cost-box">
+      <h4>Service 4 — Faceless Trend Video (30s)
+        <span class="pill pill-teal" style="font-size:10px">Medium cost</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">LLM prompt + scene plan</span><span class="cost-val">₹0.80</span></div>
+      <div class="cost-row"><span class="cost-label">PuLID character generation (A100)</span><span class="cost-val">₹1.50</span></div>
+      <div class="cost-row"><span class="cost-label">AnimateDiff + ControlNet (A100 × 6 clips)</span><span class="cost-val">₹27.00</span></div>
+      <div class="cost-row"><span class="cost-label">Sarvam TTS (voiceover)</span><span class="cost-val">₹0.75</span></div>
+      <div class="cost-row"><span class="cost-label">LatentSync lip sync</span><span class="cost-val">₹1.50</span></div>
+      <div class="cost-row"><span class="cost-label">Post-process + storage</span><span class="cost-val">₹0.35</span></div>
+      <div class="cost-row"><span class="cost-label">Total cost</span><span class="cost-val" style="color:var(--green)">₹31.90</span></div>
+    </div>
+
+    <div class="cost-box">
+      <h4>Service 5 — AI Influencer (30s)
+        <span class="pill pill-purple" style="font-size:10px">High quality</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">LLM script expansion + prompts</span><span class="cost-val">₹1.60</span></div>
+      <div class="cost-row"><span class="cost-label">ElevenLabs voice clone (premium)</span><span class="cost-val">₹12.00</span></div>
+      <div class="cost-row"><span class="cost-label">LoRA SDXL first frame (A100)</span><span class="cost-val">₹0.38</span></div>
+      <div class="cost-row"><span class="cost-label">Wan 2.1 14B I2V (H100 spot)</span><span class="cost-val">₹70.00</span></div>
+      <div class="cost-row"><span class="cost-label">Hallo2 lip sync (long-form)</span><span class="cost-val">₹4.00</span></div>
+      <div class="cost-row"><span class="cost-label">GFPGAN + FILM</span><span class="cost-val">₹3.70</span></div>
+      <div class="cost-row"><span class="cost-label">Post-process + storage</span><span class="cost-val">₹0.40</span></div>
+      <div class="cost-row"><span class="cost-label">Total cost</span><span class="cost-val" style="color:var(--green)">₹92.08</span></div>
+    </div>
+
+    <div class="cost-box">
+      <h4>LoRA Character Training (one-time)
+        <span class="pill pill-gray" style="font-size:10px">Per character</span>
+      </h4>
+      <div class="cost-row"><span class="cost-label">Photo upload + preprocessing (CPU)</span><span class="cost-val">₹0.50</span></div>
+      <div class="cost-row"><span class="cost-label">Face detection + quality filter (RetinaFace)</span><span class="cost-val">₹0.30</span></div>
+      <div class="cost-row"><span class="cost-label">SDXL LoRA training (A100, 60 min)</span><span class="cost-val">₹27.00</span></div>
+      <div class="cost-row"><span class="cost-label">ArcFace embedding extraction</span><span class="cost-val">₹0.20</span></div>
+      <div class="cost-row"><span class="cost-label">LoRA adapter storage (100MB, R2)</span><span class="cost-val">₹0.015</span></div>
+      <div class="cost-row"><span class="cost-label">Total one-time training cost</span><span class="cost-val" style="color:var(--blue)">₹28.04</span></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:.5rem">Charge users: ₹99–199 per character training (71–86% margin)</div>
+    </div>
+  </div>
+
+  <h3>Consolidated Cost & Margin Summary</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Service</th><th>Infra Cost (30s)</th><th>Sell Price (Creator ₹11.1/cr)</th><th>Gross Margin</th><th>Sell Price (Business ₹9.3/cr)</th><th>Gross Margin</th></tr>
+      <tr><td><strong>Avatar Talking Head</strong></td><td>₹76</td><td>11 cr × ₹11.1 = ₹122</td><td><span class="pill pill-green">+38%</span></td><td>11 cr × ₹9.3 = ₹102</td><td><span class="pill pill-green">+26%</span></td></tr>
+      <tr><td colspan="6" style="font-size:11px;color:var(--text3);padding:6px 13px">↑ At owned H100 (₹32 cost): Creator margin +74%, Business margin +69% — margins expand massively with scale</td></tr>
+      <tr><td><strong>Avatar (owned H100 at scale)</strong></td><td>₹32</td><td>₹122</td><td><span class="pill pill-green">+74%</span></td><td>₹102</td><td><span class="pill pill-green">+69%</span></td></tr>
+      <tr><td><strong>Dance Transfer</strong></td><td>₹62</td><td>9 cr × ₹11.1 = ₹100</td><td><span class="pill pill-green">+38%</span></td><td>9 cr × ₹9.3 = ₹84</td><td><span class="pill pill-green">+26%</span></td></tr>
+      <tr><td><strong>Pet / Animal (API)</strong></td><td>₹72</td><td>10 cr × ₹11.1 = ₹111</td><td><span class="pill pill-green">+35%</span></td><td>10 cr × ₹9.3 = ₹93</td><td><span class="pill pill-green">+23%</span></td></tr>
+      <tr><td><strong>Pet / Animal (self-hosted at scale)</strong></td><td>₹18</td><td>₹111</td><td><span class="pill pill-green">+84%</span></td><td>₹93</td><td><span class="pill pill-green">+81%</span></td></tr>
+      <tr><td><strong>Faceless Trends</strong></td><td>₹32</td><td>5 cr × ₹11.1 = ₹56</td><td><span class="pill pill-green">+43%</span></td><td>5 cr × ₹9.3 = ₹47</td><td><span class="pill pill-green">+32%</span></td></tr>
+      <tr><td><strong>AI Influencer</strong></td><td>₹92</td><td>13 cr × ₹11.1 = ₹144</td><td><span class="pill pill-green">+36%</span></td><td>13 cr × ₹9.3 = ₹121</td><td><span class="pill pill-green">+24%</span></td></tr>
+      <tr><td><strong>Fantasy Scene (API)</strong></td><td>₹72</td><td>10 cr × ₹11.1 = ₹111</td><td><span class="pill pill-green">+35%</span></td><td>10 cr × ₹9.3 = ₹93</td><td><span class="pill pill-green">+23%</span></td></tr>
+      <tr><td><strong>Fantasy (self-hosted at scale)</strong></td><td>₹18</td><td>₹111</td><td><span class="pill pill-green">+84%</span></td><td>₹93</td><td><span class="pill pill-green">+81%</span></td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-blue">
+    <p><strong>Key margin insight:</strong> Every service is priced for minimum +20% gross margin from Day 1, even at early-stage cloud GPU costs. No loss leaders — we cannot burn cash before scale. As volume grows: (a) self-hosted Wan 2.1 replaces API calls, dropping costs 60–75%; (b) owned H100s at 200+ videos/day cut costs further. At scale, margins expand from 20–40% to 70–85% on the same prices. Price high now, let scale reward us.</p>
+  </div>
+</section>
+
+
+<!-- PIPELINE SEQUENCE -->
+<section id="pipeline">
+  <span class="sec-label">Section 05 — Generation Pipeline</span>
+  <h2>Full End-to-End Sequence: Script → Delivered Video</h2>
+
+  <div class="diagram">
+    <div class="diagram-title">// Sequence Diagram · Full Generation Pipeline (Avatar Talking Head flow)</div>
+    <svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:960px;display:block;">
+      <defs>
+        <marker id="sa" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#1a56db"/></marker>
+        <marker id="sg" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#057a55"/></marker>
+        <marker id="st" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#0e7490"/></marker>
+        <marker id="sp" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5521b5"/></marker>
+        <marker id="sr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8e4b10"/></marker>
+      </defs>
+      <g font-family="IBM Plex Mono,monospace" font-size="10">
+        <!-- Actors -->
+        <rect x="14" y="10" width="74" height="28" rx="4" fill="#eff4ff" stroke="#c3d3f9" stroke-width="1"/>
+        <text x="51" y="28" fill="#1a56db" text-anchor="middle" font-size="10">User</text>
+        <line x1="51" y1="38" x2="51" y2="710" stroke="#1a56db" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="115" y="10" width="80" height="28" rx="4" fill="#eff4ff" stroke="#c3d3f9" stroke-width="1"/>
+        <text x="155" y="28" fill="#1a56db" text-anchor="middle" font-size="10">API Backend</text>
+        <line x1="155" y1="38" x2="155" y2="710" stroke="#1a56db" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="225" y="10" width="80" height="28" rx="4" fill="#fff7ed" stroke="#f8d399" stroke-width="1"/>
+        <text x="265" y="28" fill="#8e4b10" text-anchor="middle" font-size="10">LLM Prompter</text>
+        <line x1="265" y1="38" x2="265" y2="710" stroke="#8e4b10" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="330" y="10" width="80" height="28" rx="4" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1"/>
+        <text x="370" y="28" fill="#0e7490" text-anchor="middle" font-size="10">Sarvam TTS</text>
+        <line x1="370" y1="38" x2="370" y2="710" stroke="#0e7490" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="438" y="10" width="86" height="28" rx="4" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1"/>
+        <text x="481" y="28" fill="#057a55" text-anchor="middle" font-size="10">Identity Worker</text>
+        <line x1="481" y1="38" x2="481" y2="710" stroke="#057a55" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="558" y="10" width="86" height="28" rx="4" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1.5"/>
+        <text x="601" y="28" fill="#057a55" text-anchor="middle" font-size="10">Video Worker</text>
+        <line x1="601" y1="38" x2="601" y2="710" stroke="#057a55" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="680" y="10" width="80" height="28" rx="4" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+        <text x="720" y="28" fill="#5521b5" text-anchor="middle" font-size="10">Lip Sync / FX</text>
+        <line x1="720" y1="38" x2="720" y2="710" stroke="#5521b5" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <rect x="790" y="10" width="80" height="28" rx="4" fill="#fffbeb" stroke="#f8d399" stroke-width="1"/>
+        <text x="830" y="28" fill="#8e4b10" text-anchor="middle" font-size="10">Post + CDN</text>
+        <line x1="830" y1="38" x2="830" y2="710" stroke="#8e4b10" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+
+        <!-- Sequence steps -->
+        <rect x="60" y="50" width="890" height="18" rx="2" fill="rgba(26,86,219,0.04)"/>
+        <text x="64" y="63" fill="#1a56db" font-size="10">1. Submit: script + language + character_id + quality_tier (POST /api/v1/generate)</text>
+        <line x1="51" y1="59" x2="148" y2="59" stroke="#1a56db" stroke-width="1.5" marker-end="url(#sa)"/>
+
+        <rect x="118" y="76" width="72" height="26" rx="3" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1"/>
+        <text x="154" y="88" fill="#057a55" text-anchor="middle" font-size="9">Validate credits</text>
+        <text x="154" y="99" fill="#057a55" text-anchor="middle" font-size="9">&amp; DPDPA consent</text>
+
+        <line x1="155" y1="102" x2="258" y2="116" stroke="#8e4b10" stroke-width="1.5" marker-end="url(#sr)"/>
+        <text x="200" y="112" fill="#7a776f" font-size="8">script + use_case</text>
+
+        <rect x="224" y="118" width="80" height="34" rx="3" fill="#fffbeb" stroke="#f8d399" stroke-width="1"/>
+        <text x="264" y="133" fill="#8e4b10" text-anchor="middle" font-size="9">GPT-4o-mini</text>
+        <text x="264" y="145" fill="#8e4b10" text-anchor="middle" font-size="9">→ 6 prompts</text>
+
+        <line x1="264" y1="152" x2="155" y2="164" stroke="#8e4b10" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="196" y="160" fill="#7a776f" font-size="8">prompts[] returned</text>
+
+        <line x1="155" y1="174" x2="363" y2="186" stroke="#0e7490" stroke-width="1.5" marker-end="url(#st)"/>
+        <text x="254" y="182" fill="#7a776f" font-size="8">script_text + language_code (hi/bn/ta...)</text>
+
+        <rect x="330" y="188" width="80" height="36" rx="3" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1"/>
+        <text x="370" y="203" fill="#0e7490" text-anchor="middle" font-size="9">Bulbul v3</text>
+        <text x="370" y="215" fill="#7a776f" text-anchor="middle" font-size="8">₹15/10K chars</text>
+        <text x="370" y="223" fill="#7a776f" text-anchor="middle" font-size="8">&lt;250ms latency</text>
+
+        <line x1="370" y1="224" x2="155" y2="236" stroke="#0e7490" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="254" y="231" fill="#7a776f" font-size="8">audio.wav + word_timestamps[]</text>
+
+        <line x1="155" y1="246" x2="474" y2="258" stroke="#057a55" stroke-width="1.5" marker-end="url(#sg)"/>
+        <text x="310" y="254" fill="#7a776f" font-size="8">character_photos[] OR lora_id + prompts[0]</text>
+
+        <rect x="439" y="260" width="84" height="46" rx="3" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1"/>
+        <text x="481" y="277" fill="#057a55" text-anchor="middle" font-size="9">InstantID /</text>
+        <text x="481" y="289" fill="#057a55" text-anchor="middle" font-size="9">LoRA SDXL</text>
+        <text x="481" y="299" fill="#7a776f" text-anchor="middle" font-size="8">1024×1024</text>
+        <text x="481" y="306" fill="#7a776f" text-anchor="middle" font-size="8">first_frame.png</text>
+
+        <line x1="481" y1="306" x2="155" y2="318" stroke="#057a55" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="318" y="313" fill="#7a776f" font-size="8">identity_frame.png (face-consistent, 1024×1024)</text>
+
+        <line x1="155" y1="328" x2="594" y2="340" stroke="#057a55" stroke-width="1.5" marker-end="url(#sg)"/>
+        <text x="370" y="337" fill="#7a776f" font-size="8">identity_frame + prompts[] + duration=5s × 6 clips</text>
+
+        <rect x="558" y="342" width="86" height="56" rx="3" fill="#f3faf7" stroke="#a7d7c5" stroke-width="1.5"/>
+        <text x="601" y="360" fill="#057a55" text-anchor="middle" font-size="9">Wan 2.1 14B</text>
+        <text x="601" y="373" fill="#057a55" text-anchor="middle" font-size="9">I2V pipeline</text>
+        <text x="601" y="385" fill="#7a776f" text-anchor="middle" font-size="8">6 × 5s clips</text>
+        <text x="601" y="393" fill="#7a776f" text-anchor="middle" font-size="8">H100 80GB</text>
+        <text x="601" y="399" fill="#8e4b10" text-anchor="middle" font-size="8">OR Kling API</text>
+
+        <line x1="601" y1="398" x2="155" y2="414" stroke="#057a55" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="378" y="409" fill="#7a776f" font-size="8">raw_clips[6].mp4 — face present, no sync yet</text>
+
+        <line x1="155" y1="424" x2="713" y2="436" stroke="#5521b5" stroke-width="1.5" marker-end="url(#sp)"/>
+        <text x="430" y="432" fill="#7a776f" font-size="8">clips[] + audio.wav → stitch, then lip sync + GFPGAN restoration</text>
+
+        <rect x="680" y="438" width="80" height="68" rx="3" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+        <text x="720" y="453" fill="#5521b5" text-anchor="middle" font-size="9">FFmpeg stitch</text>
+        <text x="720" y="465" fill="#5521b5" text-anchor="middle" font-size="9">LatentSync sync</text>
+        <text x="720" y="477" fill="#5521b5" text-anchor="middle" font-size="9">GFPGAN faces</text>
+        <text x="720" y="489" fill="#5521b5" text-anchor="middle" font-size="9">FILM smooth</text>
+        <text x="720" y="500" fill="#7a776f" text-anchor="middle" font-size="8">30fps 720p</text>
+
+        <line x1="720" y1="506" x2="155" y2="520" stroke="#5521b5" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="438" y="515" fill="#7a776f" font-size="8">merged_synced_video.mp4 — face restored, mouth synced</text>
+
+        <line x1="155" y1="530" x2="823" y2="542" stroke="#8e4b10" stroke-width="1.5" marker-end="url(#sr)"/>
+        <text x="490" y="538" fill="#7a776f" font-size="8">video + watermark_config (IT Rules 2025) + unique_id</text>
+
+        <rect x="790" y="544" width="80" height="56" rx="3" fill="#fffbeb" stroke="#f8d399" stroke-width="1"/>
+        <text x="830" y="560" fill="#8e4b10" text-anchor="middle" font-size="9">Film grain</text>
+        <text x="830" y="572" fill="#8e4b10" text-anchor="middle" font-size="9">AI label (1/10)</text>
+        <text x="830" y="584" fill="#8e4b10" text-anchor="middle" font-size="9">H.264 encode</text>
+        <text x="830" y="595" fill="#8e4b10" text-anchor="middle" font-size="9">→ R2 upload</text>
+
+        <line x1="830" y1="600" x2="155" y2="614" stroke="#8e4b10" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#sa)"/>
+        <text x="492" y="609" fill="#7a776f" font-size="8">cdn_url + video_uid + job_complete webhook</text>
+
+        <line x1="155" y1="624" x2="58" y2="638" stroke="#1a56db" stroke-width="1.5" marker-end="url(#sa)"/>
+        <text x="104" y="633" fill="#7a776f" font-size="8">video_url delivered</text>
+
+        <rect x="118" y="648" width="76" height="26" rx="3" fill="#eff4ff" stroke="#c3d3f9" stroke-width="1"/>
+        <text x="156" y="660" fill="#1a56db" text-anchor="middle" font-size="9">Debit credits</text>
+        <text x="156" y="671" fill="#7a776f" text-anchor="middle" font-size="8">DB updated</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+
+<!-- IDENTITY -->
+<section id="identity">
+  <span class="sec-label">Section 06 — Identity Consistency</span>
+  <h2>Character Identity Technology Stack</h2>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Method</th><th>Training Required</th><th>Identity Accuracy</th><th>Speed (first frame)</th><th>Best For</th></tr>
+      <tr><td><strong>LoRA Fine-tuning (SDXL)</strong></td><td>10–20 photos · 45–90 min · A100</td><td><span class="pill pill-green">90–95%</span></td><td>~30s (using saved LoRA)</td><td>Repeated character use · Premium tiers</td></tr>
+      <tr><td><strong>InstantID (zero-shot)</strong></td><td>None — 1–3 photos at runtime</td><td><span class="pill pill-green">82–86%</span></td><td>~15–30s (A100)</td><td>First video · Trial users · Quick gen</td></tr>
+      <tr><td><strong>PuLID</strong></td><td>None</td><td><span class="pill pill-green">85–89%</span></td><td>~20s</td><td>Maximum fidelity zero-shot</td></tr>
+      <tr><td><strong>Arc2Face</strong></td><td>None — ArcFace embed only</td><td><span class="pill pill-blue">80–84%</span></td><td>~10s</td><td>Speed-first applications</td></tr>
+      <tr><td><strong>ConsisID</strong></td><td>None (in-framework)</td><td><span class="pill pill-blue">78–82%</span></td><td>Integrated in CogVideoX</td><td>CogVideoX-based pipeline</td></tr>
+      <tr><td>DreamBooth (full fine-tune)</td><td>3–5 photos · 20 min · A100</td><td><span class="pill pill-green">88–93%</span></td><td>~30s</td><td>Alternative to LoRA (higher VRAM)</td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <p><strong>Recommended stack:</strong> InstantID for free/Starter tier (no training, fast). LoRA for Creator/Pro tiers (one-time training, superior quality). Store ArcFace embedding alongside LoRA — if model updates break LoRA compatibility, ArcFace remains usable immediately. Indian face fine-tuning on IMFDB reduces skin tone drift by ~40% — schedule as Q2 priority.</p>
+  </div>
+</section>
+
+
+<!-- VOICE -->
+<section id="voice">
+  <span class="sec-label">Section 07 — Indian Language Voice Stack</span>
+  <h2>TTS, Voice Clone & Lip Sync</h2>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Provider</th><th>Languages</th><th>Voice Clone</th><th>Code-switching</th><th>Cost</th><th>Latency</th><th>Use</th></tr>
+      <tr><td><strong>Sarvam Bulbul v3</strong></td><td>11 Indian + English</td><td>No (preset voices)</td><td>Yes (Hinglish, Tanglish)</td><td>₹15/10K chars</td><td>&lt;250ms</td><td><span class="pill pill-green">Primary TTS</span></td></tr>
+      <tr><td><strong>ElevenLabs</strong></td><td>11 Indian</td><td>Yes (10s sample)</td><td>Moderate</td><td>$0.18–0.30/1K</td><td>~300ms</td><td><span class="pill pill-blue">Premium clone</span></td></tr>
+      <tr><td><strong>AI4Bharat Indic-Parler</strong></td><td>21 Indian</td><td>No</td><td>Limited</td><td>Free (Apache 2.0)</td><td>~500ms</td><td><span class="pill pill-teal">Self-host backup</span></td></tr>
+      <tr><td><strong>LatentSync</strong></td><td>Language-agnostic</td><td>N/A</td><td>N/A</td><td>Free</td><td>~2 min/30s</td><td><span class="pill pill-purple">Primary lip sync</span></td></tr>
+      <tr><td><strong>MuseTalk</strong></td><td>Language-agnostic</td><td>N/A</td><td>N/A</td><td>Free</td><td>Real-time 30fps</td><td><span class="pill pill-purple">Fast lip sync</span></td></tr>
+      <tr><td>Hallo2</td><td>Language-agnostic</td><td>N/A</td><td>N/A</td><td>Free</td><td>Slow</td><td><span class="pill pill-gray">Long-form (&gt;5 min)</span></td></tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- INFRA -->
+<section id="infra">
+  <span class="sec-label">Section 08 — Infrastructure</span>
+  <h2>GPU Infrastructure & Cloud Cost Comparison</h2>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Provider</th><th>GPU</th><th>On-demand/hr</th><th>Spot/hr</th><th>DC Location</th><th>India latency</th><th>Verdict</th></tr>
+      <tr><td><strong>E2E Networks</strong></td><td>H100 80GB</td><td>₹249 (~$2.97)</td><td><strong>₹70 (~$0.83)</strong></td><td>Mumbai / Delhi</td><td>&lt;5ms</td><td><span class="pill pill-green">Best for India</span></td></tr>
+      <tr><td>E2E Networks</td><td>A100 80GB</td><td>₹180</td><td>₹45</td><td>Mumbai</td><td>&lt;5ms</td><td><span class="pill pill-green">LoRA training</span></td></tr>
+      <tr><td>AceCloud India</td><td>H100 80GB</td><td>~₹220</td><td>~₹60</td><td>Noida / Hyderabad</td><td>&lt;10ms</td><td><span class="pill pill-green">Backup India</span></td></tr>
+      <tr><td>RunPod</td><td>H100 80GB</td><td>$1.99/hr</td><td>$1.39/hr</td><td>US / EU</td><td>~180ms</td><td><span class="pill pill-amber">High latency</span></td></tr>
+      <tr><td>Lambda Labs</td><td>H100 80GB</td><td>$2.49–3.29/hr</td><td>N/A</td><td>US</td><td>~180ms</td><td><span class="pill pill-amber">Expensive</span></td></tr>
+      <tr><td>AWS Mumbai</td><td>H100 (p5)</td><td>~$3.90/hr</td><td>~$1.60/hr</td><td>Mumbai</td><td>&lt;5ms</td><td><span class="pill pill-red">Limited stock</span></td></tr>
+    </table>
+  </div>
+
+  <h3>Monthly Infra Cost at Scale (E2E Networks Spot)</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Scale</th><th>Videos/day</th><th>API only (Kling)</th><th>E2E H100 spot</th><th>Owned H100s</th><th>Crossover</th></tr>
+      <tr><td>100 users</td><td>~800</td><td>₹1.4–2.2L/mo</td><td>₹1.5–2.0L/mo</td><td>₹1.1–1.4L/mo</td><td>50 vid/day</td></tr>
+      <tr><td>1,000 users</td><td>~8,000</td><td>₹12–20L/mo</td><td>₹13–18L/mo</td><td>₹6–9L/mo</td><td>Own HW @1K users</td></tr>
+      <tr><td>10,000 users</td><td>~80,000</td><td>₹1.1–2.0 Cr/mo</td><td>₹1.2–1.7 Cr/mo</td><td>₹0.5–0.7 Cr/mo</td><td>40% cheaper</td></tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- COMPETITORS -->
+<section id="competitors">
+  <span class="sec-label">Section 09 — Competitive Landscape</span>
+  <h2>Global & Indian Competitors</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Platform</th><th>ARR / Valuation</th><th>Pricing</th><th>Dance Transfer</th><th>Indian TTS</th><th>India Gap</th></tr>
+      <tr><td><strong>Synthesia</strong></td><td>$146M ARR / $4B</td><td>$18+/mo · 10 min</td><td>No</td><td>No</td><td><span class="pill pill-red">No Indian features</span></td></tr>
+      <tr><td><strong>HeyGen</strong></td><td>$100M ARR / $500M</td><td>$29+/mo · credits</td><td>No</td><td>No</td><td><span class="pill pill-red">No Indian features</span></td></tr>
+      <tr><td><strong>Kling AI</strong></td><td>$240M ARR</td><td>$10/mo · 660 credits</td><td>Partial (Elements)</td><td>No</td><td><span class="pill pill-red">No Indian lang</span></td></tr>
+      <tr><td><strong>Pika 2.2</strong></td><td>$700M valuation</td><td>$8/mo</td><td>No</td><td>No</td><td><span class="pill pill-red">No Indian features</span></td></tr>
+      <tr><td><strong>Rephrase.ai 🇮🇳</strong></td><td>Acquired Adobe 2023</td><td>Adobe product</td><td>No</td><td>Limited</td><td><span class="pill pill-amber">Gone as competitor</span></td></tr>
+      <tr><td><strong>Kroop AI 🇮🇳</strong></td><td>$230K raised · seed</td><td>$12–60/mo</td><td>No</td><td>25 langs</td><td><span class="pill pill-green">Closest · underfunded</span></td></tr>
+      <tr><td><strong>Voomo.ai 🇮🇳</strong></td><td>Seed stage</td><td>Freemium</td><td>No</td><td>Limited</td><td><span class="pill pill-green">Early stage</span></td></tr>
+    </table>
+  </div>
+  <div class="callout callout-green">
+    <p><strong>Conclusion:</strong> No existing platform combines reference video dance transfer + Indian TTS + India-appropriate pricing. The closest Indian competitors are severely underfunded. Rephrase.ai (the most technically capable Indian platform) was absorbed into Adobe. Market is wide open.</p>
+  </div>
+</section>
+
+
+<!-- MARKET -->
+<section id="market">
+  <span class="sec-label">Section 10 — Indian Market Context</span>
+  <h2>Creator Economy & Language Opportunity</h2>
+  <div class="three-col">
+    <div>
+      <h3>Platform Scale</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Platform</th><th>India MAU</th></tr>
+          <tr><td>YouTube</td><td>500M</td></tr>
+          <tr><td>Instagram</td><td>600M</td></tr>
+          <tr><td>YouTube channels</td><td>100M+</td></tr>
+          <tr><td>Monetising creators</td><td>~1M+</td></tr>
+          <tr><td>YT GDP contribution</td><td>₹16,000 Cr</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3>Language Demand</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Stat</th><th>Value</th></tr>
+          <tr><td>Content in regional</td><td>95%</td></tr>
+          <tr><td>Prefer vernacular</td><td>68%</td></tr>
+          <tr><td>New users, vernacular</td><td>90%</td></tr>
+          <tr><td>OTT regional 2024</td><td>54%</td></tr>
+          <tr><td>Creator economy</td><td>₹2.5B</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3>Creator Revenue</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Channel size</th><th>Avg/month</th></tr>
+          <tr><td>1K–10K subs</td><td>₹0–3,000</td></tr>
+          <tr><td>10K–100K subs</td><td>₹3K–15K</td></tr>
+          <tr><td>100K–1M subs</td><td>₹15K–1L</td></tr>
+          <tr><td>India avg RPM</td><td>₹30/1K views</td></tr>
+          <tr><td>Earning consistently</td><td>8–10% only</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- REGULATORY -->
+<section id="regulatory">
+  <span class="sec-label">Section 11 — Regulatory Compliance</span>
+  <h2>IT Rules 2025 · DPDPA 2023 · Compliance Requirements</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Regulation</th><th>Requirement</th><th>Implementation</th><th>Status</th></tr>
+      <tr><td><strong>IT Rules 2025 (Nov 15)</strong></td><td>AI label covering 1/10th frame area throughout video</td><td>FFmpeg overlay filter in post-processing; injected before delivery</td><td><span class="pill pill-red">In effect now</span></td></tr>
+      <tr><td><strong>IT Rules 2025</strong></td><td>Unique traceability identifier per video</td><td>UUID embedded in MP4 metadata; stored in PostgreSQL</td><td><span class="pill pill-red">In effect now</span></td></tr>
+      <tr><td><strong>IT Rules 2025</strong></td><td>User declaration before social upload</td><td>Checkbox UI + logged consent in DB</td><td><span class="pill pill-red">In effect now</span></td></tr>
+      <tr><td><strong>DPDPA 2023</strong></td><td>Explicit consent for face image processing</td><td>Purpose-limited consent modal at photo upload; deletion API</td><td><span class="pill pill-amber">Phase 2: mid-2026</span></td></tr>
+      <tr><td><strong>IT Act Sec 66E</strong></td><td>No non-consensual intimate imagery</td><td>NSFW classifier on all outputs; public figure face detection → block</td><td><span class="pill pill-red">In effect now</span></td></tr>
+      <tr><td><strong>IT Rules SSMI</strong></td><td>3-hour takedown for prohibited content</td><td>Moderation queue; on-call team</td><td><span class="pill pill-amber">At 5M MAU</span></td></tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing">
+  <span class="sec-label">Section 12 — Pricing Model</span>
+  <h2>Credit Tiers & UPI Payment Integration</h2>
+  <p>Priced for minimum positive margin from Day 1. No loss leaders — every credit sold covers cost + profit. As scale grows and infra moves to owned H100s, margins expand from ~25% to 70%+. UPI via Razorpay is non-negotiable. Free tier limited to discovery only.</p>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="t-name">FREE</div>
+      <div class="t-price" style="color:var(--text3)">₹0</div>
+      <div class="t-credits">15 credits/mo<br>480p watermarked<br>Hindi + English<br>No char training</div>
+    </div>
+    <div class="tier">
+      <div class="t-name">STARTER</div>
+      <div class="t-price" style="color:var(--blue)">₹499</div>
+      <div class="t-credits">40 credits/mo<br>720p · no watermark<br>5 languages<br>1 char training<br><span style="color:var(--blue)">₹12.5/credit</span></div>
+    </div>
+    <div class="tier featured">
+      <span class="t-badge">Most popular</span>
+      <div class="t-name">CREATOR</div>
+      <div class="t-price" style="color:var(--blue)">₹999</div>
+      <div class="t-credits">90 credits/mo<br>720p<br>11 languages<br>5 char trainings<br><span style="color:var(--blue)">₹11.1/credit</span></div>
+    </div>
+    <div class="tier">
+      <div class="t-name">PRO</div>
+      <div class="t-price" style="color:var(--purple)">₹2,499</div>
+      <div class="t-credits">240 credits/mo<br>1080p<br>11 languages<br>Unlimited training<br><span style="color:var(--purple)">₹10.4/credit</span></div>
+    </div>
+    <div class="tier">
+      <div class="t-name">BUSINESS</div>
+      <div class="t-price" style="color:var(--amber)">₹6,999</div>
+      <div class="t-credits">750 credits/mo<br>1080p + API<br>Priority queue<br>White-label<br><span style="color:var(--amber)">₹9.3/credit</span></div>
+    </div>
+  </div>
+
+  <h3>Credit Consumption Per Service Type</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Service</th><th>Standard (720p)</th><th>Premium (1080p)</th><th>Notes</th></tr>
+      <tr><td>Avatar Talking Head (30s)</td><td>11 credits</td><td>18 credits</td><td>Includes TTS, lip sync. Min margin +26%</td></tr>
+      <tr><td>Dance Transfer (30s)</td><td>9 credits</td><td>15 credits</td><td>Includes face restoration. Min margin +26%</td></tr>
+      <tr><td>Pet / Animal T2V (30s)</td><td>10 credits</td><td>16 credits</td><td>API at launch, self-hosted at scale. Min margin +23%</td></tr>
+      <tr><td>Faceless Trend (30s)</td><td>5 credits</td><td>8 credits</td><td>AnimateDiff standard. Min margin +32%</td></tr>
+      <tr><td>AI Influencer (30s)</td><td>13 credits</td><td>21 credits</td><td>ElevenLabs clone included. Min margin +24%</td></tr>
+      <tr><td>Fantasy Scene (30s)</td><td>10 credits</td><td>16 credits</td><td>API at launch, self-hosted at scale. Min margin +23%</td></tr>
+      <tr><td>Script → Full Video (60s)</td><td>21 credits</td><td>35 credits</td><td>Full auto pipeline. Min margin +23%</td></tr>
+      <tr><td>Character LoRA Training</td><td>—</td><td>—</td><td>One-time ₹99–199 fee (cost ₹28)</td></tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <span class="sec-label">Section 13 — Build Roadmap</span>
+  <h2>16-Week MVP → Scale Timeline</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="phase-tag" style="background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bd)">Weeks 1–4 · Backend Core</span>
+      <h4>Infrastructure, Queue & Core APIs</h4>
+      <p>Deploy Wan 2.1/2.2 on E2E Networks H100 spot instances. Set up Celery + Redis job queue. Integrate Kling API + Hailuo API as premium/fallback. Cloudflare R2 storage. PostgreSQL RDS (AWS Mumbai). FastAPI with JWT auth and credit ledger schema. Razorpay integration (UPI, cards, netbanking).</p>
+      <div class="budget">Budget: ₹2–4L · 2 backend engineers</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="phase-tag" style="background:var(--green-bg);color:var(--green);border-color:var(--green-bd)">Weeks 5–8 · Identity + Voice</span>
+      <h4>Character Training, TTS & Lip Sync Pipeline</h4>
+      <p>Photo upload + quality preprocessing (RetinaFace, auto-crop 1024×1024, quality scorer). LoRA training pipeline (SDXL, 1K steps, A100, 45–90 min). InstantID zero-shot integration. Sarvam Bulbul v3 TTS API. LatentSync lip sync worker. GFPGAN face restoration. T2I → I2V two-stage pipeline.</p>
+      <div class="budget">Budget: ₹3–5L · 2 ML engineers</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="phase-tag" style="background:var(--purple-bg);color:var(--purple);border-color:var(--purple-bd)">Weeks 9–11 · Dance Transfer</span>
+      <h4>Reference Video Motion Transfer Pipeline</h4>
+      <p>DWPose pose extraction from reference videos. MimicMotion integration (H100). FILM temporal smoothing. Face restoration post-pass. Clip stitching engine (FFmpeg, seam smoothing). Reference video preprocessing (denoising, stabilisation). Quality preview before full generation (5s preview clip).</p>
+      <div class="budget">Budget: ₹2–3L · 1 ML + 1 backend</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="phase-tag" style="background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bd)">Weeks 12–16 · Frontend + Launch</span>
+      <h4>Mobile-First UI, Payments, Compliance & Beta</h4>
+      <p>React/Next.js frontend (Hindi + English). Character creation flow with photo quality guidance. Service selection with credit cost preview. Razorpay checkout with UPI deep links. IT Rules 2025 AI label injection (verified in post-processing). DPDPA consent framework. 50-user closed beta. Grievance officer setup.</p>
+      <div class="budget">Budget: ₹4–6L · 2 frontend + 1 product</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <span class="phase-tag" style="background:var(--green-bg);color:var(--green);border-color:var(--green-bd)">Months 5–9 · All Use Cases</span>
+      <h4>Expand to All 5 Services + 11 Languages</h4>
+      <p>All 7 services live. Tamil, Telugu, Bengali, Marathi TTS. AI influencer character presets. Fantasy/pet templates. ElevenLabs voice clone integration. Android app (React Native). Indian face LoRA fine-tuning on IMFDB (moat). Scale to 3–5 H100s on E2E Networks.</p>
+      <div class="budget">Budget: ₹40–60L · Infra: ₹2–4L/mo</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot amber"></div>
+      <span class="phase-tag" style="background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bd)">Months 10–18 · Scale</span>
+      <h4>1080p, API Access, Owned Hardware, Series A</h4>
+      <p>FLUX-based LoRA for 1080p. Developer API with Python/Node.js SDKs. Real-time 5s preview (LTX-Video). Transition to E2E reserved capacity or owned H100s. Auto-post integration (YouTube, Instagram direct upload). Target 10K+ MAU. Series A raise on ₹3–5 Cr ARR.</p>
+      <div class="budget">Budget: ₹1–2 Cr · Target ARR: ₹5 Cr+</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TECH STACK -->
+<section id="stack">
+  <span class="sec-label">Section 14 — Full Technology Stack</span>
+  <h2>Complete Stack Reference</h2>
+
+  <div class="stack-grid">
+    <div class="stack-row"><div class="stack-lbl">Video Gen</div><div class="stack-val"><code>Wan 2.1/2.2 14B</code> Apache 2.0 · primary self-hosted · <code>CogVideoX-5B</code> LoRA avatars · <code>LTX-Video 2.0</code> preview · Kling API premium · Hailuo 02 API fantasy/animals</div></div>
+    <div class="stack-row"><div class="stack-lbl">Dance Transfer</div><div class="stack-val"><code>DWPose</code> pose extraction · <code>MimicMotion</code> primary motion · <code>Champ</code> 3D SMPL-X · <code>UniAnimate</code> unified pose+face · <code>AnimateDiff MotionLoRA</code> budget option · <code>FILM</code> temporal smoothing</div></div>
+    <div class="stack-row"><div class="stack-lbl">Identity</div><div class="stack-val"><code>InstantID</code> zero-shot · <code>PuLID</code> max fidelity · <code>Arc2Face</code> speed-first · <code>ConsisID</code> in-video · <code>LoRA SDXL/FLUX</code> per-character training · <code>ArcFace</code> embedding store</div></div>
+    <div class="stack-row"><div class="stack-lbl">Face Fix</div><div class="stack-val"><code>GFPGAN v1.4</code> face restoration · <code>CodeFormer</code> teeth/mouth inpainting · <code>FILM</code> frame interpolation / temporal smoothing · <code>RetinaFace</code> face detection in training photos</div></div>
+    <div class="stack-row"><div class="stack-lbl">TTS / Voice</div><div class="stack-val"><code>Sarvam Bulbul v3</code> 11 langs ₹15/10K · <code>ElevenLabs</code> voice clone premium · <code>AI4Bharat Indic-Parler-TTS</code> 21 langs Apache 2.0 · <code>Gnani.ai Vachana</code> optional</div></div>
+    <div class="stack-row"><div class="stack-lbl">Lip Sync</div><div class="stack-val"><code>LatentSync</code> best accuracy · <code>MuseTalk</code> real-time 30fps · <code>Hallo2</code> long-form 1hr+ · all language-agnostic</div></div>
+    <div class="stack-row"><div class="stack-lbl">Backend</div><div class="stack-val"><code>Python 3.12</code> · <code>FastAPI</code> · <code>Celery</code> async workers · <code>Redis</code> queue + cache · <code>PostgreSQL</code> RDS Mumbai · <code>HuggingFace Diffusers</code> · <code>ComfyUI</code> workflow dev</div></div>
+    <div class="stack-row"><div class="stack-lbl">ML Ops</div><div class="stack-val"><code>CUDA 12.x</code> · <code>bitsandbytes</code> 8-bit Adam · <code>xFormers</code> flash attention · <code>Accelerate</code> multi-GPU · <code>FFmpeg</code> video processing · <code>OpenCV</code> frame ops</div></div>
+    <div class="stack-row"><div class="stack-lbl">Frontend</div><div class="stack-val"><code>React 19</code> · <code>Next.js 15</code> · <code>React Native</code> Android · <code>TailwindCSS</code> · <code>Razorpay JS SDK</code> UPI deep links · Hindi/English i18n</div></div>
+    <div class="stack-row"><div class="stack-lbl">Storage / CDN</div><div class="stack-val"><code>Cloudflare R2</code> $0.015/GB zero egress · <code>Cloudflare CDN</code> India PoPs (Mumbai, Delhi, Hyderabad, Chennai) · <code>AWS S3 Mumbai</code> backup</div></div>
+    <div class="stack-row"><div class="stack-lbl">Compliance</div><div class="stack-val"><code>FFmpeg overlay</code> AI label 1/10th frame · UUID metadata injection · <code>NSFW Classifier</code> (SafetyChecker / custom) · Public figure face detection → block · DPDPA consent audit log · Grievance officer portal</div></div>
+    <div class="stack-row"><div class="stack-lbl">DevOps</div><div class="stack-val"><code>Docker</code> + <code>Docker Compose</code> · <code>GitHub Actions</code> CI/CD · <code>Prometheus + Grafana</code> GPU monitoring · <code>Sentry</code> errors · <code>AWS CloudWatch</code> logs</div></div>
+  </div>
+</section>
+
+
+<!-- RISKS -->
+<section>
+  <span class="sec-label">Section 15 — Risks</span>
+  <h2>Risk Register & Mitigations</h2>
+  <div class="risks">
+    <div class="risk">
+      <h4><span style="color:var(--red)">⚑</span> IT Rules 2025 Non-compliance</h4>
+      <p style="font-size:13px;color:var(--text2)">Failing to inject AI labels or traceability IDs triggers government action. <strong>Mitigation:</strong> Build mandatory post-processing compliance step from Day 1; no video leaves pipeline without label + UUID.</p>
+    </div>
+    <div class="risk">
+      <h4><span style="color:var(--amber)">⚑</span> Indian Face Quality Gap</h4>
+      <p style="font-size:13px;color:var(--text2)">Base models show Indian faces only ~5% on neutral prompts. <strong>Mitigation:</strong> Fine-tune on IMFDB + FairFace Indian subset in Q2. Becomes a defensible moat.</p>
+    </div>
+    <div class="risk">
+      <h4><span style="color:var(--amber)">⚑</span> Face "Weird Expression" Churn</h4>
+      <p style="font-size:13px;color:var(--text2)">Users may churn when dance transfer produces uncanny expressions. <strong>Mitigation:</strong> GFPGAN + FILM fix pipeline; quality score preview before full generation; set clear expectations in UI for extreme expressions.</p>
+    </div>
+    <div class="risk">
+      <h4><span style="color:var(--blue)">⚑</span> GPU Cost Escalation</h4>
+      <p style="font-size:13px;color:var(--text2)">At 10K users, infra = ₹55–80L/mo on owned hardware. <strong>Mitigation:</strong> Start on E2E spot (no capex). Transition to reserved at 1K users. Buy hardware at 5K+ users.</p>
+    </div>
+    <div class="risk">
+      <h4><span style="color:var(--purple)">⚑</span> Model Obsolescence</h4>
+      <p style="font-size:13px;color:var(--text2)">Wan 2.1 superseded within 12 months. <strong>Mitigation:</strong> Model-agnostic orchestration layer. Swapping models = config change only.</p>
+    </div>
+    <div class="risk">
+      <h4><span style="color:var(--red)">⚑</span> Deepfake Misuse</h4>
+      <p style="font-size:13px;color:var(--text2)">Non-consensual face use. <strong>Mitigation:</strong> Consent modal for all photo uploads; celebrity face detection → block; all outputs have traceable UUID; NSFW classifier on output.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEASIBILITY -->
+<section>
+  <span class="sec-label">Section 16 — Feasibility Summary</span>
+  <h2>What Is Achievable Today</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Service</th><th>Quality Today</th><th>Casual viewer fools?</th><th>Expert fools?</th><th>MVP Ready?</th></tr>
+      <tr><td>Avatar Talking Head (neutral)</td><td>Good 720p, consistent</td><td>~85%</td><td>~45%</td><td><span class="pill pill-green">Yes</span></td></tr>
+      <tr><td>Dance Transfer (moderate)</td><td>Good motion, ~85% face</td><td>~75%</td><td>~35%</td><td><span class="pill pill-green">Yes</span></td></tr>
+      <tr><td>Dance Transfer (extreme expr.)</td><td>Motion good, face ~65%</td><td>~50%</td><td>~20%</td><td><span class="pill pill-amber">With fix pipeline</span></td></tr>
+      <tr><td>Pet / Animal scenes</td><td>Excellent</td><td>~92%</td><td>~65%</td><td><span class="pill pill-green">Yes</span></td></tr>
+      <tr><td>Fantasy / impossible</td><td>Excellent</td><td>~95%</td><td>~70%</td><td><span class="pill pill-green">Yes</span></td></tr>
+      <tr><td>AI Influencer (consistent)</td><td>Very good at 720p</td><td>~80%</td><td>~40%</td><td><span class="pill pill-amber">Near-ready</span></td></tr>
+    </table>
+  </div>
+
+  <div class="two-col" style="margin-top:1.5rem">
+    <div>
+      <h3>3 Strategic Priorities</h3>
+      <div class="callout callout-blue" style="margin-bottom:.75rem"><p><strong>1. Two-stage pipeline.</strong> T2I identity frame → I2V is the correct architecture. All leading products and research have converged here. Build this first.</p></div>
+      <div class="callout callout-green" style="margin-bottom:.75rem"><p><strong>2. E2E Networks H100 at ₹70/hr spot.</strong> This is a 50–60% structural cost advantage over global competitors. Exploit it.</p></div>
+      <div class="callout callout-purple" style="margin-bottom:0"><p><strong>3. Sarvam AI + Indian face fine-tuning.</strong> The language+face moat takes global platforms 2+ years to replicate. Build it from Day 1.</p></div>
+    </div>
+    <div>
+      <h3>Investment Milestones</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Milestone</th><th>MAU</th><th>ARR</th><th>Infra/mo</th></tr>
+          <tr><td>MVP Launch</td><td>500</td><td>₹18L</td><td>₹1.5L</td></tr>
+          <tr><td>PMF</td><td>2,000</td><td>₹72L</td><td>₹4L</td></tr>
+          <tr><td>Series A ready</td><td>10,000</td><td>₹3.6 Cr</td><td>₹15L</td></tr>
+          <tr><td>Profitable</td><td>25,000</td><td>₹9 Cr</td><td>₹35L</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="border-top:1px solid var(--border);padding-top:2rem;margin-top:3rem;text-align:center">
+  <p style="font-family:var(--mono);font-size:11px;color:var(--text3)">India AI Video Platform · Full Technical Research Report · v2 · March 2026 · Confidential</p>
+  <p style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:3px">Sources: arXiv (MimicMotion, ConsisID, HunyuanVideo, LatentSync), E2E Networks pricing, Sarvam AI API, IT Rules 2025 (MeitY), DPDPA 2023, KPMG Creator Economy 2025, Kling/Hailuo API docs</p>
+</div>
+
+</div>
+</body>
+</html>
