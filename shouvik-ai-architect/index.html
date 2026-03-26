@@ -10,7 +10,9 @@
 <meta property="og:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Senior AI architect & full-stack builder. 132 reviews, 4.9★, 97% on-budget. Book a free call.">
 <meta property="og:url" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/">
 <meta property="og:image" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/og-image.png">
+<meta name="twitter:image" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/">
 <meta name="twitter:title" content="Shouvik Mukherjee — Builder · Founder · TEDx Speaker">
 <meta name="twitter:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Book a free discovery call.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23060508' width='100' height='100' rx='20'/><text x='50' y='68' font-size='52' font-family='sans-serif' font-weight='900' fill='%23C9882C' text-anchor='middle'>SM</text></svg>">
@@ -815,7 +817,7 @@ a,button,[data-go]{cursor:pointer}
 
     <!-- LEFT: hero text, body.loaded gates each line's animation -->
     <div class="s0-left">
-      <div class="badge"><span class="live-dot"></span>Available for new projects · March 2026</div>
+      <div class="badge"><span class="live-dot"></span>Available for new projects · <span id="badge-date"></span></div>
       <div class="hx">
         <span class="row"><span id="hw1">BUILDER</span></span>
         <span class="row"><span class="g" id="hw2">FOUNDER</span></span>
@@ -1183,7 +1185,7 @@ a,button,[data-go]{cursor:pointer}
             <p class="port-desc">India&rsquo;s scam-fighting AI. Federated learning, zero cloud. Live call analysis, deepfake detection, AI video intercept. 3,600 pre-orders in 3 months.</p>
             <div class="port-meta">
               <span class="port-tag">Python · TFLite · DPIIT</span>
-              <span class="port-link">poc.bachao.ai →</span>
+              <a class="port-link" href="https://poc.bachao.ai" target="_blank" rel="noopener">poc.bachao.ai →</a>
             </div>
           </div>
           <div class="port-card">
@@ -1193,7 +1195,7 @@ a,button,[data-go]{cursor:pointer}
             <p class="port-desc">Multiple full-stack platforms shipped in under 30 days for US, UK &amp; AU founders. 4.9★ across 132 Freelancer.com reviews, 97% on-budget.</p>
             <div class="port-meta">
               <span class="port-tag">React · Node · AI</span>
-              <span class="port-link">5★ rated →</span>
+              <a class="port-link" href="https://www.freelancer.com/u/shouvikm" target="_blank" rel="noopener">5★ rated →</a>
             </div>
           </div>
           <div class="port-card">
@@ -1203,7 +1205,7 @@ a,button,[data-go]{cursor:pointer}
             <p class="port-desc">20+ hrs/week of manual work → 20 minutes. BI dashboards, multi-agent pipelines, API integrations. ROI confirmed month 1.</p>
             <div class="port-meta">
               <span class="port-tag">AI · Python · n8n</span>
-              <span class="port-link">ROI month 1 →</span>
+              <span class="port-link">ROI month 1</span>
             </div>
           </div>
           <div class="port-card">
@@ -1213,7 +1215,7 @@ a,button,[data-go]{cursor:pointer}
             <p class="port-desc">&ldquo;When AI Fights Back&rdquo; — invited speaker, not applied. Official TED-licensed event. From ₹4,000/month call center to TEDx stage.</p>
             <div class="port-meta">
               <span class="port-tag">Invited · Merit only</span>
-              <span class="port-link">Watch talk →</span>
+              <a class="port-link" href="https://www.youtube.com/watch?v=C7vN5W3FQZU&amp;t=14s" target="_blank" rel="noopener">Watch talk →</a>
             </div>
           </div></div>
   </div>
@@ -1465,6 +1467,14 @@ a,button,[data-go]{cursor:pointer}
 </div>
 
 <script>
+/* ── DYNAMIC BADGE DATE ── */
+(function(){
+  const m=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const d=new Date();
+  const el=document.getElementById('badge-date');
+  if(el) el.textContent=m[d.getMonth()]+' '+d.getFullYear();
+})();
+
 /* ── LOADER ── */
 const loader  = document.getElementById('loader');
 const loadBar = document.getElementById('load-bar');
