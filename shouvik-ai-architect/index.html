@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shouvik Mukherjee — Builder · Founder · TEDx Speaker</title>
+<meta name="description" content="Shouvik Mukherjee — Ex-K12 Techno, IDFC First Bank, Intuit, Wipro. 12th Pass to ₹90 LPA. AI Architect, Full-Stack Builder, TEDx Speaker. Book a free discovery call.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shouvik Mukherjee — Builder · Founder · TEDx Speaker">
+<meta property="og:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Senior AI architect & full-stack builder. 132 reviews, 4.9★, 97% on-budget. Book a free call.">
+<meta property="og:url" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/">
+<meta property="og:image" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shouvik Mukherjee — Builder · Founder · TEDx Speaker">
+<meta name="twitter:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Book a free discovery call.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23060508' width='100' height='100' rx='20'/><text x='50' y='68' font-size='52' font-family='sans-serif' font-weight='900' fill='%23C9882C' text-anchor='middle'>SM</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Sora:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Libre+Baskerville:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
@@ -64,6 +74,9 @@ body[data-click] #c-dot{transform:translate(-50%,-50%) scale(2.4);background:var
 #brand{font-family:'Unbounded',sans-serif;font-weight:900;font-size:.72rem;letter-spacing:.05em;color:var(--cream);opacity:.8}
 #brand em{color:var(--gold);font-style:normal}
 #slide-tag{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+#top-right{display:flex;align-items:center;gap:.8rem}
+.top-social{font-family:'Sora',sans-serif;font-size:.62rem;font-weight:600;color:var(--muted);border:1px solid var(--c12);border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;transition:color .22s var(--E),border-color .22s var(--E),background .22s var(--E);text-decoration:none}
+.top-social:hover{color:var(--gold);border-color:var(--g-brd);background:var(--g-glow)}
 #pg-rail{position:fixed;top:0;left:0;right:0;height:2px;z-index:600}
 #pg-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--g-lt),var(--jade));transition:width .55s var(--E);box-shadow:0 0 8px rgba(201,136,44,.5)}
 #nav{position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.42rem}
@@ -71,15 +84,23 @@ body[data-click] #c-dot{transform:translate(-50%,-50%) scale(2.4);background:var
 .nv-label{font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;color:var(--muted);opacity:0;transform:translateX(10px);white-space:nowrap;transition:opacity .22s var(--E),transform .22s var(--E),color .22s;pointer-events:none}
 .nv-item:hover .nv-label,.nv-item.on .nv-label{opacity:1;transform:none}
 .nv-item.on .nv-label{color:var(--gold)}
-.nv-dot{width:5px;height:5px;border-radius:50%;background:var(--faint);flex-shrink:0;transition:background .28s var(--E),transform .28s var(--E),box-shadow .28s}
+.nv-dot{width:6px;height:6px;border-radius:50%;background:var(--c30);flex-shrink:0;transition:background .28s var(--E),transform .28s var(--E),box-shadow .28s}
 .nv-item:hover .nv-dot{background:var(--c60);transform:scale(1.4)}
 .nv-item.on .nv-dot{background:var(--gold);transform:scale(1.6);box-shadow:0 0 0 3px rgba(201,136,44,.2)}
-#arr-prev,#arr-next{position:fixed;top:50%;transform:translateY(-50%);z-index:500;width:32px;height:64px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--faint);cursor:none;transition:color .22s var(--E),background .22s var(--E)}
+#arr-prev,#arr-next{position:fixed;top:50%;transform:translateY(-50%);z-index:500;width:32px;height:64px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--c30);cursor:none;transition:color .22s var(--E),background .22s var(--E)}
 #arr-prev{left:0;border-right:1px solid var(--c12)}
 #arr-next{right:0;border-left:1px solid var(--c12)}
 #arr-prev:hover,#arr-next:hover{color:var(--gold);background:var(--g-glow)}
 #arr-prev:disabled,#arr-next:disabled{opacity:.1;pointer-events:none}
-#kbtip{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:400;font-family:'Outfit',sans-serif;font-size:.64rem;letter-spacing:.06em;color:var(--faint);white-space:nowrap;pointer-events:none}
+#kbtip{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:400;font-family:'Outfit',sans-serif;font-size:.64rem;letter-spacing:.06em;color:var(--c30);white-space:nowrap;pointer-events:none}
+
+/* ── SCROLL PROMPT ── */
+#scroll-prompt{position:fixed;bottom:3.2rem;left:50%;transform:translateX(-50%);z-index:450;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:promptIn 1s ease 2.2s forwards;transition:opacity .5s var(--E);pointer-events:none}
+#scroll-prompt.hide{opacity:0 !important;animation:none}
+#scroll-prompt .sp-text{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c60)}
+#scroll-prompt .sp-arrow{width:20px;height:20px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:bounceDown 1.8s ease-in-out infinite}
+@keyframes promptIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes bounceDown{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(3px,3px)}}
 #wipe-el{position:fixed;inset:0;z-index:900;background:var(--void);transform:scaleX(0);transform-origin:left;opacity:0;pointer-events:none}
 
 /* ── SLIDE ENGINE ── */
@@ -632,6 +653,8 @@ body.loaded .origin{opacity:1}
 #nav{display:none}
 .belt{display:none}
 #kbtip{font-size:.5rem}
+#scroll-prompt .sp-text{font-size:.62rem}
+.top-social{width:22px;height:22px;font-size:.52rem}
 #arr-prev,#arr-next{width:32px;height:56px}
 
 /* ── Cursor: hidden on touch/mobile ── */
@@ -769,13 +792,18 @@ a,button,[data-go]{cursor:pointer}
 
 <div id="top-bar">
   <div id="brand">S<em>·</em>M</div>
-  <div id="slide-tag"></div>
+  <div id="top-right">
+    <a href="https://www.linkedin.com/in/ceo-shouvik/" target="_blank" rel="noopener" class="top-social" aria-label="LinkedIn">in</a>
+    <a href="https://www.youtube.com/watch?v=C7vN5W3FQZU&t=14s" target="_blank" rel="noopener" class="top-social" aria-label="YouTube">&#9654;</a>
+    <div id="slide-tag"></div>
+  </div>
 </div>
 
 <div id="nav"></div>
 <button id="arr-prev" aria-label="Previous">‹</button>
 <button id="arr-next" aria-label="Next">›</button>
-<div id="kbtip">← → Arrow keys to navigate</div>
+<div id="kbtip">← → Arrow keys · Scroll · Swipe to navigate</div>
+<div id="scroll-prompt"><span class="sp-text">Scroll to explore</span><span class="sp-arrow"></span></div>
 <div id="wipe-el"></div>
 
 <div id="deck">
@@ -799,6 +827,10 @@ a,button,[data-go]{cursor:pointer}
         <a href="#" class="btn-o" data-go="1">My Journey →</a>
       </div>
       <div class="origin">From Bandel, West Bengal. Building for Bharat.</div>
+      <div class="hero-social S" style="display:flex;gap:.6rem;margin-top:.9rem">
+        <a href="https://www.linkedin.com/in/ceo-shouvik/" target="_blank" rel="noopener" class="btn-o" style="padding:.5rem 1rem;font-size:.56rem">LinkedIn</a>
+        <a href="https://www.youtube.com/watch?v=C7vN5W3FQZU&t=14s" target="_blank" rel="noopener" class="btn-o" style="padding:.5rem 1rem;font-size:.56rem">TEDx Talk &#9654;</a>
+      </div>
     </div>
 
     <!-- RIGHT: Agentic flow visual — canvas-drawn by JS -->
@@ -1420,7 +1452,7 @@ a,button,[data-go]{cursor:pointer}
         <span class="chip">Genuine advice</span>
         <span class="chip">Any timezone</span>
       </div>
-      <a href="https://calendly.com/YOUR_USERNAME/30min" class="btn-g" target="_blank">
+      <a href="https://calendly.com/ceo-bachao/30min" class="btn-g" target="_blank">
         <span class="sh"></span>→ Open Calendar &amp; Book Now
       </a>
       <div class="cal-or">
@@ -1522,6 +1554,27 @@ window.addEventListener('keydown', e => {
   if ([' ','ArrowRight','ArrowDown'].includes(e.key)) { e.preventDefault(); go(cur + 1); }
   if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
 });
+
+/* ── SCROLL WHEEL → SLIDE NAVIGATION ── */
+let _wheelCooldown = false;
+window.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (_wheelCooldown || busy) return;
+  _wheelCooldown = true;
+  if (e.deltaY > 30) go(cur + 1);
+  else if (e.deltaY < -30) go(cur - 1);
+  setTimeout(() => { _wheelCooldown = false; }, 700);
+}, { passive: false });
+
+/* ── HIDE SCROLL PROMPT ON FIRST INTERACTION ── */
+const scrollPrompt = document.getElementById('scroll-prompt');
+function hidePrompt() {
+  if (scrollPrompt) scrollPrompt.classList.add('hide');
+}
+window.addEventListener('wheel', hidePrompt, { once: true });
+window.addEventListener('keydown', hidePrompt, { once: true });
+window.addEventListener('touchstart', hidePrompt, { once: true });
+
 let _tx = 0, _ty = 0;
 window.addEventListener('touchstart', e => {
   _tx = e.touches[0].clientX;
@@ -1530,8 +1583,8 @@ window.addEventListener('touchstart', e => {
 window.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - _tx;
   const dy = e.changedTouches[0].clientY - _ty;
-  // Ignore swipe if touch started inside a horizontally-scrollable container
-  const target = e.target.closest('.ct-scroll-wrap,.s0-w');
+  // Ignore swipe if touch started inside a horizontally-scrollable container (but NOT hero)
+  const target = e.target.closest('.ct-scroll-wrap');
   if (target) return;
   // Only fire deck swipe if horizontal dominates
   if (Math.abs(dx) > Math.abs(dy) + 10 && Math.abs(dx) > 52) {
