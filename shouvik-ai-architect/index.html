@@ -1,24 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0041)https://shouvik-ai-architect.netlify.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shouvik Mukherjee — Builder · Founder · TEDx Speaker</title>
-<meta name="description" content="Shouvik Mukherjee — Ex-K12 Techno, IDFC First Bank, Intuit, Wipro. 12th Pass to ₹90 LPA. AI Architect, Full-Stack Builder, TEDx Speaker. Book a free discovery call.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shouvik Mukherjee — Builder · Founder · TEDx Speaker">
-<meta property="og:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Senior AI architect & full-stack builder. 132 reviews, 4.9★, 97% on-budget. Book a free call.">
-<meta property="og:url" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/">
-<meta property="og:image" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/og-image.png">
-<meta name="twitter:image" content="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/">
-<meta name="twitter:title" content="Shouvik Mukherjee — Builder · Founder · TEDx Speaker">
-<meta name="twitter:description" content="12th Pass → ₹90 LPA → Left it all to build Bachao.AI. Book a free discovery call.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23060508' width='100' height='100' rx='20'/><text x='50' y='68' font-size='52' font-family='sans-serif' font-weight='900' fill='%23C9882C' text-anchor='middle'>SM</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Sora:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Libre+Baskerville:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Shouvik Mukherjee — Builder · Founder · TEDx Speaker_files/css2" rel="stylesheet">
 <style>
 @property --holo-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
 @property --bar-w { syntax: '<percentage>'; initial-value: 0%; inherits: false; }
@@ -38,9 +26,10 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;background:var(--void)}
-body{font-family:'Outfit',sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased;cursor:none}
+body{font-family:'Outfit',sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased;cursor:auto}
 a{text-decoration:none;color:inherit}
-button{font:inherit;background:none;border:none;cursor:none}
+button{font:inherit;background:none;border:none;cursor:pointer}
+a,button,[data-go],.nv-item,.fq-trigger,.btn-g,.btn-o,.pc-cta,.tl-item,.ct-node,.tcard-flip{cursor:pointer}
 
 /* ── LOADER ── */
 #loader{position:fixed;inset:0;z-index:2000;background:var(--void);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .8s var(--E),visibility .8s}
@@ -76,9 +65,6 @@ body[data-click] #c-dot{transform:translate(-50%,-50%) scale(2.4);background:var
 #brand{font-family:'Unbounded',sans-serif;font-weight:900;font-size:.72rem;letter-spacing:.05em;color:var(--cream);opacity:.8}
 #brand em{color:var(--gold);font-style:normal}
 #slide-tag{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
-#top-right{display:flex;align-items:center;gap:.8rem}
-.top-social{font-family:'Sora',sans-serif;font-size:.62rem;font-weight:600;color:var(--muted);border:1px solid var(--c12);border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;transition:color .22s var(--E),border-color .22s var(--E),background .22s var(--E);text-decoration:none}
-.top-social:hover{color:var(--gold);border-color:var(--g-brd);background:var(--g-glow)}
 #pg-rail{position:fixed;top:0;left:0;right:0;height:2px;z-index:600}
 #pg-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--g-lt),var(--jade));transition:width .55s var(--E);box-shadow:0 0 8px rgba(201,136,44,.5)}
 #nav{position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.42rem}
@@ -86,24 +72,22 @@ body[data-click] #c-dot{transform:translate(-50%,-50%) scale(2.4);background:var
 .nv-label{font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;color:var(--muted);opacity:0;transform:translateX(10px);white-space:nowrap;transition:opacity .22s var(--E),transform .22s var(--E),color .22s;pointer-events:none}
 .nv-item:hover .nv-label,.nv-item.on .nv-label{opacity:1;transform:none}
 .nv-item.on .nv-label{color:var(--gold)}
-.nv-dot{width:6px;height:6px;border-radius:50%;background:var(--c30);flex-shrink:0;transition:background .28s var(--E),transform .28s var(--E),box-shadow .28s}
+.nv-dot{width:5px;height:5px;border-radius:50%;background:var(--faint);flex-shrink:0;transition:background .28s var(--E),transform .28s var(--E),box-shadow .28s}
 .nv-item:hover .nv-dot{background:var(--c60);transform:scale(1.4)}
 .nv-item.on .nv-dot{background:var(--gold);transform:scale(1.6);box-shadow:0 0 0 3px rgba(201,136,44,.2)}
-/* ── BOTTOM NAV BAR ── */
-#deck-nav{position:fixed;bottom:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.7rem 1.2rem;background:linear-gradient(to top,rgba(6,5,8,.95) 60%,rgba(6,5,8,0));pointer-events:none}
-#deck-nav>*{pointer-events:all}
-#arr-prev,#arr-next{display:inline-flex;align-items:center;gap:.4rem;font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.04em;color:var(--c60);background:var(--panel);border:1px solid var(--c12);border-radius:6px;padding:.5rem 1rem;cursor:none;transition:all .22s var(--E)}
-#arr-prev:hover,#arr-next:hover{color:var(--gold);border-color:var(--g-brd);background:var(--g-glow2);transform:translateY(-1px)}
-#arr-prev:disabled,#arr-next:disabled{opacity:.15;pointer-events:none;transform:none}
-#arr-prev .arr-icon,#arr-next .arr-icon{font-size:.8rem;line-height:1}
-#slide-counter{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.12em;color:var(--muted);min-width:3.5rem;text-align:center}
-#kbtip{display:none}
+#arr-prev,#arr-next{position:fixed;top:50%;transform:translateY(-50%);z-index:500;width:32px;height:64px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--faint);cursor:none;transition:color .22s var(--E),background .22s var(--E)}
+#arr-prev{left:0;border-right:1px solid var(--c12)}
+#arr-next{right:0;border-left:1px solid var(--c12)}
+#arr-prev:hover,#arr-next:hover{color:var(--gold);background:var(--g-glow)}
+#arr-prev:disabled,#arr-next:disabled{opacity:.1;pointer-events:none}
+#kbtip{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:400;font-family:'Outfit',sans-serif;font-size:.64rem;letter-spacing:.06em;color:var(--faint);white-space:nowrap;pointer-events:none}
 #wipe-el{position:fixed;inset:0;z-index:900;background:var(--void);transform:scaleX(0);transform-origin:left;opacity:0;pointer-events:none}
 
 /* ── SLIDE ENGINE ── */
 #deck{position:fixed;inset:0;z-index:1}
 .sl{position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;padding:5rem 3.8rem 6rem;will-change:transform,opacity;overflow:hidden}
 .sl.on{opacity:1;pointer-events:all;overflow-y:auto}
+#s4{align-items:flex-start;padding-top:5.2rem}
 .sl.ir{animation:slIR .55s var(--E) forwards}
 .sl.il{animation:slIL .55s var(--E) forwards}
 .sl.or{animation:slOR .40s var(--Ef) forwards}
@@ -235,7 +219,7 @@ body.loaded .origin{opacity:1}
   .ai-visual{height:480px}
 }
 
-#agentCanvas{position:absolute;top:0;left:0;width:100%;height:calc(100% - 60px);pointer-events:none;z-index:1}
+#agentCanvas{position:absolute;top:0;left:0;width:100%;height:calc(100% - 88px);pointer-events:none;z-index:1}
 
 /* ── Animated data packets — drawn by canvas JS ── */
 
@@ -280,18 +264,18 @@ body.loaded .origin{opacity:1}
 /* ── Log stream panel ── */
 .aflow-log{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(to top, rgba(6,5,8,.95) 60%, rgba(6,5,8,0));
-  border-top:1px solid var(--c12);
-  padding:.35rem .8rem .4rem;
+  background:rgba(6,5,8,.92);
+  border:1px solid var(--c12);
+  border-radius:4px;
+  padding:.6rem .8rem;
   font-family:'JetBrains Mono',monospace;
-  font-size:.48rem;
-  line-height:1.65;
+  font-size:.54rem;
+  line-height:1.8;
   overflow:hidden;
-  height:58px;
+  height:80px;
   z-index:5;
   opacity:0;
   animation:nodeAppear .4s ease 2.5s forwards;
-  pointer-events:none;
 }
 .alog-line{color:var(--faint);white-space:nowrap;overflow:hidden;
   animation:logSlide .4s ease forwards;
@@ -535,6 +519,8 @@ body.loaded .origin{opacity:1}
 .svc-desc{font-family:'Outfit',sans-serif;font-size:.78rem;line-height:1.7;color:var(--muted);margin-bottom:1rem}
 .svc-foot{display:flex;flex-direction:column;gap:.2rem}
 .svc-price{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;color:var(--gold)}
+/* prices hidden per operator request */
+.svc-price,.svc-time,.pc-p,.pc-note{display:none!important}
 .svc-time{font-family:'Outfit',sans-serif;font-size:.7rem;color:var(--muted)}
 .sl.on .svc{animation:svcIn .6s var(--Espring) both}
 .svc-grid .svc:nth-child(1){animation-delay:.08s}.svc-grid .svc:nth-child(2){animation-delay:.18s}
@@ -649,10 +635,8 @@ body.loaded .origin{opacity:1}
 #slide-tag{font-size:.44rem;letter-spacing:.12em}
 #nav{display:none}
 .belt{display:none}
-.top-social{width:22px;height:22px;font-size:.52rem}
-#arr-prev,#arr-next{font-size:.62rem;padding:.45rem .8rem}
-#slide-counter{font-size:.48rem}
-/* arr sizing handled by #deck-nav mobile rules above */
+#kbtip{font-size:.5rem}
+#arr-prev,#arr-next{width:32px;height:56px}
 
 /* ── Cursor: hidden on touch/mobile ── */
 #c-dot,#c-ring{display:none}
@@ -712,10 +696,9 @@ a,button,[data-go]{cursor:pointer}
   #top-bar{padding:1.2rem 2.2rem}
   #nav{display:flex}
   .belt{display:block}
-  /* Restore desktop cursor */
-  #c-dot,#c-ring{display:block}
-  body{cursor:none}
-  a,button{cursor:none}
+  #c-dot,#c-ring{display:none}
+  body{cursor:auto}
+  a,button{cursor:pointer}
 
   /* 2-column slides */
   .s2-w{grid-template-columns:1fr 1.1fr;gap:3.5rem}
@@ -774,34 +757,28 @@ a,button,[data-go]{cursor:pointer}
 }
 </style>
 </head>
-<body>
+<body class="loaded">
 
-<div id="loader">
+<div id="loader" class="ready out">
   <div id="load-name">SM</div>
-  <div id="load-track"><div id="load-bar"></div></div>
-  <div id="load-pct">LOADING 0%</div>
+  <div id="load-track"><div id="load-bar" style="width: 100%;"></div></div>
+  <div id="load-pct">LOADING 100%</div>
 </div>
 
-<canvas id="cv"></canvas>
-<div id="c-dot"></div>
-<div id="c-ring"></div>
-<div id="pg-rail"><div id="pg-fill"></div></div>
+<canvas id="cv" width="1440" height="695"></canvas>
+<div id="c-dot" style="left: 1092px; top: 14px;"></div>
+<div id="c-ring" style="left: 1074.5px; top: 207.185px;"></div>
+<div id="pg-rail"><div id="pg-fill" style="width: 0%;"></div></div>
 
 <div id="top-bar">
   <div id="brand">S<em>·</em>M</div>
-  <div id="top-right">
-    <a href="https://www.linkedin.com/in/ceo-shouvik/" target="_blank" rel="noopener" class="top-social" aria-label="LinkedIn">in</a>
-    <a href="https://www.youtube.com/watch?v=C7vN5W3FQZU&t=14s" target="_blank" rel="noopener" class="top-social" aria-label="YouTube">&#9654;</a>
-    <div id="slide-tag"></div>
-  </div>
+  <div id="slide-tag">Hello · Portfolio 2026</div>
 </div>
 
-<div id="nav"></div>
-<div id="deck-nav">
-  <button id="arr-prev" aria-label="Previous"><span class="arr-icon">‹</span> Prev</button>
-  <span id="slide-counter">1 / 11</span>
-  <button id="arr-next" aria-label="Next">Next <span class="arr-icon">›</span></button>
-</div>
+<div id="nav"><div class="nv-item on"><span class="nv-label">Hello</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">The Journey</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">The Story</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Track Record</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Portfolio</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">The Problem</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Services</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Process</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Pricing</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">FAQ</span><span class="nv-dot"></span></div><div class="nv-item"><span class="nv-label">Book a Call</span><span class="nv-dot"></span></div></div>
+<button id="arr-prev" aria-label="Previous" disabled="">‹</button>
+<button id="arr-next" aria-label="Next">›</button>
+<div id="kbtip">← → Arrow keys to navigate</div>
 <div id="wipe-el"></div>
 
 <div id="deck">
@@ -813,7 +790,7 @@ a,button,[data-go]{cursor:pointer}
 
     <!-- LEFT: hero text, body.loaded gates each line's animation -->
     <div class="s0-left">
-      <div class="badge"><span class="live-dot"></span>Available for new projects · <span id="badge-date"></span></div>
+      <div class="badge"><span class="live-dot"></span>Available for new projects · March 2026</div>
       <div class="hx">
         <span class="row"><span id="hw1">BUILDER</span></span>
         <span class="row"><span class="g" id="hw2">FOUNDER</span></span>
@@ -821,19 +798,15 @@ a,button,[data-go]{cursor:pointer}
       </div>
       <p class="tagline">Ex-<em>K12 Techno · IDFC First Bank · Intuit · Wipro</em> — TEDxBangalore 2025</p>
       <div class="h-btns">
-        <a href="#" class="btn-g" data-go="10"><span class="sh"></span>Book Discovery Call</a>
-        <a href="#" class="btn-o" data-go="1">My Journey →</a>
+        <a href="https://shouvik-ai-architect.netlify.app/#" class="btn-g" data-go="10"><span class="sh"></span>Book Discovery Call</a>
+        <a href="https://shouvik-ai-architect.netlify.app/#" class="btn-o" data-go="1">My Journey →</a>
       </div>
       <div class="origin">From Bandel, West Bengal. Building for Bharat.</div>
-      <div class="hero-social S" style="display:flex;gap:.6rem;margin-top:.9rem">
-        <a href="https://www.linkedin.com/in/ceo-shouvik/" target="_blank" rel="noopener" class="btn-o" style="padding:.5rem 1rem;font-size:.56rem">LinkedIn</a>
-        <a href="https://www.youtube.com/watch?v=C7vN5W3FQZU&t=14s" target="_blank" rel="noopener" class="btn-o" style="padding:.5rem 1rem;font-size:.56rem">TEDx Talk &#9654;</a>
-      </div>
     </div>
 
     <!-- RIGHT: Agentic flow visual — canvas-drawn by JS -->
     <div class="ai-visual" aria-hidden="true">
-      <canvas id="agentCanvas"></canvas>
+      <canvas id="agentCanvas" width="440" height="392"></canvas>
 
       <!-- Agent node boxes — positioned absolutely, canvas draws edges + packets between them -->
       <!-- Orchestrator -->
@@ -859,7 +832,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="an-progress"><div class="an-prog-fill" style="--pf-dur:3.1s;--pf-del:.8s"></div></div>
       </div>
 
-      <div class="aflow-node jade" id="aN-rev" style="--nad:.9s;top:56%;left:84%">
+      <div class="aflow-node jade" id="aN-rev" style="--nad:.9s;top:62%;left:84%">
         <span class="an-icon">🔍</span>
         <span class="an-title">Reviewer</span>
         <span class="an-role">Quality gate</span>
@@ -867,7 +840,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="an-progress"><div class="an-prog-fill" style="--pf-dur:5s;--pf-del:1.4s"></div></div>
       </div>
 
-      <div class="aflow-node jade" id="aN-test" style="--nad:1.1s;top:68%;left:38%">
+      <div class="aflow-node jade" id="aN-test" style="--nad:1.1s;top:78%;left:38%">
         <span class="an-icon">🧪</span>
         <span class="an-title">Tester</span>
         <span class="an-role">Validation</span>
@@ -909,17 +882,15 @@ a,button,[data-go]{cursor:pointer}
         <!-- SVG spine line -->
         <svg class="ct-spine-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="spineGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="rgba(240,230,214,.08)"/>
-              <stop offset="30%"  stop-color="#C9882C"/>
-              <stop offset="82%"  stop-color="#C9882C"/>
-              <stop offset="91%"  stop-color="#00B37D"/>
-              <stop offset="100%" stop-color="#00B37D"/>
-            </linearGradient>
+            <lineargradient id="spineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(240,230,214,.08)"></stop>
+              <stop offset="30%" stop-color="#C9882C"></stop>
+              <stop offset="82%" stop-color="#C9882C"></stop>
+              <stop offset="91%" stop-color="#00B37D"></stop>
+              <stop offset="100%" stop-color="#00B37D"></stop>
+            </lineargradient>
           </defs>
-          <line class="ct-spine" x1="0" y1="50%" x2="100%" y2="50%"
-            stroke="url(#spineGrad)" stroke-width="1.5"
-            style="stroke-dasharray:4000;stroke-dashoffset:4000;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1) .2s"/>
+          <line class="ct-spine" x1="0" y1="50%" x2="100%" y2="50%" stroke="url(#spineGrad)" stroke-width="1.5" style="stroke-dasharray:4000;stroke-dashoffset:4000;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1) .2s"></line>
         </svg>
         
       <div class="ct-node ct-muted" style="--ni:0">
@@ -1026,7 +997,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="ct-dot"><span class="ct-yr">2024</span></div>
         <div class="ct-card">
           <div class="ct-tag">Mission</div>
-          <div class="ct-role">Founder & CEO</div>
+          <div class="ct-role">Founder &amp; CEO</div>
           <div class="ct-org">Bachao.AI</div>
           <span class="ct-sal">₹1.6Cr opp. cost</span>
           <div class="ct-note">Left ₹90 LPA. DPIIT-recognised. TEDxBangalore 2025. 3,600 pre-orders. Solo + AI.</div>
@@ -1051,15 +1022,13 @@ a,button,[data-go]{cursor:pointer}
       <div class="tl">
         <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:10px;top:0;bottom:0;width:2px;height:100%;pointer-events:none;overflow:visible" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="tlGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#C9882C"/>
-              <stop offset="60%" stop-color="rgba(201,136,44,.4)"/>
-              <stop offset="100%" stop-color="rgba(201,136,44,.05)"/>
-            </linearGradient>
+            <lineargradient id="tlGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C9882C"></stop>
+              <stop offset="60%" stop-color="rgba(201,136,44,.4)"></stop>
+              <stop offset="100%" stop-color="rgba(201,136,44,.05)"></stop>
+            </lineargradient>
           </defs>
-          <line class="tl-path" x1="1" y1="0" x2="1" y2="100%"
-            stroke="url(#tlGrad)" stroke-width="1" fill="none"
-            style="stroke-dasharray:2000;stroke-dashoffset:2000;transition:stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)"/>
+          <line class="tl-path" x1="1" y1="0" x2="1" y2="100%" stroke="url(#tlGrad)" stroke-width="1" fill="none" style="stroke-dasharray:2000;stroke-dashoffset:2000;transition:stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)"></line>
         </svg>
         
           <div class="tl-item">
@@ -1115,7 +1084,7 @@ a,button,[data-go]{cursor:pointer}
           <div class="tcard-inner">
             <div class="tcard-front">
               <div class="tc-stars">★★★★★</div>
-              <div class="tc-q">&ldquo;Delivered exactly what we needed in record time. ROI was clear within the first month. Would hire again without hesitation.&rdquo;</div>
+              <div class="tc-q">“Delivered exactly what we needed in record time. ROI was clear within the first month. Would hire again without hesitation.”</div>
               <div class="tc-who">James R.</div>
               <div class="tc-loc">SaaS Founder · USA · Freelancer.com</div>
             </div>
@@ -1129,7 +1098,7 @@ a,button,[data-go]{cursor:pointer}
           <div class="tcard-inner">
             <div class="tcard-front">
               <div class="tc-stars">★★★★★</div>
-              <div class="tc-q">&ldquo;We&rsquo;d been quoted 6 months by agencies. Shouvik scoped it in 48 hours and shipped in 3 weeks. Our board was stunned.&rdquo;</div>
+              <div class="tc-q">“We’d been quoted 6 months by agencies. Shouvik scoped it in 48 hours and shipped in 3 weeks. Our board was stunned.”</div>
               <div class="tc-who">Priya K.</div>
               <div class="tc-loc">Co-Founder · Bangalore · Direct</div>
             </div>
@@ -1143,7 +1112,7 @@ a,button,[data-go]{cursor:pointer}
           <div class="tcard-inner">
             <div class="tcard-front">
               <div class="tc-stars">★★★★★</div>
-              <div class="tc-q">&ldquo;Reduced our team&rsquo;s manual reporting from 20 hours weekly to under 20 minutes. The AI pipeline just runs.&rdquo;</div>
+              <div class="tc-q">“Reduced our team’s manual reporting from 20 hours weekly to under 20 minutes. The AI pipeline just runs.”</div>
               <div class="tc-who">Marcus T.</div>
               <div class="tc-loc">Operations Director · Australia · Upwork</div>
             </div>
@@ -1171,87 +1140,46 @@ a,button,[data-go]{cursor:pointer}
           <span class="chip">n8n · Agents</span>
         </div>
       </div>
-      <p class="body S" style="margin-top:1.2rem;font-size:.78rem;color:var(--muted)">Hover cards for scanline + holographic reveal</p>
     </div>
     <div class="port-grid">
           <div class="port-card">
             <span class="port-idx">2024–Now</span>
             <span class="port-icon">🛡</span>
             <div class="port-name">Bachao.AI — On-Device AI</div>
-            <p class="port-desc">India&rsquo;s scam-fighting AI platform. Federated learning, zero cloud dependency. Live call analysis, deepfake detection, AI video intercept. Built solo with AI augmentation — 20 pitch deck iterations, 5 product demo videos, Cashfree + Razorpay payment integration, React Native mobile app. 3,600 pre-orders in 3 months. DPIIT-recognised.</p>
+            <p class="port-desc">India’s scam-fighting AI. Federated learning, zero cloud. Live call analysis, deepfake detection, AI video intercept. 3,600 pre-orders in 3 months.</p>
             <div class="port-meta">
-              <span class="port-tag">Python · TFLite · React Native · Node</span>
-              <a class="port-link" href="https://poc.bachao.ai" target="_blank" rel="noopener">poc.bachao.ai →</a>
-            </div>
-          </div>
-          <div class="port-card">
-            <span class="port-idx">2025–2026</span>
-            <span class="port-icon">🏠</span>
-            <div class="port-name">PropertyCIBIL — Real Estate Intelligence</div>
-            <p class="port-desc">Full-stack property verification platform. Built API backend, client app, deployed to production. Delivered 6 technical reports: DevOps infrastructure, CI/CD pipeline, security remediation, production deployment, API health monitoring. Complete data intelligence layer with premium PDF report generation.</p>
-            <div class="port-meta">
-              <span class="port-tag">Next.js · Node · DevOps · CI/CD</span>
-              <span class="port-link">Production deployed</span>
-            </div>
-          </div>
-          <div class="port-card">
-            <span class="port-idx">2025</span>
-            <span class="port-icon">🔗</span>
-            <div class="port-name">LeadForge — LinkedIn Automation SaaS</div>
-            <p class="port-desc">End-to-end LinkedIn automation platform for a client. 5 production iterations from MVP to final package. Chrome extension + backend service + 3 workflow engines (commenting, connection requests, DMs). Financial model, PRD, wireframe QA — full product lifecycle delivered.</p>
-            <div class="port-meta">
-              <span class="port-tag">React · Vite · Chrome Extension · n8n</span>
-              <span class="port-link">5 versions shipped</span>
-            </div>
-          </div>
-          <div class="port-card">
-            <span class="port-idx">2025</span>
-            <span class="port-icon">🔒</span>
-            <div class="port-name">SantiFile — Malware Detection Platform</div>
-            <p class="port-desc">Complete product design for an AI-powered file sanitisation tool. End-to-end architecture blueprint, competitor analysis, system flow diagrams. 12 high-fidelity UI screenshots demonstrating full malware detection workflow. From concept to production-ready spec.</p>
-            <div class="port-meta">
-              <span class="port-tag">Architecture · Security · Product Design</span>
-              <span class="port-link">Full blueprint delivered</span>
-            </div>
-          </div>
-          <div class="port-card">
-            <span class="port-idx">2025–2026</span>
-            <span class="port-icon">🎙</span>
-            <div class="port-name">Voice AI Platform — Bachao.AI</div>
-            <p class="port-desc">Real-time voice analysis engine. Dockerised deployment with Lambda automation (auto-start/stop for cost control). 13 QA reports covering mobile, tablet, desktop responsiveness. Full deployment architecture documentation. Browser-tested voice detection prototype.</p>
-            <div class="port-meta">
-              <span class="port-tag">Docker · Lambda · WebRTC · Python</span>
-              <span class="port-link">Deployed &amp; tested</span>
+              <span class="port-tag">Python · TFLite · DPIIT</span>
+              <span class="port-link">poc.bachao.ai →</span>
             </div>
           </div>
           <div class="port-card">
             <span class="port-idx">Client Work</span>
-            <span class="port-icon">🏏</span>
-            <div class="port-name">Sourav Ganguly — Digital Platform</div>
-            <p class="port-desc">Built the complete digital platform for cricketing legend Sourav Ganguly&rsquo;s team. Full Next.js application with interactive pitch deck. Delivered master security report, VAPT audit, and comprehensive QA. End-to-end: design, build, secure, deploy.</p>
+            <span class="port-icon">🚀</span>
+            <div class="port-name">SaaS MVP Builds</div>
+            <p class="port-desc">Multiple full-stack platforms shipped in under 30 days for US, UK &amp; AU founders. 4.9★ across 132 Freelancer.com reviews, 97% on-budget.</p>
             <div class="port-meta">
-              <span class="port-tag">Next.js · Security Audit · VAPT</span>
-              <span class="port-link">Delivered &amp; audited</span>
+              <span class="port-tag">React · Node · AI</span>
+              <span class="port-link">5★ rated →</span>
             </div>
           </div>
           <div class="port-card">
-            <span class="port-idx">2015–2023</span>
-            <span class="port-icon">🚀</span>
-            <div class="port-name">300+ Freelance Projects</div>
-            <p class="port-desc">132 Freelancer.com reviews (4.9★) + 168 Upwork jobs. $100K+ on Freelancer.com alone. ₹4 Crore+ total international earnings. Clients across US, UK, Australia, Canada. Full-stack MVPs shipped in under 30 days. 97% on-budget delivery rate across 17 years.</p>
+            <span class="port-idx">Client Work</span>
+            <span class="port-icon">🤖</span>
+            <div class="port-name">AI Workflow Automation</div>
+            <p class="port-desc">20+ hrs/week of manual work → 20 minutes. BI dashboards, multi-agent pipelines, API integrations. ROI confirmed month 1.</p>
             <div class="port-meta">
-              <span class="port-tag">React · Node · Python · AI</span>
-              <a class="port-link" href="https://www.freelancer.com/u/shouvikm" target="_blank" rel="noopener">5★ rated →</a>
+              <span class="port-tag">AI · Python · n8n</span>
+              <span class="port-link">ROI month 1 →</span>
             </div>
           </div>
           <div class="port-card">
             <span class="port-idx">July 26, 2025</span>
             <span class="port-icon">🎤</span>
-            <div class="port-name">TEDxBangalore FRINGE &rsquo;25</div>
-            <p class="port-desc">&ldquo;When AI Fights Back&rdquo; — invited speaker, not applied. Official TED-licensed event. From ₹4,000/month call center to TEDx stage. Full talk video available.</p>
+            <div class="port-name">TEDxBangalore FRINGE ’25</div>
+            <p class="port-desc">“When AI Fights Back” — invited speaker, not applied. Official TED-licensed event. From ₹4,000/month call center to TEDx stage.</p>
             <div class="port-meta">
               <span class="port-tag">Invited · Merit only</span>
-              <a class="port-link" href="https://www.youtube.com/watch?v=C7vN5W3FQZU&amp;t=14s" target="_blank" rel="noopener">Watch talk →</a>
+              <span class="port-link">Watch talk →</span>
             </div>
           </div></div>
   </div>
@@ -1266,7 +1194,7 @@ a,button,[data-go]{cursor:pointer}
             <div class="pain-num">01</div>
             <div class="p-icon">🔄</div>
             <div class="p-title">The Handoff Problem</div>
-            <p class="p-desc">Senior sales closes the deal. A junior you&rsquo;ve never met does the work. Quality becomes someone else&rsquo;s problem.</p>
+            <p class="p-desc">Senior sales closes the deal. A junior you’ve never met does the work. Quality becomes someone else’s problem.</p>
           </div>
           <div class="pain">
             <div class="pain-num">02</div>
@@ -1278,9 +1206,9 @@ a,button,[data-go]{cursor:pointer}
             <div class="pain-num">03</div>
             <div class="p-icon">⏳</div>
             <div class="p-title">The Timeline Lie</div>
-            <p class="p-desc">&ldquo;6–8 weeks&rdquo; becomes 6 months. Discovery sprints bloat. Scope creeps. Runway runs out before go-live.</p>
+            <p class="p-desc">“6–8 weeks” becomes 6 months. Discovery sprints bloat. Scope creeps. Runway runs out before go-live.</p>
           </div></div>
-    <p class="S" style="margin-top:2rem;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--c60);max-width:700px;line-height:1.82">The solution isn't a better agency. It's a <strong style="color:var(--cream);font-weight:500">senior engineer who personally owns every outcome</strong> — someone who built a 46-person company, survived collapse, rebuilt to ₹90 LPA at Series F-stage K12 Techno Services (Peak XV/Sequoia-backed), and still chooses to sit at the keyboard and ship your product themselves.</p>
+    <p class="S" style="margin-top:2rem;font-family:&#39;Outfit&#39;,sans-serif;font-size:.9rem;color:var(--c60);max-width:700px;line-height:1.82">The solution isn't a better agency. It's a <strong style="color:var(--cream);font-weight:500">senior engineer who personally owns every outcome</strong> — someone who built a 46-person company, survived collapse, rebuilt to ₹90 LPA at Series F-stage K12 Techno Services (Peak XV/Sequoia-backed), and still chooses to sit at the keyboard and ship your product themselves.</p>
   </div>
 </div>
 
@@ -1288,7 +1216,7 @@ a,button,[data-go]{cursor:pointer}
   <div class="s6-w">
     <div class="s6-top">
       <div><p class="eye S">What I build</p><h2 class="s6-h S">Four ways to <span class="g">ship</span></h2></div>
-      <p class="S" style="font-family:'Outfit',sans-serif;font-size:.8rem;color:var(--muted);max-width:180px;text-align:right;line-height:1.65">100% personally delivered by Shouvik Mukherjee. No juniors. No handoffs.</p>
+      <p class="S" style="font-family:&#39;Outfit&#39;,sans-serif;font-size:.8rem;color:var(--muted);max-width:180px;text-align:right;line-height:1.65">100% personally delivered by Shouvik Mukherjee. No juniors. No handoffs.</p>
     </div>
     <div class="svc-grid">
           <div class="svc">
@@ -1348,21 +1276,19 @@ a,button,[data-go]{cursor:pointer}
     <div class="srail S">
       <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:10px;top:20px;bottom:20px;width:2px;height:calc(100% - 40px);pointer-events:none;overflow:visible" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="srailGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#C9882C"/>
-            <stop offset="100%" stop-color="#00B37D"/>
-          </linearGradient>
+          <lineargradient id="srailGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9882C"></stop>
+            <stop offset="100%" stop-color="#00B37D"></stop>
+          </lineargradient>
         </defs>
-        <line class="srail-path" x1="1" y1="0" x2="1" y2="100%"
-          stroke="url(#srailGrad)" stroke-width="1.5" fill="none"
-          style="stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 2.0s cubic-bezier(.16,1,.3,1) 0.3s"/>
+        <line class="srail-path" x1="1" y1="0" x2="1" y2="100%" stroke="url(#srailGrad)" stroke-width="1.5" fill="none" style="stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 2.0s cubic-bezier(.16,1,.3,1) 0.3s"></line>
       </svg>
       
           <div class="step">
             <div class="step-dot">01</div>
             <div class="step-tag">Discovery</div>
             <div class="step-name">Free 30-Minute Call</div>
-            <p class="step-desc">Share your idea. I tell you how I&rsquo;d build it, what it costs, what to avoid — genuine advice, no pitch.</p>
+            <p class="step-desc">Share your idea. I tell you how I’d build it, what it costs, what to avoid — genuine advice, no pitch.</p>
           </div>
           <div class="step">
             <div class="step-dot">02</div>
@@ -1394,9 +1320,9 @@ a,button,[data-go]{cursor:pointer}
 
 <div class="sl" id="s8" data-lbl="Pricing">
   <div class="s8-w">
-    <p class="eye S">Transparent pricing</p>
-    <h2 class="s8-h S">Investment that <span class="g">makes sense</span></h2>
-    <p class="s8-sub S">A senior US engineer costs $200/hr. My entire project fee ≈ one week of their salary. International clients invoiced in USD via Dhisattva AI Pvt Ltd.</p>
+    <p class="eye S">Investment</p>
+    <h2 class="s8-h S">Right-sized for <span class="g">your goals</span></h2>
+    <p class="s8-sub S">Fixed-price SOW. Every project scoped, milestones locked in writing. Pricing discussed on your free 30-minute discovery call.</p>
     <div class="pc-row">
           <div class="pc">
             
@@ -1406,7 +1332,7 @@ a,button,[data-go]{cursor:pointer}
             <div class="pc-note">~$1,200–$3,000 · 1–3 weeks</div>
             <div class="rule"></div>
             <ul class="pc-list"><li>AI agent design &amp; deployment</li><li>Process automation workflows</li><li>BI dashboards &amp; reporting</li><li>API integrations</li><li>30-day support</li></ul>
-            <a href="#" class="pc-cta" data-go="10">Book a Call</a>
+            <a href="https://shouvik-ai-architect.netlify.app/#" class="pc-cta" data-go="10">Book a Call</a>
           </div>
           <div class="pc star">
             <div class="pc-badge">Most Popular</div>
@@ -1416,7 +1342,7 @@ a,button,[data-go]{cursor:pointer}
             <div class="pc-note">~$3,000–$5,000 · 3–5 weeks</div>
             <div class="rule"></div>
             <ul class="pc-list"><li>Full-stack web or mobile MVP</li><li>AI features from day one</li><li>Weekly live demos</li><li>Full code ownership &amp; docs</li><li>Launch-ready deployment</li><li>30-day post-launch support</li></ul>
-            <a href="#" class="pc-cta" data-go="10">Book a Call</a>
+            <a href="https://shouvik-ai-architect.netlify.app/#" class="pc-cta" data-go="10">Book a Call</a>
           </div>
           <div class="pc">
             
@@ -1426,7 +1352,7 @@ a,button,[data-go]{cursor:pointer}
             <div class="pc-note">~$5,000–$10,000 · ongoing</div>
             <div class="rule"></div>
             <ul class="pc-list"><li>Complex SaaS / internal tool</li><li>Fractional CTO advisory</li><li>Scalable architecture review</li><li>Team hiring filter &amp; guidance</li><li>Full handover + documentation</li><li>Priority support 60 days</li></ul>
-            <a href="#" class="pc-cta" data-go="10">Book a Call</a>
+            <a href="https://shouvik-ai-architect.netlify.app/#" class="pc-cta" data-go="10">Book a Call</a>
           </div></div>
   </div>
 </div>
@@ -1443,7 +1369,7 @@ a,button,[data-go]{cursor:pointer}
         <div class="fq">
           <div class="fq-ghost">01</div>
           <button class="fq-trigger">Will YOU personally do all the work?<span class="fq-plus">+</span></button>
-          <div class="fq-body"><div class="fq-inner">100% me. Every line of code, every architecture decision — that&rsquo;s Shouvik. I use AI as a force-multiplier, not a replacement. Judgment, strategy, and delivery are entirely mine. No juniors, no handoffs, ever.</div></div>
+          <div class="fq-body"><div class="fq-inner">100% me. Every line of code, every architecture decision — that’s Shouvik. I use AI as a force-multiplier, not a replacement. Judgment, strategy, and delivery are entirely mine. No juniors, no handoffs, ever.</div></div>
         </div>
         <div class="fq">
           <div class="fq-ghost">02</div>
@@ -1457,7 +1383,7 @@ a,button,[data-go]{cursor:pointer}
         </div>
         <div class="fq">
           <div class="fq-ghost">04</div>
-          <button class="fq-trigger">I&rsquo;m non-technical. Will I understand?<span class="fq-plus">+</span></button>
+          <button class="fq-trigger">I’m non-technical. Will I understand?<span class="fq-plus">+</span></button>
           <div class="fq-body"><div class="fq-inner">Non-technical founders are my favourite clients. Every decision gets plain business language. Weekly demos mean you see real, working progress in your browser — never buried in a spec document.</div></div>
         </div>
         <div class="fq">
@@ -1490,12 +1416,12 @@ a,button,[data-go]{cursor:pointer}
         <span class="chip">Genuine advice</span>
         <span class="chip">Any timezone</span>
       </div>
-      <a href="https://calendly.com/ceo-bachao/30min" class="btn-g" target="_blank">
+      <a href="https://calendly.com/YOUR_USERNAME/30min" class="btn-g" target="_blank">
         <span class="sh"></span>→ Open Calendar &amp; Book Now
       </a>
       <div class="cal-or">
         WhatsApp <a href="https://wa.me/919331213421">+91 93312 13421</a>
-        &nbsp;·&nbsp; <a href="mailto:ceo@bachao.ai">ceo@bachao.ai</a>
+        &nbsp;·&nbsp; <a href="mailto:founder@bachao.ai">founder@bachao.ai</a>
       </div>
     </div>
   </div>
@@ -1503,14 +1429,6 @@ a,button,[data-go]{cursor:pointer}
 </div>
 
 <script>
-/* ── DYNAMIC BADGE DATE ── */
-(function(){
-  const m=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const d=new Date();
-  const el=document.getElementById('badge-date');
-  if(el) el.textContent=m[d.getMonth()]+' '+d.getFullYear();
-})();
-
 /* ── LOADER ── */
 const loader  = document.getElementById('loader');
 const loadBar = document.getElementById('load-bar');
@@ -1542,7 +1460,6 @@ const tagEl  = document.getElementById('slide-tag');
 const wipeEl = document.getElementById('wipe-el');
 const bpEl   = document.getElementById('arr-prev');
 const bnEl   = document.getElementById('arr-next');
-const ctrEl  = document.getElementById('slide-counter');
 
 const navItems = [];
 SLS.forEach((sl, i) => {
@@ -1559,7 +1476,6 @@ function syncUI() {
   bpEl.disabled = cur === 0; bnEl.disabled = cur === N - 1;
   pgFill.style.width = (cur / (N - 1) * 100) + '%';
   tagEl.textContent = (SLS[cur].dataset.lbl || '') + ' · Portfolio 2026';
-  if (ctrEl) ctrEl.textContent = (cur + 1) + ' / ' + N;
 }
 
 function go(idx) {
@@ -1602,18 +1518,6 @@ window.addEventListener('keydown', e => {
   if ([' ','ArrowRight','ArrowDown'].includes(e.key)) { e.preventDefault(); go(cur + 1); }
   if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
 });
-
-/* scroll wheel kept as secondary nav for trackpad users */
-let _wheelCooldown = false;
-window.addEventListener('wheel', e => {
-  if (_wheelCooldown || busy) return;
-  _wheelCooldown = true;
-  if (e.deltaY > 30) go(cur + 1);
-  else if (e.deltaY < -30) go(cur - 1);
-  setTimeout(() => { _wheelCooldown = false; }, 700);
-}, { passive: true });
-window.addEventListener('touchstart', hidePrompt, { once: true });
-
 let _tx = 0, _ty = 0;
 window.addEventListener('touchstart', e => {
   _tx = e.touches[0].clientX;
@@ -1622,8 +1526,8 @@ window.addEventListener('touchstart', e => {
 window.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - _tx;
   const dy = e.changedTouches[0].clientY - _ty;
-  // Ignore swipe if touch started inside a horizontally-scrollable container (but NOT hero)
-  const target = e.target.closest('.ct-scroll-wrap');
+  // Ignore swipe if touch started inside a horizontally-scrollable container
+  const target = e.target.closest('.ct-scroll-wrap,.s0-w');
   if (target) return;
   // Only fire deck swipe if horizontal dominates
   if (Math.abs(dx) > Math.abs(dy) + 10 && Math.abs(dx) > 52) {
@@ -1900,69 +1804,5 @@ document.querySelectorAll('.belt').forEach(belt => {
 syncUI();
 countUp(SLS[0]);
 </script>
-<script type="application/ld+json">
-[{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Shouvik Mukherjee",
-  "jobTitle": "AI Architect & Full-Stack Builder",
-  "description": "12th Pass to ₹90 LPA. Founder of Bachao.AI (DPIIT-recognised). Ex-K12 Techno, IDFC First Bank, Intuit, Wipro. TEDx Speaker. 132 reviews, 4.9 stars, 97% on-budget.",
-  "url": "https://shouvikfullstack.github.io/deployed-sites/shouvik-ai-architect/",
-  "sameAs": [
-    "https://www.linkedin.com/in/ceo-shouvik/",
-    "https://www.youtube.com/watch?v=C7vN5W3FQZU"
-  ],
-  "knowsAbout": ["AI Architecture", "Full-Stack Development", "React", "Node.js", "Python", "AI Agents", "n8n", "GCP", "AWS", "DevOps", "Product Strategy"],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Dhisattva AI Pvt Ltd (Bachao.AI)",
-    "url": "https://bachao.ai"
-  },
-  "alumniOf": [
-    {"@type": "Organization", "name": "K12 Techno Services"},
-    {"@type": "Organization", "name": "IDFC First Bank"},
-    {"@type": "Organization", "name": "Intuit India"},
-    {"@type": "Organization", "name": "Wipro"}
-  ]
-},
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "MVP in 30 Days",
-  "provider": {"@type": "Person", "name": "Shouvik Mukherjee"},
-  "description": "Full-stack MVP development — idea to live product in 2-4 weeks. Fixed-price SOW, weekly live demos, full code ownership.",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "INR",
-    "price": "150000",
-    "priceValidUntil": "2026-12-31",
-    "description": "₹1.5L – ₹3L (~$1,800–$3,600)"
-  }
-},
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "AI Agents & Automation",
-  "provider": {"@type": "Person", "name": "Shouvik Mukherjee"},
-  "description": "AI workflow automation — 20 hrs/week of manual work reduced to 20 minutes. Multi-agent pipelines, BI dashboards, API integrations.",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "INR",
-    "price": "100000",
-    "description": "₹1L – ₹2.5L (~$1,200–$3,000)"
-  }
-},
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Will you personally do all the work?", "acceptedAnswer": {"@type": "Answer", "text": "100% me. Every line of code, every architecture decision. I use AI as a force-multiplier, not a replacement. No juniors, no handoffs, ever."}},
-    {"@type": "Question", "name": "How does AI-augmented delivery work?", "acceptedAnswer": {"@type": "Answer", "text": "AI handles scaffolding, boilerplate, and repetitive generation. I focus on architecture, product logic, and edge cases. Result: agency-quality output at a fraction of the timeline and cost."}},
-    {"@type": "Question", "name": "Can you work with international clients?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. ₹4 Crore+ earned from US, UK, Australia, Canada clients. I invoice in USD through Dhisattva AI Pvt Ltd and work across any timezone."}},
-    {"@type": "Question", "name": "What prevents scope from creeping?", "acceptedAnswer": {"@type": "Answer", "text": "Scope is locked in a signed SOW before we start. Any expansion gets a formal change order — transparent, agreed before any extra work begins. No surprise invoices."}},
-    {"@type": "Question", "name": "How many projects do you run at once?", "acceptedAnswer": {"@type": "Answer", "text": "Maximum 2-3 in staggered phases. Your project gets full dedicated day-blocks, not 2-hour slices between 10 other clients."}}
-  ]
-}]
-</script>
-</body>
-</html>
+
+</body></html>
