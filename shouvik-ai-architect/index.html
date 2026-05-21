@@ -627,7 +627,7 @@ body.loaded .origin{opacity:1}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 /* ── Base slide padding: mobile ── */
-.sl{padding:4rem 1.2rem 5rem}
+.sl{padding:4rem 1.2rem 5rem;align-items:flex-start;overflow-y:auto}
 
 /* ── Chrome: mobile ── */
 #top-bar{padding:.9rem 1.2rem}
@@ -648,6 +648,9 @@ a,button,[data-go]{cursor:pointer}
 .s7-w{max-width:1080px;width:100%;display:grid;grid-template-columns:1fr;gap:1.8rem;align-items:start}
 .s9-w{max-width:1060px;width:100%;display:grid;grid-template-columns:1fr;gap:1.8rem;align-items:start}
 .s4-w{max-width:1100px;width:100%;display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
+
+/* ── Services header: stack on mobile ── */
+.s6-top{flex-direction:column;gap:.6rem}
 
 /* ── Hero: mobile buttons full-width ── */
 .h-btns{flex-direction:column;gap:.5rem}
@@ -692,7 +695,7 @@ a,button,[data-go]{cursor:pointer}
    Restore 2-column layouts, show nav, show AI visual
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media(min-width:769px){
-  .sl{padding:5rem 2.8rem 6rem}
+  .sl{padding:5rem 2.8rem 6rem;align-items:center;overflow:hidden}
   #top-bar{padding:1.2rem 2.2rem}
   #nav{display:flex}
   .belt{display:block}
@@ -705,6 +708,9 @@ a,button,[data-go]{cursor:pointer}
   .s7-w{grid-template-columns:1fr 1fr;gap:3.5rem}
   .s9-w{grid-template-columns:1fr 1.3fr;gap:3.5rem}
   .s4-w{grid-template-columns:240px 1fr;gap:3rem}
+
+  /* Services header: restore row layout */
+  .s6-top{flex-direction:row;gap:0}
 
   /* Journey: larger nodes */
   .ct-node{width:120px}
